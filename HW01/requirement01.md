@@ -24,7 +24,7 @@ According to the homework requirement, this section includes:
 
 | No. | Company | Position | Posted Date | Salary | AI/LLM/Automation-AI Required |
 |---|---|---|---|---|---|
-| 1 | Nakivo | Automation QA Engineer |  |  | Yes / No |
+| 1 | Nakivo | Automation QA Engineer | 21/05/2026 | 1,100 - 1,500 USD | Yes |
 | 2 |  |  |  |  | Yes / No |
 | 3 |  |  |  |  | Yes / No |
 | 4 |  |  |  |  | Yes / No |
