@@ -101,41 +101,43 @@ AI has a direct impact on this QA/QC role because the job requires experience wi
 
 | Item | Details |
 |---|---|
-| Company |  |
-| Position |  |
-| Location |  |
-| Posted Date |  |
-| Salary |  |
-| Job Type |  |
-| Source Website |  |
-| Job Link |  |
+| Company | Evolus/PlanV |
+| Position | QC Engineer (Tester/QA QC) for Web |
+| Location | 2nd floor, PHL Building, 109 Cong Hoa Street, Bảy Hiền, TP Hồ Chí Minh |
+| Posted Date | 18/05/2026 |
+| Salary | Up to 1500$ |
+| Job Link | https://itviec.com/viec-lam-it/qc-engineer-tester-qa-qc-for-web-up-to-1500-evolus-planv-5225?gclid=CjwKCAjwrNrQBhBjEiwAoR4VO_bgx8QS07GnWIhDbN4_ruLYpEiOHyomK67HynMVyAoBYT0w-GkV8RoCSzIQAvD_BwE&utm_campaign=gpmax_hcm&utm_content=ad1&utm_medium=cpc&utm_source=google&utm_term=&lab_feature=preview_jd_page |
 
 ## Screenshot Evidence
 
-![Job Posting 02 Screenshot](images/job02.png)
-
-> Note: The screenshot must show the posting date and my account name in the corner.
+![alt text](image-1.png)
 
 ## Job Description
 
-Write the job description here.
+Participate in the development of exciting new server and client applications for sports team management that already have millions of users in the USA, UK and the EC. Work closely with top athletes and coaches from NBC Sports to create the next generation of applications to make sports teams perform far better. While NBC will help you better understand the details of competitive sports, our highly experienced engineering team will help you significantly improve your ability to develop world class enterprise applications. Your job will be to "own" a piece of the application, the size will depend on your experience. You will work closely with our USA based customer, our UI design, our senior technical team, QA, and the deployment team to do your job. We work at "Start-up Company" speed and you will learn and grow your skills very quickly.
 
 ## Required Skills
 
-- 
-- 
-- 
-- 
-- 
+Technical requirements:
+- Firm knowledge in writing and executing test cases and test scripts
+- Minimum 2 years of experience in manual testing for enterprise web-based system
+- Good knowledge in Software Testing process, testing activities, testing types.
+- Experience in analyzing requirements, developing and executing test cases.
+- Strong problem-solving and analytical skills, with the ability to identify defects
+- Working with Issue Tracking Systems, such as JIRA is required
+- Strong English reading and writing skills
+- Cross-browser, cross-platform and responsive web testing experience is a plus
+- Performance or security testing is a plus
+- Having experience working with e-commerce systems is an advantage.
 
-## AI / LLM / Automation-AI Requirement
-
-| Skill Type | Required? | Evidence from Job Posting |
-|---|---|---|
-| Automation Testing | Yes / No |  |
-| AI-related Testing | Yes / No |  |
-| LLM-related Skill | Yes / No |  |
-| AI-assisted Testing Tool | Yes / No |  |
+Behavioral requirements:
+- Carefulness and logic thinking
+- Able to work under pressure, hardworking, proactive, and responsible
+- Good communication and teamwork skills
+- Enjoy working in a fast paced team environment
+- Enjoy learning new technological approaches, and quickly applying these to your work
+- Love to exceed customer expectations
+- Self-motivated and self directed.
 
 ## AI Impact Analysis
 
@@ -149,45 +151,46 @@ Write 1–2 sentences here.
 
 | Item | Details |
 |---|---|
-| Company |  |
-| Position |  |
-| Location |  |
-| Posted Date |  |
-| Salary |  |
-| Job Type |  |
-| Source Website |  |
-| Job Link |  |
+| Company | TNHH TEENUP |
+| Position | Product Tester |
+| Location | Hà Nội: 61E Đê La Thành, phường Láng, Đống Đa, Hà Nội |
+| Posted Date | 13/05/2026 |
+| Salary | 800 - 1,500 USD |
+| Job Link | https://itviec.com/viec-lam-it/product-tester-qa-qc-jira-trello-cong-ty-tnhh-teenup-1256?lab_feature=preview_jd_page |
 
 ## Screenshot Evidence
 
-![Job Posting 03 Screenshot](images/job03.png)
-
-> Note: The screenshot must show the posting date and my account name in the corner.
+![alt text](image-2.png)
 
 ## Job Description
 
-Write the job description here.
+We are looking for a  Product Tester who is passionate about building reliable, high-quality digital products — not just executing test cases. You will play a key role in ensuring that every feature delivered by the Product team works smoothly, performs consistently, and creates a seamless experience for families using TeenCare AI.
+
+You will work closely with Product Managers, Designers, and Engineers throughout the product lifecycle — from understanding requirements and designing test scenarios to validating new releases before they reach real users.
+
+If you enjoy finding edge cases, thinking critically about user experience, and improving product quality through structured testing and collaboration, this role is for you.
 
 ## Required Skills
 
-- 
-- 
-- 
-- 
-- 
+Technical
 
-## AI / LLM / Automation-AI Requirement
+- 1–2 years of experience in software testing or QA roles (project experience is acceptable for junior candidates)
+- Strong attention to detail and structured problem-solving skills
+- Ability to write clear bug reports and testing documentation
+- Familiarity with web/mobile application testing
+- Basic understanding of APIs, databases, and product workflows
 
-| Skill Type | Required? | Evidence from Job Posting |
-|---|---|---|
-| Automation Testing | Yes / No |  |
-| AI-related Testing | Yes / No |  |
-| LLM-related Skill | Yes / No |  |
-| AI-assisted Testing Tool | Yes / No |  |
+Mindset
+
+- Curious and proactive — you naturally explore edge cases and ask thoughtful questions
+- Strong ownership — you follow issues through until resolution
+- Collaborative by default — you communicate clearly with Product and Engineering teams
+- User-focused — you care deeply about delivering smooth and reliable user experiences
+- Comfortable working in a fast-moving startup environment with evolving priorities
 
 ## AI Impact Analysis
 
-Write 1–2 sentences here.
+AI is directly relevant to this role because the product being tested is TeenCare AI, so the tester must verify not only normal web/mobile functions but also AI-related user experiences, edge cases, and reliability. AI tools can also support the tester in generating test scenarios, writing clearer bug reports, and improving test coverage, but human judgment is still essential to evaluate product quality from the user’s perspective.
 
 ---
 
@@ -197,45 +200,47 @@ Write 1–2 sentences here.
 
 | Item | Details |
 |---|---|
-| Company |  |
-| Position |  |
-| Location |  |
-| Posted Date |  |
-| Salary |  |
-| Job Type |  |
-| Source Website |  |
-| Job Link |  |
+| Company | AMETEK |
+| Position | Senior Quality Engineer |
+| Location | Bridgeport, CT, US, 06610-0156 |
+| Posted Date | 21/05/2026 |
+| Salary | $90,000 - $115,000 a year |
+| Job Link | https://jobs.ametek.com/job/Bridgeport-Senior-Quality-Engineer-CT-06610-0156/1313979600/?source=Indeed.com&sourceType=PREMIUM_POST_SITE |
 
 ## Screenshot Evidence
 
-![Job Posting 04 Screenshot](images/job04.png)
-
-> Note: The screenshot must show the posting date and my account name in the corner.
+![alt text](image-3.png)
 
 ## Job Description
 
-Write the job description here.
+As the Senior Quality Engineer you will be responsible for meeting customer requirements for the manufacturing of surgical instruments and implants or instrument delivery systems from receiving raw material to the shipping of finished goods. You will support and enforce the development of internal systems and procedures to meet ISO standards and FDA quality system regulations. You will develop and implement inspection/validation techniques necessary to verify products meet requirements at earliest point in the production process. You will specify and implement new inspection equipment and instructs others inits proper use. You will support and implement systems in the areas of SPC, advanced quality, and design/development.
 
 ## Required Skills
 
-- 
-- 
-- 
-- 
-- 
+Education
+- Preferred Bachelors Degree in Engineering or related field
 
-## AI / LLM / Automation-AI Requirement
+Experience
+- 3-5 years experience with tight tolerance measurement systems in machining applications, blueprint reading, GD&T, and a working knowledge of short-run process control methods, DOE, ISO standards, and FDA quality system regulations.
 
-| Skill Type | Required? | Evidence from Job Posting |
-|---|---|---|
-| Automation Testing | Yes / No |  |
-| AI-related Testing | Yes / No |  |
-| LLM-related Skill | Yes / No |  |
-| AI-assisted Testing Tool | Yes / No |  |
+KSA's
+
+- Strong written and verbal communication skills.
+- Excellent customer teaming and interpersonal aptitude.
+- Strong computer skills including excellent Word, Excel, PowerPoint, and Minitab skills.
+- Excellent organizational skills and attention to detail required.
+- Demonstrates problem solving skills, applying effective, data-driven, mistake-proofing concepts.
+- Strong project management skills required.
+- Excellent follow-up skills required.
+- Individual is able to work with limited supervision and actively participate in a team-oriented, continuous improvement, manufacturing environment.
+
+Physical Demands
+
+- Frequent sitting, occasional standing, occasional walking. Use hand/fingers to grasp/pinch/grip Occasional climbing (stairs/ladders) or balancing. Occasional stoop, kneel, crouch, or crawl. Occasional operating of machineryand/or hand power tools.
 
 ## AI Impact Analysis
 
-Write 1–2 sentences here.
+AI can help this job by checking quality data faster, finding defect patterns, and supporting inspection reports. However, because this job is related to medical products and FDA/ISO standards, engineers still need to make the final decisions to make sure the products are safe and correct.
 
 ---
 
@@ -245,45 +250,42 @@ Write 1–2 sentences here.
 
 | Item | Details |
 |---|---|
-| Company |  |
-| Position |  |
-| Location |  |
-| Posted Date |  |
-| Salary |  |
-| Job Type |  |
-| Source Website |  |
-| Job Link |  |
+| Company | AIT Corp |
+| Position | Software Testing Specialist |
+| Location | Tầng 4, Block VP1, Tòa Sun Square 21 Lê Đức Thọ, Nam Từ Liêm, Hà Nội |
+| Posted Date | 27/05/2026 |
+| Salary | 15.000.000 - 25.000.000 VND |
+| Job Link | https://www.topcv.vn/viec-lam/chuyen-vien-kiem-thu-phan-mem/2172054.html?ta_source=SuggestSimilarJob_LinkDetail&jr_i=job-es-v1%3A%3A1779905251000-01158d%3A%3A6d4b6f6752c74dbfb672c942bb59ae7e%3A%3A5%3A%3A0.9500 |
 
 ## Screenshot Evidence
 
-![Job Posting 05 Screenshot](images/job05.png)
-
-> Note: The screenshot must show the posting date and my account name in the corner.
+![alt text](image-4.png)
 
 ## Job Description
 
-Write the job description here.
+- Participate in understanding and analyzing software system requirements for projects in fields such as postal services, logistics, fintech, enterprise systems, etc.
+- Coordinate with Business Analysts to analyze, clarify, and design requirements.
+- Design test plans, test scenarios, test scripts, and test data.
+- Create test data and set up the testing environment.
+- Execute tests according to the test plan and test scenarios.
+- Receive and verify reported bugs.
+- Write test reports and evaluate testing results.
+- Monitor the bug-fixing process of the development team to ensure progress and high software quality.
 
 ## Required Skills
 
-- 
-- 
-- 
-- 
-- 
-
-## AI / LLM / Automation-AI Requirement
-
-| Skill Type | Required? | Evidence from Job Posting |
-|---|---|---|
-| Automation Testing | Yes / No |  |
-| AI-related Testing | Yes / No |  |
-| LLM-related Skill | Yes / No |  |
-| AI-assisted Testing Tool | Yes / No |  |
+- Graduated from university with a major in Information Technology, Management Information Systems, Electronics and Telecommunications, or related fields.
+- Able to work onsite depending on the project schedule and situation.
+- At least 1.5 years of practical working experience in software testing roles at companies or projects.
+- Strong knowledge of software testing processes, testing methods, testing tools, and testing techniques.
+- Experience in testing web and mobile applications.
+- Knowledge of SQL is preferred.
+- Experience in API Testing in real projects is preferred.
+- Candidates who can work independently and act as key members of a project are preferred.
 
 ## AI Impact Analysis
 
-Write 1–2 sentences here.
+AI can help this software testing job by creating test cases, preparing test data, analyzing bug reports, and supporting API or web/app testing faster. However, testers still need to understand the project requirements and check the final results carefully to make sure the software works correctly.
 
 ---
 
