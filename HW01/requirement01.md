@@ -24,7 +24,7 @@ According to the homework requirement, this section includes:
 
 | No. | Company | Position | Posted Date | Salary | AI/LLM/Automation-AI Required |
 |---|---|---|---|---|---|
-| 1 |  |  |  |  | Yes / No |
+| 1 | Nakivo | Automation QA Engineer |  |  | Yes / No |
 | 2 |  |  |  |  | Yes / No |
 | 3 |  |  |  |  | Yes / No |
 | 4 |  |  |  |  | Yes / No |
@@ -43,53 +43,55 @@ According to the homework requirement, this section includes:
 
 | Item | Details |
 |---|---|
-| Company |  |
-| Position |  |
-| Location |  |
-| Posted Date |  |
-| Salary |  |
-| Job Type |  |
-| Source Website |  |
-| Job Link |  |
+| Company | Nakivo |
+| Position | Automation QA Engineer |
+| Location | TGI Building, 208 Nguyen Trai, TP Hồ Chí Minh |
+| Posted Date | 21/05/2026 |
+| Salary | 1,100 - 1,500 USD |
+| Job Link | https://itviec.com/viec-lam-it/automation-qa-engineer-qa-qc-tester-automation-test-nakivo-0115?gclid=CjwKCAjwidXQBhAZEiwA4egw6Ij2csDq0AD0xcZ95nCy2n0crz9_6yvTyvJKDduJtHUVeXZvP6rFNRoCpzoQAvD_BwE&utm_campaign=gpmax_hcm&utm_content=ad1&utm_medium=cpc&utm_source=google&utm_term=&lab_feature=preview_jd_page |
 
 ## Screenshot Evidence
 
-![Job Posting 01 Screenshot](images/job01.png)
-
-> Note: The screenshot must show the posting date and my account name in the corner.
+![alt text](image.png)
 
 ## Job Description
 
-Write the job description here.
-
-Example:
-
-The position focuses on quality assurance activities for software products, including analyzing requirements, designing test cases, executing manual or automated tests, reporting defects, and collaborating with developers to improve product quality.
+RESPONSIBILITIES
+- Collaborate with software developers and quality assurance teams to
+understand project requirements and functionality
+- Design, develop, and execute automated test scripts using industry-standard
+automation tools
+- Identify and report software defects in a clear and concise manner
+- Work closely with cross-functional teams to analyze test results and
+troubleshoot issues
+- Contribute to the continuous improvement of the automation testing process
+- Design, create, and manage automation test cases using AI technologies
 
 ## Required Skills
+- Bachelor degree in Computer Science, Engineering, or related field
+- Strong understanding of software development life cycle and testing
+- methodologies
+- 3 years of experience or more in relevant positions
+- Proficient in at least one programming language (e.g., Java, Python, C#)
+- Familiarity with automation testing tools such as Selenium, Appium, or similar
+- Basic knowledge of version control systems (e.g., Git)
+- Excellent problem-solving and analytical skills
+- Strong communication and collaboration skills
+- **Experience with AI-automation testing (e.g., Copilot, Cursor, Perplexity)**
 
-- 
-- 
-- 
-- 
-- 
+You will be a strong candidate if you have
 
-## AI / LLM / Automation-AI Requirement
-
-| Skill Type | Required? | Evidence from Job Posting |
-|---|---|---|
-| Automation Testing | Yes / No |  |
-| AI-related Testing | Yes / No |  |
-| LLM-related Skill | Yes / No |  |
-| AI-assisted Testing Tool | Yes / No |  |
+- Experience in working with test automation frameworks (e.g. JUnit, TestNG,
+- Selenium WebDriver)
+- Understanding of web technologies (HTML, CSS, JavaScript)
+- Knowledge of API testing and tools (e.g., Postman, RestAssured)
+- Experience with performance testing concepts and tools
+- Experience with VMware, Hyper-V, Aws and Cloud storage
+- Hands-on experience working with AI technologies
 
 ## AI Impact Analysis
 
-Write 1–2 sentences here.
-
-Example:
-
-AI can assist this role by generating test cases, analyzing bug reports, and supporting regression testing. However, human QA engineers are still needed to understand business requirements, verify user experience, and make final quality decisions.
+AI has a direct impact on this QA/QC role because the job requires experience with AI-automation testing tools such as Copilot, Cursor, and Perplexity. This shows that QA engineers are expected to use AI to create test cases, speed up automation testing, and improve software quality.
 
 ---
 
