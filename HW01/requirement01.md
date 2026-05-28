@@ -25,15 +25,15 @@ According to the homework requirement, this section includes:
 | No. | Company | Position | Posted Date | Salary | AI/LLM/Automation-AI Required |
 |---|---|---|---|---|---|
 | 1 | Nakivo | Automation QA Engineer | 21/05/2026 | 1,100 - 1,500 USD | Yes |
-| 2 |  |  |  |  | Yes / No |
-| 3 |  |  |  |  | Yes / No |
-| 4 |  |  |  |  | Yes / No |
-| 5 |  |  |  |  | Yes / No |
-| 6 |  |  |  |  | Yes / No |
-| 7 |  |  |  |  | Yes / No |
-| 8 |  |  |  |  | Yes / No |
-| 9 |  |  |  |  | Yes / No |
-| 10 |  |  |  |  | Yes / No |
+| 2 | Evolus/PlanV | QC Engineer (Tester/QA QC) for Web | 18/05/2026 | Up to 1500$ | No |
+| 3 | TEENUP | 	Product Tester | 13/05/2026 | 800 - 1,500 USD | No |
+| 4 | AMETEK | Senior Quality Engineer | 21/05/2026 | $90,000 - $115,000 a year | No |
+| 5 | AIT Corp | Software Testing Specialist | 27/05/2026 | 15.000.000 - 25.000.000 VND | No |
+| 6 | GenieTeach | Quality Assurance Automation Engineer | 28/05/2026 | 15.000.000 - 30.000.000 VNĐ | Yes |
+| 7 | Heartflow | Staff Test Engineer | 12/05/2026 | $190,000 - $250,000 | Yes |
+| 8 | One | QA Engineer | 23/05/2026 | $15k – $17k | Yes |
+| 9 | Opptimise | QA Intern (AI-Native) | 27/05/2026 | 15-20k/month | Yes |
+| 10 | ANK Viet Nam | QA ENGINEER | 28/05/2026 | Up to 18.000.000 VND | No |
 
 ---
 
@@ -141,7 +141,7 @@ Behavioral requirements:
 
 ## AI Impact Analysis
 
-Write 1–2 sentences here.
+AI can support this web QC role by helping testers create test cases, analyze requirements, write bug reports, and check possible edge cases faster. However, since this job focuses mainly on manual testing, JIRA, and web system quality, human testers are still needed to carefully verify defects and make sure the product meets customer expectations.
 
 ---
 
@@ -575,141 +575,37 @@ AI has a very strong impact on this role because the intern will test an AI-driv
 
 | Item | Details |
 |---|---|
-| Company |  |
-| Position |  |
-| Location |  |
-| Posted Date |  |
-| Salary |  |
-| Job Type |  |
-| Source Website |  |
-| Job Link |  |
+| Company | ANK Viet Nam |
+| Position | QA ENGINEER |
+| Location | Lu Gia Plaza, 70 Lu Gia, Ward Phu Tho, (Old District 11), HCMC. |
+| Posted Date | 28/05/2026 |
+| Salary | Up to 18.000.000 VND |
+| Job Link | https://topdev.vn/detail-jobs/qa-engineer-cong-ty-tnhh-cong-nghe-ank-viet-nam-2108541 |
 
 ## Screenshot Evidence
 
-![Job Posting 10 Screenshot](images/job10.png)
-
-> Note: The screenshot must show the posting date and my account name in the corner.
+![alt text](image-9.png)
 
 ## Job Description
 
-Write the job description here.
+- Perform automation, regression, and manual testing to ensure software quality;
+- Drive and document test plans, design test cases, and conduct manual testing for various data sources and vendors across the platform;
+- Drive quality efforts on the team, and oversee bug tracking, test prioritization, and release;
+- Influence quality by reviewing the requirements, behavior specifications, and working with product management to begin test development early and uncover risks prior to implementation;
+- Liaise with the broader engineering and QA teams on the west coast to raise the bar on quality testing of the integration of data sources and vendors with customers’platform.
+- Perform API tests with Postman & SoapUI.
 
 ## Required Skills
 
-- 
-- 
-- 
-- 
-- 
-
-## AI / LLM / Automation-AI Requirement
-
-| Skill Type | Required? | Evidence from Job Posting |
-|---|---|---|
-| Automation Testing | Yes / No |  |
-| AI-related Testing | Yes / No |  |
-| LLM-related Skill | Yes / No |  |
-| AI-assisted Testing Tool | Yes / No |  |
+- Strong verbal and written communication skills;
+- At least 1 year hands on experience in developing automated tests using test automation frameworks at the API level;
+- Worked on a Scrum/ Agile automation team is a plus;
+- Proven experience in at least one of the scripting or programming languages such as C#, Java, Python, TypeScript, JavaScript, or similar;
+- Solid technical understanding of SaaS, REST APIs, and Web applications;
+- Experience in supporting the delivery of quality products within agile teams, using cutting edge technology (Postman, Selenium, etc).
 
 ## AI Impact Analysis
 
-Write 1–2 sentences here.
+AI can support this web QC role by helping testers create test cases, analyze requirements, write bug reports, and check possible edge cases faster. However, since this job focuses mainly on manual testing, JIRA, and web system quality, human testers are still needed to carefully verify defects and make sure the product meets customer expectations.
 
 ---
-
-# 3. Summary of AI / LLM / Automation-AI Positions
-
-The following table summarizes the job postings that require AI, LLM, or automation-AI skills.
-
-| No. | Company | Position | AI / LLM / Automation-AI Requirement |
-|---|---|---|---|
-| 1 |  |  |  |
-| 2 |  |  |  |
-| 3 |  |  |  |
-
----
-
-# 4. QA/QC Job Market Analysis 2026+
-
-## Common Required Skills
-
-Based on the 10 job postings, the most common QA/QC skills are:
-
-- Manual testing
-- Test case design
-- Bug reporting
-- API testing
-- SQL
-- Automation testing
-- Selenium, Cypress, Playwright, or similar tools
-- CI/CD knowledge
-- Agile/Scrum teamwork
-- Communication and documentation skills
-
-## Common AI / Automation-Related Skills
-
-The common AI or automation-related skills found in the job postings are:
-
-- AI-assisted test case generation
-- Automation testing framework usage
-- Test script generation
-- LLM evaluation
-- AI chatbot testing
-- Prompt testing
-- AI-based defect detection
-- Regression test automation
-
-## Salary Observation
-
-Write your salary observation here.
-
-Example:
-
-The salary range varies depending on experience level, company size, and technical requirements. Jobs requiring automation testing, AI testing, or LLM-related skills usually offer higher salary ranges than purely manual QA/QC positions.
-
----
-
-# 5. AI Impact on QA/QC Roles
-
-AI is changing QA/QC roles by reducing repetitive manual work and increasing the demand for automation and analytical skills.  
-AI tools can support test case generation, defect analysis, log analysis, and regression testing, but they cannot fully replace human testers because QA/QC still requires business understanding, exploratory testing, communication, and critical thinking.
-
-In the 2026+ job market, QA/QC engineers are expected to understand both traditional testing techniques and AI-assisted testing tools. Therefore, testers who know automation, API testing, and AI-related testing will have more career opportunities.
-
----
-
-# 6. Personal Reflection
-
-After researching 10 QA/QC job postings, I learned that modern QA/QC roles require more than manual testing skills. Many companies now expect testers to understand automation tools, API testing, CI/CD, and sometimes AI-related testing. AI can help testers work faster, but it also requires testers to carefully review AI-generated outputs because AI may miss edge cases or misunderstand business requirements.
-
----
-
-# 7. Evidence Checklist
-
-| Requirement | Completed? | Note |
-|---|---|---|
-| 10 QA/QC job postings collected | Yes / No |  |
-| All jobs published within 60 days | Yes / No |  |
-| At least 3 jobs require AI/LLM/automation-AI skills | Yes / No |  |
-| Each job has a link | Yes / No |  |
-| Each job has a dated screenshot | Yes / No |  |
-| Each screenshot shows account name | Yes / No |  |
-| Each job has job description | Yes / No |  |
-| Each job has required skills | Yes / No |  |
-| Each job has salary information | Yes / No |  |
-| Each job has AI Impact Analysis | Yes / No |  |
-
----
-
-# 8. References
-
-1. Job Posting 01:  
-2. Job Posting 02:  
-3. Job Posting 03:  
-4. Job Posting 04:  
-5. Job Posting 05:  
-6. Job Posting 06:  
-7. Job Posting 07:  
-8. Job Posting 08:  
-9. Job Posting 09:  
-10. Job Posting 10:  
