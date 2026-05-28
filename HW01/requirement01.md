@@ -295,45 +295,87 @@ AI can help this software testing job by creating test cases, preparing test dat
 
 | Item | Details |
 |---|---|
-| Company |  |
-| Position |  |
-| Location |  |
-| Posted Date |  |
-| Salary |  |
-| Job Type |  |
-| Source Website |  |
-| Job Link |  |
+| Company | GenieTeach |
+| Position | Quality Assurance Automation Engineer |
+| Location | Tòa nhà Central Point, 219 Trung Kính, Yên Hòa, Hà Nội |
+| Posted Date | 28/05/2026 |
+| Salary | 15.000.000 - 30.000.000 VNĐ |
+| Job Link | https://www.topcv.vn/viec-lam/automation-manual-tester-du-an-ai-giao-duc-nghi-thu-7-chu-nhat-3-nam-kinh-nghiem-thu-nhap-15-30-trieu-tai-ha-noi/2164219.html |
 
 ## Screenshot Evidence
 
-![Job Posting 06 Screenshot](images/job06.png)
-
-> Note: The screenshot must show the posting date and my account name in the corner.
+![alt text](image-5.png)
 
 ## Job Description
 
-Write the job description here.
+GenieTeach is a pioneering EdTech project that applies AI to optimize modern education models. At GenieTeach, we do not only build software; we create a future where artificial intelligence becomes a powerful assistant for both teachers and students through four main pillars:
+
+- AI Teaching Assistant: Automates management and administrative tasks for teachers.
+- AI Tutor: Provides personalized learning support anytime, anywhere.
+- AI Assessment: Offers tools for testing and evaluating learning ability.
+- AI Personalization: Analyzes data to create optimized learning paths for each student.
+
+Join us to help change the future of education through the power of technology.
+
+Your Responsibilities
+
+As an Automation/Manual Tester, you will be responsible for protecting product quality and ensuring that every GenieTeach feature works smoothly before reaching users.
+
+1. Manual Testing
+Create test plans and design detailed test cases based on requirements from the Product/BA team.
+Perform manual testing, including Functional Testing, UI/UX Testing, and Regression Testing, to detect and control system defects.
+Work closely with the Development team to track, analyze, and resolve issues thoroughly.
+2. Automation Testing
+Build and maintain automation test scripts for core features.
+Execute and analyze automation test results to ensure system stability during upgrades and releases.
+3. Documentation
+Prepare user manuals and FAQs for users.
+Apply AI tools to support test case writing, test data generation, and documentation drafting more efficiently.
+4. Customer Support
+Support training and guide end users, including teachers and students, to use the system effectively.
+Receive user feedback directly, provide technical support, and ensure customer satisfaction during system operation.
 
 ## Required Skills
 
-- 
-- 
-- 
-- 
-- 
+Experience
+- At least 3 years of experience in software testing, including Manual Testing and Automation Testing.
+- Experience in education-related projects is preferred but not required.
 
-## AI / LLM / Automation-AI Requirement
+Skills
+- Testing Skills: Manual + Automation
+- Proficient in Playwright is preferred, or Selenium.
+- Experienced in automation testing using Playwright API, REST Assured, Postman/Newman, or K6.
+- Able to design and implement E2E, Regression, and Smoke Automation tests using a modern POM model.
+- Good understanding of HTTP, REST, status codes, JSON/XML, DOM, selectors, async events, and network mocking/stubbing.
+- Able to write basic SQL to validate data.
+- Able to debug effectively using browser DevTools, network tracing, and logs.
 
-| Skill Type | Required? | Evidence from Job Posting |
-|---|---|---|
-| Automation Testing | Yes / No |  |
-| AI-related Testing | Yes / No |  |
-| LLM-related Skill | Yes / No |  |
-| AI-assisted Testing Tool | Yes / No |  |
+**AI Skills**
+- **Proficient in using AI/LLM tools to automatically generate test cases, test scenarios, and test data.**
+- **Able to use AI/LLM tools to analyze root causes from logs, stack traces, and error patterns.**
+- **Experience with related tools or technologies such as Katalon AI and Playwright + AI IDE.**
+
+Teamwork Skills
+- Practical experience working in Agile/Scrum teams.
+- Understanding of backlog refinement, estimation, and sprint ceremonies.
+- Able to work closely with BA, Dev, and PO to refine requirements and ensure quality early through Shift Left Testing.
+
+Plus Points
+- Experience in building an internal QA Framework or standard testing guidelines.
+- ISTQB Foundation certification is a plus but not required.
+- Understanding of UI/UX Design Systems.
+
+Soft Skills and Attitude
+- Able to work independently.
+- Careful and flexible in handling situations.
+- Energetic, cheerful, proactive, and responsible at work.
+- Willing to learn and improve.
+- Able to adapt easily to a dynamic, positive, and friendly working environment.
+- Able to work under pressure.
 
 ## AI Impact Analysis
 
-Write 1–2 sentences here.
+AI has a strong impact on this role because the project is an AI-powered EdTech product, and testers are required to use AI/LLM tools to generate test cases, test data, and analyze errors. However, human testers are still important to check real user experience, verify results, and make sure the system works correctly for teachers and students.
 
 ---
 
@@ -343,45 +385,49 @@ Write 1–2 sentences here.
 
 | Item | Details |
 |---|---|
-| Company |  |
-| Position |  |
-| Location |  |
-| Posted Date |  |
-| Salary |  |
-| Job Type |  |
-| Source Website |  |
-| Job Link |  |
+| Company | Heartflow |
+| Position | Staff Test Engineer |
+| Location | San Francisco, CA |
+| Posted Date | 12/05/2026 |
+| Salary | $190,000 - $250,000 |
+| Job Link | https://www.ziprecruiter.com/c/Heartflow/Job/Staff-Test-Engineer/-in-San-Francisco%2CCA?jid=1446df794ba9ce9d&utm_source=chatgpt.com |
 
 ## Screenshot Evidence
 
-![Job Posting 07 Screenshot](images/job07.png)
-
-> Note: The screenshot must show the posting date and my account name in the corner.
+![alt text](image-6.png)
 
 ## Job Description
 
-Write the job description here.
+The Staff Test Engineer is a senior individual contributor and technical leader on the Test Engineering team. This role sets the technical direction for end-to-end automated testing, post-deployment verification, and tool validation across our regulated SaMD products, partnering closely with the Director of Engineering in Test and engineering leadership. The Staff Test Engineer drives our AI-first test automation strategy - designing how AI-assisted authoring, self-healing automation, and LLM-driven triage are applied at scale - while ensuring all activities meet the rigor of a medical device QMS. The ideal candidate brings deep technical expertise in modern automation frameworks (Selenium and Playwright), a strong track record shipping regulated SaMD products, and the ability to influence engineers and leaders across the organization.
 
 ## Required Skills
 
-- 
-- 
-- 
-- 
-- 
+- 8-12 years of experience in software test engineering, SDET, or quality engineering roles, with a strong record as a hands-on technical leader.
+- Required: Substantial experience testing Software as a Medical Device (SaMD) or other regulated medical device software, including ownership of test strategy on shipped products.
+- Required: Deep working knowledge of medical device QMS practices and applicable standards (e.g., ISO 13485, IEC 62304, ISO 14971, 21 CFR Part 820), including test documentation, traceability, tool validation, and audit support.
+- Required: Expert-level proficiency with Selenium / WebDriver and Playwright, including framework architecture, large-scale stability and flake reduction, and parallel execution at scale.
+- Track record designing, scaling, and maintaining E2E automation frameworks covering complete workflows and complex system integrations.
+- Experience setting test plan, protocol, and report standards in a regulated environment, with rigorous traceability across requirements, test cases, and evidence.
+- **Demonstrated leadership in adopting AI-assisted testing tools and techniques (e.g., AI-augmented authoring, self-healing automation, LLM-driven test generation or triage).**
+- Strong programming skills in at least one mainstream language used for automation (e.g., TypeScript/JavaScript, Python, Java, or C#); able to set coding standards for the test organization.
+- Deep experience with API and contract testing approaches (REST Assured, Postman, Karate, Pact, or equivalent).
+- Strong experience integrating automated tests into CI/CD pipelines and working with cloud environments such as AWS.
+- Excellent analytical and debugging skills across distributed systems; able to lead root-cause investigations on the most complex failures.
+- Excellent written and verbal communication skills; able to influence engineers, leaders, and cross-functional partners.
+- Bachelor's degree in Computer Science, Engineering, or a related field, or equivalent practical experience.
 
-## AI / LLM / Automation-AI Requirement
-
-| Skill Type | Required? | Evidence from Job Posting |
-|---|---|---|
-| Automation Testing | Yes / No |  |
-| AI-related Testing | Yes / No |  |
-| LLM-related Skill | Yes / No |  |
-| AI-assisted Testing Tool | Yes / No |  |
+Desired
+- Experience leading RA/QA partnerships during regulatory audits and inspections.
+- Experience defining test strategy for ML/AI systems, clinical validation workflows, or medical imaging products.
+- Experience validating complex visualizations (qualitative and quantitative) such as 3D models, overlays, and measurement views.
+- Experience designing and managing diverse test datasets (synthetic, anonymized, adversarial).
+- Experience defining non-functional / performance testing strategy with tools such as k6, Locust, JMeter, or Gatling.
+- Experience with data-pipeline testing and microservices architectures at scale.
+- Demonstrated ability to define, own, and evolve actionable quality metrics.
 
 ## AI Impact Analysis
 
-Write 1–2 sentences here.
+AI has a very strong impact on this role because the company directly requires an AI-first testing strategy, including AI-assisted test writing, self-healing automation, generative test design, and LLM-driven bug triage. However, because this is a regulated medical software product, testers still need strong human judgment to ensure test evidence, documentation, and quality processes meet medical device standards.
 
 ---
 
@@ -391,45 +437,63 @@ Write 1–2 sentences here.
 
 | Item | Details |
 |---|---|
-| Company |  |
-| Position |  |
-| Location |  |
-| Posted Date |  |
-| Salary |  |
-| Job Type |  |
-| Source Website |  |
-| Job Link |  |
+| Company | One |
+| Position | QA Engineer |
+| Location | Remote ( Brazil • India ) |
+| Posted Date | 23/05/2026 |
+| Salary | $15k – $17k |
+| Job Link | https://wellfound.com/jobs/4248644-qa-engineer |
 
 ## Screenshot Evidence
 
-![Job Posting 08 Screenshot](images/job08.png)
-
-> Note: The screenshot must show the posting date and my account name in the corner.
+![alt text](image-7.png)
 
 ## Job Description
 
-Write the job description here.
+The work:
+One’s platform spans 368 apps, 64,000+ actions, a dashboard, SDKs, and additional packages — all of it used by developers, AI agents, and LLMs across every major model and framework. Each action is a live API call. APIs change without warning. Auth breaks. Schemas shift. Models behave differently. Rate limits bite. Your job is to make sure none of that reaches our users.
+
+You will:
+
+- Own end-to-end test coverage for actions across 368+ platforms — from HubSpot and Stripe to Shopify, Twilio, and everything between.
+- Write and maintain end-to-end tests for our core system — auth flows, action execution, tool resolution, and the full request lifecycle.
+- Test our dashboard app and every additional package and product we own — end to end, across environments.
+- Run tests against different LLMs and AI models (GPT, Claude, Gemini, open-source models, and others) to ensure One works reliably regardless of what’s calling it.
+- Test integrations with agent frameworks and AI tooling that uses One as its action layer.
+- Build and run load tests to validate system behavior under real traffic conditions and catch performance regressions before they hit production.
+- Build and maintain automated test suites that run against live APIs and catch regressions before they ship.
+- Triage failures fast — identify whether it’s a schema change, auth issue, rate limit, model behavior, or a bug on our side.
+- Work directly with the integrations and platform teams to write tests as features are built, not after.
+- Monitor production action health and set up alerts that fire before customers notice.
+- Document failure patterns, maintain runbooks, and make on-call straightforward for the next person.
 
 ## Required Skills
 
-- 
-- 
-- 
-- 
-- 
+You should have:
 
-## AI / LLM / Automation-AI Requirement
+- 3+ years in QA, SDET, or reliability engineering.
+- Deep technical understanding of how web systems work — HTTP, auth, APIs, distributed systems, and failure modes.
+- Strong experience writing automated tests against REST APIs — not just UI testing.
+- **Experience testing LLM-powered products or AI tooling — you understand how model outputs and behavior add variability to test design.**
+- Hands-on experience with load and performance testing tools (k6, Locust, Artillery, or similar).
+- The ability to write end-to-end tests that cover full system flows, not just isolated units.
+- Comfort with JavaScript or Python for test tooling and scripting.
+- Experience with test frameworks (Jest, Playwright, Pytest, or similar).
+- **Hands-on experience with Claude Code, Codex, or a similar AI agent harness. This is not optional.**
+- Clear written communication in English — we work async across time zones.
+- An instinct for what can go wrong, not just what should go right.
 
-| Skill Type | Required? | Evidence from Job Posting |
-|---|---|---|
-| Automation Testing | Yes / No |  |
-| AI-related Testing | Yes / No |  |
-| LLM-related Skill | Yes / No |  |
-| AI-assisted Testing Tool | Yes / No |  |
+Bonus:
+
+- You’ve worked at a platform or integration company where API reliability is core.
+- You’ve built monitoring pipelines or synthetic transaction tests in production.
+-  understand OAuth flows well enough to debug a 401 at 2am.
+- You’ve tested across multiple LLM providers and know how to design tests that are model-agnostic.
+- You’ve contributed to open source test tooling.
 
 ## AI Impact Analysis
 
-Write 1–2 sentences here.
+AI has a very strong impact on this role because the QA Engineer must test LLM-powered products, AI agents, and different AI models such as GPT, Claude, and Gemini. AI also changes the testing process because testers need to handle unpredictable model behavior, test AI agent tools, and use AI tools like Claude Code or Codex as part of their work.
 
 ---
 
@@ -439,45 +503,69 @@ Write 1–2 sentences here.
 
 | Item | Details |
 |---|---|
-| Company |  |
-| Position |  |
-| Location |  |
-| Posted Date |  |
-| Salary |  |
-| Job Type |  |
-| Source Website |  |
-| Job Link |  |
+| Company | Opptimise |
+| Position | QA Intern (AI-Native) |
+| Location | Remote |
+| Posted Date | 27/05/2026 |
+| Salary | 15-20k/month |
+| Job Link | https://wellfound.com/jobs/4262519-qa-intern-ai-native |
 
 ## Screenshot Evidence
 
-![Job Posting 09 Screenshot](images/job09.png)
-
-> Note: The screenshot must show the posting date and my account name in the corner.
+![alt text](image-8.png)
 
 ## Job Description
 
-Write the job description here.
+About the Role
+We're hiring a QA Intern to own quality across our AI-driven web app end-to-end. You'll work shoulder-to-shoulder with engineers using Claude Code, Cursor, and other AI dev tools — testing not just deterministic flows but also agent behavior, LLM outputs, and AI-generated insights. You'll spend your time breaking things on purpose: running exploratory tests, automating the flows that matter, and writing backend tests with AI copilots in your toolkit.
+
+This is a hands-on role at the intersection of QA and AI. By the end of three months you should be the person who knows the product's edges — and its agents' failure modes — better than anyone.
+
+What You'll Do
+
+- Manual & exploratory testing — Test new features across assessments, invitations, insights, organizations, and user flows. File clear, reproducible bugs and verify fixes before release.
+- End-to-end automation — Write and maintain Playwright tests for critical user journeys. Use AI coding assistants to accelerate test authoring.
+- Backend test writing — Write pytest / Django unit and integration tests for service-layer logic, permission gates, and business rules.
+- AI agent & LLM evals — Help design and run evaluations for our AI agents and LLM-generated outputs — measuring accuracy, consistency, and regression across prompt and model changes.
+
+- Release verification — Own pre-deploy smoke testing. Sign off (or block) releases based on real evidence.
+
+- Bug triage — Reproduce reported issues, narrow root causes, and route to the right engineer with enough context to fix in one pass.
+
+- Test documentation — Keep test plans, regression checklists, and eval datasets up to date.
+
+Our Stack (what you'll be testing against)
+- Backend: Django, Python, PostgreSQL
+- Frontend: Server-rendered Django templates + HTMX + Alpine.js + Tailwind CSS
+- AI: LLM-powered agents, prompt pipelines, eval harnesses
+- E2E: Playwright
+- Backend tests: pytest, Django test framework
+- AI dev tools: Claude Code, Cursor, Copilot — used daily across the team
+- Infra: AWS, GitHub Actions CI/CD
 
 ## Required Skills
 
-- 
-- 
-- 
-- 
-- 
+Must-have
 
-## AI / LLM / Automation-AI Requirement
+- Currently pursuing or recently completed a degree in CS, Engineering, or related field
+- Solid Python fundamentals — you can read Django code and write basic tests
+- Familiarity with at least one browser automation tool (Playwright, Selenium, Cypress)
+- Genuine curiosity about LLMs, agents, and how to test non-deterministic systems
+- Sharp attention to detail — you notice the off-by-one, the wrong empty state, the hallucinated field
+- Clear written communication — bug reports are a writing job
+- Comfort working remotely with async-first communication
 
-| Skill Type | Required? | Evidence from Job Posting |
-|---|---|---|
-| Automation Testing | Yes / No |  |
-| AI-related Testing | Yes / No |  |
-| LLM-related Skill | Yes / No |  |
-| AI-assisted Testing Tool | Yes / No |  |
+Nice-to-have
+
+- Hands-on experience with AI coding tools (Claude Code, Cursor, Copilot) or LLM APIs (Anthropic, OpenAI)
+- Exposure to evals, prompt testing, or any form of LLM output validation
+- Experience with HTMX or server-rendered frontends
+- Familiarity with Git, GitHub PR workflows, and CI pipelines
+- Exposure to SQL and reading database state to verify behavior
 
 ## AI Impact Analysis
 
-Write 1–2 sentences here.
+AI has a very strong impact on this role because the intern will test an AI-driven web app, including LLM outputs, AI agents, and AI-generated insights. AI tools such as Claude Code, Cursor, and Copilot also help testers write test cases, automate tests, and check AI behavior faster, but human testers are still needed to judge accuracy and user experience.
 
 ---
 
