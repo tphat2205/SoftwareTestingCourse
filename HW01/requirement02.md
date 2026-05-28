@@ -1,1029 +1,553 @@
 # Requirement 2 – 20 Software Defects 2022–2026
 
-## 1. Overview
+**Student Name:** [Your Name]  
+**Student ID:** [Your Student ID]  
+**Course/Class:** [Course/Class]  
+**Report Timestamp:** 2026-05-28 23:29:20 ICT (Asia/Ho_Chi_Minh)
 
-This section presents 20 public software defects that occurred or were publicized between 2022 and 2026.
+---
 
-According to the homework requirement, this section includes:
+## 1. Requirement Summary
 
-- 20 software defects publicized between 2022 and 2026.
-- At least 5 defects related to AI or LLM systems, such as hallucination, prompt injection, bias, unsafe output, or incorrect automated decision-making.
-- For each defect:
+This section reports **20 software defects publicized between 2022 and 2026**.
+
+Requirements covered:
+
+- 20 software defects from 2022–2026.
+- At least 5 defects related to AI/LLM, including hallucination, prompt injection, or bias.
+- Each defect includes:
   - Source link
   - Description
   - Severity
   - Consequences
-  - Solution or mitigation
-- One analysis point showing where AI may be biased, hallucinated, incomplete, or misleading when explaining the defect.
+  - Solution / mitigation
+- One example showing where an AI tool was biased or hallucinated when explaining a defect.
 
 ---
 
-## 2. Software Defect Summary Table
+## 2. Defect List
 
-| No. | Defect Name / System | Year | AI/LLM-related? | Severity | Main Consequence |
-|---|---|---:|---|---|---|
-| 1 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 2 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 3 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 4 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 5 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 6 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 7 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 8 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 9 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 10 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 11 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 12 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 13 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 14 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 15 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 16 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 17 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 18 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 19 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-| 20 |  | 2022/2023/2024/2025/2026 | Yes / No | Low / Medium / High / Critical |  |
-
----
-
-# Defect 01
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-Example:
-
-The defect occurred when the system failed to handle a specific condition correctly, leading to incorrect output, service disruption, data exposure, financial loss, or user harm.
-
-## Cause of the Defect
-
-Write the likely technical or process-related cause here.
-
-Examples:
-
-- Missing validation
-- Incorrect business logic
-- Poor exception handling
-- Race condition
-- Security vulnerability
-- Insufficient testing
-- Model hallucination
-- Prompt injection vulnerability
-- Biased training data
-- Incorrect AI evaluation
-
-## Consequences
-
-Describe the consequences of the defect.
-
-Examples:
-
-- Users received incorrect results.
-- Private data was exposed.
-- The system became unavailable.
-- The company lost money.
-- Customers lost trust.
-- The AI system produced harmful or misleading content.
-
-## Solution / Mitigation
-
-Describe how the defect was fixed or how it could have been prevented.
-
-Examples:
-
-- Add validation and boundary testing.
-- Improve monitoring and logging.
-- Patch the vulnerable component.
-- Add regression test cases.
-- Use human review for high-risk AI output.
-- Add guardrails against prompt injection.
-- Improve AI evaluation datasets.
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences explaining where an AI tool may be biased, hallucinated, incomplete, or misleading when explaining this defect.
-
-Example:
-
-An AI tool may oversimplify this defect by saying it was only caused by "bad coding." This explanation is incomplete because the issue may also involve weak requirements analysis, insufficient test coverage, missing monitoring, or poor release management.
-
----
-
-# Defect 02
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 03
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 04
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 05
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 06
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 07
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 08
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 09
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 10
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 11
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 12
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 13
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 14
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 15
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 16
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 17
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 18
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 19
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# Defect 20
-
-## Basic Information
-
-| Item | Details |
-|---|---|
-| Defect Name |  |
-| System / Product |  |
-| Company / Organization |  |
-| Year Publicized |  |
-| AI/LLM-related? | Yes / No |
-| Severity | Low / Medium / High / Critical |
-| Source Link |  |
-
-## Defect Description
-
-Write a clear description of the defect here.
-
-## Cause of the Defect
-
-- 
-- 
-- 
-
-## Consequences
-
-- 
-- 
-- 
-
-## Solution / Mitigation
-
-- 
-- 
-- 
-
-## AI Bias / Hallucination / Incomplete Explanation Analysis
-
-Write 2–4 sentences here.
-
----
-
-# 3. AI/LLM-related Defects Summary
-
-The following table lists at least 5 software defects related to AI or LLM systems.
-
-| No. | Defect Name | Year | AI/LLM Issue Type | Main Risk |
+| No. | Defect Name | Year Publicized | Category | AI/LLM Related? |
 |---|---|---:|---|---|
-| 1 |  |  | Hallucination / Prompt Injection / Bias / Unsafe Output / Incorrect Decision |  |
-| 2 |  |  | Hallucination / Prompt Injection / Bias / Unsafe Output / Incorrect Decision |  |
-| 3 |  |  | Hallucination / Prompt Injection / Bias / Unsafe Output / Incorrect Decision |  |
-| 4 |  |  | Hallucination / Prompt Injection / Bias / Unsafe Output / Incorrect Decision |  |
-| 5 |  |  | Hallucination / Prompt Injection / Bias / Unsafe Output / Incorrect Decision |  |
+| 1 | [Defect Name] | 2022 | [Security / Functional / Performance / AI / Other] | Yes / No |
+| 2 | [Defect Name] | 2022 | [Category] | Yes / No |
+| 3 | [Defect Name] | 2022 | [Category] | Yes / No |
+| 4 | [Defect Name] | 2023 | [Category] | Yes / No |
+| 5 | [Defect Name] | 2023 | [Category] | Yes / No |
+| 6 | [Defect Name] | 2023 | [Category] | Yes / No |
+| 7 | [Defect Name] | 2023 | [Category] | Yes / No |
+| 8 | [Defect Name] | 2024 | [Category] | Yes / No |
+| 9 | [Defect Name] | 2024 | [Category] | Yes / No |
+| 10 | [Defect Name] | 2024 | [Category] | Yes / No |
+| 11 | [Defect Name] | 2024 | [Category] | Yes / No |
+| 12 | [Defect Name] | 2024 | [Category] | Yes / No |
+| 13 | [Defect Name] | 2025 | [Category] | Yes / No |
+| 14 | [Defect Name] | 2025 | [Category] | Yes / No |
+| 15 | [Defect Name] | 2025 | [Category] | Yes / No |
+| 16 | [Defect Name] | 2025 | [Category] | Yes / No |
+| 17 | [Defect Name] | 2026 | [Category] | Yes / No |
+| 18 | [Defect Name] | 2026 | [Category] | Yes / No |
+| 19 | [Defect Name] | 2026 | [Category] | Yes / No |
+| 20 | [Defect Name] | 2026 | [Category] | Yes / No |
 
 ---
 
-# 4. Severity Distribution
+## 3. Detailed Software Defects
 
-| Severity | Number of Defects |
-|---|---:|
-| Low |  |
-| Medium |  |
-| High |  |
-| Critical |  |
-| Total | 20 |
+### Defect 01 – [Defect Name]
 
----
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Security / Functional / Performance / AI / LLM / Bias / Prompt Injection / Other]
+- **AI/LLM Related:** [Yes / No]
 
-# 5. Common Defect Causes
+**Description:**  
+[Briefly describe what the defect is.]
 
-Based on the 20 software defects, the common causes are:
+**Severity:**  
+[Low / Medium / High / Critical]
 
-- Missing input validation
-- Incomplete requirement analysis
-- Insufficient test coverage
-- Poor regression testing
-- Security vulnerability
-- Configuration error
-- Weak monitoring and logging
-- Incorrect AI model behavior
-- Biased or incomplete training data
-- Prompt injection vulnerability
-- Lack of human review for high-risk AI output
+**Consequences:**  
+[Explain the impact on users, company, system, security, finance, privacy, or reputation.]
+
+**Solution / Mitigation:**  
+[Explain how the defect was fixed or how it could be prevented.]
 
 ---
 
-# 6. Common Consequences
+### Defect 02 – [Defect Name]
 
-The common consequences observed from the defects are:
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
 
-- Service outage
-- Incorrect system behavior
-- Data leakage
-- Security risk
-- Financial loss
-- Legal or compliance issue
-- User trust damage
-- Harmful or misleading AI output
-- Wrong automated decision-making
+**Description:**  
+[Brief description.]
 
----
+**Severity:**  
+[Low / Medium / High / Critical]
 
-# 7. Lessons Learned
+**Consequences:**  
+[Consequences.]
 
-From these 20 software defects, several testing lessons can be learned.
-
-First, software defects are not only caused by coding mistakes but also by weak requirements, poor test design, insufficient regression testing, and inadequate monitoring. Second, AI-related defects are more difficult to detect because they may involve hallucination, bias, prompt injection, or unpredictable model behavior. Third, human review remains important, especially for high-risk systems where incorrect output can affect users, money, privacy, or safety.
-
-Therefore, QA/QC engineers should combine traditional testing techniques with AI-specific testing methods, including prompt testing, bias testing, adversarial testing, model evaluation, and human-in-the-loop verification.
+**Solution / Mitigation:**  
+[Solution.]
 
 ---
 
-# 8. Evidence Checklist
+### Defect 03 – [Defect Name]
 
-| Requirement | Completed? | Note |
-|---|---|---|
-| 20 software defects collected | Yes / No |  |
-| All defects publicized between 2022 and 2026 | Yes / No |  |
-| At least 5 defects are AI/LLM-related | Yes / No |  |
-| Each defect has a source link | Yes / No |  |
-| Each defect has a description | Yes / No |  |
-| Each defect has severity | Yes / No |  |
-| Each defect has consequences | Yes / No |  |
-| Each defect has solution or mitigation | Yes / No |  |
-| Each defect has AI bias/hallucination/incomplete analysis | Yes / No |  |
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
 
 ---
 
-# 9. References
+### Defect 04 – [Defect Name]
 
-1. Defect 01:  
-2. Defect 02:  
-3. Defect 03:  
-4. Defect 04:  
-5. Defect 05:  
-6. Defect 06:  
-7. Defect 07:  
-8. Defect 08:  
-9. Defect 09:  
-10. Defect 10:  
-11. Defect 11:  
-12. Defect 12:  
-13. Defect 13:  
-14. Defect 14:  
-15. Defect 15:  
-16. Defect 16:  
-17. Defect 17:  
-18. Defect 18:  
-19. Defect 19:  
-20. Defect 20:  
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 05 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 06 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 07 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 08 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 09 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 10 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 11 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 12 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 13 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 14 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 15 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 16 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 17 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 18 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 19 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+### Defect 20 – [Defect Name]
+
+- **Year Publicized:** [2022–2026]
+- **Source Link:** [Paste source link here]
+- **Category:** [Category]
+- **AI/LLM Related:** [Yes / No]
+
+**Description:**  
+[Brief description.]
+
+**Severity:**  
+[Low / Medium / High / Critical]
+
+**Consequences:**  
+[Consequences.]
+
+**Solution / Mitigation:**  
+[Solution.]
+
+---
+
+## 4. AI/LLM-Related Defects Summary
+
+At least 5 of the 20 defects are related to AI/LLM issues.
+
+| No. | Defect Name | AI/LLM Issue Type | Explanation |
+|---|---|---|---|
+| [No.] | [Defect Name] | Hallucination / Bias / Prompt Injection / Unsafe Output | [Brief explanation] |
+| [No.] | [Defect Name] | Hallucination / Bias / Prompt Injection / Unsafe Output | [Brief explanation] |
+| [No.] | [Defect Name] | Hallucination / Bias / Prompt Injection / Unsafe Output | [Brief explanation] |
+| [No.] | [Defect Name] | Hallucination / Bias / Prompt Injection / Unsafe Output | [Brief explanation] |
+| [No.] | [Defect Name] | Hallucination / Bias / Prompt Injection / Unsafe Output | [Brief explanation] |
+
+---
+
+## 5. AI Bias or Hallucination When Explaining a Defect
+
+### Selected Defect
+
+- **Defect Name:** [Defect Name]
+- **AI Tool Used:** [ChatGPT / Gemini / Copilot / Claude / Other]
+- **Prompt Used:**  
+```text
+[Paste the exact prompt used to ask the AI about the defect.]
+````
+
+### AI Output Problem
+
+**Problem Type:** [Bias / Hallucination / Incorrect Explanation / Missing Context]
+
+**Problematic AI Response:**
+
+```text
+[Paste the incorrect or biased part of the AI response here.]
+```
+
+**Why This Is Biased or Hallucinated:**
+[Explain why the AI answer is inaccurate, biased, unsupported, or misleading.]
+
+**Correct Explanation Based on Source:**
+[Write the correct explanation using reliable sources.]
+
+**Source Used to Verify:**
+[Paste source link here]
+
+---
+
+## 6. Conclusion
+
+This report identified 20 software defects publicized between 2022 and 2026. The selected cases include different defect types such as security vulnerabilities, functional failures, service outages, privacy issues, and AI/LLM-related problems. At least 5 defects are connected to AI/LLM issues such as hallucination, prompt injection, bias, or unsafe model behavior.
+
+---
+
+## 7. References
+
+1. [Source title] – [Source link]
+2. [Source title] – [Source link]
+3. [Source title] – [Source link]
+4. [Source title] – [Source link]
+5. [Source title] – [Source link]
+6. [Source title] – [Source link]
+7. [Source title] – [Source link]
+8. [Source title] – [Source link]
+9. [Source title] – [Source link]
+10. [Source title] – [Source link]
+11. [Source title] – [Source link]
+12. [Source title] – [Source link]
+13. [Source title] – [Source link]
+14. [Source title] – [Source link]
+15. [Source title] – [Source link]
+16. [Source title] – [Source link]
+17. [Source title] – [Source link]
+18. [Source title] – [Source link]
+19. [Source title] – [Source link]
+20. [Source title] – [Source link]
+
+```
+```
