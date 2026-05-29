@@ -329,45 +329,63 @@ Google also stated that it would combine external feedback with internal testing
 
 ---
 
-### Defect 11 – [Defect Name]
+### Defect 11 – 7-Zip Heap Buffer Write Overflow Vulnerability
 
-- **Year Publicized:** [2022–2026]
-- **Source Link:** [Paste source link here]
-- **Category:** [Category]
-- **AI/LLM Related:** [Yes / No]
+- **Year Publicized:** 2026
+- **Source Link:** https://securitylab.github.com/advisories/GHSL-2026-140_7-Zip/?utm_source=chatgpt.com
+- **Category:** Memory Safety Vulnerability / Heap Buffer Overflow / Arbitrary Code Execution
+- **AI/LLM Related:** No
 
 **Description:**  
-[Brief description.]
+A serious heap buffer overflow vulnerability was found in 7-Zip version 26.00. The vulnerability is related to how 7-Zip handles NTFS compressed streams inside crafted NTFS disk images. In the vulnerable code, 7-Zip calculates the buffer size for an NTFS compression unit using a 32-bit shift operation. When an attacker creates a specially crafted NTFS image with certain values, the shift operation becomes undefined behavior in C++. As a result, 7-Zip may allocate only a 1-byte buffer instead of the much larger buffer that is actually needed.
+
+After that, 7-Zip attempts to read a large amount of compressed data into this tiny buffer. According to the report, up to 256 MB of attacker-controlled data can be written into a 1-byte heap buffer. This creates a heap buffer overflow. The overflow can corrupt nearby objects in memory, including a stream object’s virtual table pointer, which may allow an attacker to hijack program execution. The vulnerability is tracked as CVE-2026-48095 and GHSL-2026-140.
 
 **Severity:**  
-[Low / Medium / High / Critical]
+High
 
 **Consequences:**  
-[Consequences.]
+The consequences are serious because this vulnerability can potentially lead to arbitrary code execution or application crashes. If a victim opens, tests, or extracts a malicious crafted image file using a vulnerable version of 7-Zip, the attacker may be able to overwrite memory with controlled data. The report explains that the overflow can overwrite a nearby object’s vtable pointer, which is a classic vtable hijacking technique. This means the attacker may be able to redirect program execution and run malicious code under the privileges of the user running 7-Zip.
+
+The attack surface is also broader than just files ending in .ntfs or .img. 7-Zip uses signature-based fallback detection, so a crafted NTFS image may still be processed by the NTFS handler even if it has another extension such as .7z, .zip, .rar, or no extension. This makes the vulnerability more dangerous because users may not realize that a file with a normal-looking archive extension is actually a crafted NTFS image. The vulnerability requires user interaction, but only at the level of opening, testing, or extracting the malicious file.
 
 **Solution / Mitigation:**  
-[Solution.]
+The main mitigation is to update 7-Zip to version 26.01 or later, because version 26.01 was released with a fix shortly after the report was delivered. Users and organizations should avoid using 7-Zip version 26.00 or older affected versions when opening untrusted archives or disk images. Systems that process uploaded archives automatically should also update immediately, because server-side extraction of malicious files could expose the system to crashes or possible code execution.
+
+From a development perspective, the buffer size calculation should be fixed by avoiding unsafe 32-bit shift operations and by validating shift values before using them. The program should reject NTFS images with invalid or dangerous compression parameters, such as values that cause the shift exponent to reach or exceed the width of the integer type. The software should also add bounds checking before reading compressed data into memory, so that the amount of data written never exceeds the allocated buffer size. Additional testing tools such as UndefinedBehaviorSanitizer, AddressSanitizer, and fuzzing should be used to detect similar memory safety problems before release.
 
 ---
 
-### Defect 12 – [Defect Name]
+### Defect 12 – Universal Robots PolyScope 5 Command Injection Vulnerability
 
-- **Year Publicized:** [2022–2026]
-- **Source Link:** [Paste source link here]
-- **Category:** [Category]
-- **AI/LLM Related:** [Yes / No]
+- **Year Publicized:** 2026
+- **Source Link:** https://www.techradar.com/pro/security/security-of-your-network-is-essential-to-security-of-your-robot-industrial-robots-targeted-by-malware-which-could-open-them-up-to-hacking-is-this-how-the-revolution-begins?utm_source=chatgpt.com
+- **Category:** Industrial Robot Cybersecurity Vulnerability / Command Injection / Remote Code Execution
+- **AI/LLM Related:** No
 
 **Description:**  
-[Brief description.]
+A critical command injection vulnerability was discovered in Universal Robots PolyScope 5, the operating system used to control the company’s collaborative robots. The vulnerability is tracked as CVE-2026-8153 and has a CVSS score of 9.8, which means it is considered critical. It affects all PolyScope 5 versions before version 5.25.1.
+
+The issue exists in the robot’s Dashboard Server. This server accepts user-controlled input from the network, but it does not properly remove or neutralize special command characters before passing that input to the underlying operating system. Because of this, an unauthenticated attacker who can reach the Dashboard Server network port can craft malicious input and inject operating system commands. These commands may then be executed directly on the robot controller with high privileges.
+
+This defect is especially dangerous because it affects industrial robots, not just normal software applications. If exploited, the attacker could gain control over the robot controller and interfere with the confidentiality, integrity, and availability of the robot system.
 
 **Severity:**  
-[Low / Medium / High / Critical]
+Critical
 
 **Consequences:**  
-[Consequences.]
+The main consequence is complete compromise of the robot controller. An attacker could potentially execute arbitrary commands on the robot’s operating system, which could allow them to change settings, disrupt operations, steal data, or interfere with the robot’s behavior. Since these robots are used in industrial environments, the impact could go beyond data loss and may affect physical safety.
+
+If a compromised workstation exists on the same factory network, the attacker could use it to reach the robot’s Dashboard Server if the network is not properly segmented. In that situation, the attacker would not need direct internet access to the robot. They would only need network access from inside the factory or corporate network.
+
+This creates serious risks for factories using collaborative robots near human workers. A hacked robot could behave unpredictably because it would be controlled by an attacker instead of its legitimate operator. This could cause production downtime, damage to equipment, unsafe robot movements, or possible injury to nearby personnel. Even though there was no known public exploitation reported at the time of disclosure, the vulnerability is still serious because the exploitation conditions are realistic in many industrial environments.
 
 **Solution / Mitigation:**  
-[Solution.]
+Universal Robots released a patch in PolyScope 5.25.1, so the most important mitigation is to update all affected systems to version 5.25.1 or newer as soon as possible. The patch only protects systems after it is actually installed, so organizations should not delay the update.
+
+In addition to patching, companies should make sure that robot controllers are not directly accessible from the internet. The Dashboard Server should only be enabled when necessary, and its network port should be blocked from untrusted networks. Industrial robots should be placed in a segmented network zone so that ordinary office computers, guest devices, or compromised workstations cannot directly communicate with robot control ports.
+
+Organizations should also apply firewall rules, access control lists, VPN restrictions, and monitoring for unusual commands or network traffic going to robot controllers. Security teams should regularly audit which robots are reachable on the network and disable unnecessary services. Since Universal Robots warned that “security of your network is essential to security of your robot,” network isolation and strict access control are essential protections alongside software updates.
 
 ---
 
