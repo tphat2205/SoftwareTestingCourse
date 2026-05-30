@@ -389,108 +389,155 @@ Organizations should also apply firewall rules, access control lists, VPN restri
 
 ---
 
-### Defect 13 – [Defect Name]
+### Defect 13 – Microsoft SharePoint Server Zero-Day Vulnerability
 
-- **Year Publicized:** [2022–2026]
-- **Source Link:** [Paste source link here]
-- **Category:** [Category]
-- **AI/LLM Related:** [Yes / No]
+- **Year Publicized:** 2025
+- **Source Link:** https://apnews.com/article/microsoft-sharepoint-zero-point-vulnerability-65ebcae88267e1aa375013adaa283765
+- **Category:** Cybersecurity Vulnerability / Zero-Day Exploit / Remote Server Compromise
+- **AI/LLM Related:** No
 
 **Description:**  
-[Brief description.]
+A serious zero-day vulnerability was discovered and actively exploited in Microsoft SharePoint Server, a widely used platform for document management, internal collaboration, and data organization in companies and government agencies. A zero-day vulnerability means that attackers were already exploiting the flaw before a complete fix was available, giving defenders very little time to respond.
+
+According to the report, the vulnerability affected on-premise SharePoint servers, meaning SharePoint systems hosted directly by businesses or organizations. Microsoft’s cloud-based SharePoint Online service was not affected. The exploit was described by CISA as a variant of CVE-2025-49706 and was reportedly known as “ToolShell.” Security researchers warned that the vulnerability could allow attackers to gain broad access to SharePoint file systems and possibly connected services such as Microsoft Teams and OneDrive.
+
+Microsoft issued an emergency fix after confirming that the vulnerability was being used in real attacks. The company first released guidance and patches for SharePoint Server 2019 and SharePoint Server Subscription Edition, while engineers were still working on a fix for the older SharePoint Server 2016 version at the time of the report.
 
 **Severity:**  
-[Low / Medium / High / Critical]
+Critical
 
 **Consequences:**  
-[Consequences.]
+The consequences of this defect were serious because SharePoint is commonly used to store internal business documents, government files, school records, hospital information, and enterprise collaboration data. If attackers successfully exploited the vulnerability, they could potentially access sensitive files, compromise connected services, and move deeper into an organization’s internal network.
+
+The impact was especially concerning for organizations running on-premise SharePoint servers, including government agencies, schools, healthcare organizations, hospitals, and large enterprises. These environments often contain confidential records and critical operational data. A successful attack could lead to data theft, service disruption, unauthorized access, and long-term compromise of internal systems.
+
+Cybersecurity firms reported that attacks likely began around July 18, 2025, and scans of thousands of SharePoint servers found that at least dozens of systems had already been compromised. CISA also warned that the impact could be widespread. Because the vulnerability was actively exploited before all patches were fully available, affected organizations faced immediate risk and had to respond quickly.
 
 **Solution / Mitigation:**  
-[Solution.]
+The first and most important mitigation is to immediately apply Microsoft’s emergency patches and follow Microsoft’s official security guidance for affected SharePoint Server versions. Organizations using SharePoint Server 2019 or SharePoint Server Subscription Edition should update as soon as possible. Organizations using SharePoint Server 2016 should follow Microsoft’s temporary guidance while waiting for or applying the available fix.
+
+CISA recommended that affected SharePoint servers should be disconnected from the internet until they are patched. This is important because internet-exposed on-premise SharePoint servers are the most vulnerable targets. As an emergency temporary measure, organizations should block external access to SharePoint servers if patching cannot be completed immediately.
+
+Organizations should also rotate cryptographic materials, such as keys, certificates, and secrets, because security researchers warned that attackers may be able to maintain access or bypass future patching. In addition, companies should perform incident response checks to determine whether their SharePoint servers were already compromised before the patch was applied.
+
+Long-term mitigation should include reducing public exposure of SharePoint servers, using network segmentation, monitoring suspicious activity, keeping server software updated, and preparing a rapid patch management process for future zero-day vulnerabilities. For high-risk organizations such as government, healthcare, education, and large enterprises, professional incident response support should be considered if there are signs of compromise.
 
 ---
 
-### Defect 14 – [Defect Name]
+### Defect 14 – Apple ImageIO Zero-Day Vulnerability
 
-- **Year Publicized:** [2022–2026]
-- **Source Link:** [Paste source link here]
-- **Category:** [Category]
-- **AI/LLM Related:** [Yes / No]
+- **Year Publicized:** 2025
+- **Source Link:** https://op-c.net/blog/cve-2025-43300-apple-imageio-zero-day-exploited/?utm_source=chatgpt.com
+- **Category:** Cybersecurity Vulnerability / Zero-Day Exploit / Memory Corruption
+- **AI/LLM Related:** No
 
 **Description:**  
-[Brief description.]
+CVE-2025-43300 is a zero-day vulnerability in Apple’s ImageIO framework. ImageIO is used system-wide on Apple devices to read and write many image formats. Because this framework is used across iOS, iPadOS, and macOS, the vulnerability could affect multiple Apple products.
+
+The defect happens when a device opens or previews a malicious image. Processing that image can corrupt memory, and depending on exploit reliability, it may allow code execution. Apple acknowledged that this vulnerability had already been exploited in the wild in an “extremely sophisticated attack” targeting selected individuals.
+
+Apple released patches for this vulnerability on August 20, 2025. The vulnerability was then added to CISA’s Known Exploited Vulnerabilities catalog on August 21, 2025, increasing the urgency for government agencies and enterprises to apply the fixes.
 
 **Severity:**  
-[Low / Medium / High / Critical]
+Critical
 
 **Consequences:**  
-[Consequences.]
+This vulnerability is serious because it was already being exploited in targeted attacks before many users had patched their devices. Since the attack can happen through a malicious image, the required user interaction may be low. A victim may be exposed simply by opening or previewing a specially crafted image.
+
+If the exploit succeeds, memory corruption could occur and may allow code execution on the affected device. This creates a high risk for selected high-value targets, such as executives, journalists, legal teams, incident response staff, or people who handle sensitive negotiations and information. These users are more likely to be targeted by well-resourced threat actors.
+
+For enterprises, the vulnerability creates an urgent patching problem because affected devices may belong to important users or staff with access to sensitive information. Since CISA added CVE-2025-43300 to the Known Exploited Vulnerabilities catalog, organizations were required to apply the relevant patches by September 11, 2025.
 
 **Solution / Mitigation:**  
-[Solution.]
+The main solution is to update affected Apple devices to the fixed versions or later. Users should update to at least the following versions: iOS 18.6.2, iPadOS 18.6.2 for current devices, iPadOS 17.7.10 for older supported iPads, macOS Sequoia 15.6.1, macOS Sonoma 14.7.8, or macOS Ventura 13.7.8.
+
+Organizations should enforce these updates through MDM or patch management tools. They should create smart groups for devices running versions below the fixed builds and alert daily on non-compliant devices. For VIP or high-risk users, patching should be completed as quickly as possible, ideally within 48 to 72 hours or sooner.
+
+Security teams should also monitor macOS devices for crashes in ImageIO-linked processes, because such crashes may indicate exploit attempts. Crash logs and Unified Logs should be collected for forensic analysis if suspicious activity is found.
+
+As a temporary user-awareness measure, high-risk users should be advised not to open or forward unexpected images and to update immediately. However, the most important mitigation remains fast patching and full compliance tracking across all affected Apple devices.
+---
+
+### Defect 15 – Docker Desktop Local Container Access to Docker Engine API
+
+- **Year Publicized:** 2025
+- **Source Link:** https://socprime.com/blog/cve-2025-9074-docker-desktop-vulnerability/?utm_source=chatgpt.com
+- **Category:** Container Security Vulnerability / Docker Desktop / Local Container Access / Docker Engine API Exposure
+- **AI/LLM Related:** No
+
+**Description:**  
+CVE-2025-9074 is a critical vulnerability in Docker Desktop. The vulnerability allows locally running Linux containers to connect to the Docker Engine API through the default subnet 192.168.65.7:2375. According to the provided report, the issue still exists regardless of Enhanced Container Isolation settings or TCP exposure settings.
+
+The flaw allows malicious containers running inside Docker Desktop to directly interact with the Docker Engine. This can happen even when the Docker socket is not mounted into the container. Because the Docker Engine controls container operations, this vulnerability gives a malicious container a way to perform actions that it normally should not be able to perform.
+
+If exploited, attackers could run privileged API commands through the Docker Engine API. These actions could include controlling existing containers, creating new containers, and managing Docker images. In some cases, especially when Docker Desktop for Windows is running on a WSL backend, the vulnerability could also allow host drives to be mounted with the same permissions as the Docker Desktop user.
+
+**Severity:**  
+Critical
+
+**Consequences:**  
+The vulnerability creates serious risks to confidentiality, integrity, and availability. A malicious container could interact directly with the Docker Engine API and perform sensitive actions without needing the Docker socket to be mounted. This breaks an important security boundary because containers should not be able to control the Docker Engine unless explicitly allowed.
+
+If attackers exploit this vulnerability, they may be able to control containers, create new containers, or manage images. This could lead to unauthorized changes in the Docker environment, disruption of services, exposure of sensitive data, or abuse of Docker Desktop as a stepping stone for further compromise.
+
+The risk is broader in specific environments such as Docker Desktop for Windows using a WSL backend. In that scenario, the flaw may allow host drives to be mounted with the same permissions as the Docker Desktop user. This increases the potential impact because access may extend beyond container resources and affect files on the host system.
+
+The report states that no proof-of-concept exploit or active exploitation had been observed at the time. However, the vulnerability is still critical because Docker is widely used in enterprise infrastructure, CI/CD pipelines, microservices, and cloud-native development environments. A single unpatched Docker flaw can create a large security risk in modern software environments.
+
+**Solution / Mitigation:**  
+The main mitigation is to upgrade Docker Desktop immediately to version 4.44.3 or later. Updated Docker Desktop packages are available for multiple platforms, including Windows, Windows ARM, macOS Apple Silicon, macOS Intel, Debian, RPM-based distributions, and Arch Linux.
+
+Organizations should apply consistent patch management so that vulnerable Docker Desktop installations are updated quickly. Enterprise administrators should check developer machines and environments that use Docker Desktop to confirm that they are running version 4.44.3 or newer.
+
+Security teams should also monitor for unusual Docker activity, such as unexpected container creation, suspicious Docker Engine API usage, or abnormal image management actions. Since the vulnerability allows containers to interact with Docker Engine through the default subnet, organizations should treat untrusted local containers as a possible security risk until Docker Desktop has been patched.
+
+Long-term mitigation should include proactive monitoring, timely patching, and stronger defense practices for container environments. Because Docker is an important part of modern software infrastructure, vulnerabilities in Docker Desktop should be handled quickly to reduce the chance of supply-chain attacks, data leaks, or host-related compromise.
 
 ---
 
-### Defect 15 – [Defect Name]
+### Defect 16 – Hyundai Software Brake Issue Recall
 
-- **Year Publicized:** [2022–2026]
-- **Source Link:** [Paste source link here]
-- **Category:** [Category]
-- **AI/LLM Related:** [Yes / No]
+- **Year Publicized:** 2026
+- **Source Link:** https://www.reuters.com/legal/litigation/hyundai-recall-over-421000-us-vehicles-over-software-brake-issue-nhtsa-says-2026-05-22/?utm_source=chatgpt.com
+- **Category:** Automotive Software Defect / Safety Recall  
+- **AI/LLM Related:** No
 
 **Description:**  
-[Brief description.]
+Hyundai Motor recalled 421,078 vehicles in the United States because of a software error in the front camera system. The recall affects certain 2025–2026 Santa Cruz, Tucson, Tucson Hybrid, and Tucson Plug-In Hybrid Electric vehicles. According to NHTSA, the software error may cause the forward collision avoidance system to activate too early and apply the brakes unexpectedly.
 
 **Severity:**  
-[Low / Medium / High / Critical]
+High
 
 **Consequences:**  
-[Consequences.]
+The unexpected braking can increase the risk of a crash because the driver or vehicles behind may not be prepared for sudden braking. The issue is serious because it affects an important safety system and involves a large number of vehicles in the U.S.
 
 **Solution / Mitigation:**  
-[Solution.]
+Hyundai dealers will update the front camera software at no cost. Owners of affected vehicles should follow the recall notice and bring their vehicles to an authorized dealer for the software update.
 
 ---
 
-### Defect 16 – [Defect Name]
+### Defect 17 – Ghost CMS SQL Injection Vulnerability
 
-- **Year Publicized:** [2022–2026]
+- **Year Publicized:** 2026
 - **Source Link:** [Paste source link here]
-- **Category:** [Category]
-- **AI/LLM Related:** [Yes / No]
+- **Category:** Web Application Vulnerability / SQL Injection / CMS Security
+- **AI/LLM Related:** No
 
 **Description:**  
-[Brief description.]
+A critical SQL injection vulnerability was found in Ghost CMS, tracked as CVE-2026-26980. The vulnerability was reportedly exploited to inject malicious JavaScript into Ghost CMS websites. This malicious code was used as part of a ClickFix campaign affecting more than 700 websites.
+
+The attack involved hijacking affected websites and using them to trick visitors through fake CAPTCHA or fake “fix” instructions. These tricks were used to convince users to run malware.
 
 **Severity:**  
-[Low / Medium / High / Critical]
+Critical
 
 **Consequences:**  
-[Consequences.]
+Affected websites could be hijacked and used to deliver malicious JavaScript to visitors. Users visiting compromised sites could be misled by fake CAPTCHA or fake repair instructions and may end up running malware.
+
+The vulnerability could also expose sensitive database information, including user accounts and site content. This creates risks for both website owners and visitors because attackers may abuse the compromised site and its data.
 
 **Solution / Mitigation:**  
-[Solution.]
-
----
-
-### Defect 17 – [Defect Name]
-
-- **Year Publicized:** [2022–2026]
-- **Source Link:** [Paste source link here]
-- **Category:** [Category]
-- **AI/LLM Related:** [Yes / No]
-
-**Description:**  
-[Brief description.]
-
-**Severity:**  
-[Low / Medium / High / Critical]
-
-**Consequences:**  
-[Consequences.]
-
-**Solution / Mitigation:**  
-[Solution.]
+Website administrators should update Ghost CMS to version 6.19.1 or newer. They should also check admin logs and API logs to look for signs of exploitation or suspicious activity related to this vulnerability.
 
 ---
 
