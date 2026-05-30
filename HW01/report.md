@@ -648,26 +648,26 @@ Requirements covered:
 
 | No. | Defect Name | Year Publicized | Category | AI/LLM Related? |
 |---|---|---:|---|---|
-| 1 | [Defect Name] | 2022 | [Security / Functional / Performance / AI / Other] | Yes / No |
-| 2 | [Defect Name] | 2022 | [Category] | Yes / No |
-| 3 | [Defect Name] | 2022 | [Category] | Yes / No |
-| 4 | [Defect Name] | 2023 | [Category] | Yes / No |
-| 5 | [Defect Name] | 2023 | [Category] | Yes / No |
-| 6 | [Defect Name] | 2023 | [Category] | Yes / No |
-| 7 | [Defect Name] | 2023 | [Category] | Yes / No |
-| 8 | [Defect Name] | 2024 | [Category] | Yes / No |
-| 9 | [Defect Name] | 2024 | [Category] | Yes / No |
-| 10 | [Defect Name] | 2024 | [Category] | Yes / No |
-| 11 | [Defect Name] | 2024 | [Category] | Yes / No |
-| 12 | [Defect Name] | 2024 | [Category] | Yes / No |
-| 13 | [Defect Name] | 2025 | [Category] | Yes / No |
-| 14 | [Defect Name] | 2025 | [Category] | Yes / No |
-| 15 | [Defect Name] | 2025 | [Category] | Yes / No |
-| 16 | [Defect Name] | 2025 | [Category] | Yes / No |
-| 17 | [Defect Name] | 2026 | [Category] | Yes / No |
-| 18 | [Defect Name] | 2026 | [Category] | Yes / No |
-| 19 | [Defect Name] | 2026 | [Category] | Yes / No |
-| 20 | [Defect Name] | 2026 | [Category] | Yes / No |
+| 1 | Service Control Null Pointer Crash & Global API Outage | 2025 | Functional / Performance | No |
+| 2 | regreSSHion (CVE-2024-6387) | 2024 | Security | No |
+| 3 | CrowdStrike Falcon Sensor Windows Crash (Channel File 291) | 2024 | Functional / Stability | No |
+| 4 | ChatGPT Redis-py Asyncio Bug (March 20 Outage) | 2023 | Security / Privacy | Yes |
+| 5 | DPD AI Chatbot Swearing & Self-Criticism | 2024 | AI / LLM / Prompt Injection | Yes |
+| 6 | ChatGPT Legal Hallucination (Mata v. Avianca) | 2023 | AI / LLM / Hallucination | Yes |
+| 7 | Gemini Image Generation Overcompensation & Bias (Imagen 2) | 2024 | AI / LLM / Bias | Yes |
+| 8 | NYC MyCity Chatbot (Legal & Policy Misinformation) | 2024 | Hallucination / Misinformation | Yes |
+| 9 | Air Canada Chatbot (Bereavement Fare Misinformation) | 2024 | AI Chatbot / Customer Service Policy Misinformation | Yes |
+| 10 | Google Bard Chatbot (Incorrect Answer in Promotional Advertisement) | 2023 | AI/LLM Chatbot Defect – Hallucination / Factual Inaccuracy | Yes |
+| 11 | 7-Zip Heap Buffer Write Overflow Vulnerability | 2026 | Memory Safety Vulnerability / Heap Buffer Overflow / Arbitrary Code Execution | No |
+| 12 | Universal Robots PolyScope 5 Command Injection Vulnerability | 2026 | Industrial Robot Cybersecurity Vulnerability / Command Injection / Remote Code Execution | No |
+| 13 | Microsoft SharePoint Server Zero-Day Vulnerability | 2025 | Cybersecurity Vulnerability / Zero-Day Exploit / Remote Server Compromise | No |
+| 14 | Apple ImageIO Zero-Day Vulnerability | 2025 | Cybersecurity Vulnerability / Zero-Day Exploit / Memory Corruption | No |
+| 15 | Docker Desktop Local Container Access to Docker Engine API | 2025 | Container Security Vulnerability / Docker Desktop / Local Container Access / Docker Engine API Exposure | No |
+| 16 | Hyundai Software Brake Issue Recall | 2026 | Automotive Software Defect / Safety Recall | No |
+| 17 | Ghost CMS SQL Injection Vulnerability | 2026 | Web Application Vulnerability / SQL Injection / CMS Security | No |
+| 18 | GitHub Merge Queue Incorrect Merge Commits | 2026 | Source Code Management Defect / Merge Queue Regression / Code Integrity Issue | No |
+| 19 | AWS DynamoDB DNS Automation Bug Causing Major AWS Outage | 2025 | Cloud Infrastructure Defect / DNS Automation Bug / Service Outage | No |
+| 20 | Cloudflare Bot Management Feature File Bug Causing Internet Outage | 2025 | Cloud Infrastructure Defect / Configuration File Bug / Internet Outage | No |
 
 ---
 
@@ -1230,32 +1230,47 @@ Cloudflare deployed a fix and rolled back or controlled the abnormal feature fil
 
 ## 5. AI Bias or Hallucination When Explaining a Defect
 
-### Selected Defect
+**Defect Name:** McDonald’s Global Technology System Outage 2024
 
-- **Defect Name:** [Defect Name]
-- **AI Tool Used:** [ChatGPT / Gemini / Copilot / Claude / Other]
+**Description:**
+On March 15, 2024, McDonald’s experienced a global technology system outage. According to McDonald’s,the issue was caused by a third-party provider during a configuration change, not by a cybersecurity attack.
+
+- **AI Tool Used:** Copilot - GPT-5 mini
+
 - **Prompt Used:**  
 ```text
-[Paste the exact prompt used to ask the AI about the defect.]
+Was the McDonald’s global outage in March 2024 caused by a cyberattack or Google Cloud migration? Explain the defect.
 ````
 
 ### AI Output Problem
 
-**Problem Type:** [Bias / Hallucination / Incorrect Explanation / Missing Context]
+**Problem Type:** Hallucination / Incorrect Explanation
 
 **Problematic AI Response:**
 
 ```text
-[Paste the incorrect or biased part of the AI response here.]
+Short answer: it was not a cyberattack — McDonald’s said the outage was caused by a Google Cloud migration/configuration change.  
+
+What happened (concise defect explanation)
+- Root cause type: a cloud configuration/deployment defect (availability/regression), not an intrusion.  
+- Symptom: restaurant point‑of‑sale and digital ordering systems lost connectivity to McDonald’s cloud back end, preventing transactions and orders.  
+- Technical nature (summary): a change made during/for the Google Cloud migration changed network/authentication/config settings so POS devices couldn’t reach or authenticate with the service (a deployment/ops error that broke service dependencies).  
+- Evidence: McDonald’s and Google Cloud publicly said it was not due to a cyberattack and pointed to the cloud change as the cause; news coverage reported the same.  
+- Fix/mitigation directions: roll back the change, restore proper network/auth configs, add stronger pre‑deploy testing, change‑validation, and safer rollout controls (feature flags, staged canaries, runbooks).
+
+If you want, I can fetch the official statements and news articles and paste short excerpts with links.
 ```
 
 **Why This Is Biased or Hallucinated:**
-[Explain why the AI answer is inaccurate, biased, unsupported, or misleading.]
+McDonald’s said the outage was caused by a Google Cloud migration/configuration change. Technical nature: a change made during/for the Google Cloud migration changed network/authentication/config settings so POS devices couldn’t reach or authenticate with the service.
 
 **Correct Explanation Based on Source:**
-[Write the correct explanation using reliable sources.]
+McDonald’s global technology outage in March 2024 was caused by a third-party technology provider during a configuration change. McDonald’s stated that the issue was not directly caused by a cybersecurity event. AP News also reported that the outage was not related to McDonald’s Google Cloud partnership.
 
 **Source Used to Verify:**
-[Paste source link here]
+https://apnews.com/article/mcdonalds-system-outage-b6c71ee8bd36af1eee4b3a5c929dcf6e
+
+**Evidence**
+![alt text](image-10.png)
 
 ---
