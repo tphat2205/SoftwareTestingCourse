@@ -57,7 +57,7 @@ Requirements covered:
 ### Defect 01 – Service Control Null Pointer Crash & Global API Outage
 
 - **Year Publicized:** 2025
-- **Source Link:** https://status.cloud.google.com/incidents/ow5i3PPK96RduMcb1SsW?utm_source=chatgpt.com
+- **Source Link:** https://status.cloud.google.com/incidents/ow5i3PPK96RduMcb1SsW
 - **Category:** Functional / Performance
 - **AI/LLM Related:** No
 
@@ -91,7 +91,7 @@ Long-term Prevention:
 ### Defect 02 – regreSSHion (CVE-2024-6387)
 
 - **Year Publicized:** 2024
-- **Source Link:** https://www.qualys.com/regresshion-cve-2024-6387?utm_source=chatgpt.com
+- **Source Link:** https://www.qualys.com/regresshion-cve-2024-6387
 - **Category:** Security
 - **AI/LLM Related:** No
 
@@ -112,7 +112,7 @@ Update OpenSSH to version 9.8p1 or newer, which contains the fix for this regres
 ### Defect 03 – CrowdStrike Falcon Sensor Windows Crash (Channel File 291)
 
 - **Year Publicized:** 2024
-- **Source Link:** https://www.crowdstrike.com/en-us/blog/falcon-content-update-preliminary-post-incident-report/?utm_source=chatgpt.com
+- **Source Link:** https://www.crowdstrike.com/en-us/blog/falcon-content-update-preliminary-post-incident-report
 - **Category:** Functional / Stability
 - **AI/LLM Related:** No
 
@@ -145,7 +145,7 @@ Preventative Measures:
 ### Defect 04 – ChatGPT Redis-py Asyncio Bug (March 20 Outage)
 
 - **Year Publicized:** 2023
-- **Source Link:** https://openai.com/index/march-20-chatgpt-outage/?utm_source=chatgpt.com
+- **Source Link:** https://openai.com/index/march-20-chatgpt-outage
 - **Category:** Security / Privacy
 - **AI/LLM Related:** Yes
 
@@ -172,7 +172,7 @@ The bug allowed some users to inadvertently see titles and initial messages from
 ### Defect 05 – DPD AI Chatbot Swearing & Self-Criticism
 
 - **Year Publicized:** 2024
-- **Source Link:** https://www.theguardian.com/technology/2024/jan/20/dpd-ai-chatbot-swears-calls-itself-useless-and-criticises-firm?utm_source=chatgpt.com
+- **Source Link:** https://www.theguardian.com/technology/2024/jan/20/dpd-ai-chatbot-swears-calls-itself-useless-and-criticises-firm
 - **Category:** AI / LLM / Prompt Injection
 - **AI/LLM Related:** Yes
 
@@ -197,7 +197,7 @@ The incident caused significant reputational embarrassment and negative PR for t
 ### Defect 06 – ChatGPT Legal Hallucination (Mata v. Avianca)
 
 - **Year Publicized:** 2023
-- **Source Link:** https://www.legaldive.com/news/chatgpt-fake-legal-cases-generative-ai-hallucinations/651557/?utm_source=chatgpt.com
+- **Source Link:** https://www.legaldive.com/news/chatgpt-fake-legal-cases-generative-ai-hallucinations/651557
 - **Category:** AI / LLM / Hallucination
 - **AI/LLM Related:** Yes
 
@@ -227,7 +227,7 @@ High / Critical
 
 ### Defect 07 – Gemini Image Generation Overcompensation & Bias (Imagen 2)
 - **Year Publicized:** 2024
-- **Source Link:** https://blog.google/products-and-platforms/products/gemini/gemini-image-generation-issue/?utm_source=chatgpt.com
+- **Source Link:** https://blog.google/products-and-platforms/products/gemini/gemini-image-generation-issue
 - **Category:** AI / LLM / Bias
 - **AI/LLM Related:** Yes
 
@@ -270,7 +270,7 @@ The chatbot should be restricted to verified official city documents, tested tho
 ### Defect 09 – Air Canada Chatbot (Bereavement Fare Misinformation)
 
 - **Year Publicized:** 2024
-- **Source Link:** https://www.theguardian.com/world/2024/feb/16/air-canada-chatbot-lawsuit?utm_source=chatgpt.com
+- **Source Link:** https://www.theguardian.com/world/2024/feb/16/air-canada-chatbot-lawsuit
 - **Category:** AI Chatbot / Customer Service Policy Misinformation
 - **AI/LLM Related:** Yes
 
@@ -303,7 +303,7 @@ The company should also test the chatbot regularly using real customer scenarios
 ### Defect 10 – Google Bard Chatbot (Incorrect Answer in Promotional Advertisement)
 
 - **Year Publicized:** 2023
-- **Source Link:** https://www.reuters.com/technology/google-ai-chatbot-bard-offers-inaccurate-information-company-ad-2023-02-08/?utm_source=chatgpt.com
+- **Source Link:** https://www.reuters.com/technology/google-ai-chatbot-bard-offers-inaccurate-information-company-ad-2023-02-08
 - **Category:** AI/LLM Chatbot Defect – Hallucination / Factual Inaccuracy
 - **AI/LLM Related:** Yes
 
@@ -332,7 +332,7 @@ Google also stated that it would combine external feedback with internal testing
 ### Defect 11 – 7-Zip Heap Buffer Write Overflow Vulnerability
 
 - **Year Publicized:** 2026
-- **Source Link:** https://securitylab.github.com/advisories/GHSL-2026-140_7-Zip/?utm_source=chatgpt.com
+- **Source Link:** https://securitylab.github.com/advisories/GHSL-2026-140_7-Zip
 - **Category:** Memory Safety Vulnerability / Heap Buffer Overflow / Arbitrary Code Execution
 - **AI/LLM Related:** No
 
@@ -359,7 +359,7 @@ From a development perspective, the buffer size calculation should be fixed by a
 ### Defect 12 – Universal Robots PolyScope 5 Command Injection Vulnerability
 
 - **Year Publicized:** 2026
-- **Source Link:** https://www.techradar.com/pro/security/security-of-your-network-is-essential-to-security-of-your-robot-industrial-robots-targeted-by-malware-which-could-open-them-up-to-hacking-is-this-how-the-revolution-begins?utm_source=chatgpt.com
+- **Source Link:** https://www.techradar.com/pro/security/security-of-your-network-is-essential-to-security-of-your-robot-industrial-robots-targeted-by-malware-which-could-open-them-up-to-hacking-is-this-how-the-revolution-begins
 - **Category:** Industrial Robot Cybersecurity Vulnerability / Command Injection / Remote Code Execution
 - **AI/LLM Related:** No
 
@@ -427,7 +427,7 @@ Long-term mitigation should include reducing public exposure of SharePoint serve
 ### Defect 14 – Apple ImageIO Zero-Day Vulnerability
 
 - **Year Publicized:** 2025
-- **Source Link:** https://op-c.net/blog/cve-2025-43300-apple-imageio-zero-day-exploited/?utm_source=chatgpt.com
+- **Source Link:** https://op-c.net/blog/cve-2025-43300-apple-imageio-zero-day-exploited
 - **Category:** Cybersecurity Vulnerability / Zero-Day Exploit / Memory Corruption
 - **AI/LLM Related:** No
 
@@ -461,7 +461,7 @@ As a temporary user-awareness measure, high-risk users should be advised not to 
 ### Defect 15 – Docker Desktop Local Container Access to Docker Engine API
 
 - **Year Publicized:** 2025
-- **Source Link:** https://socprime.com/blog/cve-2025-9074-docker-desktop-vulnerability/?utm_source=chatgpt.com
+- **Source Link:** https://socprime.com/blog/cve-2025-9074-docker-desktop-vulnerability
 - **Category:** Container Security Vulnerability / Docker Desktop / Local Container Access / Docker Engine API Exposure
 - **AI/LLM Related:** No
 
@@ -519,7 +519,7 @@ Hyundai dealers will update the front camera software at no cost. Owners of affe
 ### Defect 17 – Ghost CMS SQL Injection Vulnerability
 
 - **Year Publicized:** 2026
-- **Source Link:** [Paste source link here]
+- **Source Link:** https://thehackernews.com/2026/05/ghost-cms-cve-2026-26980-exploited-to.html
 - **Category:** Web Application Vulnerability / SQL Injection / CMS Security
 - **AI/LLM Related:** No
 
@@ -541,81 +541,72 @@ Website administrators should update Ghost CMS to version 6.19.1 or newer. They 
 
 ---
 
-### Defect 18 – [Defect Name]
+### Defect 18 – GitHub Merge Queue Incorrect Merge Commits
 
-- **Year Publicized:** [2022–2026]
-- **Source Link:** [Paste source link here]
-- **Category:** [Category]
-- **AI/LLM Related:** [Yes / No]
+- **Year Publicized:** 2026
+- **Source Link:** https://www.githubstatus.com/incidents/zsg1lk7w13cf
+- **Category:** Source Code Management Defect / Merge Queue Regression / Code Integrity Issue
+- **AI/LLM Related:** No
 
 **Description:**  
-[Brief description.]
+On April 23, 2026, GitHub Pull Requests service had a regression affecting merge queue with squash merge. When a merge group contained more than one pull request, GitHub could create an incorrect merge commit.
+
+This defect affected the correctness of the merge process. Instead of producing the expected final commit, the merge queue could generate a wrong commit and affect the state of the main branch.
 
 **Severity:**  
-[Low / Medium / High / Critical]
+High
 
 **Consequences:**  
-[Consequences.]
+The issue affected the integrity of source code. Incorrect merge commits could accidentally revert changes that had already been merged earlier. This could cause code loss, unexpected behavior, or leave the main branch in an incorrect state.
+
+Teams relying on GitHub merge queue during the affected period could have merged code that did not accurately represent the intended pull request changes.
 
 **Solution / Mitigation:**  
-[Solution.]
+Teams should audit all merges made between 16:05 and 20:43 UTC on April 23, 2026. If incorrect commits are found, they should be reverted or fixed manually.
+
+Projects affected by the bug should temporarily pause merge queue usage until the issue is resolved or verified safe. Teams should also check the main branch history to ensure that no previously merged changes were unintentionally reverted.
 
 ---
 
-### Defect 19 – [Defect Name]
+### Defect 19 – AWS DynamoDB DNS Automation Bug Causing Major AWS Outage
 
-- **Year Publicized:** [2022–2026]
-- **Source Link:** [Paste source link here]
-- **Category:** [Category]
-- **AI/LLM Related:** [Yes / No]
+- **Year Publicized:** 2025
+- **Source Link:** https://www.theguardian.com/technology/2025/oct/24/amazon-reveals-cause-of-aws-outage
+- **Category:** Cloud Infrastructure Defect / DNS Automation Bug / Service Outage
+- **AI/LLM Related:** No
 
 **Description:**  
-[Brief description.]
+In October 2025, AWS experienced a major outage caused by a bug in its automated DNS management system related to DynamoDB. The bug created an empty DNS record in the US-East-1 region. Because many AWS services and external platforms depend on AWS infrastructure, the DNS issue caused widespread service disruption.
 
 **Severity:**  
-[Low / Medium / High / Critical]
+Critical
 
 **Consequences:**  
-[Consequences.]
+The outage affected more than 2,000 services. Impacted services included messaging applications, banking services, smart devices, and many other online platforms. This made the defect serious because it affected large-scale cloud infrastructure and disrupted many dependent systems.
 
 **Solution / Mitigation:**  
-[Solution.]
+AWS disabled the automation tool that caused the faulty DNS record. AWS also added safeguards to prevent similar DNS automation errors from happening again in the future.
 
 ---
 
-### Defect 20 – [Defect Name]
+### Defect 20 – Cloudflare Bot Management Feature File Bug Causing Internet Outage
 
-- **Year Publicized:** [2022–2026]
-- **Source Link:** [Paste source link here]
-- **Category:** [Category]
-- **AI/LLM Related:** [Yes / No]
+- **Year Publicized:** 2025
+- **Source Link:** https://blog.cloudflare.com/18-november-2025-outage
+- **Category:** Cloud Infrastructure Defect / Configuration File Bug / Internet Outage
+- **AI/LLM Related:** No
 
 **Description:**  
-[Brief description.]
+On November 18, 2025, Cloudflare experienced an outage caused by a bug in the logic that generated a feature file for its Bot Management system. A database permission change caused the feature file to be generated with an abnormally large size. This abnormal file was then propagated across Cloudflare’s network, leading to service disruption.
 
 **Severity:**  
-[Low / Medium / High / Critical]
+Critical
 
 **Consequences:**  
-[Consequences.]
+The outage affected many major websites and online services. Services such as X, ChatGPT, Downdetector, and other platforms experienced access errors or interruptions. Cloudflare confirmed that the incident was not caused by a cyberattack, but by an internal system error.
 
 **Solution / Mitigation:**  
-[Solution.]
-
----
-
-## 4. AI/LLM-Related Defects Summary
-
-At least 5 of the 20 defects are related to AI/LLM issues.
-
-| No. | Defect Name | AI/LLM Issue Type | Explanation |
-|---|---|---|---|
-| [No.] | [Defect Name] | Hallucination / Bias / Prompt Injection / Unsafe Output | [Brief explanation] |
-| [No.] | [Defect Name] | Hallucination / Bias / Prompt Injection / Unsafe Output | [Brief explanation] |
-| [No.] | [Defect Name] | Hallucination / Bias / Prompt Injection / Unsafe Output | [Brief explanation] |
-| [No.] | [Defect Name] | Hallucination / Bias / Prompt Injection / Unsafe Output | [Brief explanation] |
-| [No.] | [Defect Name] | Hallucination / Bias / Prompt Injection / Unsafe Output | [Brief explanation] |
-
+Cloudflare deployed a fix and rolled back or controlled the abnormal feature file. The company also improved validation to prevent abnormal configuration or feature files from being propagated across the entire network again.
 ---
 
 ## 5. AI Bias or Hallucination When Explaining a Defect
