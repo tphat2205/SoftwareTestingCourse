@@ -1214,3 +1214,26 @@ This report identified 20 software defects publicized between 2022 and 2026. The
 ```
 ```
 
+## 26/05/2026
+
+**AI tool**: Copilot - GPT-5.2-Codex - Medium
+
+**Timestamp:** 2026-05-30 9:50:20 ICT (Asia/Ho_Chi_Minh)
+
+**Prompt:** 
+```
+Gộp 2 file Requirement01 và Requirement02 lại thành file report.md cho tôi. Làm trang mở đầu đầy đủ thông tin sinh viên, môn học.
+```
+
+**AI output:**
+
+```
+Da gộp 2 file vào report và thêm trang mở đầu theo thông tin bạn cung cấp. Nội dung trong requirement được giữ nguyên, chỉ thêm phần bìa phía trên.
+
+Xem tại: report.md
+
+Next steps (tùy bạn muốn):
+
+Mình có thể chỉnh lại tiêu đề bìa (in hoa/thường) hoặc thêm mục “Giảng viên”.
+Nếu cần, mình có thể thêm mục lục tự động trong report.
+```
