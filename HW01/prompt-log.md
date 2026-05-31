@@ -1327,3 +1327,60 @@ Dưới đây là template Markdown vừa đủ theo Requirement 3, bạn chỉ 
 | [TC ID] | [video-04.mp4] | [≤ 60s] | [Pass/Fail] |
 | [TC ID] | [video-05.mp4] | [≤ 60s] | [Pass/Fail] |
 ```
+
+## 01/06/2026
+
+**AI tool**: ChatGPT
+
+**Timestamp:** 12:02 AM 6/01/2026
+
+**Link chat:** https://chatgpt.com/share/6a1c69a5-24fc-83ec-9314-80d51ede3ed5
+
+**Prompt:** 
+```
+Chuột Gaming bluetooth không dây Atas F30
+- 3 Mode 
+- Pin sạc 500mah 
+- Sử dụng liên tục 50h 
+F30: 3 mode kết nối ( Có dây , bluetooth , không dây ) , DPI 10000, có app Macro , Polling Rate 1000hz
+THÔNG SỐ KỸ THUẬT chuột Gaming F30
+- Kết nối: Có dây , Bluetooth , không dây 2.4GhZ 
+- Pin lithium 500mah. 
+- Mắt Đọc: M16 
+- Có app Marco 
+- DPI: Max 10000 DPI 
+- Polling Rate : 1000Hz 
+- Con Lăn TTC cho độ bền cao. 
+- Switches: Huyu Độ bền 20 triệu lượt nhấn! 
+- Chuyển chế độ kết nối với 1 nút bấm Bluetooth and Wireless 2.4GHz modes. 
+- Thiết kế siêu nhẹ. 
+- Màu sắc: Đen / Trắng 
+- Low-resistance Teflon Feet.
+
+Based on this description of the mouse, Design 15 test cases (Objective / Input / Steps / Expected / Actual / Verdict).
+```
+
+**AI output:**
+```
+Below are **15 test cases** for the **Atas F30 Bluetooth Wireless Gaming Mouse**.
+
+| TC ID | Objective                                                    | Input                          | Steps                                                                                                                            | Expected Result                                                                                        | Actual Result  | Verdict |
+| ----- | ------------------------------------------------------------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | -------------- | ------- |
+| TC01  | Verify wired connection mode                                 | USB cable, PC/laptop           | 1. Connect mouse to PC using USB cable. 2. Move mouse. 3. Left-click/right-click.                                                | Mouse works normally in wired mode. Cursor moves and buttons respond.                                  | Not tested yet | TBD     |
+| TC02  | Verify Bluetooth connection mode                             | Bluetooth-enabled laptop/PC    | 1. Turn mouse on. 2. Switch to Bluetooth mode. 3. Pair with laptop/PC. 4. Move and click mouse.                                  | Mouse connects via Bluetooth and works normally.                                                       | Not tested yet | TBD     |
+| TC03  | Verify 2.4GHz wireless connection mode                       | USB receiver/dongle, PC/laptop | 1. Plug 2.4GHz receiver into PC. 2. Switch mouse to wireless mode. 3. Move and click mouse.                                      | Mouse connects through 2.4GHz mode and works normally.                                                 | Not tested yet | TBD     |
+| TC04  | Verify mode switching button                                 | Mouse mode switch button       | 1. Connect mouse in Bluetooth mode. 2. Press mode switch button. 3. Change to 2.4GHz mode. 4. Change to wired mode if supported. | Mouse can switch between connection modes correctly.                                                   | Not tested yet | TBD     |
+| TC05  | Verify maximum DPI setting                                   | DPI button / macro app         | 1. Open mouse app or press DPI button. 2. Set DPI to maximum 10000. 3. Move mouse on screen.                                     | Mouse supports DPI up to 10000 and cursor sensitivity increases clearly.                               | Not tested yet | TBD     |
+| TC06  | Verify different DPI levels                                  | DPI button                     | 1. Press DPI button several times. 2. Move mouse after each press. 3. Observe cursor speed.                                      | Cursor speed changes according to DPI level.                                                           | Not tested yet | TBD     |
+| TC07  | Verify polling rate 1000Hz                                   | Polling rate test software     | 1. Connect mouse in wired or 2.4GHz mode. 2. Open polling rate checker. 3. Move mouse continuously.                              | Polling rate can reach around 1000Hz.                                                                  | Not tested yet | TBD     |
+| TC08  | Verify battery charging                                      | USB charging cable             | 1. Connect mouse to charger/PC using USB cable. 2. Observe charging indicator. 3. Wait until fully charged.                      | Mouse charges normally and indicator shows charging/full status.                                       | Not tested yet | TBD     |
+| TC09  | Verify battery usage time                                    | Fully charged mouse            | 1. Fully charge mouse. 2. Use continuously in wireless/Bluetooth mode. 3. Record total usage time.                               | Mouse can operate close to the advertised 50 hours depending on usage conditions.                      | Not tested yet | TBD     |
+| TC10  | Verify macro app detection                                   | Mouse macro software           | 1. Install/open macro app. 2. Connect mouse. 3. Check whether device is detected.                                                | App detects the F30 mouse successfully.                                                                | Not tested yet | TBD     |
+| TC11  | Verify macro button configuration                            | Macro app, mouse buttons       | 1. Open macro app. 2. Assign a macro to a button. 3. Save settings. 4. Press assigned button.                                    | Assigned macro runs correctly when button is pressed.                                                  | Not tested yet | TBD     |
+| TC12  | Verify left and right button durability/basic response       | Left click, right click        | 1. Click left button multiple times. 2. Click right button multiple times. 3. Check response on PC.                              | Both buttons respond accurately without double-click or missed-click issues.                           | Not tested yet | TBD     |
+| TC13  | Verify scroll wheel function                                 | Scroll wheel                   | 1. Open a long webpage/document. 2. Scroll up and down. 3. Press middle click.                                                   | Scroll wheel moves smoothly and middle click works.                                                    | Not tested yet | TBD     |
+| TC14  | Edge case: Verify connection recovery after PC sleep/restart | PC sleep/restart               | 1. Connect mouse wirelessly. 2. Put PC to sleep or restart it. 3. Wake/reopen PC. 4. Move mouse.                                 | Mouse reconnects automatically or reconnects quickly without pairing again.                            | Not tested yet | TBD     |
+| TC15  | Edge case: Verify low-battery behavior                       | Mouse with low battery         | 1. Use mouse until battery is low. 2. Observe performance. 3. Try clicking and moving. 4. Connect charger if needed.             | Mouse should warn low battery if supported and should not randomly disconnect before battery is empty. | Not tested yet | TBD     |
+
+**Note:** For your report, after testing the real mouse, replace **“Not tested yet”** with your real observation and replace **“TBD”** with **Pass** or **Fail**.
+```

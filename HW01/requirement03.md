@@ -1,15 +1,14 @@
-```md
 # Requirement 3 – Test Cases for One Physical Product
 
 ## 1. Product Information
 
 | Item | Details |
 |---|---|
-| Household Device | [Device name] |
-| Brand | [Brand] |
-| Model | [Model] |
-| Year | [Year] |
-| Serial Number | [Serial number with middle 4 characters masked, e.g. AB12****7890] |
+| Device | Mouse |
+| Brand | Atas |
+| Model | F30 |
+| Year | 2026 |
+| Serial Number | F30A****3929
 
 ---
 
@@ -21,33 +20,208 @@
 
 ## 3. Test Cases
 
-| TC ID | Objective | Input | Steps | Expected Result | Actual Result | Verdict |
-|---|---|---|---|---|---|---|
-| TC01 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC02 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC03 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC04 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC05 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC06 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC07 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC08 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC09 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC10 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC11 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC12 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC13 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC14 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
-| TC15 | [Objective] | [Input] | [Step 1; Step 2; Step 3] | [Expected result] | [Actual result] | [Pass/Fail] |
+| TC ID | Test Case Name |
+|---|---|
+| TC01 | Verify wired connection mode |
+| TC02 | Verify Bluetooth connection mode |
+| TC03 | Verify 2.4GHz wireless connection mode |
+| TC04 | Verify mode switching button |
+| TC05 | Verify maximum DPI setting |
+| TC06 | Verify different DPI levels |
+| TC07 | Verify polling rate 1000Hz |
+| TC08 | Verify battery charging |
+| TC09 | Verify battery usage time |
+| TC10 | Verify macro app detection |
+| TC11 | Verify macro button configuration |
+| TC12 | Verify left and right button durability/basic response |
+| TC13 | Verify scroll wheel function |
+| TC14 | Edge case: Verify connection recovery after PC sleep/restart |
+| TC15 | Edge case: Verify low-battery behavior |
+
+### TC01 - Verify wired connection mode
+- Objective: Verify wired connection mode
+- Input: USB cable, PC/laptop
+- Steps:
+  1. Connect mouse to PC using USB cable.
+  2. Move mouse.
+  3. Left-click/right-click.
+- Expected: Mouse works normally in wired mode. Cursor moves and buttons respond.
+- Actual: Mouse works normally in wired mode. Cursor moves smoothly and left/right clicks respond correctly.
+- Verdict: Pass
+
+### TC02 - Verify Bluetooth connection mode
+- Objective: Verify Bluetooth connection mode
+- Input: Bluetooth-enabled laptop/PC
+- Steps:
+  1. Turn mouse on.
+  2. Switch to Bluetooth mode.
+  3. Pair with laptop/PC.
+  4. Move and click mouse.
+- Expected: Mouse connects via Bluetooth and works normally.
+- Actual: Mouse pairs over Bluetooth successfully and operates normally with stable cursor movement and clicks.
+- Verdict: Pass
+
+### TC03 - Verify 2.4GHz wireless connection mode
+- Objective: Verify 2.4GHz wireless connection mode
+- Input: USB receiver/dongle, PC/laptop
+- Steps:
+  1. Plug 2.4GHz receiver into PC.
+  2. Switch mouse to wireless mode.
+  3. Move and click mouse.
+- Expected: Mouse connects through 2.4GHz mode and works normally.
+- Actual: Mouse connects via 2.4GHz receiver and works normally; movement and clicks respond correctly.
+- Verdict: Pass
+
+### TC04 - Verify mode switching button
+- Objective: Verify mode switching button
+- Input: Mouse mode switch button
+- Steps:
+  1. Connect mouse in Bluetooth mode.
+  2. Press mode switch button.
+  3. Change to 2.4GHz mode.
+  4. Change to wired mode if supported.
+- Expected: Mouse can switch between connection modes correctly.
+- Actual: Mode switch cycles between Bluetooth, 2.4GHz, and wired modes as expected.
+- Verdict: Pass
+
+### TC05 - Verify maximum DPI setting
+- Objective: Verify maximum DPI setting
+- Input: DPI button / macro app
+- Steps:
+  1. Open mouse app or press DPI button.
+  2. Set DPI to maximum 10000.
+  3. Move mouse on screen.
+- Expected: Mouse supports DPI up to 10000 and cursor sensitivity increases clearly.
+- Actual: DPI reaches the maximum setting and cursor sensitivity increases noticeably.
+- Verdict: Pass
+
+### TC06 - Verify different DPI levels
+- Objective: Verify different DPI levels
+- Input: DPI button
+- Steps:
+  1. Press DPI button several times.
+  2. Move mouse after each press.
+  3. Observe cursor speed.
+- Expected: Cursor speed changes according to DPI level.
+- Actual: Cursor speed changes at each DPI level as the button is pressed.
+- Verdict: Pass
+
+### TC07 - Verify polling rate 1000Hz
+- Objective: Verify polling rate 1000Hz
+- Input: Polling rate test software
+- Steps:
+  1. Connect mouse in wired or 2.4GHz mode.
+  2. Open polling rate checker.
+  3. Move mouse continuously.
+- Expected: Polling rate can reach around 1000Hz.
+- Actual: Polling rate checker shows around 1000Hz during continuous movement.
+- Verdict: Pass
+
+### TC08 - Verify battery charging
+- Objective: Verify battery charging
+- Input: USB charging cable
+- Steps:
+  1. Connect mouse to charger/PC using USB cable.
+  2. Observe charging indicator.
+  3. Wait until fully charged.
+- Expected: Mouse charges normally and indicator shows charging/full status.
+- Actual: Charging indicator turns on and the mouse charges to full normally.
+- Verdict: Pass
+
+### TC09 - Verify battery usage time
+- Objective: Verify battery usage time
+- Input: Fully charged mouse
+- Steps:
+  1. Fully charge mouse.
+  2. Use continuously in wireless/Bluetooth mode.
+  3. Record total usage time.
+- Expected: Mouse can operate close to the advertised 50 hours depending on usage conditions.
+- Actual: Battery lasts close to the advertised 50 hours in wireless/Bluetooth use.
+- Verdict: Pass
+
+### TC10 - Verify macro app detection
+- Objective: Verify macro app detection
+- Input: Mouse macro software
+- Steps:
+  1. Install/open macro app.
+  2. Connect mouse.
+  3. Check whether device is detected.
+- Expected: App detects the F30 mouse successfully.
+- Actual: Macro app detects the F30 mouse successfully after connection.
+- Verdict: Pass
+
+### TC11 - Verify macro button configuration
+- Objective: Verify macro button configuration
+- Input: Macro app, mouse buttons
+- Steps:
+  1. Open macro app.
+  2. Assign a macro to a button.
+  3. Save settings.
+  4. Press assigned button.
+- Expected: Assigned macro runs correctly when button is pressed.
+- Actual: Assigned macro saves and executes correctly when the button is pressed.
+- Verdict: Pass
+
+### TC12 - Verify left and right button durability/basic response
+- Objective: Verify left and right button durability/basic response
+- Input: Left click, right click
+- Steps:
+  1. Click left button multiple times.
+  2. Click right button multiple times.
+  3. Check response on PC.
+- Expected: Both buttons respond accurately without double-click or missed-click issues.
+- Actual: Left and right buttons register consistently without missed or double clicks.
+- Verdict: Pass
+
+### TC13 - Verify scroll wheel function
+- Objective: Verify scroll wheel function
+- Input: Scroll wheel
+- Steps:
+  1. Open a long webpage/document.
+  2. Scroll up and down.
+  3. Press middle click.
+- Expected: Scroll wheel moves smoothly and middle click works.
+- Actual: Scroll wheel moves smoothly and middle click works on the page.
+- Verdict: Pass
+
+### TC14 - Verify side button Back function
+
+* Objective: Edge case: Verify the Back function of the left side button
+* Input: Mouse side Back button, web browser
+* Steps:
+
+  1. Open a web browser.
+  2. Visit two or more different webpages.
+  3. Press the Back side button on the mouse.
+  4. Observe the browser behavior.
+* Expected: The browser should return to the previous webpage when the Back side button is pressed.
+* Actual: Browser returns to the previous webpage correctly when the Back side button is pressed.
+* Verdict: Pass
+
+### TC15 - Verify side button Forward function
+
+* Objective: Edge case: Verify the Forward function of the left side button
+* Input: Mouse side Forward button, web browser
+* Steps:
+
+  1. Open a web browser.
+  2. Visit two or more different webpages.
+  3. Press the Back side button to go to the previous page.
+  4. Press the Forward side button on the mouse.
+  5. Observe the browser behavior.
+* Expected: The browser should move forward to the next webpage when the Forward side button is pressed.
+* Actual: Browser moves forward to the next webpage correctly when the Forward side button is pressed.
+* Verdict: Pass
 
 ---
 
 ## 4. Edge Cases AI Tool Could Not Find
 
-| Edge Case ID | Related Test Case | Explanation |
+| Edge Case ID | Edge Case Name | Explanation |
 |---|---|---|
-| EC01 | [TC ID] | [Explain why this is an edge case the AI tool could not find] |
-| EC02 | [TC ID] | [Explain why this is an edge case the AI tool could not find] |
-| EC03 | [TC ID] | [Explain why this is an edge case the AI tool could not find] |
+| EC01 | Test mouse behavior when USB receiver is plugged into a weak/loose USB port | This is an edge case because the 2.4GHz receiver may still be detected by the computer but the connection can become unstable if the USB port is loose or has weak contact. A normal AI-generated test usually assumes the USB port works perfectly and only checks whether the mouse connects successfully. |
+| EC02 | Test mouse behavior on different surfaces such as glass, cloth, and glossy table | This is an edge case because the mouse sensor may work differently depending on the surface. A normal test usually checks movement on a standard mouse pad, but real users may use the mouse on many surfaces that can cause cursor skipping or inaccurate tracking. |
+| EC03 | Test mouse behavior when Bluetooth and 2.4GHz receiver are both available at the same time | This is an edge case because the mouse may face connection priority issues or mode confusion when both Bluetooth pairing and 2.4GHz dongle are active. A normal test usually checks each connection mode separately, but this case checks whether the mouse chooses the correct mode without conflict. |
 
 ---
 
@@ -60,4 +234,3 @@
 | [TC ID] | [video-03.mp4] | [≤ 60s] | [Pass/Fail] |
 | [TC ID] | [video-04.mp4] | [≤ 60s] | [Pass/Fail] |
 | [TC ID] | [video-05.mp4] | [≤ 60s] | [Pass/Fail] |
-```
