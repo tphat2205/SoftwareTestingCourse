@@ -1,3 +1,4 @@
+```mermaid
 mindmap
   root((QA/QC Role
   ISTQB Foundation))
@@ -17,7 +18,7 @@ mindmap
       Exhaustive testing is impossible
       Early testing
       Defect clustering
-      Pesticide paradox
+      Tests wear out
       Testing is context dependent
       Absence-of-errors fallacy
     The Test Process
@@ -28,21 +29,18 @@ mindmap
       Test Implementation
       Test Execution
       Test Completion
-    Test Activities
-      Static Testing
-        Reviews
-        Static Analysis
-      Dynamic Testing
-        Black-box
-        White-box
-        Experience-based
+    Static Testing
+      Reviews
+      Static Analysis
+    Test Techniques
+      Black-box
+      White-box
+      Experience-based
     Test Levels
       Component Testing
       Integration Testing
       System Testing
       Acceptance Testing
     Key Roles
-      Test Manager
-      Test Analyst
-      Technical Test Analyst
+      Test Manager / Test Leader
       Tester

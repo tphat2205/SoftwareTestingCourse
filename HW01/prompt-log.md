@@ -1447,3 +1447,87 @@ mindmap
       Technical Test Analyst
       Tester
 ```
+---
+**AI tool**: ChatGPT
+
+**Timestamp:** 5:05 PM 6/01/2026
+
+**Link chat:** https://chatgpt.com/share/6a1d5ace-0178-83ec-a6d3-227c227e37a6
+
+**Prompt:** 
+```
+1. Mapping to Course Learning Outcomes (CLOs / Bloom-AI) CLO Short description Required activity in this HW G9.1 Ask AI Tool for ISTQB mindmap and correct it R1: AI Tool draws a QA/QC role mindmap; you find 3 mistakes. G9.3 Analyse AI output – find missing items R3: find ≥ 3 edge cases AI missed on a real device. Làm cho tôi template markdown report để tôi điền vào, vừa đủ và đúng yêu cầu phần này, không thêm các thông tin không liên quan.
+```
+
+**AI output:**
+```
+Dưới đây là template Markdown vừa đủ theo yêu cầu phần **Mapping to Course Learning Outcomes (CLOs / Bloom-AI)**:
+
+````markdown
+# Mapping to Course Learning Outcomes (CLOs / Bloom-AI)
+
+| CLO | Short Description | Required Activity in This Homework | Evidence / Student Work |
+|---|---|---|---|
+| G9.1 | Ask AI Tool for ISTQB mindmap and correct it | R1: AI Tool draws a QA/QC role mindmap; you find 3 mistakes. | [Paste AI-generated QA/QC role mindmap here] |
+| G9.3 | Analyse AI output – find missing items | R3: find ≥ 3 edge cases AI missed on a real device. | [Paste the 3 edge cases AI missed here] |
+
+---
+
+## G9.1 – AI Tool Mindmap Correction
+
+### AI Tool Used
+
+- AI Tool: [ChatGPT / Gemini / Copilot / Other]
+- Prompt Used:
+
+```text
+[Paste the prompt you used to ask the AI Tool to draw the ISTQB QA/QC role mindmap.]
+
+### AI-Generated Mindmap
+
+```markdown
+[Paste the AI-generated mindmap here.]
+
+### Three Mistakes Found and Corrected
+
+| No. | Mistake in AI Output | Why It Is Incorrect | Corrected Version |
+| --- | -------------------- | ------------------- | ----------------- |
+| 1   | [Mistake 1]          | [Explanation]       | [Correction]      |
+| 2   | [Mistake 2]          | [Explanation]       | [Correction]      |
+| 3   | [Mistake 3]          | [Explanation]       | [Correction]      |
+
+---
+
+## G9.3 – Missing Edge Cases Found
+
+### Product Tested
+
+| Item          | Details                |
+| ------------- | ---------------------- |
+| Product Name  | [Product name]         |
+| Brand / Model | [Brand / model]        |
+| Year          | [Year]                 |
+| Serial Number | [Masked serial number] |
+
+### AI Tool Used
+
+* AI Tool: [ChatGPT / Gemini / Copilot / Other]
+* Prompt Used:
+
+```text
+[Paste the prompt you used to ask AI to generate test cases.]
+
+### Edge Cases AI Missed
+
+| Edge Case ID | Edge Case Name     | Explanation                                                            | Related Test Case |
+| ------------ | ------------------ | ---------------------------------------------------------------------- | ----------------- |
+| EC01         | [Edge case name 1] | [Explain why this edge case was missed by AI and why it is important.] | [TC ID]           |
+| EC02         | [Edge case name 2] | [Explain why this edge case was missed by AI and why it is important.] | [TC ID]           |
+| EC03         | [Edge case name 3] | [Explain why this edge case was missed by AI and why it is important.] | [TC ID]           |
+
+---
+
+## Conclusion
+
+This section satisfies the Bloom-AI requirements by showing that I used an AI Tool, reviewed its output, identified mistakes or missing items, and corrected them based on course knowledge and real testing context.
+```
