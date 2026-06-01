@@ -64,7 +64,7 @@ According to the homework requirement, this section includes:
 
 ## Screenshot Evidence
 
-![alt text](image.png)
+![alt text](job1.png)
 
 ## Job Description
 
@@ -122,7 +122,7 @@ AI has a direct impact on this QA/QC role because the job requires experience wi
 
 ## Screenshot Evidence
 
-![alt text](image-1.png)
+![alt text](job2.png)
 
 ## Job Description
 
@@ -172,7 +172,7 @@ AI can support this web QC role by helping testers create test cases, analyze re
 
 ## Screenshot Evidence
 
-![alt text](image-2.png)
+![alt text](job3.png)
 
 ## Job Description
 
@@ -221,7 +221,7 @@ AI is directly relevant to this role because the product being tested is TeenCar
 
 ## Screenshot Evidence
 
-![alt text](image-3.png)
+![alt text](job4.png)
 
 ## Job Description
 
@@ -271,7 +271,7 @@ AI can help this job by checking quality data faster, finding defect patterns, a
 
 ## Screenshot Evidence
 
-![alt text](image-4.png)
+![alt text](job5.png)
 
 ## Job Description
 
@@ -316,7 +316,7 @@ AI can help this software testing job by creating test cases, preparing test dat
 
 ## Screenshot Evidence
 
-![alt text](image-5.png)
+![alt text](job6.png)
 
 ## Job Description
 
@@ -406,7 +406,7 @@ AI has a strong impact on this role because the project is an AI-powered EdTech 
 
 ## Screenshot Evidence
 
-![alt text](image-6.png)
+![alt text](job7.png)
 
 ## Job Description
 
@@ -458,7 +458,7 @@ AI has a very strong impact on this role because the company directly requires a
 
 ## Screenshot Evidence
 
-![alt text](image-7.png)
+![alt text](job8.png)
 
 ## Job Description
 
@@ -524,7 +524,7 @@ AI has a very strong impact on this role because the QA Engineer must test LLM-p
 
 ## Screenshot Evidence
 
-![alt text](image-8.png)
+![alt text](job9.png)
 
 ## Job Description
 
@@ -596,7 +596,7 @@ AI has a very strong impact on this role because the intern will test an AI-driv
 
 ## Screenshot Evidence
 
-![alt text](image-9.png)
+![alt text](job10.png)
 
 ## Job Description
 
@@ -1272,6 +1272,6 @@ https://apnews.com/article/mcdonalds-system-outage-b6c71ee8bd36af1eee4b3a5c929dc
 
 **Evidence**
 
-![alt text](image-10.png)
+![alt text](mcdonalds-outage-ai-response.png)
 
 ---

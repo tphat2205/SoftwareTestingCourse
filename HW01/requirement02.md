@@ -645,6 +645,6 @@ McDonald’s global technology outage in March 2024 was caused by a third-party 
 https://apnews.com/article/mcdonalds-system-outage-b6c71ee8bd36af1eee4b3a5c929dcf6e
 
 **Evidence**
-![alt text](image-10.png)
+![alt text](mcdonalds-outage-ai-response.png)
 
 ---
