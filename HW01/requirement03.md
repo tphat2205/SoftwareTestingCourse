@@ -37,6 +37,9 @@
 | TC13 | Verify scroll wheel function |
 | TC14 | Edge case: Verify connection recovery after PC sleep/restart |
 | TC15 | Edge case: Verify low-battery behavior |
+| EC01 | Test mouse behavior when USB receiver is plugged into a weak/loose USB port |
+| EC02 | Test mouse behavior on different surfaces |
+| EC03 | Test mouse behavior when used while charging |
 
 ### TC01 - Verify wired connection mode
 - Objective: Verify wired connection mode
@@ -79,7 +82,7 @@
   1. Connect mouse in Bluetooth mode.
   2. Press mode switch button.
   3. Change to 2.4GHz mode.
-  4. Change to wired mode if supported.
+  4. Change to wired mode.
 - Expected: Mouse can switch between connection modes correctly.
 - Actual: Mode switch cycles between Bluetooth, 2.4GHz, and wired modes as expected.
 - Verdict: Pass
@@ -217,11 +220,44 @@
 
 ## 4. Edge Cases AI Tool Could Not Find
 
-| Edge Case ID | Edge Case Name | Explanation |
-|---|---|---|
-| EC01 | Test mouse behavior when USB receiver is plugged into a weak/loose USB port | This is an edge case because the 2.4GHz receiver may still be detected by the computer but the connection can become unstable if the USB port is loose or has weak contact. A normal AI-generated test usually assumes the USB port works perfectly and only checks whether the mouse connects successfully. |
-| EC02 | Test mouse behavior on different surfaces such as glass, cloth, and glossy table | This is an edge case because the mouse sensor may work differently depending on the surface. A normal test usually checks movement on a standard mouse pad, but real users may use the mouse on many surfaces that can cause cursor skipping or inaccurate tracking. |
-| EC03 | Test mouse behavior when Bluetooth and 2.4GHz receiver are both available at the same time | This is an edge case because the mouse may face connection priority issues or mode confusion when both Bluetooth pairing and 2.4GHz dongle are active. A normal test usually checks each connection mode separately, but this case checks whether the mouse chooses the correct mode without conflict. |
+### EC01 - Test mouse behavior when USB receiver is plugged into a weak/loose USB port
+- Objective: Verify mouse stability when the 2.4GHz USB receiver is connected to a weak or loose USB port.
+- Input: Mouse, 2.4GHz USB receiver, PC/laptop with a loose or unstable USB port
+- Steps:
+  1. Plug the 2.4GHz USB receiver into a weak or loose USB port.
+  2. Switch the mouse to 2.4GHz wireless mode.
+  3. Move the mouse continuously.
+  4. Left-click and right-click several times.
+  5. Observe whether the cursor or clicks become unstable.
+- Expected: Mouse should still work normally if the receiver remains connected. Cursor movement and clicks should not lag or disconnect unexpectedly.
+- Actual: Mouse works normally and no random disconnection occurs.
+- Verdict: Pass
+
+### EC02 - Test mouse behavior on different surfaces
+- Objective: Verify mouse tracking performance on different surfaces.
+- Input: Mouse, glass surface, cloth surface, glossy table, normal mouse pad
+- Steps:
+  1. Place the mouse on a normal mouse pad and move it.
+  2. Place the mouse on a cloth surface and move it.
+  3. Place the mouse on a glossy table and move it.
+  4. Place the mouse on a glass surface and move it.
+  5. Observe cursor movement on each surface.
+- Expected: Mouse should track normally on common surfaces. Cursor movement should not skip, freeze, or become inaccurate.
+- Actual: Mouse tracks normally on the tested surfaces without cursor skipping or freezing.
+- Verdict: Pass
+
+### EC03 - Test mouse behavior when used while charging
+- Objective: Verify mouse operation while it is being charged with a USB cable.
+- Input: Mouse, USB charging cable, PC/laptop
+- Steps:
+  1. Connect the mouse to the PC/laptop using the USB charging cable.
+  2. Keep the mouse turned on.
+  3. Move the cursor while the mouse is charging.
+  4. Left-click and right-click several times.
+  5. Observe whether charging affects mouse operation.
+- Expected: Mouse should continue working normally while charging. Cursor movement and clicks should respond correctly.
+- Actual: Mouse works normally while charging. Cursor movement and clicks respond correctly.
+- Verdict: Pass
 
 ---
 
