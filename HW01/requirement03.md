@@ -14,7 +14,7 @@
 
 ## 2. Device Photo Evidence
 
-![Device and Student ID Card in the Same Frame](image-device-student-id.jpg)
+![Device and Student ID Card in the Same Frame](Device.jpg)
 
 ---
 
@@ -263,10 +263,10 @@
 
 ## 5. Executed Test Cases and Video Evidence
 
-| Executed TC ID | Video File | Duration | Result |
+| Executed TC ID | Video link | Duration | Result |
 |---|---|---|---|
-| [TC ID] | [video-01.mp4] | [≤ 60s] | [Pass/Fail] |
-| [TC ID] | [video-02.mp4] | [≤ 60s] | [Pass/Fail] |
-| [TC ID] | [video-03.mp4] | [≤ 60s] | [Pass/Fail] |
-| [TC ID] | [video-04.mp4] | [≤ 60s] | [Pass/Fail] |
-| [TC ID] | [video-05.mp4] | [≤ 60s] | [Pass/Fail] |
+| TC02 | https://youtube.com/shorts/-SnhBtGPlvs?feature=share | 34s | Pass |
+| TC05 | https://youtube.com/shorts/p9qnqqKDqa0?feature=share | 38s | Pass |
+| TC08 | https://youtube.com/shorts/ruSnMzWSyiw?feature=share | 50s | Pass |
+| TC13 | https://youtube.com/shorts/Dj1cPx9iwC4?feature=share | 41s | Pass |
+| EC03 | https://youtube.com/shorts/-R9UHJcC8OE?feature=share | 52s | Pass |
