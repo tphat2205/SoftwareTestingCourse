@@ -390,7 +390,7 @@ AI has a strong impact on this role because the project is an AI-powered EdTech 
 | Location | San Francisco, CA |
 | Posted Date | 12/05/2026 |
 | Salary | $190,000 - $250,000 |
-| Job Link | https://www.ziprecruiter.com/c/Heartflow/Job/Staff-Test-Engineer/-in-San-Francisco%2CCA?jid=1446df794ba9ce9d&utm_source=chatgpt.com |
+| Job Link | https://www.ziprecruiter.com/c/Heartflow/Job/Staff-Test-Engineer/-in-San-Francisco%2CCA?jid=1446df794ba9ce9d |
 
 ## Screenshot Evidence
 
