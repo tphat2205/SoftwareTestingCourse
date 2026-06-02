@@ -261,7 +261,18 @@
 
 ---
 
-## 5. Executed Test Cases and Video Evidence
+## 5. Execution Metrics
+
+| Metric | Count | Percentage |
+| :--- | :--- | :--- |
+| **Total Test Cases Designed** | 18 | 100% |
+| **Total Test Cases Executed** | 18 | 100% |
+| **Test Cases Passed** | 18 | 100% |
+| **Test Cases Failed** | 0 | 0% |
+| **Test Cases Blocked/Skipped** | 0 | 0% |
+| **Tests with Video Evidence** | 5 | 27.78% |
+
+## 6. Executed Test Cases and Video Evidence
 
 | Executed TC ID | Video link | Duration | Result |
 |---|---|---|---|

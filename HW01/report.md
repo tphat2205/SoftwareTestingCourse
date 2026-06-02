@@ -1,12 +1,12 @@
-﻿# REPORT
+﻿# HOMEWORK 01 REPORT
 
 ## Student Information
 
-* Full name: Doan Thanh Phat
+* Full name: Đoàn Thành Phát
 * Student ID: 23127241
 * Course / Class: Software Testing - 23KTPM2
-* University / Faculty: University of Science, Vietnam National University, Ho Chi Minh City
-* Report date: 2026-05-30
+* University: University of Science, Vietnam National University, Ho Chi Minh City
+* Report date: 2026-06-02
 
 
 ---
@@ -1537,9 +1537,18 @@ https://apnews.com/article/mcdonalds-system-outage-b6c71ee8bd36af1eee4b3a5c929dc
 - Actual: Mouse works normally while charging. Cursor movement and clicks respond correctly.
 - Verdict: Pass
 
----
+## 5. Execution Metrics
 
-## 5. Executed Test Cases and Video Evidence
+| Metric | Count | Percentage |
+| :--- | :--- | :--- |
+| **Total Test Cases Designed** | 18 | 100% |
+| **Total Test Cases Executed** | 18 | 100% |
+| **Test Cases Passed** | 18 | 100% |
+| **Test Cases Failed** | 0 | 0% |
+| **Test Cases Blocked/Skipped** | 0 | 0% |
+| **Tests with Video Evidence** | 5 | 27.78% |
+
+## 6. Executed Test Cases and Video Evidence
 
 | Executed TC ID | Video link | Duration | Result |
 |---|---|---|---|
@@ -1550,3 +1559,57 @@ https://apnews.com/article/mcdonalds-system-outage-b6c71ee8bd36af1eee4b3a5c929dc
 | EC03 | https://youtube.com/shorts/-R9UHJcC8OE?feature=share | 52s | Pass |
 
 ---
+
+# AI Audit Report
+
+## 1. Student Information
+
+| Field | Value |
+| :--- | :--- |
+| AI tool(s) used: | ChatGPT, Gemini, Copilot |
+| AI tool(s) used: | [X] Yes [ ] No |
+
+## 2. Audit Table
+
+| (1) Prompt \+ Tool | (2) AI Output | (3) Verdict | (4) Reasoning (ISTQB) | (5) Student Fix |
+| :---- | :---- | :---- | :---- | :---- |
+| **Tool: Gemini Time: 1:05 PM 01/06/2026 Prompt: Draw a QA/QC role mindmap based on ISTQB Foundation Level. Output as a Markdown code only and use the mermaid mindmap**  | mindmap   root((QA/QC Role   ISTQB Foundation))     Fundamental Concepts       Quality Assurance (QA)         Process-oriented         Prevention-focused       Quality Control (QC)         Product-oriented         Detection-focused       Testing Objectives         Prevent defects         Verify requirements         Validate user needs     Testing Principles       Testing shows presence of defects       Exhaustive testing is impossible       Early testing       Defect clustering       Pesticide paradox       Testing is context dependent       Absence-of-errors fallacy     The Test Process       Test Planning       Test Monitoring & Control       Test Analysis       Test Design       Test Implementation       Test Execution       Test Completion     Test Activities       Static Testing         Reviews         Static Analysis       Dynamic Testing         Black-box         White-box         Experience-based     Test Levels       Component Testing       Integration Testing       System Testing       Acceptance Testing     Key Roles       Test Manager       Test Analyst       Technical Test Analyst       Tester  | INCOMPLETE | 1\. *ISTQB FL v4.0 §4.1.1 & §4.2:* Black-box, White-box, and Experience-based are classified under Test Techniques, not grouped straight under "Dynamic Testing" as activities. 2\. *ISTQB FL v4.0 §1.4.1:* Static Testing is an independent part of the software development lifecycle testing, not a sub-activity under a generic "Test Activities" placeholder. 3\. *ISTQB FL v4.0 §1.5.1:* The Foundation Level syllabus outlines only two core roles: Test Manager (Test Leader) and Tester. "Test Analyst" and "Technical Test Analyst" belong to Advanced Level certifications. | Restructured the branches to explicitly separate Static Testing and Test Techniques into main nodes, and trimmed down the core roles to match the Foundation Level syllabus precisely. |
+| **Tool: ChatGPT Time: 12:02 AM 01/06/2026 Prompt: Chuột Gaming bluetooth không dây Atas F30 \- 3 Mode  \- Pin sạc 500mah  \- Sử dụng liên tục 50h  F30: 3 mode kết nối ( Có dây , bluetooth , không dây ) , DPI 10000, có app Macro , Polling Rate 1000hz THÔNG SỐ KỸ THUẬT chuột Gaming F30 \- Kết nối: Có dây , Bluetooth , không dây 2.4GhZ  \- Pin lithium 500mah.  \- Mắt Đọc: M16  \- Có app Marco  \- DPI: Max 10000 DPI  \- Polling Rate : 1000Hz  \- Con Lăn TTC cho độ bền cao.  \- Switches: Huyu Độ bền 20 triệu lượt nhấn\!  \- Chuyển chế độ kết nối với 1 nút bấm Bluetooth and Wireless 2.4GHz modes.  \- Thiết kế siêu nhẹ.  \- Màu sắc: Đen / Trắng  \- Low-resistance Teflon Feet. Based on this description of the mouse, Design 15 test cases (Objective / Input / Steps / Expected / Actual / Verdict). ** | Below are \*\*15 test cases\*\* for the \*\*Atas F30 Bluetooth Wireless Gaming Mouse\*\*. | TC ID | Objective                                                    | Input                          | Steps                                                                                                                            | Expected Result                                                                                        | Actual Result  | Verdict | | \----- | \------------------------------------------------------------ | \------------------------------ | \-------------------------------------------------------------------------------------------------------------------------------- | \------------------------------------------------------------------------------------------------------ | \-------------- | \------- | | TC01  | Verify wired connection mode                                 | USB cable, PC/laptop           | 1\. Connect mouse to PC using USB cable. 2\. Move mouse. 3\. Left-click/right-click.                                                | Mouse works normally in wired mode. Cursor moves and buttons respond.                                  | Not tested yet | TBD     | | TC02  | Verify Bluetooth connection mode                             | Bluetooth-enabled laptop/PC    | 1\. Turn mouse on. 2\. Switch to Bluetooth mode. 3\. Pair with laptop/PC. 4\. Move and click mouse.                                  | Mouse connects via Bluetooth and works normally.                                                       | Not tested yet | TBD     | | TC03  | Verify 2.4GHz wireless connection mode                       | USB receiver/dongle, PC/laptop | 1\. Plug 2.4GHz receiver into PC. 2\. Switch mouse to wireless mode. 3\. Move and click mouse.                                      | Mouse connects through 2.4GHz mode and works normally.                                                 | Not tested yet | TBD     | | TC04  | Verify mode switching button                                 | Mouse mode switch button       | 1\. Connect mouse in Bluetooth mode. 2\. Press mode switch button. 3\. Change to 2.4GHz mode. 4\. Change to wired mode if supported. | Mouse can switch between connection modes correctly.                                                   | Not tested yet | TBD     | | TC05  | Verify maximum DPI setting                                   | DPI button / macro app         | 1\. Open mouse app or press DPI button. 2\. Set DPI to maximum 10000\. 3\. Move mouse on screen.                                     | Mouse supports DPI up to 10000 and cursor sensitivity increases clearly.                               | Not tested yet | TBD     | | TC06  | Verify different DPI levels                                  | DPI button                     | 1\. Press DPI button several times. 2\. Move mouse after each press. 3\. Observe cursor speed.                                      | Cursor speed changes according to DPI level.                                                           | Not tested yet | TBD     | | TC07  | Verify polling rate 1000Hz                                   | Polling rate test software     | 1\. Connect mouse in wired or 2.4GHz mode. 2\. Open polling rate checker. 3\. Move mouse continuously.                              | Polling rate can reach around 1000Hz.                                                                  | Not tested yet | TBD     | | TC08  | Verify battery charging                                      | USB charging cable             | 1\. Connect mouse to charger/PC using USB cable. 2\. Observe charging indicator. 3\. Wait until fully charged.                      | Mouse charges normally and indicator shows charging/full status.                                       | Not tested yet | TBD     | | TC09  | Verify battery usage time                                    | Fully charged mouse            | 1\. Fully charge mouse. 2\. Use continuously in wireless/Bluetooth mode. 3\. Record total usage time.                               | Mouse can operate close to the advertised 50 hours depending on usage conditions.                      | Not tested yet | TBD     | | TC10  | Verify macro app detection                                   | Mouse macro software           | 1\. Install/open macro app. 2\. Connect mouse. 3\. Check whether device is detected.                                                | App detects the F30 mouse successfully.                                                                | Not tested yet | TBD     | | TC11  | Verify macro button configuration                            | Macro app, mouse buttons       | 1\. Open macro app. 2\. Assign a macro to a button. 3\. Save settings. 4\. Press assigned button.                                    | Assigned macro runs correctly when button is pressed.                                                  | Not tested yet | TBD     | | TC12  | Verify left and right button durability/basic response       | Left click, right click        | 1\. Click left button multiple times. 2\. Click right button multiple times. 3\. Check response on PC.                              | Both buttons respond accurately without double-click or missed-click issues.                           | Not tested yet | TBD     | | TC13  | Verify scroll wheel function                                 | Scroll wheel                   | 1\. Open a long webpage/document. 2\. Scroll up and down. 3\. Press middle click.                                                   | Scroll wheel moves smoothly and middle click works.                                                    | Not tested yet | TBD     | | TC14  | Edge case: Verify connection recovery after PC sleep/restart | PC sleep/restart               | 1\. Connect mouse wirelessly. 2\. Put PC to sleep or restart it. 3\. Wake/reopen PC. 4\. Move mouse.                                 | Mouse reconnects automatically or reconnects quickly without pairing again.                            | Not tested yet | TBD     | | TC15  | Edge case: Verify low-battery behavior                       | Mouse with low battery         | 1\. Use mouse until battery is low. 2\. Observe performance. 3\. Try clicking and moving. 4\. Connect charger if needed.             | Mouse should warn low battery if supported and should not randomly disconnect before battery is empty. | Not tested yet | TBD     | \*\*Note:\*\* For your report, after testing the real mouse, replace \*\*“Not tested yet”\*\* with your real observation and replace \*\*“TBD”\*\* with \*\*Pass\*\* or \*\*Fail\*\*.  | INCOMPLETE | *ISTQB FL §4.2.4 (Experience-based testing \- Exploratory & Error Guessing):* The AI failed to identify critical non-deterministic physical edge cases such as surface compatibility (glass/glossy surfaces) and electrical/mechanical status changes (operation behavior while actively charging, or receiver behavior when connected to loose ports). | Appended 3 highly specific engineering edge cases (EC01, EC02, EC03) focusing on mechanical, surface tracking, and charging-while-operating exceptions. Executed the tests on the real hardware. |
+| **Tool: Copilot (GPT-5 mini backend) Time: 23:29:20 28/05/2026 Prompt: Was the McDonald’s global outage in March 2024 caused by a cyberattack or Google Cloud migration? Explain the defect.**  | Short answer: it was not a cyberattack — McDonald’s said the outage was caused by a Google Cloud migration/configuration change.   What happened (concise defect explanation) \- Root cause type: a cloud configuration/deployment defect (availability/regression), not an intrusion.   \- Symptom: restaurant point-of-sale and digital ordering systems lost connectivity to McDonald’s cloud back end, preventing transactions and orders.   \- Technical nature (summary): a change made during/for the Google Cloud migration changed network/authentication/config settings so POS devices couldn’t reach or authenticate with the service (a deployment/ops error that broke service dependencies).   \- Evidence: McDonald’s and Google Cloud publicly said it was not due to a cyberattack and pointed to the cloud change as the cause; news coverage reported the same.   \- Fix/mitigation directions: roll back the change, restore proper network/auth configs, add stronger pre-deploy testing, change-validation, and safer rollout controls (feature flags, staged canaries, runbooks). If you want, I can fetch the official statements and news articles and paste short excerpts with links.  | INVALID | ISTQB FL §5.4 (Defect Management & Root Cause Analysis Verification): The model hallucinated a causal link by asserting the crash was directly tied to a Google Cloud migration error. Official post-mortems confirm it was a configuration update oversight pushed by a specific third-party technology provider, explicitly dissociated from any Google Cloud platform core failure. | Rewrote the entire root cause description block inside the report using verified investigative journalism data. Correction applied: Changed target statement to: "McDonald’s global technology outage in March 2024 was caused by a third-party technology provider during a configuration change. AP News confirmed the outage was not related to McDonald’s Google Cloud partnership."  |
+
+## 3. Summary of AI Accuracy
+
+| Metric | Count | Percentage |
+| :--- | :--- | :--- |
+| Total AI-generated artifacts audited | 3 | 100% |
+| VALID (correct, accepted as-is) | 0 | 0% |
+| INVALID (wrong; rejected) | 1 | 33.3% |
+| INCOMPLETE (acceptable after edits) | 2 | 66.6% |
+
+---
+
+# AI Critique (Conclusion)
+
+Based on the patterns observed during this coursework, AI tools demonstrate strong capability in handling rapid structural generation, such as organizing documentation schematics (Markdown templates) and generating initial mindmaps or deterministic happy-path test conditions. They significantly reduce time spent on early architectural phases. 
+
+However, AI systematically drops in reliability when tasked with uncovering non-deterministic physical testing scenarios (such as complex physical peripheral behaviors or surface deviations) or validating historical technical root causes without real-time data lookups. The tools tend to over-generalize or confidently hallucinate operational details. 
+
+**Recommendation:** For future testing engineering pipelines, AI should be aggressively deployed for rapid boilerplate automation and structural drafting ("first draft pass"). However, strict independent verification policies—specifically involving human domain experts reviewing compliance with ISTQB standards and checking root cause citations against verified public logs—must remain mandatory to mitigate severe safety and structural hallucinations.
+
+---
+
+# Mandatory Disclosure
+
+"The test cases blueprint, job market logging templates, and defect report structures were initially generated by ChatGPT, Gemini, and Copilot; I reviewed and modified the ISTQB QA/QC Mindmap branches and structural roles, added edge cases EC01, EC02, and EC03 focusing on peripheral hardware exceptions; the finalized execution logs, actual results validation, and root cause corrections for the historical defects were written entirely by me. The detailed AI Audit Report is attached as Appendix A. I confirm I did not use AI to generate any artifact listed in the prohibited category."
+
+# Self-Assessment 
+
+| No. | Criteria | Grade | Self-Assessed Grade |
+| :--- | :--- | :--- | :--- |
+| **1** | Job Market 2026+ (10 jobs × 3 pts + AI Impact) | 40 | 40 |
+| **2** | Software Defects 2022–2026 (20 defects) | 20 | 20 |
+| **3** | Physical-product test design (15 TCs + 5 videos) | 25 | 25 |
+| **AI-1** | [AI-02] AI Audit Report (5-section) attached | 8 | |
+| **AI-2** | AI Critique 200–300 words + [AI-03] Disclosure attached | 4 | 4 |
+| **AI-3** | [AI-05] Checklist signed + anti-cheat artifacts | 3 | 3 |
+| | Total | 100 | 100 |
