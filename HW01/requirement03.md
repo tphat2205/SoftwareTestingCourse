@@ -14,7 +14,7 @@
 
 ## 2. Device Photo Evidence
 
-![Device and Student ID Card in the Same Frame](Device.jpg)
+![Device and Student ID Card in the Same Frame](device_with_23127241.jpg)
 
 ---
 
