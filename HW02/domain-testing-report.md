@@ -107,3 +107,12 @@ Các giá trị đại diện được lựa chọn nhằm tối đa hóa độ 
 | DT_FR06_03   | Domain    | EC1, EC4, EC5      | `Product ID` = Tồn tại (VD: 1)<br>`Số lượng` = 0             | Hệ thống chặn không cho phép nhập số 0 (hoặc báo lỗi "Số lượng tối thiểu là 1"), không thực hiện thêm vào giỏ hàng.                                         |
 | DT_FR06_04   | Domain    | EC1, EC3, EC6      | `Product ID` = Tồn tại (VD: 1)<br>`Số lượng` = 1.5           | Hệ thống chặn không cho phép nhập số thập phân, không thực hiện thêm vào giỏ hàng.                                                                          |
 | DT_FR06_05   | Domain    | EC1, EC7           | `Product ID` = Tồn tại (VD: 1)<br>`Số lượng` = "abc"         | Hệ thống chặn không cho phép nhập chữ cái/ký tự đặc biệt vào ô số lượng.                                                                                    |
+
+---
+
+## AI Gap Analysis (Domain Testing - FR-06)
+
+Qua quá trình rà soát, phát hiện thiếu sót (gap) của AI tool do giới hạn mô hình (LLM limitations) và prompt:
+
+- **Bỏ quên nguyên tắc cô lập (Isolation):** AI thiết kế đúng test case (1 invalid kết hợp nhiều valid) nhưng quên ghi nhận các Valid EC vào cột `Partitions Covered` (chỉ ghi mỗi Invalid EC).
+- **Lý do (Why):** LLM thường thiếu tính chặt chẽ về truy xuất nguồn gốc (traceability) của ISTQB và chỉ tập trung vào mục tiêu bắt lỗi chính. Prompt cũng chưa ép buộc cụ thể việc này.

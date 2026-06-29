@@ -48,8 +48,17 @@ _(Ghi chú: Yêu cầu chức năng FR-06 không quy định giới hạn trên 
 
 Dưới đây là các Test Case tập trung kiểm thử tại các điểm biên đã xác định.
 
-| Test Case ID | Technique | Boundary Covered        | Inputs                                    | Expected Outcome                                                                                                           |
-| ------------ | --------- | ----------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| BVA_FR06_01  | BVA       | LB (1)                  | `Product ID` = Tồn tại<br>`Số lượng` = 1  | Hệ thống chấp nhận giá trị, thêm 1 sản phẩm vào giỏ hàng và hiển thị phản hồi "Đã thêm".                                   |
-| BVA_FR06_02  | BVA       | LB−1 (0)                | `Product ID` = Tồn tại<br>`Số lượng` = 0  | Hệ thống báo lỗi "Số lượng tối thiểu là 1" (hoặc không cho phép bấm thêm), không thêm sản phẩm vào giỏ hàng.               |
-| BVA_FR06_03  | BVA       | LB+1 (2)                | `Product ID` = Tồn tại<br>`Số lượng` = 2  | Hệ thống chấp nhận giá trị, thêm 2 sản phẩm vào giỏ hàng và hiển thị phản hồi "Đã thêm".                                   |
+| Test Case ID | Technique | Boundary Covered | Inputs                                   | Expected Outcome                                                                                             |
+| ------------ | --------- | ---------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| BVA_FR06_01  | BVA       | LB (1)           | `Product ID` = Tồn tại<br>`Số lượng` = 1 | Hệ thống chấp nhận giá trị, thêm 1 sản phẩm vào giỏ hàng và hiển thị phản hồi "Đã thêm".                     |
+| BVA_FR06_02  | BVA       | LB−1 (0)         | `Product ID` = Tồn tại<br>`Số lượng` = 0 | Hệ thống báo lỗi "Số lượng tối thiểu là 1" (hoặc không cho phép bấm thêm), không thêm sản phẩm vào giỏ hàng. |
+| BVA_FR06_03  | BVA       | LB+1 (2)         | `Product ID` = Tồn tại<br>`Số lượng` = 2 | Hệ thống chấp nhận giá trị, thêm 2 sản phẩm vào giỏ hàng và hiển thị phản hồi "Đã thêm".                     |
+
+---
+
+## AI Gap Analysis (BVA - FR-06)
+
+Qua quá trình rà soát, phát hiện thiếu sót (gap) của AI tool do giới hạn mô hình (LLM limitations) và prompt:
+
+- **Ảo giác về giá trị biên:** AI tự động sinh test case `Số lượng = -1` và gọi là biên UI, dù trước đó đã xác định UI không có thuộc tính `min`. 
+- **Lý do (Why):** AI bị "ảo giác" (hallucination) dựa trên pattern phổ biến trên mạng (thấy form nhập số là tự động test số âm) dẫn đến việc nhầm lẫn giữa một giá trị ngẫu nhiên (thuộc Domain/EP) với một giá trị biên thực sự (thuộc BVA) khi form không có ràng buộc UI cụ thể.
