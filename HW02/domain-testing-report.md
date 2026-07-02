@@ -234,10 +234,10 @@ Các giá trị đại diện được lựa chọn nhằm tối đa hóa độ 
 | DT_FR10_04   | Domain    | EC1, EC5           | API: User Hủy đơn<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `shipping` | Báo lỗi không thể hủy đơn hàng đang giao. Trạng thái giữ nguyên. |
 | DT_FR10_05   | Domain    | EC1, EC6           | API: User Hủy đơn<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `delivered` | Báo lỗi không thể hủy đơn hàng đã giao. Trạng thái giữ nguyên. |
 | DT_FR10_06   | Domain    | EC1, EC7           | API: User Hủy đơn<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `canceled` | Báo lỗi đơn hàng đã được hủy trước đó. |
-| DT_FR10_07   | Domain    | EC1, EC8           | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái mới` = `pending` | Đơn hàng được cập nhật trạng thái thành `pending` thành công. |
-| DT_FR10_08   | Domain    | EC1, EC9           | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái mới` = `confirmed` | Đơn hàng được cập nhật trạng thái thành `confirmed` thành công. |
-| DT_FR10_09   | Domain    | EC1, EC10          | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái mới` = `shipping` | Đơn hàng được cập nhật trạng thái thành `shipping` thành công. |
-| DT_FR10_10   | Domain    | EC1, EC11          | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái mới` = `delivered` | Đơn hàng được cập nhật trạng thái thành `delivered` thành công. |
-| DT_FR10_11   | Domain    | EC1, EC12          | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái mới` = `canceled` | Đơn hàng được cập nhật trạng thái thành `canceled` thành công. |
-| DT_FR10_12   | Domain    | EC2                | API: Admin Cập nhật<br>`Mã đơn hàng` = Không tồn tại<br>`Trạng thái mới` = `shipping` | Báo lỗi đơn hàng không tồn tại. |
-| DT_FR10_13   | Domain    | EC1, EC13          | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái mới` = `returned` | Báo lỗi trạng thái không hợp lệ. |
+| DT_FR10_07   | Domain    | EC1, EC3, EC8      | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `pending` | Đơn hàng được cập nhật trạng thái thành `pending` thành công. |
+| DT_FR10_08   | Domain    | EC1, EC3, EC9      | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `confirmed` | Đơn hàng được cập nhật trạng thái thành `confirmed` thành công. |
+| DT_FR10_09   | Domain    | EC1, EC3, EC10     | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `shipping` | Đơn hàng được cập nhật trạng thái thành `shipping` thành công. |
+| DT_FR10_10   | Domain    | EC1, EC3, EC11     | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `delivered` | Đơn hàng được cập nhật trạng thái thành `delivered` thành công. |
+| DT_FR10_11   | Domain    | EC1, EC3, EC12     | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `canceled` | Đơn hàng được cập nhật trạng thái thành `canceled` thành công. |
+| DT_FR10_12   | Domain    | EC2, EC10          | API: Admin Cập nhật<br>`Mã đơn hàng` = Không tồn tại<br>`Trạng thái hiện tại` = N/A<br>`Trạng thái mới` = `shipping` | Báo lỗi đơn hàng không tồn tại. |
+| DT_FR10_13   | Domain    | EC1, EC3, EC13     | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `returned` | Báo lỗi trạng thái không hợp lệ. |
