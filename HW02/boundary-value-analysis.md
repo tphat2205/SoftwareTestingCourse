@@ -164,3 +164,12 @@ Dưới đây là các Test Case tập trung kiểm tra ranh giới của `price
 | BVA_FR15_04  | BVA       | Độ dài `name` LB (1)      | API: Thêm sản phẩm<br>`name` = "A" (1 ký tự)<br>`price` = 1000<br>`category_id` = Tồn tại  | Thành công, tạo sản phẩm với tên "A".  |
 | BVA_FR15_05  | BVA       | Độ dài `name` LB-1 (0)    | API: Thêm sản phẩm<br>`name` = "" (rỗng)<br>`price` = 1000<br>`category_id` = Tồn tại      | Báo lỗi: Tên sản phẩm không được rỗng. |
 | BVA_FR15_06  | BVA       | Độ dài `name` LB+1 (2)    | API: Thêm sản phẩm<br>`name` = "AB" (2 ký tự)<br>`price` = 1000<br>`category_id` = Tồn tại | Thành công, tạo sản phẩm với tên "AB". |
+
+---
+
+## AI Gap Analysis (BVA - FR-15)
+
+Qua quá trình rà soát, phát hiện thiếu sót (gap) của AI tool do giới hạn mô hình (LLM limitations):
+
+- **Bỏ quên Test Case trong 3-value BVA:** AI đã phân tích và kẻ bảng phân vùng chuẩn xác với đầy đủ 3 giá trị biên cho độ dài tên sản phẩm (`LB=1`, `LB-1=0`, `LB+1=2`). Tuy nhiên, khi xuống phần liệt kê Test Case, AI lại bỏ quên mất trường hợp `LB+1 (2)`.
+- **Lý do (Why):** LLM thường gặp vấn đề về tính nhất quán (inconsistency) và "suy giảm sự chú ý" (attention drift) trong các chuỗi suy luận dài. Dù bước trên AI tính toán đúng theo công thức 3-value BVA, nhưng khi sinh test case, nó lại bị thiên kiến (bias) bởi các mẫu dữ liệu huấn luyện phổ biến (vốn thường chỉ xài 2-value BVA cơ bản là LB và LB-1) dẫn đến việc "tự động lược bỏ" mất một test case quan trọng của kỹ thuật 3 điểm.

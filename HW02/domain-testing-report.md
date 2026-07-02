@@ -388,3 +388,12 @@ Dưới đây là các test case tập trung vào API Cập nhật (`PUT /api/pr
 | DT_FR15_04   | Domain    | EC1, EC3, EC6, EC8 | API: Cập nhật<br>`Product ID` = Tồn tại<br>`name` = "Sản phẩm A"<br>`price` = -50000<br>`category_id` = Tồn tại       | Báo lỗi giá sản phẩm không được âm.                |
 | DT_FR15_05   | Domain    | EC1, EC3, EC7, EC8 | API: Cập nhật<br>`Product ID` = Tồn tại<br>`name` = "Sản phẩm A"<br>`price` = "abc"<br>`category_id` = Tồn tại        | Báo lỗi định dạng giá trị giá không hợp lệ.        |
 | DT_FR15_06   | Domain    | EC1, EC3, EC5, EC9 | API: Cập nhật<br>`Product ID` = Tồn tại<br>`name` = "Sản phẩm A"<br>`price` = 150000<br>`category_id` = Không tồn tại | Báo lỗi danh mục sản phẩm không tồn tại.           |
+
+---
+
+## AI Gap Analysis (Domain Testing - FR-15)
+
+Qua quá trình rà soát, **không phát hiện lỗi sai logic nào** trong phần Domain Testing của FR-15 do AI tạo ra. Các nguyên tắc "Cô lập lỗi" (Isolation) và "Truy xuất nguồn gốc" (Traceability) đều được tuân thủ tuyệt đối.
+
+- **Vì sao AI làm tốt ở FR-15?** Do chất lượng của Prompt (đầu vào) đã được cải thiện. Trong Prompt sinh ra FR-15, người dùng (hoặc Context) đã chủ động nhắc lại bài học từ FR-10 (nhắc nhở AI về việc kết hợp đầy đủ Valid EC).
+- **Bài học (AI Limitation):** Nếu không có sự ép buộc rõ ràng bằng Prompt (như ở FR-06 và FR-10), bản năng của LLM luôn có xu hướng bỏ qua các tiêu chuẩn hành chính (administrative standards) của ISTQB để tìm đường đi ngắn nhất (chỉ test lỗi chính). Điều này chứng minh AI cần sự điều hướng (steering) và cấp ngữ cảnh liên tục từ con người để đạt chuẩn kiểm thử chuyên nghiệp.
