@@ -89,23 +89,6 @@ Theo định nghĩa của ISTQB, ta có thể áp dụng BVA cho dữ liệu chu
 - **UB (`confirmed`)**: Trạng thái cuối cùng của đơn hàng còn nằm trong vùng Valid (ngay trước khi bắt đầu giao). Đây là điểm biên quan trọng nhất để đảm bảo hệ thống không bị lỗi off-by-one (ví dụ vô tình chặn hủy sớm ở trạng thái confirmed).
 - **UB+1 (`shipping`)**: Trạng thái đầu tiên ngay sau khi vượt qua biên hợp lệ (nằm trong vùng Invalid). Phát hiện lỗi hệ thống không chặn kịp thời (cho phép hủy khi đơn đã bắt đầu giao).
 
-### Ordered Partition 2: `Mã đơn hàng (Order ID)`
-
-Nếu hệ thống lưu trữ `Order ID` dưới dạng số nguyên tự tăng (Auto-increment Integer), nó sẽ tạo thành một phân vùng có thứ tự với giới hạn dưới.
-
-- **Valid Partition**: `[1, +∞)`
-- **Invalid Partition**: `(-∞, 0]`
-
-| Partition | LB | LB−1 | LB+1 | UB−1 | UB | UB+1 |
-| --------- | --- | ---- | ---- | ---- | --- | ---- |
-| `Order ID` >= 1 | 1 | 0 | 2 | N/A | N/A | N/A |
-
-**Giải thích các điểm biên:**
-- **LB (1)**: Giá trị ID hợp lệ nhỏ nhất theo thiết kế DB thông thường.
-- **LB-1 (0)**: Giá trị ID không hợp lệ nằm ngay sát biên dưới.
-
----
-
 ### Boundary Value Analysis Test Cases
 
 Dưới đây là các Test Case tập trung kiểm thử tại các điểm biên đã xác định.
@@ -115,5 +98,3 @@ Dưới đây là các Test Case tập trung kiểm thử tại các điểm bi�
 | BVA_FR10_01 | BVA | Trạng thái UB (`confirmed`) | API: User Hủy đơn<br>`Order ID` = Tồn tại<br>`Trạng thái` = `confirmed` | Hủy đơn thành công, chuyển sang `canceled`. |
 | BVA_FR10_02 | BVA | Trạng thái UB+1 (`shipping`) | API: User Hủy đơn<br>`Order ID` = Tồn tại<br>`Trạng thái` = `shipping` | Hệ thống báo lỗi: Không thể hủy đơn hàng đang giao. |
 | BVA_FR10_03 | BVA | Trạng thái LB (`pending`) | API: User Hủy đơn<br>`Order ID` = Tồn tại<br>`Trạng thái` = `pending` | Hủy đơn thành công, chuyển sang `canceled`. |
-| BVA_FR10_04 | BVA | ID LB (1) | API: User Hủy đơn<br>`Order ID` = 1<br>`Trạng thái` = `pending` | Hệ thống xử lý bình thường (Hủy thành công nếu ID 1 tồn tại, hoặc báo Not Found nếu ID 1 chưa có). |
-| BVA_FR10_05 | BVA | ID LB-1 (0) | API: User Hủy đơn<br>`Order ID` = 0<br>`Trạng thái` = `pending` | Hệ thống báo lỗi ID không hợp lệ. |
