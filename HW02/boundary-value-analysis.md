@@ -156,10 +156,11 @@ Tên sản phẩm không được phép để rỗng, điều này tương đư�
 
 Dưới đây là các Test Case tập trung kiểm tra ranh giới của `price` và độ dài `name`.
 
-| Test Case ID | Technique | Boundary Covered          | Inputs                                                                                    | Expected Outcome                       |
-| ------------ | --------- | ------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------- |
-| BVA_FR15_01  | BVA       | Giá trị `price` LB (0)    | API: Thêm sản phẩm<br>`name` = "SP"<br>`price` = 0<br>`category_id` = Tồn tại             | Thành công, tạo sản phẩm với giá 0.    |
-| BVA_FR15_02  | BVA       | Giá trị `price` LB-1 (-1) | API: Thêm sản phẩm<br>`name` = "SP"<br>`price` = -1<br>`category_id` = Tồn tại            | Báo lỗi: Giá sản phẩm không được âm.   |
-| BVA_FR15_03  | BVA       | Giá trị `price` LB+1 (1)  | API: Thêm sản phẩm<br>`name` = "SP"<br>`price` = 1<br>`category_id` = Tồn tại             | Thành công, tạo sản phẩm với giá 1.    |
-| BVA_FR15_04  | BVA       | Độ dài `name` LB (1)      | API: Thêm sản phẩm<br>`name` = "A" (1 ký tự)<br>`price` = 1000<br>`category_id` = Tồn tại | Thành công, tạo sản phẩm với tên "A".  |
-| BVA_FR15_05  | BVA       | Độ dài `name` LB-1 (0)    | API: Thêm sản phẩm<br>`name` = "" (rỗng)<br>`price` = 1000<br>`category_id` = Tồn tại     | Báo lỗi: Tên sản phẩm không được rỗng. |
+| Test Case ID | Technique | Boundary Covered          | Inputs                                                                                     | Expected Outcome                       |
+| ------------ | --------- | ------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------- |
+| BVA_FR15_01  | BVA       | Giá trị `price` LB (0)    | API: Thêm sản phẩm<br>`name` = "SP"<br>`price` = 0<br>`category_id` = Tồn tại              | Thành công, tạo sản phẩm với giá 0.    |
+| BVA_FR15_02  | BVA       | Giá trị `price` LB-1 (-1) | API: Thêm sản phẩm<br>`name` = "SP"<br>`price` = -1<br>`category_id` = Tồn tại             | Báo lỗi: Giá sản phẩm không được âm.   |
+| BVA_FR15_03  | BVA       | Giá trị `price` LB+1 (1)  | API: Thêm sản phẩm<br>`name` = "SP"<br>`price` = 1<br>`category_id` = Tồn tại              | Thành công, tạo sản phẩm với giá 1.    |
+| BVA_FR15_04  | BVA       | Độ dài `name` LB (1)      | API: Thêm sản phẩm<br>`name` = "A" (1 ký tự)<br>`price` = 1000<br>`category_id` = Tồn tại  | Thành công, tạo sản phẩm với tên "A".  |
+| BVA_FR15_05  | BVA       | Độ dài `name` LB-1 (0)    | API: Thêm sản phẩm<br>`name` = "" (rỗng)<br>`price` = 1000<br>`category_id` = Tồn tại      | Báo lỗi: Tên sản phẩm không được rỗng. |
+| BVA_FR15_06  | BVA       | Độ dài `name` LB+1 (2)    | API: Thêm sản phẩm<br>`name` = "AB" (2 ký tự)<br>`price` = 1000<br>`category_id` = Tồn tại | Thành công, tạo sản phẩm với tên "AB". |
