@@ -62,3 +62,58 @@ Qua quá trình rà soát, phát hiện thiếu sót (gap) của AI tool do gi�
 
 - **Ảo giác về giá trị biên:** AI tự động sinh test case `Số lượng = -1` và gọi là biên UI, dù trước đó đã xác định UI không có thuộc tính `min`. 
 - **Lý do (Why):** AI bị "ảo giác" (hallucination) dựa trên pattern phổ biến trên mạng (thấy form nhập số là tự động test số âm) dẫn đến việc nhầm lẫn giữa một giá trị ngẫu nhiên (thuộc Domain/EP) với một giá trị biên thực sự (thuộc BVA) khi form không có ràng buộc UI cụ thể.
+
+---
+
+## Feature: FR-10 - Order state machine
+
+# Step 4 – Boundary Value Analysis
+
+### Ordered Partition 1: Trình tự trạng thái đơn hàng (Order State Sequence)
+
+Trong FR-10, `Trạng thái hiện tại` của một đơn hàng là một tập hợp các giá trị rời rạc. Tuy nhiên, xét về mặt logic nghiệp vụ, vòng đời đơn hàng là một **chuỗi có tính thứ tự (Sequential data)** tiến triển theo thời gian:
+`pending` -> `confirmed` -> `shipping` -> `delivered`.
+Theo định nghĩa của ISTQB, ta có thể áp dụng BVA cho dữ liệu chuỗi tuần tự này đối với tính năng Hủy đơn hàng của User (ràng buộc: chỉ được hủy khi đơn hàng "chưa giao").
+
+- **Valid Partition (Được phép hủy)**: `[pending, confirmed]`
+- **Invalid Partition (Không được phép hủy)**: `[shipping, delivered]`
+
+| Partition | LB | LB−1 | LB+1 | UB−1 | UB | UB+1 |
+| --------- | --- | ---- | ---- | ---- | --- | ---- |
+| Trạng thái Hủy đơn | `pending` | N/A | `confirmed` | `pending` | `confirmed` | `shipping` |
+
+*(Ghi chú: Vì chuỗi trạng thái chỉ có 4 bước thứ tự tuyến tính chính, các giá trị LB+1/UB và UB-1/LB bị trùng lặp. LB-1 là N/A vì không có trạng thái hợp lệ nào trước `pending`).*
+
+**Giải thích các điểm biên:**
+- **LB (`pending`)**: Trạng thái đầu tiên của đơn hàng (nằm trong vùng Valid). Đảm bảo đơn hàng vừa tạo xong có thể hủy ngay lập tức.
+- **UB (`confirmed`)**: Trạng thái cuối cùng của đơn hàng còn nằm trong vùng Valid (ngay trước khi bắt đầu giao). Đây là điểm biên quan trọng nhất để đảm bảo hệ thống không bị lỗi off-by-one (ví dụ vô tình chặn hủy sớm ở trạng thái confirmed).
+- **UB+1 (`shipping`)**: Trạng thái đầu tiên ngay sau khi vượt qua biên hợp lệ (nằm trong vùng Invalid). Phát hiện lỗi hệ thống không chặn kịp thời (cho phép hủy khi đơn đã bắt đầu giao).
+
+### Ordered Partition 2: `Mã đơn hàng (Order ID)`
+
+Nếu hệ thống lưu trữ `Order ID` dưới dạng số nguyên tự tăng (Auto-increment Integer), nó sẽ tạo thành một phân vùng có thứ tự với giới hạn dưới.
+
+- **Valid Partition**: `[1, +∞)`
+- **Invalid Partition**: `(-∞, 0]`
+
+| Partition | LB | LB−1 | LB+1 | UB−1 | UB | UB+1 |
+| --------- | --- | ---- | ---- | ---- | --- | ---- |
+| `Order ID` >= 1 | 1 | 0 | 2 | N/A | N/A | N/A |
+
+**Giải thích các điểm biên:**
+- **LB (1)**: Giá trị ID hợp lệ nhỏ nhất theo thiết kế DB thông thường.
+- **LB-1 (0)**: Giá trị ID không hợp lệ nằm ngay sát biên dưới.
+
+---
+
+### Boundary Value Analysis Test Cases
+
+Dưới đây là các Test Case tập trung kiểm thử tại các điểm biên đã xác định.
+
+| Test Case ID | Technique | Boundary Covered | Inputs | Expected Outcome |
+| ------------ | --------- | ---------------- | ------ | ---------------- |
+| BVA_FR10_01 | BVA | Trạng thái UB (`confirmed`) | API: User Hủy đơn<br>`Order ID` = Tồn tại<br>`Trạng thái` = `confirmed` | Hủy đơn thành công, chuyển sang `canceled`. |
+| BVA_FR10_02 | BVA | Trạng thái UB+1 (`shipping`) | API: User Hủy đơn<br>`Order ID` = Tồn tại<br>`Trạng thái` = `shipping` | Hệ thống báo lỗi: Không thể hủy đơn hàng đang giao. |
+| BVA_FR10_03 | BVA | Trạng thái LB (`pending`) | API: User Hủy đơn<br>`Order ID` = Tồn tại<br>`Trạng thái` = `pending` | Hủy đơn thành công, chuyển sang `canceled`. |
+| BVA_FR10_04 | BVA | ID LB (1) | API: User Hủy đơn<br>`Order ID` = 1<br>`Trạng thái` = `pending` | Hệ thống xử lý bình thường (Hủy thành công nếu ID 1 tồn tại, hoặc báo Not Found nếu ID 1 chưa có). |
+| BVA_FR10_05 | BVA | ID LB-1 (0) | API: User Hủy đơn<br>`Order ID` = 0<br>`Trạng thái` = `pending` | Hệ thống báo lỗi ID không hợp lệ. |
