@@ -249,3 +249,142 @@ Qua quá trình rà soát, phát hiện thiếu sót (gap) của AI tool do gi�
 - **Khuyết thiếu trạng thái DB (Pre-condition):** Ở các test case Admin cập nhật trạng thái, AI đã bỏ quên không thiết lập `Trạng thái hiện tại` của đơn hàng (dù đây là một Input bắt buộc để tái tạo test case một cách thực tế).
 - **Thiếu sót ghi nhận Valid EC:** Ở `DT_FR10_12`, AI lặp lại lỗi cũ khi chỉ ghi nhận mỗi `EC2` (Invalid) mà quên không ghi `EC10` (Valid).
 - **Lý do (Why):** LLM thường chỉ tập trung vào "mục tiêu kiểm thử chính" (core logic/API Body) mà bỏ quên khía cạnh hành chính và quy trình thực hành thực tế (setup DB state trước khi gọi API) để đảm bảo tính khả lặp (reproducibility). Nếu prompt không đưa ra chỉ thị thật khắt khe (strict rule), AI sẽ dễ dãi bỏ qua các ràng buộc "Isolation" của ISTQB.
+
+---
+
+## Feature: FR-15 - Product management (CRUD)
+
+# Step-by-Step Explanation
+
+## Step 1 – Input & Output Identification
+
+### Business Objective
+
+Cho phép Quản trị viên (Admin) thực hiện các thao tác quản lý danh mục sản phẩm bao gồm: Thêm mới (Create), Xem (Read), Cập nhật (Update) và Xóa (Delete) sản phẩm.
+
+### Inputs
+
+Dưới đây là các input chính khi Admin thực hiện Thêm mới (`POST /api/products`) hoặc Cập nhật (`PUT /api/products/:id`):
+
+| Input         | Type               | Constraints                                                        |
+| ------------- | ------------------ | ------------------------------------------------------------------ |
+| `Product ID`  | URL Parameter      | (Chỉ áp dụng khi Cập nhật/Xóa). Phải là một ID tồn tại trong CSDL. |
+| `name`        | String (API Body)  | Tên sản phẩm, bắt buộc phải có và không được rỗng.                 |
+| `price`       | Integer (API Body) | Giá sản phẩm, bắt buộc, phải là số nguyên >= 0.                    |
+| `category_id` | Integer (API Body) | ID danh mục sản phẩm, bắt buộc, phải tồn tại trong CSDL.           |
+
+_(Các trường như `description` và `imageUrl` được xem là tùy chọn, không có ràng buộc chặt chẽ nào ngoài việc là kiểu chuỗi hợp lệ nên không đưa vào phân tích lớp tương đương để tập trung vào logic chính)._
+
+### Outputs
+
+| Output                | Description                                                                         |
+| --------------------- | ----------------------------------------------------------------------------------- |
+| `Thao tác thành công` | Hệ thống thực hiện thay đổi và trả về mã 200 OK / 201 Created kèm dữ liệu sản phẩm. |
+| `Lỗi không tìm thấy`  | Hệ thống trả về lỗi (404) khi `Product ID` hoặc `category_id` không tồn tại.        |
+| `Lỗi dữ liệu đầu vào` | Báo lỗi (400 Bad Request) khi `name` rỗng, `price` bị âm hoặc sai định dạng.        |
+
+---
+
+## Step 2 – Equivalence Classes
+
+### Condition 1
+
+`Product ID` tồn tại trong hệ thống (khi Cập nhật/Xóa).
+
+### Interpretation
+
+Khi thao tác trên một sản phẩm đã có, `Product ID` truyền trên URL phải hợp lệ và có trong CSDL.
+
+### Valid Equivalence Classes
+
+| EC ID | Description                     |
+| ----- | ------------------------------- |
+| EC1   | `Product ID` tồn tại trong CSDL |
+
+### Invalid Equivalence Classes
+
+| EC ID | Description                           |
+| ----- | ------------------------------------- |
+| EC2   | `Product ID` không tồn tại trong CSDL |
+
+---
+
+### Condition 2
+
+`name` (Tên sản phẩm) không được rỗng.
+
+### Interpretation
+
+Theo Rule 3 (Must-Be Condition), tên sản phẩm phải được cung cấp và không là chuỗi rỗng.
+
+### Valid Equivalence Classes
+
+| EC ID | Description                               |
+| ----- | ----------------------------------------- |
+| EC3   | `name` chứa các ký tự hợp lệ (không rỗng) |
+
+### Invalid Equivalence Classes
+
+| EC ID | Description                                        |
+| ----- | -------------------------------------------------- |
+| EC4   | `name` bị rỗng (chuỗi rỗng `""` hoặc không truyền) |
+
+---
+
+### Condition 3
+
+`price` (Giá sản phẩm) là số nguyên >= 0.
+
+### Interpretation
+
+Giá của sản phẩm phải là một con số hợp lệ và không được phép âm. Áp dụng Rule 1 (Range Condition) và Rule 3 (Must-Be Condition).
+
+### Valid Equivalence Classes
+
+| EC ID | Description                   |
+| ----- | ----------------------------- |
+| EC5   | `price` là số và `price` >= 0 |
+
+### Invalid Equivalence Classes
+
+| EC ID | Description                                            |
+| ----- | ------------------------------------------------------ |
+| EC6   | `price` < 0 (giá trị âm)                               |
+| EC7   | `price` không phải là số (VD: chữ cái, ký tự đặc biệt) |
+
+---
+
+### Condition 4
+
+`category_id` tồn tại trong hệ thống.
+
+### Interpretation
+
+Sản phẩm phải thuộc về một danh mục hợp lệ đã có trong hệ thống.
+
+### Valid Equivalence Classes
+
+| EC ID | Description                               |
+| ----- | ----------------------------------------- |
+| EC8   | `category_id` tồn tại trong CSDL danh mục |
+
+### Invalid Equivalence Classes
+
+| EC ID | Description                                     |
+| ----- | ----------------------------------------------- |
+| EC9   | `category_id` không tồn tại trong CSDL danh mục |
+
+---
+
+## Step 3 – Representative Test Cases
+
+Dưới đây là các test case tập trung vào API Cập nhật (`PUT /api/products/:id`) để bao phủ toàn bộ các Input, vì API này chứa đầy đủ ràng buộc nhất (bao gồm cả `Product ID` trên URL và dữ liệu Body). **Lưu ý:** Dựa theo phản hồi từ AI Gap Analysis ở tính năng trước (FR-10), các Test Case này đã được thiết kế cẩn thận để ghi nhận đầy đủ các Valid EC kết hợp cùng Invalid EC nhằm đảm bảo nguyên tắc cô lập (Isolation) và tính minh bạch trong truy xuất nguồn gốc (Traceability) của ISTQB.
+
+| Test Case ID | Technique | Partitions Covered | Inputs                                                                                                                | Expected Outcome                                   |
+| ------------ | --------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| DT_FR15_01   | Domain    | EC1, EC3, EC5, EC8 | API: Cập nhật<br>`Product ID` = Tồn tại<br>`name` = "Sản phẩm A"<br>`price` = 150000<br>`category_id` = Tồn tại       | Cập nhật thành công, lưu dữ liệu mới vào hệ thống. |
+| DT_FR15_02   | Domain    | EC2, EC3, EC5, EC8 | API: Cập nhật<br>`Product ID` = Không tồn tại<br>`name` = "Sản phẩm A"<br>`price` = 150000<br>`category_id` = Tồn tại | Báo lỗi không tìm thấy sản phẩm.                   |
+| DT_FR15_03   | Domain    | EC1, EC4, EC5, EC8 | API: Cập nhật<br>`Product ID` = Tồn tại<br>`name` = "" (rỗng)<br>`price` = 150000<br>`category_id` = Tồn tại          | Báo lỗi yêu cầu nhập tên sản phẩm.                 |
+| DT_FR15_04   | Domain    | EC1, EC3, EC6, EC8 | API: Cập nhật<br>`Product ID` = Tồn tại<br>`name` = "Sản phẩm A"<br>`price` = -50000<br>`category_id` = Tồn tại       | Báo lỗi giá sản phẩm không được âm.                |
+| DT_FR15_05   | Domain    | EC1, EC3, EC7, EC8 | API: Cập nhật<br>`Product ID` = Tồn tại<br>`name` = "Sản phẩm A"<br>`price` = "abc"<br>`category_id` = Tồn tại        | Báo lỗi định dạng giá trị giá không hợp lệ.        |
+| DT_FR15_06   | Domain    | EC1, EC3, EC5, EC9 | API: Cập nhật<br>`Product ID` = Tồn tại<br>`name` = "Sản phẩm A"<br>`price` = 150000<br>`category_id` = Không tồn tại | Báo lỗi danh mục sản phẩm không tồn tại.           |
