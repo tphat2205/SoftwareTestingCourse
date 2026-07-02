@@ -98,3 +98,12 @@ Dưới đây là các Test Case tập trung kiểm thử tại các điểm bi�
 | BVA_FR10_01 | BVA | Trạng thái UB (`confirmed`) | API: User Hủy đơn<br>`Order ID` = Tồn tại<br>`Trạng thái` = `confirmed` | Hủy đơn thành công, chuyển sang `canceled`. |
 | BVA_FR10_02 | BVA | Trạng thái UB+1 (`shipping`) | API: User Hủy đơn<br>`Order ID` = Tồn tại<br>`Trạng thái` = `shipping` | Hệ thống báo lỗi: Không thể hủy đơn hàng đang giao. |
 | BVA_FR10_03 | BVA | Trạng thái LB (`pending`) | API: User Hủy đơn<br>`Order ID` = Tồn tại<br>`Trạng thái` = `pending` | Hủy đơn thành công, chuyển sang `canceled`. |
+
+---
+
+## AI Gap Analysis (BVA - FR-10)
+
+Qua quá trình rà soát, phát hiện thiếu sót (gap) của AI tool do giới hạn mô hình (LLM limitations) và prompt:
+
+- **Áp dụng sai BVA cho mã định danh (Identifier):** AI đã nhầm lẫn khi tạo ra phân vùng BVA cho biến `Order ID` (test giá trị 0 và 1) dù đây chỉ là một Database Identifier.
+- **Lý do (Why):** AI bị hạn chế trong khả năng nhận thức ngữ nghĩa nghiệp vụ của dữ liệu (Semantic understanding). Khi thấy `Order ID` là một số nguyên có khả năng tự tăng, AI lập tức áp dụng logic toán học (BVA) một cách máy móc, mà không phân biệt được sự khác nhau giữa dữ liệu định danh (Nominal) và dữ liệu có thứ tự mang ý nghĩa nghiệp vụ (Ordinal/Continuous).

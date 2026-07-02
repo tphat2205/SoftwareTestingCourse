@@ -131,18 +131,18 @@ Quản lý vòng đời (state machine) của một đơn hàng, bao gồm việ
 
 ### Inputs
 
-| Input | Type | Constraints |
-| ----- | ---- | ----------- |
-| `Mã đơn hàng (Order ID)` | URL Parameter | Phải tồn tại trong cơ sở dữ liệu. |
-| `Trạng thái hiện tại` | State (DB) | Thuộc tập hợp: `pending`, `confirmed`, `shipping`, `delivered`, `canceled`. Đối với User hủy đơn, chỉ được thực hiện khi chưa giao (`pending`, `confirmed`). |
-| `Trạng thái mới` | String (API Body) | (Dành cho Admin) Thuộc tập hợp: `pending`, `confirmed`, `shipping`, `delivered`, `canceled`. |
+| Input                    | Type              | Constraints                                                                                                                                                  |
+| ------------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Mã đơn hàng (Order ID)` | URL Parameter     | Phải tồn tại trong cơ sở dữ liệu.                                                                                                                            |
+| `Trạng thái hiện tại`    | State (DB)        | Thuộc tập hợp: `pending`, `confirmed`, `shipping`, `delivered`, `canceled`. Đối với User hủy đơn, chỉ được thực hiện khi chưa giao (`pending`, `confirmed`). |
+| `Trạng thái mới`         | String (API Body) | (Dành cho Admin) Thuộc tập hợp: `pending`, `confirmed`, `shipping`, `delivered`, `canceled`.                                                                 |
 
 ### Outputs
 
-| Output | Description |
-| ------ | ----------- |
-| `Cập nhật thành công` | Hệ thống lưu lại trạng thái mới của đơn hàng và trả về mã 200 OK. |
-| `Thông báo lỗi (Không tìm thấy)` | Hệ thống trả về lỗi khi `Order ID` không tồn tại. |
+| Output                                    | Description                                                                                                    |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `Cập nhật thành công`                     | Hệ thống lưu lại trạng thái mới của đơn hàng và trả về mã 200 OK.                                              |
+| `Thông báo lỗi (Không tìm thấy)`          | Hệ thống trả về lỗi khi `Order ID` không tồn tại.                                                              |
 | `Thông báo lỗi (Trạng thái không hợp lệ)` | Hệ thống trả về lỗi khi User cố hủy đơn hàng đã giao hoặc khi Admin cập nhật một trạng thái không được hỗ trợ. |
 
 ---
@@ -159,14 +159,14 @@ Mã đơn hàng được truyền vào URL (ví dụ: `/api/orders/1/cancel` ho�
 
 ### Valid Equivalence Classes
 
-| EC ID | Description |
-| ----- | ----------- |
+| EC ID | Description                      |
+| ----- | -------------------------------- |
 | EC1   | `Mã đơn hàng` tồn tại trong CSDL |
 
 ### Invalid Equivalence Classes
 
-| EC ID | Description |
-| ----- | ----------- |
+| EC ID | Description                            |
+| ----- | -------------------------------------- |
 | EC2   | `Mã đơn hàng` không tồn tại trong CSDL |
 
 ---
@@ -181,17 +181,17 @@ Khi User gọi API hủy đơn (`PUT /api/orders/:id/cancel`), trạng thái hi�
 
 ### Valid Equivalence Classes
 
-| EC ID | Description |
-| ----- | ----------- |
-| EC3   | `Trạng thái hiện tại` là `pending` (Chờ xử lý) |
+| EC ID | Description                                        |
+| ----- | -------------------------------------------------- |
+| EC3   | `Trạng thái hiện tại` là `pending` (Chờ xử lý)     |
 | EC4   | `Trạng thái hiện tại` là `confirmed` (Đã xác nhận) |
 
 ### Invalid Equivalence Classes
 
-| EC ID | Description |
-| ----- | ----------- |
-| EC5   | `Trạng thái hiện tại` là `shipping` (Đang giao) |
-| EC6   | `Trạng thái hiện tại` là `delivered` (Đã giao) |
+| EC ID | Description                                           |
+| ----- | ----------------------------------------------------- |
+| EC5   | `Trạng thái hiện tại` là `shipping` (Đang giao)       |
+| EC6   | `Trạng thái hiện tại` là `delivered` (Đã giao)        |
 | EC7   | `Trạng thái hiện tại` là `canceled` (Đã hủy trước đó) |
 
 ---
@@ -206,18 +206,18 @@ Khi Admin gọi API cập nhật trạng thái (`PUT /api/admin/orders/:id/statu
 
 ### Valid Equivalence Classes
 
-| EC ID | Description |
-| ----- | ----------- |
-| EC8   | `Trạng thái mới` là `pending` |
+| EC ID | Description                     |
+| ----- | ------------------------------- |
+| EC8   | `Trạng thái mới` là `pending`   |
 | EC9   | `Trạng thái mới` là `confirmed` |
-| EC10  | `Trạng thái mới` là `shipping` |
+| EC10  | `Trạng thái mới` là `shipping`  |
 | EC11  | `Trạng thái mới` là `delivered` |
-| EC12  | `Trạng thái mới` là `canceled` |
+| EC12  | `Trạng thái mới` là `canceled`  |
 
 ### Invalid Equivalence Classes
 
-| EC ID | Description |
-| ----- | ----------- |
+| EC ID | Description                                                                              |
+| ----- | ---------------------------------------------------------------------------------------- |
 | EC13  | `Trạng thái mới` không thuộc danh sách hỗ trợ (VD: `returned`, `processing`, chuỗi rỗng) |
 
 ---
@@ -226,18 +226,26 @@ Khi Admin gọi API cập nhật trạng thái (`PUT /api/admin/orders/:id/statu
 
 Các giá trị đại diện được lựa chọn nhằm tối đa hóa độ bao phủ các lớp hợp lệ trong cùng một test case, và kiểm tra độc lập từng lớp không hợp lệ theo quy tắc Domain Testing.
 
-| Test Case ID | Technique | Partitions Covered | Inputs | Expected Outcome |
-| ------------ | --------- | ------------------ | ------ | ---------------- |
-| DT_FR10_01   | Domain    | EC1, EC3           | API: User Hủy đơn<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending` | Đơn hàng được hủy thành công, trạng thái chuyển sang `canceled`. |
-| DT_FR10_02   | Domain    | EC1, EC4           | API: User Hủy đơn<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `confirmed` | Đơn hàng được hủy thành công, trạng thái chuyển sang `canceled`. |
-| DT_FR10_03   | Domain    | EC2                | API: User Hủy đơn<br>`Mã đơn hàng` = Không tồn tại<br>`Trạng thái hiện tại` = N/A | Báo lỗi đơn hàng không tồn tại. |
-| DT_FR10_04   | Domain    | EC1, EC5           | API: User Hủy đơn<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `shipping` | Báo lỗi không thể hủy đơn hàng đang giao. Trạng thái giữ nguyên. |
-| DT_FR10_05   | Domain    | EC1, EC6           | API: User Hủy đơn<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `delivered` | Báo lỗi không thể hủy đơn hàng đã giao. Trạng thái giữ nguyên. |
-| DT_FR10_06   | Domain    | EC1, EC7           | API: User Hủy đơn<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `canceled` | Báo lỗi đơn hàng đã được hủy trước đó. |
-| DT_FR10_07   | Domain    | EC1, EC3, EC8      | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `pending` | Đơn hàng được cập nhật trạng thái thành `pending` thành công. |
-| DT_FR10_08   | Domain    | EC1, EC3, EC9      | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `confirmed` | Đơn hàng được cập nhật trạng thái thành `confirmed` thành công. |
-| DT_FR10_09   | Domain    | EC1, EC3, EC10     | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `shipping` | Đơn hàng được cập nhật trạng thái thành `shipping` thành công. |
-| DT_FR10_10   | Domain    | EC1, EC3, EC11     | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `delivered` | Đơn hàng được cập nhật trạng thái thành `delivered` thành công. |
-| DT_FR10_11   | Domain    | EC1, EC3, EC12     | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `canceled` | Đơn hàng được cập nhật trạng thái thành `canceled` thành công. |
-| DT_FR10_12   | Domain    | EC2, EC10          | API: Admin Cập nhật<br>`Mã đơn hàng` = Không tồn tại<br>`Trạng thái hiện tại` = N/A<br>`Trạng thái mới` = `shipping` | Báo lỗi đơn hàng không tồn tại. |
-| DT_FR10_13   | Domain    | EC1, EC3, EC13     | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `returned` | Báo lỗi trạng thái không hợp lệ. |
+| Test Case ID | Technique | Partitions Covered | Inputs                                                                                                                | Expected Outcome                                                 |
+| ------------ | --------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| DT_FR10_01   | Domain    | EC1, EC3           | API: User Hủy đơn<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`                                     | Đơn hàng được hủy thành công, trạng thái chuyển sang `canceled`. |
+| DT_FR10_02   | Domain    | EC1, EC4           | API: User Hủy đơn<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `confirmed`                                   | Đơn hàng được hủy thành công, trạng thái chuyển sang `canceled`. |
+| DT_FR10_03   | Domain    | EC2                | API: User Hủy đơn<br>`Mã đơn hàng` = Không tồn tại<br>`Trạng thái hiện tại` = N/A                                     | Báo lỗi đơn hàng không tồn tại.                                  |
+| DT_FR10_04   | Domain    | EC1, EC5           | API: User Hủy đơn<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `shipping`                                    | Báo lỗi không thể hủy đơn hàng đang giao. Trạng thái giữ nguyên. |
+| DT_FR10_05   | Domain    | EC1, EC6           | API: User Hủy đơn<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `delivered`                                   | Báo lỗi không thể hủy đơn hàng đã giao. Trạng thái giữ nguyên.   |
+| DT_FR10_06   | Domain    | EC1, EC7           | API: User Hủy đơn<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `canceled`                                    | Báo lỗi đơn hàng đã được hủy trước đó.                           |
+| DT_FR10_07   | Domain    | EC1, EC3, EC8      | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `pending`   | Đơn hàng được cập nhật trạng thái thành `pending` thành công.    |
+| DT_FR10_08   | Domain    | EC1, EC3, EC9      | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `confirmed` | Đơn hàng được cập nhật trạng thái thành `confirmed` thành công.  |
+| DT_FR10_09   | Domain    | EC1, EC3, EC10     | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `shipping`  | Đơn hàng được cập nhật trạng thái thành `shipping` thành công.   |
+| DT_FR10_10   | Domain    | EC1, EC3, EC11     | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `delivered` | Đơn hàng được cập nhật trạng thái thành `delivered` thành công.  |
+| DT_FR10_11   | Domain    | EC1, EC3, EC12     | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `canceled`  | Đơn hàng được cập nhật trạng thái thành `canceled` thành công.   |
+| DT_FR10_12   | Domain    | EC2, EC10          | API: Admin Cập nhật<br>`Mã đơn hàng` = Không tồn tại<br>`Trạng thái hiện tại` = N/A<br>`Trạng thái mới` = `shipping`  | Báo lỗi đơn hàng không tồn tại.                                  |
+| DT_FR10_13   | Domain    | EC1, EC3, EC13     | API: Admin Cập nhật<br>`Mã đơn hàng` = Tồn tại<br>`Trạng thái hiện tại` = `pending`<br>`Trạng thái mới` = `returned`  | Báo lỗi trạng thái không hợp lệ.                                 |
+
+## AI Gap Analysis (Domain Testing - FR-10)
+
+Qua quá trình rà soát, phát hiện thiếu sót (gap) của AI tool do giới hạn mô hình (LLM limitations) và prompt:
+
+- **Khuyết thiếu trạng thái DB (Pre-condition):** Ở các test case Admin cập nhật trạng thái, AI đã bỏ quên không thiết lập `Trạng thái hiện tại` của đơn hàng (dù đây là một Input bắt buộc để tái tạo test case một cách thực tế).
+- **Thiếu sót ghi nhận Valid EC:** Ở `DT_FR10_12`, AI lặp lại lỗi cũ khi chỉ ghi nhận mỗi `EC2` (Invalid) mà quên không ghi `EC10` (Valid).
+- **Lý do (Why):** LLM thường chỉ tập trung vào "mục tiêu kiểm thử chính" (core logic/API Body) mà bỏ quên khía cạnh hành chính và quy trình thực hành thực tế (setup DB state trước khi gọi API) để đảm bảo tính khả lặp (reproducibility). Nếu prompt không đưa ra chỉ thị thật khắt khe (strict rule), AI sẽ dễ dãi bỏ qua các ràng buộc "Isolation" của ISTQB.
