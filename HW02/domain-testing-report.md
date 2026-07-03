@@ -397,3 +397,91 @@ Qua quá trình rà soát, **không phát hiện lỗi sai logic nào** trong ph
 
 - **Vì sao AI làm tốt ở FR-15?** Do chất lượng của Prompt (đầu vào) đã được cải thiện. Trong Prompt sinh ra FR-15, người dùng (hoặc Context) đã chủ động nhắc lại bài học từ FR-10 (nhắc nhở AI về việc kết hợp đầy đủ Valid EC).
 - **Bài học (AI Limitation):** Nếu không có sự ép buộc rõ ràng bằng Prompt (như ở FR-06 và FR-10), bản năng của LLM luôn có xu hướng bỏ qua các tiêu chuẩn hành chính (administrative standards) của ISTQB để tìm đường đi ngắn nhất (chỉ test lỗi chính). Điều này chứng minh AI cần sự điều hướng (steering) và cấp ngữ cảnh liên tục từ con người để đạt chuẩn kiểm thử chuyên nghiệp.
+
+---
+
+## Feature: FR-05 - Product listing and search (Mobile App)
+
+# Step-by-Step Explanation
+
+## Step 1 – Input & Output Identification
+
+### Business Objective
+
+Hiển thị danh sách sản phẩm trên màn hình thiết bị di động (Mobile App) và cho phép người dùng tìm kiếm sản phẩm theo tên.
+_Lưu ý: Đối với môi trường Mobile, input tìm kiếm thường bị ảnh hưởng bởi bàn phím ảo (Virtual Keyboard), nhập liệu bằng giọng nói (Voice-to-Text), hoặc dán từ clipboard dẫn đến việc xuất hiện các ký tự đặc biệt như Emoji hoặc khoảng trắng dư thừa._
+
+### Inputs
+
+Dựa vào API `GET /api/products?search=keyword`:
+
+| Input    | Type                 | Constraints                                                                                                                                                              |
+| -------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `search` | String (Query param) | Tùy chọn. Dùng để lọc tên sản phẩm. Độ dài giả định hệ thống giới hạn tối đa 255 ký tự để tránh payload lớn. Cần hỗ trợ xử lý ký tự đặc biệt/Emoji phổ biến trên Mobile. |
+
+### Outputs
+
+| Output               | Description                                                                                        |
+| -------------------- | -------------------------------------------------------------------------------------------------- |
+| `Danh sách sản phẩm` | Hệ thống trả về mảng JSON chứa các sản phẩm phù hợp. UI Mobile render danh sách (dạng list/grid).  |
+| `Danh sách rỗng`     | Trả về mảng rỗng `[]` khi không có sản phẩm nào khớp. UI Mobile hiển thị "Không tìm thấy kết quả". |
+| `Lỗi input`          | Báo lỗi (VD: 400 Bad Request) nếu từ khóa vượt quá độ dài tối đa cho phép.                         |
+
+---
+
+## Step 2 – Equivalence Classes
+
+### Condition 1
+
+Định dạng và loại ký tự của từ khóa tìm kiếm (`search`).
+
+### Interpretation
+
+Dữ liệu nhập từ bàn phím di động rất đa dạng, có thể là chữ/số bình thường, có thể bị bỏ trống (để xem toàn bộ), hoặc chứa các ký tự đặc biệt/Emoji.
+
+### Valid Equivalence Classes
+
+| EC ID | Description                                                               |
+| ----- | ------------------------------------------------------------------------- |
+| EC1   | `search` bị bỏ trống hoặc chuỗi rỗng `""`                                 |
+| EC2   | `search` chứa các chữ cái/số thông thường                                 |
+| EC3   | `search` chứa Emoji hoặc các ký tự đặc biệt (VD: 📱, 🎧, khoảng trắng dư) |
+
+### Invalid Equivalence Classes
+
+_(Về mặt định dạng string, API tìm kiếm thường không có lớp không hợp lệ cho loại ký tự vì mọi chuỗi string đều có thể đem đi tìm, kết quả chỉ là không khớp. Các payload độc hại được giả định là đã được hệ thống chống Injection xử lý an toàn nên thuộc vùng Valid về mặt API request)._
+
+---
+
+### Condition 2
+
+Độ dài của từ khóa tìm kiếm.
+
+### Interpretation
+
+API cần có cơ chế giới hạn độ dài từ khóa (Range Condition) để tránh các truy vấn quá tải từ thiết bị. Giả định hệ thống quy định độ dài tối đa là 255 ký tự.
+
+### Valid Equivalence Classes
+
+| EC ID | Description                                            |
+| ----- | ------------------------------------------------------ |
+| EC4   | Độ dài `search` nằm trong khoảng hợp lệ (<= 255 ký tự) |
+
+### Invalid Equivalence Classes
+
+| EC ID | Description                                     |
+| ----- | ----------------------------------------------- |
+| EC5   | Độ dài `search` vượt quá giới hạn (> 255 ký tự) |
+
+---
+
+## Step 3 – Representative Test Cases
+
+Các test case tập trung vào các đặc thù của input trên Mobile để đảm bảo hệ thống API không bị lỗi (crash) khi nhận dữ liệu lạ, đồng thời duy trì nguyên tắc cô lập lỗi.
+
+| Test Case ID | Technique | Partitions Covered | Inputs                                                            | Expected Outcome                                                                                                     |
+| ------------ | --------- | ------------------ | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| DT_FR05_01   | Domain    | EC1, EC4           | API: Lấy danh sách sản phẩm<br>`search` = "" (Không truyền)       | Trả về danh sách toàn bộ sản phẩm hiện có.                                                                           |
+| DT_FR05_02   | Domain    | EC2, EC4           | API: Lấy danh sách sản phẩm<br>`search` = "Điện thoại"            | Trả về danh sách các sản phẩm có chứa từ "Điện thoại".                                                               |
+| DT_FR05_03   | Domain    | EC3, EC4           | API: Lấy danh sách sản phẩm<br>`search` = "Tai nghe 🎧✨ "        | API xử lý an toàn Emoji và khoảng trắng dư, trả về kết quả tương ứng hoặc danh sách rỗng (không gây lỗi 500 server). |
+| DT_FR05_04   | Domain    | EC2, EC5           | API: Lấy danh sách sản phẩm<br>`search` = (Chuỗi dài 300 chữ "A") | Hệ thống chặn yêu cầu (báo lỗi 400) hoặc tự động cắt bớt chuỗi để bảo vệ CSDL.                                       |
