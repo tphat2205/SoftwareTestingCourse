@@ -173,3 +173,45 @@ Qua quá trình rà soát, phát hiện thiếu sót (gap) của AI tool do gi�
 
 - **Bỏ quên Test Case trong 3-value BVA:** AI đã phân tích và kẻ bảng phân vùng chuẩn xác với đầy đủ 3 giá trị biên cho độ dài tên sản phẩm (`LB=1`, `LB-1=0`, `LB+1=2`). Tuy nhiên, khi xuống phần liệt kê Test Case, AI lại bỏ quên mất trường hợp `LB+1 (2)`.
 - **Lý do (Why):** LLM thường gặp vấn đề về tính nhất quán (inconsistency) và "suy giảm sự chú ý" (attention drift) trong các chuỗi suy luận dài. Dù bước trên AI tính toán đúng theo công thức 3-value BVA, nhưng khi sinh test case, nó lại bị thiên kiến (bias) bởi các mẫu dữ liệu huấn luyện phổ biến (vốn thường chỉ xài 2-value BVA cơ bản là LB và LB-1) dẫn đến việc "tự động lược bỏ" mất một test case quan trọng của kỹ thuật 3 điểm.
+
+---
+
+## Feature: FR-05 - Product listing and search (Mobile App)
+
+# Step 4 – Boundary Value Analysis
+
+Đại lượng duy nhất có miền giá trị liên tục trong FR-05 để áp dụng BVA là **độ dài của từ khóa tìm kiếm (`search` length)**. Dựa theo phân tích Domain Testing, hệ thống giả định có cơ chế giới hạn từ khóa tối đa 255 ký tự để tránh payload quá lớn gửi từ thiết bị di động.
+
+### Ordered Partition 1: Độ dài từ khóa `search`
+
+- **Valid Partition**: `[0, 255]` (ký tự)
+- **Invalid Partition**: `[256, +∞)` (ký tự)
+
+_(Độ dài chuỗi không thể âm, nên miền không hợp lệ `(-∞, -1]` là không thể xảy ra đối với hệ thống input string)._
+
+| Partition               | LB  | LB−1 | LB+1 | UB−1 | UB  | UB+1 |
+| ----------------------- | --- | ---- | ---- | ---- | --- | ---- |
+| Độ dài `search` (0-255) | 0   | N/A  | 1    | 254  | 255 | 256  |
+
+**Giải thích các điểm biên:**
+
+- **LB (0)**: Chuỗi rỗng. Đảm bảo Mobile App có thể gửi request trắng để lấy toàn bộ danh sách.
+- **LB-1 (N/A)**: Độ dài chuỗi không thể bé hơn 0.
+- **LB+1 (1)**: Tìm kiếm với chỉ 1 ký tự.
+- **UB-1 (254)**: Điểm nằm trong vùng an toàn, ngay sát dưới mức giới hạn trên.
+- **UB (255)**: Độ dài từ khóa lớn nhất mà hệ thống cho phép. Đảm bảo hệ thống không chặn nhầm giá trị hợp lệ lớn nhất này (off-by-one).
+- **UB+1 (256)**: Vượt qua mức cho phép 1 ký tự. Kỳ vọng API chặn đứng bằng lỗi (VD: 400 Bad Request) hoặc xử lý ngoại lệ an toàn để bảo vệ hệ thống.
+
+---
+
+### Boundary Value Analysis Test Cases
+
+Rút kinh nghiệm từ phân tích AI Gap Analysis của FR-15, để đảm bảo tuân thủ triệt để kỹ thuật kiểm thử biên 3 giá trị (3-value BVA), tất cả 5 giá trị biên hợp lệ (không bị N/A) đều được liệt kê đầy đủ thành các test case độc lập mà không bị bỏ sót.
+
+| Test Case ID | Technique | Boundary Covered  | Inputs                                                            | Expected Outcome                                                                |
+| ------------ | --------- | ----------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| BVA_FR05_01  | BVA       | Độ dài LB (0)     | API: Lấy danh sách sản phẩm<br>`search` = "" (0 ký tự)            | Thành công, trả về danh sách toàn bộ sản phẩm.                                  |
+| BVA_FR05_02  | BVA       | Độ dài LB+1 (1)   | API: Lấy danh sách sản phẩm<br>`search` = "A" (1 ký tự)           | Thành công, trả về các sản phẩm chứa từ "A".                                    |
+| BVA_FR05_03  | BVA       | Độ dài UB-1 (254) | API: Lấy danh sách sản phẩm<br>`search` = Chuỗi 254 ký tự chữ "A" | Thành công, trả về kết quả (hoặc rỗng nếu không khớp), không báo lỗi server.    |
+| BVA_FR05_04  | BVA       | Độ dài UB (255)   | API: Lấy danh sách sản phẩm<br>`search` = Chuỗi 255 ký tự chữ "A" | Thành công, trả về kết quả tương tự, API hoạt động bình thường.                 |
+| BVA_FR05_05  | BVA       | Độ dài UB+1 (256) | API: Lấy danh sách sản phẩm<br>`search` = Chuỗi 256 ký tự chữ "A" | Từ chối yêu cầu, API báo lỗi (VD: 400 Bad Request) do độ dài vượt quá giới hạn. |
