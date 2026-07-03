@@ -484,4 +484,13 @@ Các test case tập trung vào các đặc thù của input trên Mobile để 
 | DT_FR05_01   | Domain    | EC1, EC4           | API: Lấy danh sách sản phẩm<br>`search` = "" (Không truyền)       | Trả về danh sách toàn bộ sản phẩm hiện có.                                                                           |
 | DT_FR05_02   | Domain    | EC2, EC4           | API: Lấy danh sách sản phẩm<br>`search` = "Điện thoại"            | Trả về danh sách các sản phẩm có chứa từ "Điện thoại".                                                               |
 | DT_FR05_03   | Domain    | EC3, EC4           | API: Lấy danh sách sản phẩm<br>`search` = "Tai nghe 🎧✨ "        | API xử lý an toàn Emoji và khoảng trắng dư, trả về kết quả tương ứng hoặc danh sách rỗng (không gây lỗi 500 server). |
-| DT_FR05_04   | Domain    | EC2, EC5           | API: Lấy danh sách sản phẩm<br>`search` = (Chuỗi dài 300 chữ "A") | Hệ thống chặn yêu cầu (báo lỗi 400) hoặc tự động cắt bớt chuỗi để bảo vệ CSDL.                                       |
+| DT_FR05_04   | Domain    | EC2, EC5           | API: Lấy danh sách sản phẩm<br>`search` = (Chuỗi dài 300 chữ "A") | Hệ thống từ chối yêu cầu và báo lỗi 400 Bad Request do từ khóa vượt quá độ dài tối đa cho phép.                      |
+
+---
+
+## AI Gap Analysis (Domain Testing - FR-05)
+
+Qua quá trình rà soát, phát hiện thiếu sót (gap) của AI tool do giới hạn mô hình (LLM limitations):
+
+- **Kết quả mong đợi không tất định (Non-deterministic Outcome):** Ở test case `DT_FR05_04`, AI đã thiết kế kết quả mong đợi chứa từ "hoặc" (báo lỗi 400 _hoặc_ tự động cắt bớt chuỗi), vi phạm nguyên tắc kết quả duy nhất của ISTQB.
+- **Lý do (Why):** Bản chất của LLM là mô hình xác suất (probabilistic). Khi đối mặt với một spec không nêu rõ hành vi xử lý chuỗi quá dài, AI có xu hướng liệt kê "tất cả các cách giải quyết hợp lý" để tỏ ra an toàn, thay vì đóng vai một QA chuyên nghiệp chốt hạ một Expected Outcome duy nhất để báo cáo rủi ro. Điều này cho thấy AI gặp khó khăn trong việc đưa ra các quyết định dứt khoát (deterministic decision-making) nếu thiếu thông tin tuyệt đối.

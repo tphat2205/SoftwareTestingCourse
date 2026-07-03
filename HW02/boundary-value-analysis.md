@@ -215,3 +215,12 @@ Rút kinh nghiệm từ phân tích AI Gap Analysis của FR-15, để đảm b�
 | BVA_FR05_03  | BVA       | Độ dài UB-1 (254) | API: Lấy danh sách sản phẩm<br>`search` = Chuỗi 254 ký tự chữ "A" | Thành công, trả về kết quả (hoặc rỗng nếu không khớp), không báo lỗi server.    |
 | BVA_FR05_04  | BVA       | Độ dài UB (255)   | API: Lấy danh sách sản phẩm<br>`search` = Chuỗi 255 ký tự chữ "A" | Thành công, trả về kết quả tương tự, API hoạt động bình thường.                 |
 | BVA_FR05_05  | BVA       | Độ dài UB+1 (256) | API: Lấy danh sách sản phẩm<br>`search` = Chuỗi 256 ký tự chữ "A" | Từ chối yêu cầu, API báo lỗi (VD: 400 Bad Request) do độ dài vượt quá giới hạn. |
+
+---
+
+## AI Gap Analysis (BVA - FR-05)
+
+Qua quá trình rà soát, **không phát hiện lỗi sai logic nào** trong phần BVA của FR-05 do AI tạo ra.
+
+- **Vì sao AI làm tốt ở FR-05?** Do chất lượng của Prompt (đầu vào) đã được cải thiện tối đa. Việc người dùng (hoặc Context) chủ động nhắc lại các bài học từ FR-15 và FR-10 đã giúp AI tự động "sửa sai" (self-correct): Nó không còn áp dụng BVA bừa bãi cho Nominal Data, nhận thức đúng `LB-1 = N/A` cho biến độ dài chuỗi, và sinh đủ 5 test case cho 3-value BVA mà không bỏ sót.
+- **Bài học (AI Limitation):** Thành công này tiếp tục khẳng định rằng: LLM hoàn toàn có khả năng suy luận logic kiểm thử xuất sắc (như việc nhận ra độ dài chuỗi không thể âm), nhưng năng lực đó chỉ được "kích hoạt" khi và chỉ khi Prompt cung cấp đủ bối cảnh (context) và các "lưới bảo vệ" (guardrails) chặt chẽ từ con người.
