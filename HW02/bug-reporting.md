@@ -266,3 +266,126 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 | DT_FR15_04   | Domain    | BUG-FR15-01      |
 | DT_FR15_05   | Domain    | BUG-FR15-03      |
 | BVA_FR15_02  | BVA       | BUG-FR15-01      |
+
+---
+
+# Bug Reporting — FR-05: Product listing and search (Mobile App)
+
+Báo cáo lỗi được phát hiện bằng cách thực thi các test case từ **Domain Testing** và **Boundary Value Analysis (BVA)** trên giao diện front-end Mobile App (React Native).
+
+---
+
+## BUG-FR05-01: Hệ thống sập (500) và lộ thông tin Database khi tìm kiếm bằng ký tự đặc biệt (VD: dấu nháy đơn)
+
+| Mục                    | Chi tiết                                                                                                                                                                                                                                        |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Bug ID**             | BUG-FR05-01                                                                                                                                                                                                                                     |
+| **Feature**            | FR-05: Product listing and search                                                                                                                                                                                                               |
+| **Severity**           | High                                                                                                                                                                                                                                            |
+| **Test Case**          | DT_FR05_03 (Domain Testing — EC3: Chứa ký tự đặc biệt)                                                                                                                                                                                          |
+| **Mô tả**              | Khi người dùng nhập các ký tự đặc biệt như dấu nháy đơn (`'`) vào ô tìm kiếm và bấm "Tìm", hệ thống không hiển thị danh sách rỗng mà trả về lỗi sập server. Giao diện Mobile hiển thị nguyên đoạn mã HTML chứa lỗi hệ thống từ Database SQLite. |
+| **Steps to Reproduce** | 1. Mở trang chủ ứng dụng Mobile.<br>2. Nhập vào ô tìm kiếm chuỗi: `iphone'` (có dấu nháy đơn).<br>3. Bấm "Tìm".<br>4. Quan sát kết quả hiển thị trên màn hình thay vì danh sách sản phẩm.                                                       |
+| **Expected**           | Hệ thống phải xử lý an toàn các ký tự đặc biệt, không sập server, trả về kết quả khớp hoặc danh sách rỗng thân thiện với người dùng.                                                                                                            |
+| **Actual**             | Hệ thống báo lỗi Database Error (SQLITE_ERROR) và giao diện in thẳng đoạn mã lỗi HTML kỹ thuật lên màn hình.                                                                                                                                    |
+
+### GitHub Issue
+
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/27
+
+---
+
+## BUG-FR05-02: Ô tìm kiếm không giới hạn số lượng ký tự tối đa
+
+| Mục                    | Chi tiết                                                                                                                                                                                                                    |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Bug ID**             | BUG-FR05-02                                                                                                                                                                                                                 |
+| **Feature**            | FR-05: Product listing and search                                                                                                                                                                                           |
+| **Severity**           | Medium                                                                                                                                                                                                                      |
+| **Test Case**          | DT_FR05_04 (Domain — EC5) và BVA_FR05_05 (BVA — UB+1: Độ dài 256)                                                                                                                                                           |
+| **Mô tả**              | Giao diện khung tìm kiếm (`TextInput`) không có thuộc tính giới hạn `maxLength=255`, cho phép người dùng dán hoặc gõ liên tục hàng nghìn ký tự. Hệ thống không báo lỗi chặn truy vấn siêu dài này mà vẫn gửi lên API xử lý. |
+| **Steps to Reproduce** | 1. Tạo một chuỗi chữ cái rất dài (VD: 300 chữ "A" liên tiếp).<br>2. Dán chuỗi này vào ô tìm kiếm trên Mobile App.<br>3. Bấm "Tìm".<br>4. Quan sát kết quả.                                                                  |
+| **Expected**           | Giao diện Mobile phải giới hạn không cho nhập quá 255 ký tự, hoặc hệ thống hiển thị thông báo từ chối truy vấn.                                                                                                             |
+| **Actual**             | Giao diện cho phép nhập và gửi thành công chuỗi vô hạn, trả về kết quả rỗng thay vì báo lỗi.                                                                                                                                |
+
+### GitHub Issue
+
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/28
+
+---
+
+## BUG-FR05-03: Không hiển thị thông báo "Không tìm thấy kết quả" khi danh sách trống
+
+| Mục                    | Chi tiết                                                                                                                                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Bug ID**             | BUG-FR05-03                                                                                                                                                                                             |
+| **Feature**            | FR-05: Product listing and search                                                                                                                                                                       |
+| **Severity**           | Low                                                                                                                                                                                                     |
+| **Test Case**          | DT_FR05_03 (Trường hợp tìm Emoji lạ trả về rỗng)                                                                                                                                                        |
+| **Mô tả**              | Khi người dùng tìm kiếm từ khóa không có kết quả khớp, hệ thống Mobile App chỉ hiển thị một khoảng trắng (không có item) thay vì hiển thị câu thông báo "Không tìm thấy kết quả" như nghiệp vụ yêu cầu. |
+| **Steps to Reproduce** | 1. Tại ô tìm kiếm, nhập từ khóa không có thật (VD: "xyz123" hoặc Emoji "🎧✨").<br>2. Bấm "Tìm".<br>3. Quan sát khu vực danh sách.                                                                      |
+| **Expected**           | Phải hiển thị dòng chữ: "Không tìm thấy kết quả".                                                                                                                                                       |
+| **Actual**             | Chỉ hiện khoảng trắng, màn hình trống trơn.                                                                                                                                                             |
+
+### GitHub Issue
+
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/29
+
+---
+
+## BUG-FR05-04: Lỗi không mã hóa tham số URL (Missing URL Encoding)
+
+| Mục                    | Chi tiết                                                                                                                                                                                                                     |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Bug ID**             | BUG-FR05-04                                                                                                                                                                                                                  |
+| **Feature**            | FR-05: Product listing and search                                                                                                                                                                                            |
+| **Severity**           | Medium                                                                                                                                                                                                                       |
+| **Test Case**          | DT_FR05_03 (Domain Testing — EC3: Chứa ký tự đặc biệt)                                                                                                                                                                       |
+| **Mô tả**              | Mobile App gọi hàm `fetch` và cộng thẳng biến từ khóa vào URL (`?search=${query}`) mà không dùng `encodeURIComponent`. Khi tìm từ khóa chứa ký tự URL đặc biệt như `&`, `#`, `+`, từ khóa bị cắt cụt và kết quả bị sai lệch. |
+| **Steps to Reproduce** | 1. Nhập từ khóa: `Tai nghe & Bàn phím` vào ô tìm kiếm.<br>2. Bấm "Tìm".<br>3. Quan sát kết quả.                                                                                                                              |
+| **Expected**           | Từ khóa phải được mã hóa, hệ thống tìm đúng chuỗi có chữ `&`.                                                                                                                                                                |
+| **Actual**             | Từ khóa bị đứt, API chỉ nhận `search=Tai nghe ` (mất phần sau dấu `&`), trả về sai kết quả.                                                                                                                                  |
+
+### GitHub Issue
+
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/30
+
+---
+
+## BUG-FR05-05: Bất đồng bộ trạng thái hiển thị từ khóa (UI Desync)
+
+| Mục                    | Chi tiết                                                                                                                                                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Bug ID**             | BUG-FR05-05                                                                                                                                                                                                                          |
+| **Feature**            | FR-05: Product listing and search                                                                                                                                                                                                    |
+| **Severity**           | Minor                                                                                                                                                                                                                                |
+| **Test Case**          | Bất kỳ Test Case tìm kiếm nào                                                                                                                                                                                                        |
+| **Mô tả**              | Dòng chữ "Kết quả tìm kiếm cho: [từ khóa]" tự động cập nhật ngay theo từng chữ gõ vào ô TextInput, MẶC DÙ danh sách bên dưới vẫn là kết quả cũ (vì chưa bấm Tìm). Điều này gây ảo giác hệ thống đã tải xong kết quả cho từ khóa mới. |
+| **Steps to Reproduce** | 1. Đang ở màn hình đầy đủ sản phẩm.<br>2. Gõ chữ `abc` vào ô tìm kiếm (Không bấm nút Tìm).<br>3. Quan sát dòng chữ hiển thị ngay bên dưới ô nhập liệu.                                                                               |
+| **Expected**           | Dòng "Kết quả tìm kiếm cho: ..." chỉ cập nhật SAU KHI bấm nút "Tìm".                                                                                                                                                                 |
+| **Actual**             | Dòng chữ đổi ngay thành "Kết quả tìm kiếm cho: abc", nhưng danh sách vẫn là toàn bộ sản phẩm cũ.                                                                                                                                     |
+
+### GitHub Issue
+
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/31
+
+---
+
+## Bảng tổng hợp Bug FR-05
+
+| Bug ID      | Severity | Component | Test Case phát hiện     | Tóm tắt                                                                       |
+| ----------- | -------- | --------- | ----------------------- | ----------------------------------------------------------------------------- |
+| BUG-FR05-01 | High     | Mobile UI | DT_FR05_03              | Sập hệ thống (lỗi 500) lộ thông tin DB khi search bằng ký tự nháy đơn `'`     |
+| BUG-FR05-02 | Medium   | Mobile UI | DT_FR05_04, BVA_FR05_05 | Ô tìm kiếm không giới hạn độ dài ký tự tối đa (`maxLength`)                   |
+| BUG-FR05-03 | Low      | Mobile UI | DT_FR05_03              | Không hiển thị thông báo "Không tìm thấy kết quả" khi danh sách trống         |
+| BUG-FR05-04 | Medium   | Mobile UI | DT_FR05_03              | Lỗi không mã hóa URL (Missing URL Encode) làm đứt gãy từ khóa có dấu `&`, `#` |
+| BUG-FR05-05 | Minor    | Mobile UI | -                       | Chữ "Kết quả tìm kiếm cho..." hiển thị bất đồng bộ, thay đổi ngay lúc đang gõ |
+
+---
+
+## Truy xuất Test Case ↔ Bug (Traceability Matrix - FR-05)
+
+| Test Case ID | Technique | Bug(s) phát hiện                      |
+| ------------ | --------- | ------------------------------------- |
+| DT_FR05_03   | Domain    | BUG-FR05-01, BUG-FR05-03, BUG-FR05-04 |
+| DT_FR05_04   | Domain    | BUG-FR05-02                           |
+| BVA_FR05_05  | BVA       | BUG-FR05-02                           |
