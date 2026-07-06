@@ -17,6 +17,10 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 | **Expected**           | Trang hiển thị thông báo thân thiện cho người dùng: **"Sản phẩm không tồn tại"**, không chứa thông tin kỹ thuật nội bộ.                                                                                                                                                                   |
 | **Actual**             | Trang hiển thị: **"Sản phẩm không tồn tại (Lỗi trắng trang do data rỗng)"** — lộ thông tin debug cho người dùng cuối.                                                                                                                                                                     |
 
+### GitHub Issue
+
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/17
+
 ## BUG-FR06-02: Nút "Thêm vào giỏ hàng" phải bấm 2 lần mới hoạt động
 
 | Mục                    | Chi tiết                                                                                                                                                                                                                                                                                 |
@@ -30,9 +34,9 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 | **Expected**           | Bấm nút "Thêm vào giỏ hàng" **1 lần** là đủ để thêm sản phẩm vào giỏ hàng và hiển thị phản hồi "Đã thêm".                                                                                                                                                                                |
 | **Actual**             | Lần bấm đầu tiên bị bỏ qua hoàn toàn, không có phản hồi. Cần bấm 2 lần mới thêm được sản phẩm vào giỏ.                                                                                                                                                                                   |
 
-### Screenshot
+### GitHub Issue
 
-> _Chèn ảnh chụp màn hình tại đây (VD: Video/ảnh GIF minh họa bấm nút lần 1 không có phản hồi, bấm lần 2 mới hiện "Đã thêm")._
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/18
 
 ---
 
@@ -49,9 +53,9 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 | **Expected**           | Hệ thống chặn không cho phép nhập số lượng < 1. Hiển thị thông báo lỗi "Số lượng tối thiểu là 1" hoặc vô hiệu hóa nút "Thêm vào giỏ hàng".                                                                                                                                                                                                               |
 | **Actual**             | Hệ thống chấp nhận mọi giá trị số bao gồm 0 và số âm, thêm vào giỏ hàng bình thường.                                                                                                                                                                                                                                                                     |
 
-### Screenshot
+### GitHub Issue
 
-> _Chèn ảnh chụp màn hình tại đây (VD: Ảnh chụp giỏ hàng hiển thị sản phẩm với số lượng = 0 hoặc -5, thành tiền bị sai)._
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/19
 
 ---
 
@@ -68,9 +72,9 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 | **Expected**           | Hệ thống phải validate input: Nếu giá trị không phải số nguyên dương, hiển thị thông báo lỗi và không cho phép thêm vào giỏ hàng.                                                                                                                                                                                                                         |
 | **Actual**             | Sản phẩm được thêm vào giỏ với `quantity = NaN`, gây hiển thị `NaN ₫` trên toàn bộ giỏ hàng.                                                                                                                                                                                                                                                              |
 
-### Screenshot
+### GitHub Issue
 
-> _Chèn ảnh chụp màn hình tại đây (VD: Ảnh chụp giỏ hàng hiển thị quantity = NaN và thành tiền = NaN ₫)._
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/20
 
 ---
 
@@ -87,9 +91,9 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 | **Expected**           | Hệ thống chặn không cho phép nhập số thập phân vào ô số lượng, hoặc hiển thị thông báo "Số lượng phải là số nguyên".                                                                                                                                                                         |
 | **Actual**             | Ô nhập chấp nhận số thập phân, phần lẻ bị cắt ngầm khi thêm vào giỏ. Không có cảnh báo cho người dùng.                                                                                                                                                                                       |
 
-### Screenshot
+### GitHub Issue
 
-> _Chèn ảnh chụp màn hình tại đây (VD: Ảnh chụp ô nhập hiển thị 1.5 nhưng giỏ hàng ghi nhận số lượng = 1)._
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/21
 
 ---
 
@@ -139,9 +143,9 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 | **Expected**           | Giao diện front-end phải ẩn (hoặc vô hiệu hóa) nút "Hủy đơn" đối với các đơn hàng có trạng thái `shipping` trở đi. Nếu cố tình gọi API, hệ thống phải báo lỗi.                                                                                                                                                              |
 | **Actual**             | Nút "Hủy đơn" vẫn hiển thị bình thường. Giao diện (và cả logic API ngầm định) không chặn trạng thái `shipping`, dẫn đến đơn hàng đang giao vẫn bị hủy.                                                                                                                                                                      |
 
-### Screenshot
+### GitHub Issue
 
-> _Chèn ảnh chụp màn hình tại đây (VD: Ảnh chụp màn hình trang Lịch sử đơn hàng hiển thị nút "Hủy đơn" ngay cạnh nhãn trạng thái "Đang giao")._
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/22
 
 ---
 
@@ -158,9 +162,9 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 | **Expected**           | Giao diện front-end Admin không được hiển thị bất kỳ nút cập nhật trạng thái nào cho đơn hàng đã ở trạng thái `canceled` (hoặc `delivered`).                                                                                                                                                                                             |
 | **Actual**             | Nút "Đánh dấu Đã giao" hiển thị đối với đơn hàng `canceled`. Frontend cho phép thực hiện thao tác sai logic nghiệp vụ.                                                                                                                                                                                                                   |
 
-### Screenshot
+### GitHub Issue
 
-> _Chèn ảnh chụp màn hình tại đây (VD: Ảnh chụp giao diện Admin hiển thị đơn hàng Đã hủy nhưng vẫn có nút "Đánh dấu Đã giao")._
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/23
 
 ---
 
@@ -202,9 +206,9 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 | **Expected**           | Giao diện front-end phải chặn người dùng nhập số âm và/hoặc hiển thị thông báo lỗi "Giá sản phẩm không được âm", không cho phép lưu form.                                                                                           |
 | **Actual**             | Giao diện cho phép nhập số âm, thông báo lưu thành công và hiển thị sản phẩm với giá âm trên danh sách.                                                                                                                             |
 
-### Screenshot
+### GitHub Issue
 
-> _Chèn ảnh chụp màn hình tại đây (VD: Ảnh chụp màn hình form nhập giá trị -50000 và bảng danh sách hiển thị giá âm)._
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/24
 
 ---
 
@@ -221,9 +225,9 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 | **Expected**           | Giao diện chỉ cập nhật thông tin hiển thị của duy nhất sản phẩm vừa được thao tác sửa. Các sản phẩm khác trong danh sách phải giữ nguyên thông tin ban đầu.                                                                                                                                                 |
 | **Actual**             | Giao diện đổi tên hàng loạt toàn bộ sản phẩm trên bảng thành tên mới vừa nhập. Trạng thái lỗi hiển thị này kéo dài cho đến khi người dùng tải lại trang (F5).                                                                                                                                               |
 
-### Screenshot
+### GitHub Issue
 
-> _Chèn ảnh chụp màn hình tại đây (VD: Ảnh chụp danh sách sản phẩm bị trùng tên hàng loạt ngay sau khi bấm lưu)._
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/25
 
 ## BUG-FR15-03: Form không bắt buộc nhập Giá tiền (Thiếu thuộc tính `required`)
 
@@ -238,9 +242,9 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 | **Expected**           | Hệ thống phải hiển thị cảnh báo yêu cầu nhập trường "Giá tiền" và ngăn không cho lưu dữ liệu khi trường này bị bỏ trống.                                                                                                                     |
 | **Actual**             | Hệ thống không cảnh báo và thông báo lưu thành công ngay cả khi Giá tiền bị bỏ trống.                                                                                                                                                        |
 
-### Screenshot
+### GitHub Issue
 
-> _Chèn ảnh chụp màn hình tại đây (VD: Ảnh chụp giao diện báo lưu thành công dù để trống ô Giá tiền)._
+> https://github.com/dinosauce-285/Software-Testing-G02/issues/26
 
 ---
 
