@@ -128,16 +128,16 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 
 ## BUG-FR10-01: (User UI) Nút "Hủy đơn" vẫn hiển thị và hoạt động khi đơn hàng ở trạng thái `shipping` (Đang giao)
 
-| Mục                    | Chi tiết                                                                                                                                                                                                                                                                                                                                    |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Bug ID**             | BUG-FR10-01                                                                                                                                                                                                                                                                                                                                 |
-| **Feature**            | FR-10: Quản lý vòng đời đơn hàng                                                                                                                                                                                                                                                                                                            |
-| **Severity**           | High                                                                                                                                                                                                                                                                                                                                        |
-| **Test Case**          | DT_FR10_04 (Domain Testing — EC5: Trạng thái hiện tại = `shipping`) và BVA_FR10_02 (BVA — UB+1: Trạng thái `shipping`)                                                                                                                                                                                                                      |
-| **Mô tả**              | Theo tài liệu thiết kế (logic nghiệp vụ), người dùng chỉ được phép hủy đơn hàng khi trạng thái là chưa giao (`pending` hoặc `confirmed`). Tuy nhiên, trên giao diện trang Lịch sử đơn hàng (`Profile.jsx`), nút "Hủy đơn" vẫn hiển thị cho các đơn hàng có trạng thái `shipping`. Khi bấm vào, hệ thống vẫn thông báo "Hủy đơn thành công". |
-| **Steps to Reproduce** | 1. Admin chuyển trạng thái một đơn hàng sang `shipping` (Đang giao).<br>2. Đăng nhập vào tài khoản User sở hữu đơn hàng, vào phần "Hồ sơ của bạn" > "Lịch sử đơn hàng".<br>3. Nhìn thấy nút "Hủy đơn" bên cạnh đơn hàng đang giao.<br>4. Bấm "Hủy đơn" -> Hiện popup "Hủy đơn thành công!" và đơn bị chuyển sang Đã hủy.                    |
-| **Expected**           | Giao diện front-end phải ẩn (hoặc vô hiệu hóa) nút "Hủy đơn" đối với các đơn hàng có trạng thái `shipping` trở đi. Nếu cố tình gọi API, hệ thống phải báo lỗi.                                                                                                                                                                              |
-| **Actual**             | Nút "Hủy đơn" vẫn hiển thị bình thường. Giao diện (và cả logic API ngầm định) không chặn trạng thái `shipping`, dẫn đến đơn hàng đang giao vẫn bị hủy.                                                                                                                                                                                      |
+| Mục                    | Chi tiết                                                                                                                                                                                                                                                                                                                    |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Bug ID**             | BUG-FR10-01                                                                                                                                                                                                                                                                                                                 |
+| **Feature**            | FR-10: Quản lý vòng đời đơn hàng                                                                                                                                                                                                                                                                                            |
+| **Severity**           | High                                                                                                                                                                                                                                                                                                                        |
+| **Test Case**          | DT_FR10_04 (Domain Testing — EC5: Trạng thái hiện tại = `shipping`) và BVA_FR10_02 (BVA — UB+1: Trạng thái `shipping`)                                                                                                                                                                                                      |
+| **Mô tả**              | Theo tài liệu thiết kế (logic nghiệp vụ), người dùng chỉ được phép hủy đơn hàng khi trạng thái là chưa giao (`pending` hoặc `confirmed`). Tuy nhiên, trên giao diện trang Lịch sử đơn hàng, nút "Hủy đơn" vẫn hiển thị cho các đơn hàng có trạng thái `shipping`. Khi bấm vào, hệ thống vẫn thông báo "Hủy đơn thành công". |
+| **Steps to Reproduce** | 1. Admin chuyển trạng thái một đơn hàng sang `shipping` (Đang giao).<br>2. Đăng nhập vào tài khoản User sở hữu đơn hàng, vào phần "Hồ sơ của bạn" > "Lịch sử đơn hàng".<br>3. Nhìn thấy nút "Hủy đơn" bên cạnh đơn hàng đang giao.<br>4. Bấm "Hủy đơn" -> Hiện popup "Hủy đơn thành công!" và đơn bị chuyển sang Đã hủy.    |
+| **Expected**           | Giao diện front-end phải ẩn (hoặc vô hiệu hóa) nút "Hủy đơn" đối với các đơn hàng có trạng thái `shipping` trở đi. Nếu cố tình gọi API, hệ thống phải báo lỗi.                                                                                                                                                              |
+| **Actual**             | Nút "Hủy đơn" vẫn hiển thị bình thường. Giao diện (và cả logic API ngầm định) không chặn trạng thái `shipping`, dẫn đến đơn hàng đang giao vẫn bị hủy.                                                                                                                                                                      |
 
 ### Screenshot
 
@@ -180,3 +180,85 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 | DT_FR10_04   | Domain    | BUG-FR10-01      |
 | DT_FR10_13   | Domain    | BUG-FR10-02      |
 | BVA_FR10_02  | BVA       | BUG-FR10-01      |
+
+---
+
+# Bug Reporting — FR-15: Quản lý sản phẩm (CRUD)
+
+Báo cáo lỗi được phát hiện bằng cách thực thi các test case từ **Domain Testing** và **Boundary Value Analysis (BVA)** trên giao diện front-end (trang Quản lý Sản phẩm của Admin).
+
+---
+
+## BUG-FR15-01: Cho phép nhập và lưu giá tiền sản phẩm là số âm (`price` < 0)
+
+| Mục                    | Chi tiết                                                                                                                                                                                                                            |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Bug ID**             | BUG-FR15-01                                                                                                                                                                                                                         |
+| **Feature**            | FR-15: Quản lý sản phẩm                                                                                                                                                                                                             |
+| **Severity**           | High                                                                                                                                                                                                                                |
+| **Test Case**          | DT_FR15_04 (Domain Testing — EC6: Giá trị âm) và BVA_FR15_02 (BVA — LB-1: `price = -1`)                                                                                                                                             |
+| **Mô tả**              | Giao diện Thêm/Sửa sản phẩm cho phép người dùng nhập các giá trị âm (VD: `-1` hoặc `-50000`) vào ô "Giá tiền". Hệ thống không hiển thị cảnh báo và cho phép lưu thành công sản phẩm với giá trị âm.                                 |
+| **Steps to Reproduce** | 1. Đăng nhập Admin, vào tab "Sản phẩm".<br>2. Nhập "Tên sản phẩm" (VD: "Sản phẩm lỗi giá").<br>3. Ô "Giá tiền", gõ `-50000`.<br>4. Bấm "Lưu sản phẩm".<br>5. Quan sát danh sách sản phẩm: Sản phẩm mới hiển thị với giá `-50000 ₫`. |
+| **Expected**           | Giao diện front-end phải chặn người dùng nhập số âm và/hoặc hiển thị thông báo lỗi "Giá sản phẩm không được âm", không cho phép lưu form.                                                                                           |
+| **Actual**             | Giao diện cho phép nhập số âm, thông báo lưu thành công và hiển thị sản phẩm với giá âm trên danh sách.                                                                                                                             |
+
+### Screenshot
+
+> _Chèn ảnh chụp màn hình tại đây (VD: Ảnh chụp màn hình form nhập giá trị -50000 và bảng danh sách hiển thị giá âm)._
+
+---
+
+## BUG-FR15-02: Lỗi UI ghi đè sai tên của TOÀN BỘ sản phẩm trên bảng khi Cập nhật 1 sản phẩm (Mass Update UI Bug)
+
+| Mục                    | Chi tiết                                                                                                                                                                                                                                                                                                    |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Bug ID**             | BUG-FR15-02                                                                                                                                                                                                                                                                                                 |
+| **Feature**            | FR-15: Quản lý sản phẩm                                                                                                                                                                                                                                                                                     |
+| **Severity**           | Critical                                                                                                                                                                                                                                                                                                    |
+| **Test Case**          | DT_FR15_01 (Domain Testing — Test case Happy Path cho API Cập nhật)                                                                                                                                                                                                                                         |
+| **Mô tả**              | Khi thực hiện Sửa "Tên sản phẩm" cho một sản phẩm bất kỳ và bấm "Lưu sản phẩm", giao diện danh sách bị lỗi hiển thị: tên của **TẤT CẢ** các sản phẩm trên màn hình đều bị đổi đồng loạt thành tên mới vừa sửa.                                                                                              |
+| **Steps to Reproduce** | 1. Đăng nhập Admin, vào tab "Sản phẩm" (Đảm bảo đang có nhiều hơn 1 SP).<br>2. Bấm "Sửa" ở một sản phẩm bất kỳ.<br>3. Sửa "Tên sản phẩm" thành một tên mới (VD: "Sản phẩm đã sửa").<br>4. Bấm "Lưu sản phẩm".<br>5. Quan sát danh sách: Toàn bộ sản phẩm trong bảng đều bị đổi tên thành "Sản phẩm đã sửa". |
+| **Expected**           | Giao diện chỉ cập nhật thông tin hiển thị của duy nhất sản phẩm vừa được thao tác sửa. Các sản phẩm khác trong danh sách phải giữ nguyên thông tin ban đầu.                                                                                                                                                 |
+| **Actual**             | Giao diện đổi tên hàng loạt toàn bộ sản phẩm trên bảng thành tên mới vừa nhập. Trạng thái lỗi hiển thị này kéo dài cho đến khi người dùng tải lại trang (F5).                                                                                                                                               |
+
+### Screenshot
+
+> _Chèn ảnh chụp màn hình tại đây (VD: Ảnh chụp danh sách sản phẩm bị trùng tên hàng loạt ngay sau khi bấm lưu)._
+
+## BUG-FR15-03: Form không bắt buộc nhập Giá tiền (Thiếu thuộc tính `required`)
+
+| Mục                    | Chi tiết                                                                                                                                                                                                                                     |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Bug ID**             | BUG-FR15-03                                                                                                                                                                                                                                  |
+| **Feature**            | FR-15: Quản lý sản phẩm                                                                                                                                                                                                                      |
+| **Severity**           | Medium                                                                                                                                                                                                                                       |
+| **Test Case**          | DT_FR15_05 (Domain Testing — EC7: `price` không phải là số hợp lệ / trống)                                                                                                                                                                   |
+| **Mô tả**              | Theo yêu cầu nghiệp vụ, trường "Giá tiền" là bắt buộc nhập. Tuy nhiên, người dùng có thể bỏ trống trường này khi Thêm/Sửa sản phẩm và bấm "Lưu sản phẩm". Hệ thống không hiển thị thông báo lỗi yêu cầu nhập liệu và vẫn báo lưu thành công. |
+| **Steps to Reproduce** | 1. Đăng nhập Admin, vào tab "Sản phẩm".<br>2. Bấm "Sửa" hoặc nhập một sản phẩm mới.<br>3. Nhập "Tên sản phẩm" nhưng xóa trống ô "Giá tiền".<br>4. Bấm "Lưu sản phẩm".<br>5. Sản phẩm được lưu thành công nhưng giá tiền bị rỗng trên UI.     |
+| **Expected**           | Hệ thống phải hiển thị cảnh báo yêu cầu nhập trường "Giá tiền" và ngăn không cho lưu dữ liệu khi trường này bị bỏ trống.                                                                                                                     |
+| **Actual**             | Hệ thống không cảnh báo và thông báo lưu thành công ngay cả khi Giá tiền bị bỏ trống.                                                                                                                                                        |
+
+### Screenshot
+
+> _Chèn ảnh chụp màn hình tại đây (VD: Ảnh chụp giao diện báo lưu thành công dù để trống ô Giá tiền)._
+
+---
+
+## Bảng tổng hợp Bug FR-15
+
+| Bug ID      | Severity | Component       | Test Case phát hiện     | Tóm tắt                                                                          |
+| ----------- | -------- | --------------- | ----------------------- | -------------------------------------------------------------------------------- |
+| BUG-FR15-01 | High     | Admin UI (Form) | DT_FR15_04, BVA_FR15_02 | Giao diện không chặn giá trị âm, cho phép lưu giá tiền nhỏ hơn 0                 |
+| BUG-FR15-02 | Critical | Admin UI (List) | DT_FR15_01              | Lỗi UI đổi tên toàn bộ sản phẩm trên danh sách khi cập nhật thông tin 1 sản phẩm |
+| BUG-FR15-03 | Medium   | Admin UI (Form) | DT_FR15_05              | Ô nhập "Giá tiền" không bắt buộc nhập, cho phép lưu sản phẩm mà không có giá     |
+
+---
+
+## Truy xuất Test Case ↔ Bug (Traceability Matrix - FR-15)
+
+| Test Case ID | Technique | Bug(s) phát hiện |
+| ------------ | --------- | ---------------- |
+| DT_FR15_01   | Domain    | BUG-FR15-02      |
+| DT_FR15_04   | Domain    | BUG-FR15-01      |
+| DT_FR15_05   | Domain    | BUG-FR15-03      |
+| BVA_FR15_02  | BVA       | BUG-FR15-01      |
