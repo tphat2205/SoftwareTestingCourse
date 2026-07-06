@@ -117,3 +117,66 @@ Báo cáo lỗi được phát hiện bằng cách thực thi các test case t�
 | BVA_FR06_01  | BVA       | BUG-FR06-02      |
 | BVA_FR06_02  | BVA       | BUG-FR06-03      |
 | BVA_FR06_03  | BVA       | BUG-FR06-02      |
+
+---
+
+# Bug Reporting — FR-10: Quản lý vòng đời đơn hàng (Order State Machine)
+
+Báo cáo lỗi được phát hiện bằng cách thực thi các test case từ **Domain Testing** và **Boundary Value Analysis (BVA)** trên giao diện front-end (trang Lịch sử đơn hàng của User và Quản lý đơn hàng của Admin).
+
+---
+
+## BUG-FR10-01: (User UI) Nút "Hủy đơn" vẫn hiển thị và hoạt động khi đơn hàng ở trạng thái `shipping` (Đang giao)
+
+| Mục                    | Chi tiết                                                                                                                                                                                                                                                                                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Bug ID**             | BUG-FR10-01                                                                                                                                                                                                                                                                                                                                 |
+| **Feature**            | FR-10: Quản lý vòng đời đơn hàng                                                                                                                                                                                                                                                                                                            |
+| **Severity**           | High                                                                                                                                                                                                                                                                                                                                        |
+| **Test Case**          | DT_FR10_04 (Domain Testing — EC5: Trạng thái hiện tại = `shipping`) và BVA_FR10_02 (BVA — UB+1: Trạng thái `shipping`)                                                                                                                                                                                                                      |
+| **Mô tả**              | Theo tài liệu thiết kế (logic nghiệp vụ), người dùng chỉ được phép hủy đơn hàng khi trạng thái là chưa giao (`pending` hoặc `confirmed`). Tuy nhiên, trên giao diện trang Lịch sử đơn hàng (`Profile.jsx`), nút "Hủy đơn" vẫn hiển thị cho các đơn hàng có trạng thái `shipping`. Khi bấm vào, hệ thống vẫn thông báo "Hủy đơn thành công". |
+| **Steps to Reproduce** | 1. Admin chuyển trạng thái một đơn hàng sang `shipping` (Đang giao).<br>2. Đăng nhập vào tài khoản User sở hữu đơn hàng, vào phần "Hồ sơ của bạn" > "Lịch sử đơn hàng".<br>3. Nhìn thấy nút "Hủy đơn" bên cạnh đơn hàng đang giao.<br>4. Bấm "Hủy đơn" -> Hiện popup "Hủy đơn thành công!" và đơn bị chuyển sang Đã hủy.                    |
+| **Expected**           | Giao diện front-end phải ẩn (hoặc vô hiệu hóa) nút "Hủy đơn" đối với các đơn hàng có trạng thái `shipping` trở đi. Nếu cố tình gọi API, hệ thống phải báo lỗi.                                                                                                                                                                              |
+| **Actual**             | Nút "Hủy đơn" vẫn hiển thị bình thường. Giao diện (và cả logic API ngầm định) không chặn trạng thái `shipping`, dẫn đến đơn hàng đang giao vẫn bị hủy.                                                                                                                                                                                      |
+
+### Screenshot
+
+> _Chèn ảnh chụp màn hình tại đây (VD: Ảnh chụp màn hình trang Lịch sử đơn hàng hiển thị nút "Hủy đơn" ngay cạnh nhãn trạng thái "Đang giao")._
+
+---
+
+## BUG-FR10-02: (Admin UI) Hiển thị nút "Đánh dấu Đã giao" cho các đơn hàng đã hủy (`canceled`)
+
+| Mục                    | Chi tiết                                                                                                                                                                                                                                                                                                                                 |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Bug ID**             | BUG-FR10-02                                                                                                                                                                                                                                                                                                                              |
+| **Feature**            | FR-10: Quản lý vòng đời đơn hàng                                                                                                                                                                                                                                                                                                         |
+| **Severity**           | Critical                                                                                                                                                                                                                                                                                                                                 |
+| **Test Case**          | DT_FR10_13 (Domain Testing — EC13: Trạng thái cập nhật không hợp lệ - Vi phạm luồng State Machine)                                                                                                                                                                                                                                       |
+| **Mô tả**              | `canceled` (Đã hủy) là trạng thái kết thúc (terminal state) của vòng đời đơn hàng. Tuy nhiên, trên giao diện trang Quản trị (Admin Panel), đối với các đơn hàng ở trạng thái `canceled`, hệ thống hiển thị nút **"Đánh dấu Đã giao"**. Bấm nút này sẽ chuyển đơn hàng từ Đã hủy thành Đã giao (hồi sinh đơn hàng), phá vỡ state machine. |
+| **Steps to Reproduce** | 1. Hủy một đơn hàng (từ phía User hoặc Admin).<br>2. Đăng nhập tài khoản Admin, vào mục "Đơn hàng".<br>3. Tìm đơn hàng có trạng thái `canceled` (màu đỏ).<br>4. Quan sát thấy cột Thao tác có nút "Đánh dấu Đã giao".<br>5. Bấm vào nút này -> Đơn hàng chuyển sang `delivered` (Đã giao).                                               |
+| **Expected**           | Giao diện front-end Admin không được hiển thị bất kỳ nút cập nhật trạng thái nào cho đơn hàng đã ở trạng thái `canceled` (hoặc `delivered`).                                                                                                                                                                                             |
+| **Actual**             | Nút "Đánh dấu Đã giao" hiển thị đối với đơn hàng `canceled`. Frontend cho phép thực hiện thao tác sai logic nghiệp vụ.                                                                                                                                                                                                                   |
+
+### Screenshot
+
+> _Chèn ảnh chụp màn hình tại đây (VD: Ảnh chụp giao diện Admin hiển thị đơn hàng Đã hủy nhưng vẫn có nút "Đánh dấu Đã giao")._
+
+---
+
+## Bảng tổng hợp Bug FR-10
+
+| Bug ID      | Severity | Component | Test Case phát hiện     | Tóm tắt                                                                        |
+| ----------- | -------- | --------- | ----------------------- | ------------------------------------------------------------------------------ |
+| BUG-FR10-01 | High     | User UI   | DT_FR10_04, BVA_FR10_02 | Nút "Hủy đơn" vẫn hiển thị và cho phép hủy khi đơn hàng đang giao (`shipping`) |
+| BUG-FR10-02 | Critical | Admin UI  | DT_FR10_13              | Hiển thị nút "Đánh dấu Đã giao" cho các đơn hàng đã hủy (`canceled`)           |
+
+---
+
+## Truy xuất Test Case ↔ Bug (Traceability Matrix - FR-10)
+
+| Test Case ID | Technique | Bug(s) phát hiện |
+| ------------ | --------- | ---------------- |
+| DT_FR10_04   | Domain    | BUG-FR10-01      |
+| DT_FR10_13   | Domain    | BUG-FR10-02      |
+| BVA_FR10_02  | BVA       | BUG-FR10-01      |
