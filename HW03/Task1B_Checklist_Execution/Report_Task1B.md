@@ -19,7 +19,18 @@
 
 ---
 
-## 2. Kết quả chạy Checklist
+## 2. Bổ sung mục Checklist (Kịch bản B)
+
+*Theo yêu cầu của §4, mỗi sinh viên bổ sung ≥ 2 mục checklist riêng biệt cho kịch bản của mình (nếu AI đã sinh không bao quát hết).*
+
+| ID | Nhóm / Tên | Mô tả chi tiết | Hành vi mong đợi (Passed) | Lý do AI bỏ sót / Heuristic |
+|---|---|---|---|---|
+| **C-B1** | Form đăng ký: Xác nhận hiểu rõ quy định | Form đăng ký (B2) yêu cầu người dùng tick vào ô "Tôi đã đọc và đồng ý với các quy định của sự kiện" trước khi đăng ký. | Có checkbox bắt buộc. Nếu quên tick, submit sẽ báo lỗi cụ thể. | AI chỉ kiểm tra validation cơ bản (F-02, F-03), nhưng bỏ qua validation về mặt pháp lý/chính sách đặc thù của hệ thống sự kiện. Heuristic: Nielsen #5 (Error prevention). |
+| **C-B2** | QR Code: Định dạng và hiển thị (Trang My Registrations) | Vé sự kiện hiển thị QR code rõ nét, kèm mã chuỗi bên dưới phòng khi không quét được. | QR Code đủ lớn (≥ 200x200px), có độ tương phản cao, mã chữ/số phụ trợ hiển thị rõ ràng bên dưới. | AI chưa phân tích sâu đặc thù của "vé điện tử" (e-ticket), chỉ tập trung vào các form và bảng dữ liệu chung. Heuristic: Nielsen #1 (Visibility of system status) / Error prevention. |
+
+---
+
+## 3. Kết quả chạy Checklist
 
 ### 2.1 B1 — Dashboard & Tìm kiếm (`/dashboard`)
 
@@ -267,7 +278,14 @@
 
 ---
 
-## 3. Tổng hợp kết quả
+## 4. Tổng hợp kết quả
+
+| Màn hình | Passed | Failed | N/A | Tỉ lệ pass |
+|---|---|---|---|---|
+| **B1 — Dashboard** | 26 | 8 | 54 | **76.5%** |
+| **B1-b — Saved Events** | 22 | 8 | 58 | **73.3%** |
+| **B2 — Chi tiết sự kiện** | 28 | 6 | 54 | **82.4%** |
+| **Tổng cộng** | 76 | 22 | 166 | **77.6%** |
 
 | Màn hình | Passed | Failed | N/A | Tỉ lệ pass |
 |---|---|---|---|---|
@@ -278,7 +296,7 @@
 
 ---
 
-## 4. Danh sách Bug phát hiện
+## 5. Danh sách Bug phát hiện
 
 ### BUG-B-001: Carousel spotlight không tạm dừng khi hover
 | Thuộc tính | Giá trị |
@@ -289,6 +307,7 @@
 | **Kỳ vọng** | Carousel tạm dừng auto-rotate khi hover |
 | **Thực tế** | Carousel tiếp tục chuyển slide |
 | **Mức nghiêm trọng** | 2 — Minor (vi phạm WCAG 2.2.2) |
+| **Ảnh** | ![BUG-B-001](file:///d:/Project/SoftwareTesting/HW03/Task1B_Checklist_Execution/Failed_Screenshots/fail_s25_carousel_1785689527704.png) |
 
 ### BUG-B-002: Nút Save/Saved dùng màu đỏ cho trạng thái tích cực
 | Thuộc tính | Giá trị |
@@ -299,6 +318,7 @@
 | **Kỳ vọng** | Trạng thái "Saved" dùng màu tích cực |
 | **Thực tế** | "Saved" dùng màu đỏ — sai quy ước ngữ nghĩa |
 | **Mức nghiêm trọng** | 1 — Cosmetic |
+| **Ảnh** | ![BUG-B-002](file:///d:/Project/SoftwareTesting/HW03/Task1B_Checklist_Execution/Failed_Screenshots/fail_g05_save_red_1785689566491.png) |
 
 ### BUG-B-003: Search keyword bị mất khi quay lại từ trang chi tiết
 | Thuộc tính | Giá trị |
@@ -309,6 +329,7 @@
 | **Kỳ vọng** | Keyword và kết quả được giữ lại |
 | **Thực tế** | Search bar reset, hiện toàn bộ events |
 | **Mức nghiêm trọng** | 3 — Major |
+| **Ảnh** | ![BUG-B-003](file:///d:/Project/SoftwareTesting/HW03/Task1B_Checklist_Execution/Failed_Screenshots/fail_n09_search_after_1785690326219.png) |
 
 ### BUG-B-004: Trộn ngôn ngữ EN/VI trên tất cả các trang
 | Thuộc tính | Giá trị |
@@ -319,6 +340,7 @@
 | **Kỳ vọng** | Toàn bộ text bằng tiếng Anh |
 | **Thực tế** | Labels EN, nội dung/role names VI → trộn ngôn ngữ |
 | **Mức nghiêm trọng** | 2 — Minor |
+| **Ảnh** | ![BUG-B-004](file:///d:/Project/SoftwareTesting/HW03/Task1B_Checklist_Execution/Failed_Screenshots/fail_g14_mixed_lang_1785689935819.png) |
 
 ### BUG-B-005: Layout vỡ khi zoom 200%
 | Thuộc tính | Giá trị |
@@ -329,6 +351,7 @@
 | **Kỳ vọng** | Layout responsive, nội dung đọc được |
 | **Thực tế** | Sidebar chồng content (B1), nút chồng nhau (B1-b), card tràn (B2) |
 | **Mức nghiêm trọng** | 2 — Minor (vi phạm WCAG 1.4.4) |
+| **Ảnh** | *(Lỗi layout toàn màn hình, khó chụp chi tiết)* |
 
 ### BUG-B-006: Unsave không có dialog xác nhận
 | Thuộc tính | Giá trị |
@@ -339,6 +362,7 @@
 | **Kỳ vọng** | Dialog xác nhận trước khi bỏ lưu |
 | **Thực tế** | Bỏ lưu ngay lập tức |
 | **Mức nghiêm trọng** | 2 — Minor |
+| **Ảnh** | ![BUG-B-006](file:///d:/Project/SoftwareTesting/HW03/Task1B_Checklist_Execution/Failed_Screenshots/fail_s06_unsave_button_1785690261269.png) |
 
 ### BUG-B-007: Không có Undo sau khi Unsave
 | Thuộc tính | Giá trị |
@@ -349,6 +373,7 @@
 | **Kỳ vọng** | Có nút Undo trên toast hoặc hoàn tác nhanh |
 | **Thực tế** | Không có Undo — phải quay Dashboard tìm lại event |
 | **Mức nghiêm trọng** | 2 — Minor (vi phạm Shneiderman #6) |
+| **Ảnh** | *(Thiếu chức năng)* |
 
 ### BUG-B-008: Search bar thiếu label thường trực
 | Thuộc tính | Giá trị |
@@ -359,6 +384,7 @@
 | **Kỳ vọng** | Label thường trực không biến mất |
 | **Thực tế** | Chỉ placeholder, biến mất khi gõ |
 | **Mức nghiêm trọng** | 1 — Cosmetic (vi phạm Nielsen #6) |
+| **Ảnh** | ![BUG-B-008](file:///d:/Project/SoftwareTesting/HW03/Task1B_Checklist_Execution/Failed_Screenshots/fail_f01_search_no_label_1785689631111.png) |
 
 ### BUG-B-009: Nhãn Save/Saved/Unsave/Save event không nhất quán
 | Thuộc tính | Giá trị |
@@ -369,6 +395,7 @@
 | **Kỳ vọng** | Cùng chức năng → cùng nhãn |
 | **Thực tế** | 3 nhãn khác nhau cho cùng chức năng bookmark |
 | **Mức nghiêm trọng** | 1 — Cosmetic (vi phạm Shneiderman #1) |
+| **Ảnh** | ![BUG-B-009](file:///d:/Project/SoftwareTesting/HW03/Task1B_Checklist_Execution/Failed_Screenshots/fail_g02_save_event_1785690214527.png) |
 
 ### BUG-B-010: Viền focus không rõ ràng trên event cards và checkboxes
 | Thuộc tính | Giá trị |
@@ -379,6 +406,7 @@
 | **Kỳ vọng** | Viền focus rõ ràng |
 | **Thực tế** | Viền focus mờ hoặc không thấy |
 | **Mức nghiêm trọng** | 2 — Minor (vi phạm WCAG 2.4.7) |
+| **Ảnh** | *(Lỗi thiếu thị giác)* |
 
 ### BUG-B-011: Registration form không đánh dấu bắt buộc trước submit
 | Thuộc tính | Giá trị |
@@ -389,6 +417,7 @@
 | **Kỳ vọng** | Dấu `*` hoặc "required" cho biết phải chọn ≥ 1 role |
 | **Thực tế** | Không có dấu hiệu bắt buộc — message đỏ chỉ hiện khi nút disabled |
 | **Mức nghiêm trọng** | 1 — Cosmetic |
+| **Ảnh** | ![BUG-B-011](file:///d:/Project/SoftwareTesting/HW03/Task1B_Checklist_Execution/Failed_Screenshots/fail_f02_s11_registration_1785690112316.png) |
 
 ### BUG-B-012: Registration roles thiếu chú giải màu
 | Thuộc tính | Giá trị |
@@ -399,6 +428,7 @@
 | **Kỳ vọng** | Có legend giải nghĩa 4 màu trạng thái |
 | **Thực tế** | Không có chú giải, phải đọc text trên từng badge |
 | **Mức nghiêm trọng** | 1 — Cosmetic |
+| **Ảnh** | ![BUG-B-012](file:///d:/Project/SoftwareTesting/HW03/Task1B_Checklist_Execution/Failed_Screenshots/fail_f02_s11_registration_1785690112316.png) |
 
 ### BUG-B-013: Một số event card thiếu thumbnail
 | Thuộc tính | Giá trị |
@@ -409,3 +439,4 @@
 | **Kỳ vọng** | Mọi event card có ảnh thumbnail hoặc placeholder có nội dung |
 | **Thực tế** | Nhiều card hiện placeholder icon ảnh xám — thiếu thông tin thị giác |
 | **Mức nghiêm trọng** | 1 — Cosmetic |
+| **Ảnh** | ![BUG-B-013](file:///d:/Project/SoftwareTesting/HW03/Task1B_Checklist_Execution/Failed_Screenshots/fail_g10_placeholder_1785689883882.png) |
