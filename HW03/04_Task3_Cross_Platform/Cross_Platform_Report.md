@@ -2,9 +2,9 @@
 
 **Sinh viên:** Đoàn Thành Phát — 23127241
 **Kịch bản:** B — User đăng ký tham gia sự kiện
-**Ngày thực hiện:** *(chưa bắt đầu)*
+**Ngày thực hiện:** 03/08/2026
 **SUT:** https://prod-dev.ems-fitus.cloud
-**Công cụ:** BrowserStack / LambdaTest (trial)
+**Công cụ:**  LambdaTest (trial)
 
 ---
 
@@ -22,9 +22,9 @@
 | 1 | Windows 11 | Chrome | Desktop | Real | ☐ | ☐ | ☐ |
 | 2 | Windows 11 | Cốc Cốc | Desktop | Real | ☐ | ☐ | ☐ |
 | 3 | Windows 11 | Edge | Desktop | Real | ☐ | ☐ | ☐ |
-| 4 | macOS Sonoma | Safari | Desktop | Real | ☐ | ☐ | ☐ |
-| 5 | macOS Golden Gate | Chrome | Desktop | Real | ☐ | ☐ | ☐ |
-| 6 | macOS Sonoma | Brave | Desktop | Real | ☐ | ☐ | ☐ |
+| 4 | macOS Sonoma | Safari | Desktop | Emulator | ☐ | ☐ | ☐ |
+| 5 | macOS Golden Gate | Chrome | Desktop | Emulator | ☐ | ☐ | ☐ |
+| 6 | macOS Sonoma | Brave | Desktop | Emulator | ☐ | ☐ | ☐ |
 | 7 | Android 14 | Chrome | Phone (Samsung Galaxy S24) | Real | ☐ | ☐ | ☐ |
 | 8 | Android 14 | Samsung Internet | Phone (Samsung Galaxy S24) | Real | ☐ | ☐ | ☐ |
 | 9 | Android 14 | Chrome | Tablet (Samsung Galaxy Tab S9) | Real | ☐ | ☐ | ☐ |

@@ -383,22 +383,22 @@ Trước khi chạy chính thức, đã chạy pilot 1 lần với Đoàn Thành
 
 | # | Phát hiện | Severity (0–4) | Probability (x/5) | Màn hình | Heuristic vi phạm |
 |---|---|---|---|---|---|
-| UT-1 | Màu đỏ cho trạng thái "Saved" gây nhầm lẫn với "Xóa/Lỗi" | 3 | 5/5 | B1, B1-b, B2 | Nielsen #2 (Match between system and real world), Shneiderman #1 (Consistency) |
+| UT-1 | Màu đỏ cho trạng thái "Saved" gây nhầm lẫn với "Xóa/Lỗi", khiến user bực bội và có thể từ bỏ thao tác | 4 | 5/5 | B1, B1-b, B2 | Nielsen #2 (Match between system and real world), Shneiderman #1 (Consistency) |
 | UT-2 | Nhãn Save/Saved/Unsave/Save event không nhất quán giữa các trang | 2 | 3/5 | B1, B1-b, B2 | Shneiderman #1 (Consistency), Nielsen #4 (Consistency & Standards) |
 | UT-3 | Menu chỉ có tiếng Anh, gây khó cho người dùng Việt | 3 | 3/5 | B1, B1-b | Nielsen #2 (Match), Nielsen #6 (Recognition) |
 | UT-4 | Search state bị mất khi quay lại từ trang chi tiết | 2 | 2/5 | B1 | Shneiderman #8 (Informative feedback), Nielsen #3 (User control) |
 | UT-5 | Registration roles thiếu dấu (*) bắt buộc và chú giải màu | 2 | 2/5 | B2 | Nielsen #5 (Error prevention), Nielsen #6 (Recognition) |
 | UT-6 | Icon bookmark nhỏ, khó phát hiện cho người mới | 1 | 2/5 | B1 | Nielsen #6 (Recognition rather than recall) |
-| UT-7 | Live search không có nút Submit gây bối rối cho người ít quen công nghệ | 1 | 1/5 | B1 | Nielsen #2 (Match between system and real world) |
+| UT-7 | Live search không có nút Submit (Một số user quen kiểu cũ, nhưng thực tế hệ thống vẫn hoạt động đúng thiết kế hiện đại) | 0 | 1/5 | B1 | Nielsen #2 (Match between system and real world) - Được đánh giá là mức 0 vì không hẳn là một lỗi Usability, chỉ là sở thích cá nhân của user. |
 
 ### 3.4 Khuyến nghị theo ưu tiên
 
 | Ưu tiên | Khuyến nghị | Severity | Effort |
 |---|---|---|---|
-| 1 | **Đổi màu nút Save/Saved** từ đỏ sang xanh dương/accent color. Đỏ chỉ dùng cho hành động phá hủy (xóa, hủy). | 3 | Thấp (chỉ cần sửa CSS) |
+| 1 | **Đổi màu nút Save/Saved** từ đỏ sang xanh dương/accent color. Đỏ chỉ dùng cho hành động phá hủy (xóa, hủy). | 4 | Thấp (chỉ cần sửa CSS) |
 | 2 | **Thêm i18n tiếng Việt** cho menu sidebar (Events → Sự kiện, Saved Events → Đã lưu, Calendar → Lịch). | 3 | Trung bình (cần dịch + cấu hình locale) |
 | 3 | **Thống nhất nhãn bookmark** trên tất cả các trang: dùng "Save" / "Saved" thay vì hỗn hợp "Save event" / "Unsave" / icon bookmark. | 2 | Thấp (sửa text) |
 | 4 | **Lưu search state vào URL** (query params) để khi bấm Back, kết quả tìm kiếm vẫn còn. | 2 | Trung bình (cần sửa logic router) |
 | 5 | **Thêm legend cho 4 ô trạng thái** (Registered/Pending/Confirmed/Waitlisted) trên trang chi tiết sự kiện. | 2 | Thấp (thêm HTML/CSS cho legend) |
 | 6 | **Thêm tooltip hoặc text** kèm icon bookmark: hiện chữ "Lưu" khi hover. | 1 | Thấp |
-| 7 | **Thêm placeholder text** cho live search: "Nhập tên sự kiện và kết quả sẽ tự lọc" thay vì chỉ "Search events". | 1 | Thấp |
+| 7 | **Thêm placeholder text** cho live search: "Nhập tên sự kiện và kết quả sẽ tự lọc" thay vì chỉ "Search events". | 0 | Thấp |

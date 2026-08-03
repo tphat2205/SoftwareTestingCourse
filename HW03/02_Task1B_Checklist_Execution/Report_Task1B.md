@@ -30,251 +30,109 @@
 
 ---
 
-## 3. Kết quả chạy Checklist
+## 3. Kết quả chạy Checklist (Gộp 3 màn hình)
 
-### 2.1 B1 — Dashboard & Tìm kiếm (`/dashboard`)
-
-| ID | Mục kiểm tra | Kết quả | Notes |
-|---|---|---|---|
-| **IA-01 — Chuẩn UI chung** | | | |
-| G-01 | Tiêu đề trang khớp với mục đang chọn trên menu | **Passed** | Heading "Events" khớp với mục "Events" được highlight trên top nav |
-| G-02 | Cùng chức năng dùng cùng nhãn ở mọi màn hình | **Failed** | Nút "Save"/"Saved" trên event card dùng text, nhưng trên sidebar dùng icon bookmark không có label — thiếu nhất quán. Ngoài ra "Rows per page" (pagination) vs "Showing 1 of 52 events" dùng hai cách đếm khác nhau |
-| G-03 | Bảng: text trái, số phải, trạng thái giữa | **N/A** | Dashboard không dùng bảng dữ liệu |
-| G-04 | Tối đa 2 họ font; cỡ chữ theo thang nhất quán | **Passed** | Dùng font sans-serif nhất quán, cỡ chữ phân cấp rõ ràng (heading > card title > body > caption) |
-| G-05 | Màu đúng ngữ nghĩa: đỏ chỉ cho lỗi/phá huỷ | **Failed** | Nút "Saved" dùng màu đỏ cho trạng thái "đã lưu" — đỏ thường mang nghĩa lỗi/xoá/nguy hiểm, không phù hợp cho hành động tích cực. Nên dùng màu primary hoặc accent |
-| G-06 | Mỗi màn hình chỉ có 1 nút hành động chính | **Passed** | Không có nút CTA chính nổi bật trên dashboard (đây là trang danh sách), mỗi card có "Save" nhưng đó là hành động phụ |
-| G-07 | Nội dung không tràn ngang ở ≥ 1280px | **Passed** | Không có thanh cuộn ngang ở viewport 1440px |
-| G-08 | Empty state có thông điệp + gợi ý hành động | **Passed** | Chưa trigger được empty state trên dashboard (52 events), nhưng search không kết quả hiện "No events found" |
-| G-09 | Loading có skeleton/spinner; không nhảy layout | **Passed** | Quan sát được loading state khi chuyển tab |
-| G-10 | Ảnh giữ đúng tỉ lệ, không méo | **Failed** | Một số event card thiếu thumbnail — hiện placeholder icon ảnh xám trên nền trắng. Khi có ảnh thì giữ đúng tỉ lệ 4:3 |
-| G-11 | Không lộ mã trạng thái nội bộ ra giao diện | **Passed** | Không thấy mã nội bộ nào trên dashboard |
-| G-12 | Tương phản chữ/nền ≥ 4.5:1 | **Passed** | Text đậm trên nền sáng, contrast đạt yêu cầu |
-| G-13 | Vẫn đọc được khi zoom 200% | **Failed** | Khi zoom 200%, sidebar icons bị chồng lên content chính; event cards bị tràn ra ngoài viewport |
-| G-14 | Chuyển EN/VI dịch toàn bộ | **Failed** | Ở chế độ EN: tiêu đề sự kiện, mô tả, địa điểm hiển thị tiếng Việt nhưng labels UI bằng tiếng Anh → trộn ngôn ngữ trên cùng màn hình |
-| G-15 | Text tiếng Việt không vỡ nút/cắt chữ | **Passed** | Quan sát các event title dài tiếng Việt vẫn hiển thị bình thường |
-| G-16 | Ngôn ngữ đã chọn được lưu lại sau reload | **Passed** | Reload trang vẫn giữ nguyên ngôn ngữ EN |
-| G-17 | Avatar chữ viết tắt gọn trong vòng tròn | **Passed** | Avatar "PDT" hiện đúng trong vòng tròn, không tràn |
-| G-18 | Member Code hiển thị đầy đủ | **N/A** | Dashboard không hiển thị Member Code |
-| **IA-02 — Forms** | | | |
-| F-01 | Mọi ô nhập có nhãn thường trực | **Failed** | Search bar chỉ có placeholder "Search events by title..." — khi gõ thì placeholder biến mất, không có label thường trực |
-| F-02 | Trường bắt buộc đánh dấu rõ | **N/A** | Dashboard không có form submit |
-| F-03 | Submit thiếu trường bắt buộc → chặn | **N/A** | Không có form submit |
-| F-04 | Lỗi hiện ngay cạnh trường bị lỗi | **N/A** | Không có form |
-| F-05 | Lỗi nói rõ cách sửa | **N/A** | Không có form |
-| F-06 | Giá trị mặc định hợp lý | **N/A** | Không có form |
-| F-07 | Ràng buộc ngay tại control | **N/A** | Không có form |
-| F-08 | Focus nhảy về trường lỗi đầu tiên | **N/A** | Không có form |
-| F-09 | Upload nêu rõ định dạng/dung lượng/tỉ lệ | **N/A** | Không có upload |
-| F-10 | Upload có progress, huỷ được, báo lỗi | **N/A** | Không có upload |
-| F-11 | Nút Submit khoá khi đang gửi | **N/A** | Không có submit |
-| F-12 | Cảnh báo mất dữ liệu khi rời form | **N/A** | Không có form nhập liệu |
-| F-13 | Thao tác hoàn toàn bằng bàn phím + focus rõ | **Failed** | Tab qua các filter/search được, nhưng viền focus trên event cards không rõ ràng, khó nhận biết card nào đang được focus |
-| F-14 | Validation chéo ngày/giờ | **N/A** | Không có form ngày/giờ |
-| F-15 | Validation thời gian đóng đăng ký | **N/A** | Không có form |
-| F-16 | Trường bắt buộc có điều kiện | **N/A** | Không có form |
-| F-17 | Bật/tắt công tắc ẩn/hiện đúng trường | **N/A** | Không có toggle |
-| F-18 | Upload sai tỉ lệ được báo trước | **N/A** | Không có upload |
-| F-19 | Rich-text giữ định dạng sau lưu-mở lại | **N/A** | Không có rich-text editor |
-| F-20 | Upload nhiều ảnh nêu rõ giới hạn | **N/A** | Không có upload |
-| F-21 | Upload ảnh có preview/xoá/validation | **N/A** | Không có upload |
-| F-22 | Công tắc Public Event | **N/A** | Chức năng admin |
-| F-23 | Album Link validation | **N/A** | Chức năng admin |
-| F-24 | Reminder before hours | **N/A** | Chức năng admin |
-| F-25 | Validation chéo Check-in | **N/A** | Chức năng admin |
-| F-26 | Check-in vs Start/End | **N/A** | Chức năng admin |
-| **IA-03 — Navigation** | | | |
-| N-01 | Menu chính truy cập mọi khu vực lớn | **Passed** | Top nav có: Events, Calendar, Saved Events, User guide |
-| N-02 | Mục đang xem đánh dấu active rõ | **Passed** | "Events" trên top nav highlight màu xanh lá |
-| N-03 | Breadcrumb đúng đường đi | **N/A** | Dashboard là trang gốc, không có breadcrumb |
-| N-04 | Trang chi tiết có đường quay lại | **N/A** | Dashboard là trang danh sách gốc |
-| N-05 | Link/nút dẫn tới đúng màn hình | **Passed** | Click event card → đúng trang chi tiết |
-| N-06 | Tab giữ nội dung khi chuyển qua lại | **Passed** | Chuyển Upcoming/Ongoing/Ended giữ đúng nội dung |
-| N-07 | Nút Back trình duyệt hoạt động đúng | **Passed** | Back từ chi tiết → về dashboard đúng |
-| N-08 | Deep link mở đúng bản ghi | **N/A** | Dashboard không có deep link cụ thể |
-| N-09 | Bộ lọc/từ khoá được giữ lại khi quay về | **Failed** | Search keyword bị mất khi vào event detail rồi back |
-| N-10 | Sau lưu trả về đúng ngữ cảnh | **N/A** | Dashboard không có hành động lưu |
-| N-11 | Tab bàn phím đúng thứ tự; Esc đóng modal | **Passed** | Thứ tự hợp lý |
-| N-12 | Kéo-thả có phản hồi thị giác | **N/A** | Không có kéo-thả |
-| N-13 | Thứ tự sau kéo-thả lưu đúng | **N/A** | Không có kéo-thả |
-| N-14 | Kéo-thả có phương án thay thế | **N/A** | Không có kéo-thả |
-| N-15 | URL admin thiếu quyền → báo lỗi | **N/A** | Đang test phía user |
-| N-16 | Cột bảng sắp xếp có chỉ báo hướng | **N/A** | Không dùng bảng sort |
-| N-17 | Thông tin audit hiển thị đủ | **N/A** | Không có audit |
-| N-18 | Tab Pending/Resolved | **N/A** | Không có support |
-| N-19 | Clear filters xoá đồng thời và làm mới | **Passed** | Clear filters xoá tất cả bộ lọc |
-| **IA-04 — Feedback / State** | | | |
-| S-01 | Hành động thay đổi dữ liệu có phản hồi | **Passed** | Click Save → icon đổi sang "Saved" ngay |
-| S-02 | Mức phản hồi tương xứng | **Passed** | Save/Unsave: thay đổi nhẹ nhàng |
-| S-03 | Thao tác kéo dài có chỉ báo | **Passed** | Loading indicator khi tải trang |
-| S-04 | Toast tự tắt, không che nội dung | **Passed** | Toast góc phải trên, tự tắt ~3 giây |
-| S-05 | Lỗi hệ thống dùng ngôn ngữ thường | **N/A** | Chưa trigger lỗi |
-| S-06 | Hành động phá huỷ có dialog xác nhận | **N/A** | Dashboard không có hành động phá huỷ |
-| S-07 | Dialog: nút mặc định an toàn | **N/A** | Không có dialog |
-| S-08 | Hành động hoàn tác được | **Passed** | Save ↔ Unsave toggle hoạt động |
-| S-09 | Thông báo hoàn tất chuỗi thao tác | **N/A** | Không có chuỗi nhiều bước |
-| S-10 | Trạng thái không chỉ bằng màu | **Passed** | Badge có text + màu |
-| S-11 | Bảng nhiều màu có chú giải | **N/A** | Không có bảng trạng thái |
-| S-12 | Trạng thái nút khớp dữ liệu | **Passed** | Save/Saved đổi đúng |
-| S-13 | Progress bar đúng tiến độ | **N/A** | Không có progress bar |
-| S-14 | Real-time tự cập nhật | **N/A** | Không có real-time list |
-| S-15 | Nhánh check-in phân biệt | **N/A** | Không có check-in |
-| S-16 | Hành động bị chặn có giải thích | **N/A** | Không có hành động bị chặn |
-| S-17 | Export có chỉ báo | **N/A** | Không có export |
-| S-18 | Badge thông báo đúng số lượng | **Passed** | Bell icon hiện badge số |
-| S-19 | Đổi trạng thái Active cập nhật ngay | **N/A** | Không có toggle Active |
-| S-20 | Trường mật khẩu nêu ràng buộc | **N/A** | Không có mật khẩu |
-| S-21 | Gửi phản hồi support → thông báo | **N/A** | Không có support |
-| S-22 | Internal note tách khỏi response | **N/A** | Không có support |
-| S-23 | Ảnh mở trong lightbox | **N/A** | Không có lightbox |
-| S-24 | Save/Unsave cập nhật ngay không cần reload | **Passed** | Click Save → icon đổi ngay, không reload |
-| S-25 | Carousel tạm dừng khi hover | **Failed** | Carousel spotlight tiếp tục chuyển slide dù chuột đang ở trong vùng |
-
-**Tổng kết B1:**
-- **Passed:** 27
-- **Failed:** 9 (G-02, G-05, G-10, G-13, G-14, F-01, F-13, N-09, S-25)
-- **N/A:** 52
-- **Tỉ lệ pass:** 27 / (27 + 9) = **75.0%**
-
----
-
-### 2.2 B1-b — Trang Saved Events (`/my-favorites`)
-
-| ID | Mục kiểm tra | Kết quả | Notes |
-|---|---|---|---|
-| **IA-01 — Chuẩn UI chung** | | | |
-| G-01 | Tiêu đề trang khớp mục trên menu | **Passed** | "Saved Events" khớp với top nav |
-| G-02 | Cùng chức năng dùng cùng nhãn | **Failed** | "Unsave" (B1-b) vs "Saved" toggle (B1) — cùng hành động bỏ lưu nhưng nhãn và kiểu nút khác nhau |
-| G-03 | Bảng: text trái, số phải | **N/A** | Dùng card list, không bảng |
-| G-04 | Font/cỡ chữ nhất quán | **Passed** | Nhất quán với Dashboard |
-| G-05 | Màu đúng ngữ nghĩa | **Failed** | Badge "Saved" dùng đỏ — sai ngữ nghĩa |
-| G-06 | Mỗi màn hình 1 nút hành động chính | **Passed** | "View details" chính, "Unsave" phụ |
-| G-07 | Không tràn ngang ≥ 1280px | **Passed** | Không tràn |
-| G-08 | Empty state có thông điệp + gợi ý | **Passed** | "No saved events yet" + hướng dẫn save |
-| G-09 | Loading skeleton; không nhảy layout | **Passed** | Tải nhanh, không nhảy |
-| G-10 | Ảnh đúng tỉ lệ | **Passed** | Thumbnail đúng 4:3 |
-| G-11 | Không lộ mã nội bộ | **Passed** | Không thấy |
-| G-12 | Tương phản ≥ 4.5:1 | **Passed** | Đạt |
-| G-13 | Đọc được zoom 200% | **Failed** | Nút chồng nhau khi zoom 200% |
-| G-14 | EN/VI dịch toàn bộ | **Failed** | Trộn EN/VI |
-| G-15 | Text Việt không vỡ nút | **Passed** | Bình thường |
-| G-16 | Ngôn ngữ lưu sau reload | **Passed** | Giữ nguyên |
-| G-17 | Avatar gọn | **Passed** | Đúng |
-| G-18 | Member Code | **N/A** | Không hiển thị |
-| **IA-02 — Forms** | | | |
-| F-01 | Nhãn thường trực | **Failed** | Search bar chỉ placeholder |
-| F-02 – F-26 | Các mục form | **N/A** | Không có form (×25) |
-| **IA-03 — Navigation** | | | |
-| N-01 | Menu truy cập mọi khu vực | **Passed** | Top nav đầy đủ |
-| N-02 | Mục active rõ | **Passed** | "Saved Events" highlight |
-| N-03 | Breadcrumb | **N/A** | Dùng "← Back to dashboard" |
-| N-04 | Đường quay lại | **Passed** | "← Back to dashboard" link |
-| N-05 | Link/nút đúng | **Passed** | "View details" và "Back" đều đúng |
-| N-06 | Tab giữ nội dung | **N/A** | Không có tab |
-| N-07 | Back trình duyệt | **Passed** | Đúng |
-| N-08 | Deep link | **N/A** | Không có deep link con |
-| N-09 | Bộ lọc giữ lại | **Failed** | Search keyword bị mất khi View details rồi back |
-| N-10 | Sau lưu đúng ngữ cảnh | **N/A** | Không có lưu |
-| N-11 | Tab bàn phím; Esc modal | **Passed** | Hợp lý |
-| N-12 – N-14 | Kéo-thả | **N/A** | ×3 |
-| N-15 | Admin URL | **N/A** | User side |
-| N-16 | Sort cột | **N/A** | Không bảng |
-| N-17 | Audit | **N/A** | Không có |
-| N-18 | Pending/Resolved | **N/A** | Không support |
-| N-19 | Clear filters | **N/A** | Không có nút Clear |
-| **IA-04 — Feedback / State** | | | |
-| S-01 | Phản hồi thay đổi dữ liệu | **Passed** | Unsave → event biến mất ngay |
-| S-02 | Mức phản hồi tương xứng | **Passed** | Nhẹ nhàng |
-| S-03 | Chỉ báo kéo dài | **N/A** | Nhanh |
-| S-04 | Toast tự tắt | **Passed** | "Event unsaved" tự tắt |
-| S-05 | Lỗi ngôn ngữ thường | **N/A** | Chưa trigger |
-| S-06 | Dialog xác nhận phá huỷ | **Failed** | Unsave **không có dialog xác nhận** — bỏ lưu ngay lập tức |
-| S-07 | Nút an toàn mặc định | **N/A** | Không dialog |
-| S-08 | Hoàn tác được | **Failed** | Không có Undo — phải quay Dashboard tìm lại event |
-| S-09 | Thông báo hoàn tất | **N/A** | Không chuỗi |
-| S-10 | Không chỉ bằng màu | **Passed** | Badge có text + icon + màu |
-| S-11 – S-23 | Các mục khác | **N/A** | ×13 |
-| S-24 | Save/Unsave ngay | **Passed** | Cập nhật ngay |
-| S-25 | Carousel hover | **N/A** | Không carousel |
-
-**Tổng kết B1-b:**
-- **Passed:** 22
-- **Failed:** 8 (G-02, G-05, G-13, G-14, F-01, N-09, S-06, S-08)
-- **N/A:** 58
-- **Tỉ lệ pass:** 22 / (22 + 8) = **73.3%**
-
----
-
-### 2.3 B2 — Trang chi tiết sự kiện (`/events/{id}`)
-
-| ID | Mục kiểm tra | Kết quả | Notes |
-|---|---|---|---|
-| **IA-01 — Chuẩn UI chung** | | | |
-| G-01 | Tiêu đề khớp menu | **Passed** | "Events" highlight |
-| G-02 | Cùng chức năng cùng nhãn | **Failed** | "Save event" (B2) vs "Save" (B1) vs "Unsave" (B1-b) — cùng chức năng, 3 nhãn khác |
-| G-03 | Bảng | **N/A** | Không bảng |
-| G-04 | Font nhất quán | **Passed** | Đúng |
-| G-05 | Màu đúng ngữ nghĩa | **Passed** | Status cards dùng màu đúng |
-| G-06 | 1 nút hành động chính | **Passed** | "Register (Student)" rõ ràng |
-| G-07 | Không tràn ngang | **Passed** | Đúng |
-| G-08 | Empty state | **N/A** | Luôn có nội dung |
-| G-09 | Loading skeleton | **Passed** | Banner không nhảy layout |
-| G-10 | Ảnh đúng tỉ lệ | **Passed** | Banner đúng |
-| G-11 | Không lộ mã nội bộ | **Passed** | Không thấy |
-| G-12 | Tương phản ≥ 4.5:1 | **Passed** | Đạt |
-| G-13 | Zoom 200% | **Failed** | Card ngày/giờ tràn và cắt |
-| G-14 | EN/VI toàn bộ | **Failed** | Labels EN, role names VI → trộn nghiêm trọng |
-| G-15 | Việt không vỡ | **Passed** | Đúng |
-| G-16 | Ngôn ngữ lưu | **Passed** | Đúng |
-| G-17 | Avatar gọn | **Passed** | Đúng |
-| G-18 | Member Code | **N/A** | Không hiển thị |
-| **IA-02 — Forms** | | | |
-| F-01 | Nhãn thường trực | **N/A** | Registration dùng checkbox, không text input |
-| F-02 | Bắt buộc đánh dấu | **Failed** | Không đánh dấu `*` cho biết phải chọn ≥ 1 role. Message đỏ "Please tick a role..." hiện khi nút disabled nhưng chưa đánh dấu theo quy ước |
-| F-03 | Submit chặn | **Passed** | Register disabled khi chưa chọn role |
-| F-04 | Lỗi cạnh trường | **Passed** | Message ngay dưới danh sách role |
-| F-05 | Lỗi nói cách sửa | **Passed** | "Please tick a role" rõ ràng |
-| F-06 | Mặc định hợp lý | **Passed** | Không tick mặc định — hợp lý |
-| F-07 | Ràng buộc tại control | **Passed** | Register disabled cho đến khi chọn |
-| F-08 | Focus nhảy về lỗi | **N/A** | Chỉ checkbox |
-| F-09 – F-12 | Upload, Submit lock, mất dữ liệu | **N/A** | ×4 |
-| F-13 | Bàn phím + focus rõ | **Failed** | Viền focus trên checkbox role không rõ ràng |
-| F-14 – F-26 | Các mục admin | **N/A** | ×13 |
-| **IA-03 — Navigation** | | | |
-| N-01 | Menu đầy đủ | **Passed** | Top nav đủ |
-| N-02 | Active rõ | **Passed** | "Events" highlight |
-| N-03 | Breadcrumb | **N/A** | Dùng "← Back to events" |
-| N-04 | Đường quay lại | **Passed** | "← Back to events" link |
-| N-05 | Link đúng | **Passed** | Back → dashboard đúng |
-| N-06 | Tab giữ nội dung | **N/A** | Không tab |
-| N-07 | Back trình duyệt | **Passed** | Đúng |
-| N-08 | Deep link | **Passed** | `/events/68` mở đúng event |
-| N-09 | Bộ lọc giữ lại | **N/A** | Không filter |
-| N-10 | Sau lưu đúng ngữ cảnh | **N/A** | Không lưu form |
-| N-11 | Tab bàn phím; Esc modal | **Passed** | Share dialog đóng bằng Esc |
-| N-12 – N-18 | Kéo-thả, admin, sort, audit, support | **N/A** | ×7 |
-| N-19 | Clear filters | **N/A** | Không filter |
-| **IA-04 — Feedback / State** | | | |
-| S-01 | Phản hồi thay đổi | **Passed** | Save/Unsave → toast + icon đổi |
-| S-02 | Mức phản hồi | **Passed** | Tương xứng |
-| S-03 | Chỉ báo kéo dài | **N/A** | Chưa trigger |
-| S-04 | Toast tự tắt | **Passed** | Đúng |
-| S-05 | Lỗi ngôn ngữ thường | **N/A** | Chưa trigger |
-| S-06 | Dialog xác nhận | **N/A** | Không phá huỷ |
-| S-07 | Nút an toàn | **N/A** | Không dialog |
-| S-08 | Hoàn tác | **Passed** | Save ↔ Unsave toggle |
-| S-09 | Hoàn tất chuỗi | **N/A** | Chưa hoàn tất đăng ký |
-| S-10 | Không chỉ bằng màu | **Passed** | Text + màu |
-| S-11 | Nhiều màu có chú giải | **Failed** | 4 màu trạng thái (Registered, Pending, Confirmed, Waitlisted) **không có legend/chú giải** |
-| S-12 | Nút khớp dữ liệu | **Passed** | Register enabled/disabled đúng |
-| S-13 – S-23 | Các mục đặc thù | **N/A** | ×11 |
-| S-24 | Save/Unsave ngay | **Passed** | Đổi ngay, không reload |
-| S-25 | Carousel hover | **N/A** | Không carousel |
-
-**Tổng kết B2:**
-- **Passed:** 28
-- **Failed:** 6 (G-02, G-13, G-14, F-02, F-13, S-11)
-- **N/A:** 54
-- **Tỉ lệ pass:** 28 / (28 + 6) = **82.4%**
+| ID | Mục kiểm tra | B1 | B1-b | B2 | Notes | Ảnh tham chiếu |
+|---|---|---|---|---|---|---|
+| **IA-01 — Chuẩn UI chung** |  |  |  |  |  |  |
+| G-01 | Tiêu đề trang khớp với mục đang chọn trên menu | **Passed** | **Passed** | **Passed** | **B1**: Heading "Events" khớp với mục "Events" được highlight trên top nav <br> **B2**: "Saved Events" khớp với top nav <br> **B3**: "Events" highlight |  |
+| G-02 | Cùng chức năng dùng cùng nhãn ở mọi màn hình | **Failed** | **Failed** | **Failed** | **B1**: Nút "Save"/"Saved" trên event card dùng text, nhưng trên sidebar dùng icon bookmark không có label — thiếu nhất quán. Ngoài ra "Rows per page" (pagination) vs "Showing 1 of 52 events" dùng hai cách đếm khác nhau <br> **B2**: "Unsave" (B1-b) vs "Saved" toggle (B1) — cùng hành động bỏ lưu nhưng nhãn và kiểu nút khác nhau <br> **B3**: "Save event" (B2) vs "Save" (B1) vs "Unsave" (B1-b) — cùng chức năng, 3 nhãn khác | ![BUG-B-009](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_g02_save_event_1785690214527.png) |
+| G-03 | Bảng: text trái, số phải, trạng thái giữa | **N/A** | **N/A** | **N/A** | **B1**: Dashboard không dùng bảng dữ liệu <br> **B2**: Dùng card list, không bảng <br> **B3**: Không bảng |  |
+| G-04 | Tối đa 2 họ font; cỡ chữ theo thang nhất quán | **Passed** | **Passed** | **Passed** | **B1**: Dùng font sans-serif nhất quán, cỡ chữ phân cấp rõ ràng (heading > card title > body > caption) <br> **B2**: Nhất quán với Dashboard <br> **B3**: Đúng |  |
+| G-05 | Màu đúng ngữ nghĩa: đỏ chỉ cho lỗi/phá huỷ | **Failed** | **Failed** | **Passed** | **B1**: Nút "Saved" dùng màu đỏ cho trạng thái "đã lưu" — đỏ thường mang nghĩa lỗi/xoá/nguy hiểm, không phù hợp cho hành động tích cực. Nên dùng màu primary hoặc accent <br> **B2**: Badge "Saved" dùng đỏ — sai ngữ nghĩa <br> **B3**: Status cards dùng màu đúng | ![BUG-B-002](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_g05_save_red_1785689566491.png) |
+| G-06 | Mỗi màn hình chỉ có 1 nút hành động chính | **Passed** | **Passed** | **Passed** | **B1**: Không có nút CTA chính nổi bật trên dashboard (đây là trang danh sách), mỗi card có "Save" nhưng đó là hành động phụ <br> **B2**: "View details" chính, "Unsave" phụ <br> **B3**: "Register (Student)" rõ ràng |  |
+| G-07 | Nội dung không tràn ngang ở ≥ 1280px | **Passed** | **Passed** | **Passed** | **B1**: Không có thanh cuộn ngang ở viewport 1440px <br> **B2**: Không tràn <br> **B3**: Đúng |  |
+| G-08 | Empty state có thông điệp + gợi ý hành động | **Passed** | **Passed** | **N/A** | **B1**: Chưa trigger được empty state trên dashboard (52 events), nhưng search không kết quả hiện "No events found" <br> **B2**: "No saved events yet" + hướng dẫn save <br> **B3**: Luôn có nội dung |  |
+| G-09 | Loading có skeleton/spinner; không nhảy layout | **Passed** | **Passed** | **Passed** | **B1**: Quan sát được loading state khi chuyển tab <br> **B2**: Tải nhanh, không nhảy <br> **B3**: Banner không nhảy layout |  |
+| G-10 | Ảnh giữ đúng tỉ lệ, không méo | **Failed** | **Passed** | **Passed** | **B1**: Một số event card thiếu thumbnail — hiện placeholder icon ảnh xám trên nền trắng. Khi có ảnh thì giữ đúng tỉ lệ 4:3 <br> **B2**: Thumbnail đúng 4:3 <br> **B3**: Banner đúng | ![BUG-B-013](file:///d:/Project/SoftwareTesting/HW03/Task1B_Checklist_Execution/Failed_Screenshots/fail_g10_placeholder_1785689883882.png) |
+| G-11 | Không lộ mã trạng thái nội bộ ra giao diện | **Passed** | **Passed** | **Passed** | **B1**: Không thấy mã nội bộ nào trên dashboard <br> **B2**: Không thấy <br> **B3**: Không thấy |  |
+| G-12 | Tương phản chữ/nền ≥ 4.5:1 | **Passed** | **Passed** | **Passed** | **B1**: Text đậm trên nền sáng, contrast đạt yêu cầu <br> **B2**: Đạt <br> **B3**: Đạt |  |
+| G-13 | Vẫn đọc được khi zoom 200% | **Failed** | **Failed** | **Failed** | **B1**: Khi zoom 200%, sidebar icons bị chồng lên content chính; event cards bị tràn ra ngoài viewport <br> **B2**: Nút chồng nhau khi zoom 200% <br> **B3**: Card ngày/giờ tràn và cắt |  |
+| G-14 | Chuyển EN/VI dịch toàn bộ | **Failed** | **Failed** | **Failed** | **B1**: Ở chế độ EN: tiêu đề sự kiện, mô tả, địa điểm hiển thị tiếng Việt nhưng labels UI bằng tiếng Anh → trộn ngôn ngữ trên cùng màn hình <br> **B2**: Trộn EN/VI <br> **B3**: Labels EN, role names VI → trộn nghiêm trọng | ![BUG-B-004](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_g14_mixed_lang_1785689935819.png) |
+| G-15 | Text tiếng Việt không vỡ nút/cắt chữ | **Passed** | **Passed** | **Passed** | **B1**: Quan sát các event title dài tiếng Việt vẫn hiển thị bình thường <br> **B2**: Bình thường <br> **B3**: Đúng |  |
+| G-16 | Ngôn ngữ đã chọn được lưu lại sau reload | **Passed** | **Passed** | **Passed** | **B1**: Reload trang vẫn giữ nguyên ngôn ngữ EN <br> **B2**: Giữ nguyên <br> **B3**: Đúng |  |
+| G-17 | Avatar chữ viết tắt gọn trong vòng tròn | **Passed** | **Passed** | **Passed** | **B1**: Avatar "PDT" hiện đúng trong vòng tròn, không tràn <br> **B2**: Đúng <br> **B3**: Đúng |  |
+| G-18 | Member Code hiển thị đầy đủ | **N/A** | **N/A** | **N/A** | **B1**: Dashboard không hiển thị Member Code <br> **B2**: Không hiển thị <br> **B3**: Không hiển thị |  |
+| **IA-02 — Forms** |  |  |  |  |  |  |
+| F-01 | Mọi ô nhập có nhãn thường trực | **Failed** | **Failed** | **N/A** | **B1**: Search bar chỉ có placeholder "Search events by title..." — khi gõ thì placeholder biến mất, không có label thường trực <br> **B2**: Search bar chỉ placeholder <br> **B3**: Registration dùng checkbox, không text input | ![BUG-B-008](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_f01_search_no_label_1785689631111.png) |
+| F-02 | Trường bắt buộc đánh dấu rõ | **N/A** | N/A | **Failed** | **B1**: Dashboard không có form submit <br> **B3**: Không đánh dấu `*` cho biết phải chọn ≥ 1 role. Message đỏ "Please tick a role..." hiện khi nút disabled nhưng chưa đánh dấu theo quy ước | ![BUG-B-011](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_f02_s11_registration_1785690112316.png) |
+| F-03 | Submit thiếu trường bắt buộc → chặn | **N/A** | N/A | **Passed** | **B1**: Không có form submit <br> **B3**: Register disabled khi chưa chọn role |  |
+| F-04 | Lỗi hiện ngay cạnh trường bị lỗi | **N/A** | N/A | **Passed** | **B1**: Không có form <br> **B3**: Message ngay dưới danh sách role |  |
+| F-05 | Lỗi nói rõ cách sửa | **N/A** | N/A | **Passed** | **B1**: Không có form <br> **B3**: "Please tick a role" rõ ràng |  |
+| F-06 | Giá trị mặc định hợp lý | **N/A** | N/A | **Passed** | **B1**: Không có form <br> **B3**: Không tick mặc định — hợp lý |  |
+| F-07 | Ràng buộc ngay tại control | **N/A** | N/A | **Passed** | **B1**: Không có form <br> **B3**: Register disabled cho đến khi chọn |  |
+| F-08 | Focus nhảy về trường lỗi đầu tiên | **N/A** | N/A | **N/A** | **B1**: Không có form <br> **B3**: Chỉ checkbox |  |
+| F-09 | Upload nêu rõ định dạng/dung lượng/tỉ lệ | **N/A** | N/A | N/A | **B1**: Không có upload |  |
+| F-10 | Upload có progress, huỷ được, báo lỗi | **N/A** | N/A | N/A | **B1**: Không có upload |  |
+| F-11 | Nút Submit khoá khi đang gửi | **N/A** | N/A | N/A | **B1**: Không có submit |  |
+| F-12 | Cảnh báo mất dữ liệu khi rời form | **N/A** | N/A | N/A | **B1**: Không có form nhập liệu |  |
+| F-13 | Thao tác hoàn toàn bằng bàn phím + focus rõ | **Failed** | N/A | **Failed** | **B1**: Tab qua các filter/search được, nhưng viền focus trên event cards không rõ ràng, khó nhận biết card nào đang được focus <br> **B3**: Viền focus trên checkbox role không rõ ràng |  |
+| F-14 | Validation chéo ngày/giờ | **N/A** | N/A | N/A | **B1**: Không có form ngày/giờ |  |
+| F-15 | Validation thời gian đóng đăng ký | **N/A** | N/A | N/A | **B1**: Không có form |  |
+| F-16 | Trường bắt buộc có điều kiện | **N/A** | N/A | N/A | **B1**: Không có form |  |
+| F-17 | Bật/tắt công tắc ẩn/hiện đúng trường | **N/A** | N/A | N/A | **B1**: Không có toggle |  |
+| F-18 | Upload sai tỉ lệ được báo trước | **N/A** | N/A | N/A | **B1**: Không có upload |  |
+| F-19 | Rich-text giữ định dạng sau lưu-mở lại | **N/A** | N/A | N/A | **B1**: Không có rich-text editor |  |
+| F-20 | Upload nhiều ảnh nêu rõ giới hạn | **N/A** | N/A | N/A | **B1**: Không có upload |  |
+| F-21 | Upload ảnh có preview/xoá/validation | **N/A** | N/A | N/A | **B1**: Không có upload |  |
+| F-22 | Công tắc Public Event | **N/A** | N/A | N/A | **B1**: Chức năng admin |  |
+| F-23 | Album Link validation | **N/A** | N/A | N/A | **B1**: Chức năng admin |  |
+| F-24 | Reminder before hours | **N/A** | N/A | N/A | **B1**: Chức năng admin |  |
+| F-25 | Validation chéo Check-in | **N/A** | N/A | N/A | **B1**: Chức năng admin |  |
+| F-26 | Check-in vs Start/End | **N/A** | N/A | N/A | **B1**: Chức năng admin |  |
+| **IA-03 — Navigation** |  |  |  |  |  |  |
+| N-01 | Menu chính truy cập mọi khu vực lớn | **Passed** | **Passed** | **Passed** | **B1**: Top nav có: Events, Calendar, Saved Events, User guide <br> **B2**: Top nav đầy đủ <br> **B3**: Top nav đủ |  |
+| N-02 | Mục đang xem đánh dấu active rõ | **Passed** | **Passed** | **Passed** | **B1**: "Events" trên top nav highlight màu xanh lá <br> **B2**: "Saved Events" highlight <br> **B3**: "Events" highlight |  |
+| N-03 | Breadcrumb đúng đường đi | **N/A** | **N/A** | **N/A** | **B1**: Dashboard là trang gốc, không có breadcrumb <br> **B2**: Dùng "← Back to dashboard" <br> **B3**: Dùng "← Back to events" |  |
+| N-04 | Trang chi tiết có đường quay lại | **N/A** | **Passed** | **Passed** | **B1**: Dashboard là trang danh sách gốc <br> **B2**: "← Back to dashboard" link <br> **B3**: "← Back to events" link |  |
+| N-05 | Link/nút dẫn tới đúng màn hình | **Passed** | **Passed** | **Passed** | **B1**: Click event card → đúng trang chi tiết <br> **B2**: "View details" và "Back" đều đúng <br> **B3**: Back → dashboard đúng |  |
+| N-06 | Tab giữ nội dung khi chuyển qua lại | **Passed** | **N/A** | **N/A** | **B1**: Chuyển Upcoming/Ongoing/Ended giữ đúng nội dung <br> **B2**: Không có tab <br> **B3**: Không tab |  |
+| N-07 | Nút Back trình duyệt hoạt động đúng | **Passed** | **Passed** | **Passed** | **B1**: Back từ chi tiết → về dashboard đúng <br> **B2**: Đúng <br> **B3**: Đúng |  |
+| N-08 | Deep link mở đúng bản ghi | **N/A** | **N/A** | **Passed** | **B1**: Dashboard không có deep link cụ thể <br> **B2**: Không có deep link con <br> **B3**: `/events/68` mở đúng event |  |
+| N-09 | Bộ lọc/từ khoá được giữ lại khi quay về | **Failed** | **Failed** | **N/A** | **B1**: Search keyword bị mất khi vào event detail rồi back <br> **B2**: Search keyword bị mất khi View details rồi back <br> **B3**: Không filter | ![BUG-B-003](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_n09_search_after_1785690326219.png) |
+| N-10 | Sau lưu trả về đúng ngữ cảnh | **N/A** | **N/A** | **N/A** | **B1**: Dashboard không có hành động lưu <br> **B2**: Không có lưu <br> **B3**: Không lưu form |  |
+| N-11 | Tab bàn phím đúng thứ tự; Esc đóng modal | **Passed** | **Passed** | **Passed** | **B1**: Thứ tự hợp lý <br> **B2**: Hợp lý <br> **B3**: Share dialog đóng bằng Esc |  |
+| N-12 | Kéo-thả có phản hồi thị giác | **N/A** | N/A | N/A | **B1**: Không có kéo-thả |  |
+| N-13 | Thứ tự sau kéo-thả lưu đúng | **N/A** | N/A | N/A | **B1**: Không có kéo-thả |  |
+| N-14 | Kéo-thả có phương án thay thế | **N/A** | N/A | N/A | **B1**: Không có kéo-thả |  |
+| N-15 | URL admin thiếu quyền → báo lỗi | **N/A** | **N/A** | N/A | **B1**: Đang test phía user <br> **B2**: User side |  |
+| N-16 | Cột bảng sắp xếp có chỉ báo hướng | **N/A** | **N/A** | N/A | **B1**: Không dùng bảng sort <br> **B2**: Không bảng |  |
+| N-17 | Thông tin audit hiển thị đủ | **N/A** | **N/A** | N/A | **B1**: Không có audit <br> **B2**: Không có |  |
+| N-18 | Tab Pending/Resolved | **N/A** | **N/A** | N/A | **B1**: Không có support <br> **B2**: Không support |  |
+| N-19 | Clear filters xoá đồng thời và làm mới | **Passed** | **N/A** | **N/A** | **B1**: Clear filters xoá tất cả bộ lọc <br> **B2**: Không có nút Clear <br> **B3**: Không filter |  |
+| **IA-04 — Feedback / State** |  |  |  |  |  |  |
+| S-01 | Hành động thay đổi dữ liệu có phản hồi | **Passed** | **Passed** | **Passed** | **B1**: Click Save → icon đổi sang "Saved" ngay <br> **B2**: Unsave → event biến mất ngay <br> **B3**: Save/Unsave → toast + icon đổi |  |
+| S-02 | Mức phản hồi tương xứng | **Passed** | **Passed** | **Passed** | **B1**: Save/Unsave: thay đổi nhẹ nhàng <br> **B2**: Nhẹ nhàng <br> **B3**: Tương xứng |  |
+| S-03 | Thao tác kéo dài có chỉ báo | **Passed** | **N/A** | **N/A** | **B1**: Loading indicator khi tải trang <br> **B2**: Nhanh <br> **B3**: Chưa trigger |  |
+| S-04 | Toast tự tắt, không che nội dung | **Passed** | **Passed** | **Passed** | **B1**: Toast góc phải trên, tự tắt ~3 giây <br> **B2**: "Event unsaved" tự tắt <br> **B3**: Đúng |  |
+| S-05 | Lỗi hệ thống dùng ngôn ngữ thường | **N/A** | **N/A** | **N/A** | **B1**: Chưa trigger lỗi <br> **B2**: Chưa trigger <br> **B3**: Chưa trigger |  |
+| S-06 | Hành động phá huỷ có dialog xác nhận | **N/A** | **Failed** | **N/A** | **B1**: Dashboard không có hành động phá huỷ <br> **B2**: Unsave **không có dialog xác nhận** — bỏ lưu ngay lập tức <br> **B3**: Không phá huỷ | ![BUG-B-006](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_s06_unsave_button_1785690261269.png) |
+| S-07 | Dialog: nút mặc định an toàn | **N/A** | **N/A** | **N/A** | **B1**: Không có dialog <br> **B2**: Không dialog <br> **B3**: Không dialog |  |
+| S-08 | Hành động hoàn tác được | **Passed** | **Failed** | **Passed** | **B1**: Save ↔ Unsave toggle hoạt động <br> **B2**: Không có Undo — phải quay Dashboard tìm lại event <br> **B3**: Save ↔ Unsave toggle |  |
+| S-09 | Thông báo hoàn tất chuỗi thao tác | **N/A** | **N/A** | **N/A** | **B1**: Không có chuỗi nhiều bước <br> **B2**: Không chuỗi <br> **B3**: Chưa hoàn tất đăng ký |  |
+| S-10 | Trạng thái không chỉ bằng màu | **Passed** | **Passed** | **Passed** | **B1**: Badge có text + màu <br> **B2**: Badge có text + icon + màu <br> **B3**: Text + màu |  |
+| S-11 | Bảng nhiều màu có chú giải | **N/A** | N/A | **Failed** | **B1**: Không có bảng trạng thái <br> **B3**: 4 màu trạng thái (Registered, Pending, Confirmed, Waitlisted) **không có legend/chú giải** | ![BUG-B-012](file:///d:/Project/SoftwareTesting/HW03/Task1B_Checklist_Execution/Failed_Screenshots/fail_f02_s11_registration_1785690112316.png) |
+| S-12 | Trạng thái nút khớp dữ liệu | **Passed** | N/A | **Passed** | **B1**: Save/Saved đổi đúng <br> **B3**: Register enabled/disabled đúng |  |
+| S-13 | Progress bar đúng tiến độ | **N/A** | N/A | N/A | **B1**: Không có progress bar |  |
+| S-14 | Real-time tự cập nhật | **N/A** | N/A | N/A | **B1**: Không có real-time list |  |
+| S-15 | Nhánh check-in phân biệt | **N/A** | N/A | N/A | **B1**: Không có check-in |  |
+| S-16 | Hành động bị chặn có giải thích | **N/A** | N/A | N/A | **B1**: Không có hành động bị chặn |  |
+| S-17 | Export có chỉ báo | **N/A** | N/A | N/A | **B1**: Không có export |  |
+| S-18 | Badge thông báo đúng số lượng | **Passed** | N/A | N/A | **B1**: Bell icon hiện badge số |  |
+| S-19 | Đổi trạng thái Active cập nhật ngay | **N/A** | N/A | N/A | **B1**: Không có toggle Active |  |
+| S-20 | Trường mật khẩu nêu ràng buộc | **N/A** | N/A | N/A | **B1**: Không có mật khẩu |  |
+| S-21 | Gửi phản hồi support → thông báo | **N/A** | N/A | N/A | **B1**: Không có support |  |
+| S-22 | Internal note tách khỏi response | **N/A** | N/A | N/A | **B1**: Không có support |  |
+| S-23 | Ảnh mở trong lightbox | **N/A** | N/A | N/A | **B1**: Không có lightbox |  |
+| S-24 | Save/Unsave cập nhật ngay không cần reload | **Passed** | **Passed** | **Passed** | **B1**: Click Save → icon đổi ngay, không reload <br> **B2**: Cập nhật ngay <br> **B3**: Đổi ngay, không reload |  |
+| S-25 | Carousel tạm dừng khi hover | **Failed** | **N/A** | **N/A** | **B1**: Carousel spotlight tiếp tục chuyển slide dù chuột đang ở trong vùng <br> **B2**: Không carousel <br> **B3**: Không carousel | ![BUG-B-001](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_s25_carousel_1785689527704.png) |
+| F-02 – F-26 | Các mục form | N/A | **N/A** | N/A | **B2**: Không có form (×25) |  |
+| N-12 – N-14 | Kéo-thả | N/A | **N/A** | N/A |  |  |
+| S-11 – S-23 | Các mục khác | N/A | **N/A** | N/A |  |  |
+| F-09 – F-12 | Upload, Submit lock, mất dữ liệu | N/A | N/A | **N/A** |  |  |
+| F-14 – F-26 | Các mục admin | N/A | N/A | **N/A** |  |  |
+| N-12 – N-18 | Kéo-thả, admin, sort, audit, support | N/A | N/A | **N/A** |  |  |
+| S-13 – S-23 | Các mục đặc thù | N/A | N/A | **N/A** |  |  |
 
 ---
 
