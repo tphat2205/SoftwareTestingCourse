@@ -28,28 +28,26 @@
 
 ```
 HW03/
-├── deliverables/
-│   ├── task1a-checklist/          # Sản phẩm nhóm
-│   │   ├── GUI-Checklist.md       # Checklist 88 mục
-│   │   ├── Task1A_Heuristics-Reference.md
-│   │   └── AI-Prompts-Nhom.md
-│   ├── task1b-execution/          # Task 1B — Chạy checklist
-│   │   └── screenshots/           # Ảnh cho mục Failed
-│   ├── task2-user-testing/        # Task 2 — User Testing
-│   │   ├── session-notes/         # Note từng phiên
-│   │   └── sus-data/              # Dữ liệu SUS
-│   ├── task3-cross-platform/      # Task 3 — Cross-Platform
-│   │   └── screenshots/           # Ảnh overlay MSSV
-│   ├── findings-log/              # Bug & Findings Log
-│   ├── agent-skill/               # Agent Skill + link video
-│   └── ai-audit/                  # AI Audit Report + AI Critique
-├── Task1B_Checklist_Execution/
+├── 01_Task1A_Group_Checklist/     # Sản phẩm nhóm
+│   ├── GUI-Checklist.md           # Checklist 88 mục
+│   ├── Task1A_Heuristics-Reference.md
+│   └── AI-Prompts-Nhom.md
+├── 02_Task1B_Checklist_Execution/ # Task 1B — Chạy checklist
 │   ├── Report_Task1B.md           # Báo cáo chạy checklist
-│   └── Failed_Screenshots/
-├── Task2_User_Testing/
+│   └── Failed_Screenshots/        # Ảnh cho mục Failed
+├── 03_Task2_User_Testing/         # Task 2 — User Testing
 │   └── Usability_Report.md        # Usability Report
-├── Task3_Cross_Platform/
+├── 04_Task3_Cross_Platform/       # Task 3 — Cross-Platform
 │   └── Cross_Platform_Report.md   # Cross-Platform Report
+├── 05_Bug_Usability_Findings/     # Bug & Findings Log
+│   └── Bug_Usability_Findings_Log.md
+├── 06_AI_Audit_Critique/          # AI Audit Report + AI Critique
+│   ├── AI_Audit_Report.md
+│   └── AI_Critique.md
+├── 07_Agent_Skill/                # Agent Skill + link video
+│   └── usability-tester/SKILL.md
+├── requirement/                   # Thư mục đề bài
+├── git_commit_log.md              # Log quá trình commit code
 └── README.md                      # File này
 ```
 
