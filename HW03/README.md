@@ -14,13 +14,13 @@
 | Kịch bản | B — User đăng ký tham gia sự kiện |
 | Màn hình đã kiểm | B1 Dashboard, B1-b Saved Events, B2 Event Detail |
 | Số mục checklist | 88 (thiết kế) / 264 (đã chạy = 88 × 3 màn hình) |
-| Passed / Failed / N/A | 76 / 22 / 166 |
-| Tỉ lệ pass | 77.6% |
+| Passed / Failed / N/A | 77 / 23 / 164 |
+| Tỉ lệ pass | 77.0% |
 | Số lỗi phát hiện (Task 1B) | 13 |
-| Số người tham gia user testing | *(đang tuyển — mục tiêu: 5)* |
+| Số người tham gia user testing | 5 |
 | Vấn đề usability theo severity | Major: 1, Minor: 6, Cosmetic: 6 |
-| Số ô tương thích đã phủ | *(chưa chạy — mục tiêu: 30 ô)* |
-| Video demo Agent Skill | *(chưa quay)* |
+| Số ô tương thích đã phủ | *(Task 3 sẽ làm sau)* |
+| Video demo Agent Skill | *(Task 3 sẽ làm sau)* |
 
 ---
 
@@ -59,8 +59,8 @@ HW03/
 |---|---|---|---|---|
 | 1a | Task 1A — Checklist dùng chung (nhóm) | 15 | *(điền sau)* | 88 mục, phủ IA-01…IA-04 |
 | 1b | Task 1B — Chạy checklist ≥ 3 màn hình + bug report | 15 | *(điền sau)* | 3 màn hình, 13 bugs |
-| 2 | Task 2 — User testing 5 người → Usability Report | 25 | *(điền sau)* | *(đang thực hiện)* |
-| 3 | Task 3 — Cross-Platform (3 OS × 5 browser × 3 device) | 25 | *(điền sau)* | *(đang thực hiện)* |
+| 2 | Task 2 — User testing 5 người → Usability Report | 25 | *(điền sau)* | 5 phiên đã chạy, report đã có |
+| 3 | Task 3 — Cross-Platform (3 OS × 5 browser × 3 device) | 25 | *(điền sau)* | *(sẽ làm sau)* |
 | 4 | Bug & Usability Findings (Form + Log) | 10 | *(điền sau)* | 13 findings |
-| 5 | Agent Skills | 10 | *(điền sau)* | *(đang xây dựng)* |
+| 5 | Agent Skills | 10 | *(điền sau)* | Skill đã có |
 | | **Tổng** | **100** | | |
