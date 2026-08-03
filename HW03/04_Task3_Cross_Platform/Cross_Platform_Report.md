@@ -19,32 +19,33 @@
 
 | # | OS | Browser | Thiết bị | Loại (Real/Emu) | B1 | B1-b | B2 |
 |---|---|---|---|---|---|---|---|
-| 1 | Windows 11 | Chrome | Desktop | Real | ☐ | ☐ | ☐ |
-| 2 | Windows 11 | Cốc Cốc | Desktop | Real | ☐ | ☐ | ☐ |
-| 3 | Windows 11 | Edge | Desktop | Real | ☐ | ☐ | ☐ |
-| 4 | macOS Sonoma | Safari | Desktop | Emulator | ☐ | ☐ | ☐ |
-| 5 | macOS Golden Gate | Chrome | Desktop | Emulator | ☐ | ☐ | ☐ |
-| 6 | macOS Sonoma | Brave | Desktop | Emulator | ☐ | ☐ | ☐ |
-| 7 | Android 14 | Chrome | Phone (Samsung Galaxy S24) | Real | ☐ | ☐ | ☐ |
-| 8 | Android 14 | Samsung Internet | Phone (Samsung Galaxy S24) | Real | ☐ | ☐ | ☐ |
-| 9 | Android 14 | Chrome | Tablet (Samsung Galaxy Tab S9) | Real | ☐ | ☐ | ☐ |
-| 10 | Android 14 | Brave | Phone (Samsung Galaxy S24) | Real | ☐ | ☐ | ☐ |
+| 1 | Windows 11 | Chrome | Desktop | Real | [x] | [x] | [x] |
+| 2 | Windows 11 | Cốc Cốc | Desktop | Real | [x] | [x] | [x] |
+| 3 | Windows 11 | Edge | Desktop | Real | [x] | [x] | [x] |
+| 4 | macOS Sonoma | Safari | Desktop | Emulator | [x] | [x] | [x] |
+| 5 | macOS Golden Gate | Chrome | Desktop | Emulator | [x] | [x] | [x] |
+| 6 | macOS Sonoma | Brave | Desktop | Emulator | [x] | [x] | [x] |
+| 7 | Android 14 | Chrome | Phone (Samsung A31) | Real | [x] | [x] | [x] |
+| 8 | Android 14 | Samsung Internet | Phone (Samsung A31) | Real | [x] | [x] | [x] |
+| 9 | iPadOS | Safari | Tablet (iPad) | Real | [x] | [x] | [x] |
+| 10 | Android 14 | Brave | Phone (Samsung A31) | Real | [x] | [x] | [x] |
 
 ### Kiểm tra phủ:
 
 | Chiều | Giá trị | Đã phủ? |
 |---|---|---|
-| **OS** | Windows | ✅ (#1, #2, #3, #10) |
-| | macOS | ✅ (#4, #5, #6) |
-| | Android | ✅ (#7, #8, #9) |
-| **Browser** | Chrome | ✅ (#1, #5, #7, #9) |
-| | Cốc Cốc | ✅ (#2) |
-| | Safari | ✅ (#4) |
-| | Edge | ✅ (#3) |
-| | Brave | ✅ (#10) |
-| **Thiết bị** | Desktop | ✅ (#1–6) |
-| | Tablet | ✅ (#9) |
-| | Phone | ✅ (#7, #8, #10) |
+| **OS** | Windows | [x] (#1, #2, #3, #10) |
+| | macOS | [x] (#4, #5, #6) |
+| | Android | [x] (#7, #8) |
+| | iPadOS | [x] (#9) |
+| **Browser** | Chrome | [x] (#1, #5, #7) |
+| | Cốc Cốc | [x] (#2) |
+| | Safari | [x] (#4, #9) |
+| | Edge | [x] (#3) |
+| | Brave | [x] (#10) |
+| **Thiết bị** | Desktop | [x] (#1–6) |
+| | Tablet | [x] (#9) |
+| | Phone | [x] (#7, #8, #10) |
 
 **Tổng: 10 tổ hợp × 3 màn hình = 30 ô kiểm tra**
 
@@ -64,7 +65,7 @@
 | 6 | macOS / Brave / Desktop | Pass | |![alt text](image-18.png)|
 | 7 | Android / Chrome / Phone | Pass | |![alt text](image-15.png)|
 | 8 | Android / Samsung / Phone | Pass | |![alt text](image-9.png)|
-| 9 | Android / Chrome / Tablet | ☐ | | |
+| 9 | iPadOS / Safari / Tablet | Pass | | ![alt text](image-27.png) |
 | 10 | Android / Brave / Phone | Pass | |![alt text](image-12.png)|
 
 ### 2.2 B1-b — Saved Events (`/my-favorites`)
@@ -79,7 +80,7 @@
 | 6 | macOS / Brave / Desktop | Pass | |![alt text](image-19.png)|
 | 7 | Android / Chrome / Phone | Pass | |![alt text](image-17.png)|
 | 8 | Android / Samsung / Phone | Pass | |![alt text](image-10.png)|
-| 9 | Android / Chrome / Tablet | ☐ | ||
+| 9 | iPadOS / Safari / Tablet | Pass | | ![alt text](image-28.png) |
 | 10 | Android / Brave / Phone | Pass | |![alt text](image-13.png)|
 
 ### 2.3 B2 — Chi tiết sự kiện (`/events/{id}`)
@@ -94,7 +95,7 @@
 | 6 | macOS / Brave / Desktop | Pass | |![alt text](image-20.png)|
 | 7 | Android / Chrome / Phone | Pass | |![alt text](image-16.png)|
 | 8 | Android / Samsung / Phone | Pass | |![alt text](image-11.png)|
-| 9 | Android / Chrome / Tablet | ☐ | | |
+| 9 | iPadOS / Safari / Tablet | Pass | | ![alt text](image-29.png) |
 | 10 | Android / Brave / Phone | Pass | |![alt text](image-14.png)|
 
 ---
@@ -103,10 +104,10 @@
 
 | Màn hình | Total | Pass | Fail | Pass Rate |
 |---|---|---|---|---|
-| B1 — Dashboard | 10 | | | |
-| B1-b — Saved Events | 10 | | | |
-| B2 — Chi tiết sự kiện | 10 | | | |
-| **Tổng** | **30** | | | |
+| B1 — Dashboard | 10 | 10 | 0 | 100% |
+| B1-b — Saved Events | 10 | 10 | 0 | 100% |
+| B2 — Chi tiết sự kiện | 10 | 10 | 0 | 100% |
+| **Tổng** | **30** | **30** | **0** | **100%** |
 
 ---
 
@@ -114,7 +115,7 @@
 
 | # | Tổ hợp | Màn hình | Mô tả lỗi | Loại (tràn/chồng/vỡ/cắt/responsive) | Ảnh |
 |---|---|---|---|---|---|
-| | | | | | |
+| - | - | - | *(Không phát hiện lỗi layout/responsive nghiêm trọng trên toàn bộ 30/30 tổ hợp. Các lỗi UI chung đã được ghi nhận ở Task 1B)* | - | - |
 
 ---
 

@@ -381,15 +381,15 @@ Trước khi chạy chính thức, đã chạy pilot 1 lần với Đoàn Thành
 
 ### 3.3 Danh sách phát hiện theo severity
 
-| # | Phát hiện | Severity (0–4) | Probability (x/5) | Màn hình | Heuristic vi phạm |
-|---|---|---|---|---|---|
-| UT-1 | Màu đỏ cho trạng thái "Saved" gây nhầm lẫn với "Xóa/Lỗi", khiến user bực bội và có thể từ bỏ thao tác | 4 | 5/5 | B1, B1-b, B2 | Nielsen #2 (Match between system and real world), Shneiderman #1 (Consistency) |
-| UT-2 | Nhãn Save/Saved/Unsave/Save event không nhất quán giữa các trang | 2 | 3/5 | B1, B1-b, B2 | Shneiderman #1 (Consistency), Nielsen #4 (Consistency & Standards) |
-| UT-3 | Menu chỉ có tiếng Anh, gây khó cho người dùng Việt | 3 | 3/5 | B1, B1-b | Nielsen #2 (Match), Nielsen #6 (Recognition) |
-| UT-4 | Search state bị mất khi quay lại từ trang chi tiết | 2 | 2/5 | B1 | Shneiderman #8 (Informative feedback), Nielsen #3 (User control) |
-| UT-5 | Registration roles thiếu dấu (*) bắt buộc và chú giải màu | 2 | 2/5 | B2 | Nielsen #5 (Error prevention), Nielsen #6 (Recognition) |
-| UT-6 | Icon bookmark nhỏ, khó phát hiện cho người mới | 1 | 2/5 | B1 | Nielsen #6 (Recognition rather than recall) |
-| UT-7 | Live search không có nút Submit (Một số user quen kiểu cũ, nhưng thực tế hệ thống vẫn hoạt động đúng thiết kế hiện đại) | 0 | 1/5 | B1 | Nielsen #2 (Match between system and real world) - Được đánh giá là mức 0 vì không hẳn là một lỗi Usability, chỉ là sở thích cá nhân của user. |
+| # | Phát hiện | Severity (0–4) | Probability (x/5) | Màn hình | Heuristic vi phạm | Ảnh tham chiếu |
+|---|---|---|---|---|---|---|
+| BUG-B-002 | Màu đỏ cho trạng thái "Saved" gây nhầm lẫn với "Xóa/Lỗi", khiến user bực bội và có thể từ bỏ thao tác | 4 | 5/5 | B1, B1-b, B2 | Nielsen #2 (Match between system and real world), Shneiderman #1 (Consistency) | ![UT-1](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_g05_save_red_1785689566491.png) |
+| BUG-B-009 | Nhãn Save/Saved/Unsave/Save event không nhất quán giữa các trang | 2 | 3/5 | B1, B1-b, B2 | Shneiderman #1 (Consistency), Nielsen #4 (Consistency & Standards) | ![UT-2](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_g02_save_event_1785690214527.png) |
+| BUG-B-014 | Menu chỉ có tiếng Anh, gây khó cho người dùng Việt | 3 | 3/5 | B1, B1-b | Nielsen #2 (Match), Nielsen #6 (Recognition) | *(Giao diện chung)* |
+| BUG-B-003 | Search state bị mất khi quay lại từ trang chi tiết | 2 | 2/5 | B1 | Shneiderman #8 (Informative feedback), Nielsen #3 (User control) | ![UT-4](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_n09_search_after_1785690326219.png) |
+| BUG-B-011/012 | Registration roles thiếu dấu (*) bắt buộc và chú giải màu | 2 | 2/5 | B2 | Nielsen #5 (Error prevention), Nielsen #6 (Recognition) | ![UT-5](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_f02_s11_registration_1785690112316.png) |
+| BUG-B-015 | Icon bookmark nhỏ, khó phát hiện cho người mới | 1 | 2/5 | B1 | Nielsen #6 (Recognition rather than recall) | *(Quan sát thực tế)* |
+| BUG-B-016 | Live search không có nút Submit (Một số user quen kiểu cũ, nhưng thực tế hệ thống vẫn hoạt động đúng thiết kế hiện đại) | 0 | 1/5 | B1 | Nielsen #2 (Match between system and real world) - Được đánh giá là mức 0 vì không hẳn là một lỗi Usability, chỉ là sở thích cá nhân của user. | *(Quan sát thực tế)* |
 
 ### 3.4 Khuyến nghị theo ưu tiên
 
