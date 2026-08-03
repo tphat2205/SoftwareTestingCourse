@@ -12,23 +12,23 @@
 
 ### Yêu cầu phủ (mỗi màn hình):
 - **3 OS:** Windows, macOS, Android
-- **5 Browser:** Chrome, Firefox, Safari, Edge, Opera
+- **5 Browser:** Chrome, Cốc Cốc, Safari, Edge, Brave
 - **3 Loại thiết bị:** Desktop, Tablet, Phone
 
 ### Ma trận chọn (áp dụng cho CẢ BA màn hình B1, B1-b, B2)
 
 | # | OS | Browser | Thiết bị | Loại (Real/Emu) | B1 | B1-b | B2 |
 |---|---|---|---|---|---|---|---|
-| 1 | Windows 11 | Chrome 126 | Desktop | Real | ☐ | ☐ | ☐ |
-| 2 | Windows 11 | Firefox 128 | Desktop | Real | ☐ | ☐ | ☐ |
-| 3 | Windows 11 | Edge 126 | Desktop | Real | ☐ | ☐ | ☐ |
-| 4 | macOS Sonoma | Safari 17 | Desktop | BrowserStack | ☐ | ☐ | ☐ |
-| 5 | macOS Sonoma | Chrome 126 | Desktop | BrowserStack | ☐ | ☐ | ☐ |
-| 6 | macOS Sonoma | Opera 111 | Desktop | BrowserStack | ☐ | ☐ | ☐ |
-| 7 | Android 14 | Chrome | Phone (Samsung Galaxy S24) | BrowserStack | ☐ | ☐ | ☐ |
-| 8 | Android 14 | Samsung Internet | Phone (Samsung Galaxy S24) | BrowserStack | ☐ | ☐ | ☐ |
-| 9 | Android 14 | Chrome | Tablet (Samsung Galaxy Tab S9) | BrowserStack | ☐ | ☐ | ☐ |
-| 10 | Windows 11 | Opera 111 | Desktop | Real | ☐ | ☐ | ☐ |
+| 1 | Windows 11 | Chrome | Desktop | Real | ☐ | ☐ | ☐ |
+| 2 | Windows 11 | Cốc Cốc | Desktop | Real | ☐ | ☐ | ☐ |
+| 3 | Windows 11 | Edge | Desktop | Real | ☐ | ☐ | ☐ |
+| 4 | macOS Sonoma | Safari | Desktop | Real | ☐ | ☐ | ☐ |
+| 5 | macOS Golden Gate | Chrome | Desktop | Real | ☐ | ☐ | ☐ |
+| 6 | macOS Sonoma | Brave | Desktop | Real | ☐ | ☐ | ☐ |
+| 7 | Android 14 | Chrome | Phone (Samsung Galaxy S24) | Real | ☐ | ☐ | ☐ |
+| 8 | Android 14 | Samsung Internet | Phone (Samsung Galaxy S24) | Real | ☐ | ☐ | ☐ |
+| 9 | Android 14 | Chrome | Tablet (Samsung Galaxy Tab S9) | Real | ☐ | ☐ | ☐ |
+| 10 | Android 14 | Brave | Phone (Samsung Galaxy S24) | Real | ☐ | ☐ | ☐ |
 
 ### Kiểm tra phủ:
 
@@ -38,13 +38,13 @@
 | | macOS | ✅ (#4, #5, #6) |
 | | Android | ✅ (#7, #8, #9) |
 | **Browser** | Chrome | ✅ (#1, #5, #7, #9) |
-| | Firefox | ✅ (#2) |
+| | Cốc Cốc | ✅ (#2) |
 | | Safari | ✅ (#4) |
 | | Edge | ✅ (#3) |
-| | Opera | ✅ (#6, #10) |
-| **Thiết bị** | Desktop | ✅ (#1–6, #10) |
+| | Brave | ✅ (#10) |
+| **Thiết bị** | Desktop | ✅ (#1–6) |
 | | Tablet | ✅ (#9) |
-| | Phone | ✅ (#7, #8) |
+| | Phone | ✅ (#7, #8, #10) |
 
 **Tổng: 10 tổ hợp × 3 màn hình = 30 ô kiểm tra**
 
@@ -56,46 +56,46 @@
 
 | # | OS / Browser / Device | Pass/Fail | Ghi chú | Ảnh |
 |---|---|---|---|---|
-| 1 | Win11 / Chrome 126 / Desktop | ☐ | | |
-| 2 | Win11 / Firefox 128 / Desktop | ☐ | | |
-| 3 | Win11 / Edge 126 / Desktop | ☐ | | |
-| 4 | macOS / Safari 17 / Desktop | ☐ | | |
-| 5 | macOS / Chrome 126 / Desktop | ☐ | | |
-| 6 | macOS / Opera 111 / Desktop | ☐ | | |
-| 7 | Android 14 / Chrome / Phone | ☐ | | |
-| 8 | Android 14 / Samsung / Phone | ☐ | | |
-| 9 | Android 14 / Chrome / Tablet | ☐ | | |
-| 10 | Win11 / Opera 111 / Desktop | ☐ | | |
+| 1 | Win11 / Chrome / Desktop | Pass | |![alt text](image.png)|
+| 2 | Win11 / Cốc Cốc / Desktop | Pass | |![alt text](image-1.png)|
+| 3 | Win11 / Edge / Desktop | Pass | |![alt text](image-2.png)|
+| 4 | macOS / Safari / Desktop | Pass | |![alt text](image-24.png)|
+| 5 | macOS / Chrome / Desktop | Pass | |![alt text](image-21.png)|
+| 6 | macOS / Brave / Desktop | Pass | |![alt text](image-18.png)|
+| 7 | Android / Chrome / Phone | Pass | |![alt text](image-15.png)|
+| 8 | Android / Samsung / Phone | Pass | |![alt text](image-9.png)|
+| 9 | Android / Chrome / Tablet | ☐ | | |
+| 10 | Android / Brave / Phone | Pass | |![alt text](image-12.png)|
 
 ### 2.2 B1-b — Saved Events (`/my-favorites`)
 
 | # | OS / Browser / Device | Pass/Fail | Ghi chú | Ảnh |
 |---|---|---|---|---|
-| 1 | Win11 / Chrome 126 / Desktop | ☐ | | |
-| 2 | Win11 / Firefox 128 / Desktop | ☐ | | |
-| 3 | Win11 / Edge 126 / Desktop | ☐ | | |
-| 4 | macOS / Safari 17 / Desktop | ☐ | | |
-| 5 | macOS / Chrome 126 / Desktop | ☐ | | |
-| 6 | macOS / Opera 111 / Desktop | ☐ | | |
-| 7 | Android 14 / Chrome / Phone | ☐ | | |
-| 8 | Android 14 / Samsung / Phone | ☐ | | |
-| 9 | Android 14 / Chrome / Tablet | ☐ | | |
-| 10 | Win11 / Opera 111 / Desktop | ☐ | | |
+| 1 | Win11 / Chrome / Desktop | Pass | |![alt text](image-3.png)|
+| 2 | Win11 / Cốc Cốc / Desktop | Pass | |![alt text](image-4.png)|
+| 3 | Win11 / Edge / Desktop | Pass | |![alt text](image-5.png)|
+| 4 | macOS / Safari / Desktop | Pass | |![alt text](image-25.png)|
+| 5 | macOS / Chrome / Desktop | Pass | |![alt text](image-22.png)|
+| 6 | macOS / Brave / Desktop | Pass | |![alt text](image-19.png)|
+| 7 | Android / Chrome / Phone | Pass | |![alt text](image-17.png)|
+| 8 | Android / Samsung / Phone | Pass | |![alt text](image-10.png)|
+| 9 | Android / Chrome / Tablet | ☐ | ||
+| 10 | Android / Brave / Phone | Pass | |![alt text](image-13.png)|
 
 ### 2.3 B2 — Chi tiết sự kiện (`/events/{id}`)
 
 | # | OS / Browser / Device | Pass/Fail | Ghi chú | Ảnh |
 |---|---|---|---|---|
-| 1 | Win11 / Chrome 126 / Desktop | ☐ | | |
-| 2 | Win11 / Firefox 128 / Desktop | ☐ | | |
-| 3 | Win11 / Edge 126 / Desktop | ☐ | | |
-| 4 | macOS / Safari 17 / Desktop | ☐ | | |
-| 5 | macOS / Chrome 126 / Desktop | ☐ | | |
-| 6 | macOS / Opera 111 / Desktop | ☐ | | |
-| 7 | Android 14 / Chrome / Phone | ☐ | | |
-| 8 | Android 14 / Samsung / Phone | ☐ | | |
-| 9 | Android 14 / Chrome / Tablet | ☐ | | |
-| 10 | Win11 / Opera 111 / Desktop | ☐ | | |
+| 1 | Win11 / Chrome / Desktop | Pass | |![alt text](image-8.png)|
+| 2 | Win11 / Cốc Cốc / Desktop | Pass | |![alt text](image-7.png)|
+| 3 | Win11 / Edge / Desktop | Pass | |![alt text](image-6.png)|
+| 4 | macOS / Safari / Desktop | Pass | |![alt text](image-26.png)|
+| 5 | macOS / Chrome / Desktop | Pass | |![alt text](image-23.png)|
+| 6 | macOS / Brave / Desktop | Pass | |![alt text](image-20.png)|
+| 7 | Android / Chrome / Phone | Pass | |![alt text](image-16.png)|
+| 8 | Android / Samsung / Phone | Pass | |![alt text](image-11.png)|
+| 9 | Android / Chrome / Tablet | ☐ | | |
+| 10 | Android / Brave / Phone | Pass | |![alt text](image-14.png)|
 
 ---
 
