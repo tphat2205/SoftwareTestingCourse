@@ -275,6 +275,6 @@ Khảo sát trực tiếp ngày 02/08/2026 trên 3 màn hình: A1 (Events list),
 
 | # | Sản phẩm | Vị trí |
 |---|---|---|
-| 1 | Checklist GUI (file này) | `deliverables/task1a-checklist/GUI-Checklist.md` |
-| 2 | Danh sách nguồn tham khảo | [`references/Task1A_Heuristics-Reference.md`](../../references/Task1A_Heuristics-Reference.md) |
-| 3 | Log prompt AI | [`AI-Prompts-Log.md`](AI-Prompts-Log.md) |
+| 1 | Checklist GUI (file này) | `GUI-Checklist.md` |
+| 2 | Danh sách nguồn tham khảo | [`Task1A_Heuristics-Reference.md`](Task1A_Heuristics-Reference.md) |
+| 3 | Log prompt AI | [`AI-Prompts-Nhom.md`](AI-Prompts-Nhom.md) |

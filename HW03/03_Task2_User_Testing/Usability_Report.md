@@ -373,7 +373,7 @@ Trước khi chạy chính thức, đã chạy pilot 1 lần với Đoàn Thành
 
 2. **Nhãn Save/Saved/Unsave/Save event không nhất quán (3/5 người):** Người #3, #4 và #1 đều nhận ra nhãn khác nhau giữa các trang. → **Vấn đề thiết kế hệ thống**.
 
-3. **Menu tiếng Anh gây khó khăn cho người ít kinh nghiệm (3/5 người):** Người #2, #5 không tìm được "Saved Events" trong menu vì không quen thuật ngữ tiếng Anh. → **Vấn đề thiết kế hệ thống** (thiếu i18n/tooltip tiếng Việt).
+3. **Trộn ngôn ngữ EN/VI gây rào cản cho người ít quen tiếng Anh (2/5 người):** Người #2 và #5 đều gặp khó khăn do menu và labels bằng tiếng Anh, trong khi nội dung sự kiện bằng tiếng Việt. Người #5 không tìm được "Saved Events" vì không hiểu nghĩa tiếng Anh → bỏ cuộc. → **Vấn đề thiết kế hệ thống** (BUG-B-004).
 
 4. **Mất search state khi quay lại (2/5 người):** Người #3 bực bội vì phải gõ lại keyword. → **Vấn đề thiết kế hệ thống** (BUG-B-003).
 
@@ -383,22 +383,20 @@ Trước khi chạy chính thức, đã chạy pilot 1 lần với Đoàn Thành
 
 | # | Phát hiện | Severity (0–4) | Probability (x/5) | Màn hình | Heuristic vi phạm | Ảnh tham chiếu |
 |---|---|---|---|---|---|---|
-| BUG-B-002 | Màu đỏ cho trạng thái "Saved" gây nhầm lẫn với "Xóa/Lỗi", khiến user bực bội và có thể từ bỏ thao tác | 4 | 5/5 | B1, B1-b, B2 | Nielsen #2 (Match between system and real world), Shneiderman #1 (Consistency) | ![UT-1](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_g05_save_red_1785689566491.png) |
-| BUG-B-009 | Nhãn Save/Saved/Unsave/Save event không nhất quán giữa các trang | 2 | 3/5 | B1, B1-b, B2 | Shneiderman #1 (Consistency), Nielsen #4 (Consistency & Standards) | ![UT-2](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_g02_save_event_1785690214527.png) |
-| BUG-B-014 | Menu chỉ có tiếng Anh, gây khó cho người dùng Việt | 3 | 3/5 | B1, B1-b | Nielsen #2 (Match), Nielsen #6 (Recognition) | *(Giao diện chung)* |
-| BUG-B-003 | Search state bị mất khi quay lại từ trang chi tiết | 2 | 2/5 | B1 | Shneiderman #8 (Informative feedback), Nielsen #3 (User control) | ![UT-4](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_n09_search_after_1785690326219.png) |
-| BUG-B-011/012 | Registration roles thiếu dấu (*) bắt buộc và chú giải màu | 2 | 2/5 | B2 | Nielsen #5 (Error prevention), Nielsen #6 (Recognition) | ![UT-5](file:///d:/Project/SoftwareTesting/HW03/02_Task1B_Checklist_Execution/Failed_Screenshots/fail_f02_s11_registration_1785690112316.png) |
-| BUG-B-015 | Icon bookmark nhỏ, khó phát hiện cho người mới | 1 | 2/5 | B1 | Nielsen #6 (Recognition rather than recall) | *(Quan sát thực tế)* |
+| BUG-B-002 | Màu đỏ cho trạng thái "Saved" gây nhầm lẫn | 1 | 5/5 | B1, B1-b, B2 | Nielsen #2 (Match between system and real world), Shneiderman #1 (Consistency) | ![UT-1](../02_Task1B_Checklist_Execution/Failed_Screenshots/fail_g05_save_red_1785689566491.png) |
+| BUG-B-009 | Nhãn Save/Saved/Unsave/Save event không nhất quán giữa các trang | 2 | 3/5 | B1, B1-b, B2 | Shneiderman #1 (Consistency), Nielsen #4 (Consistency & Standards) | ![UT-2](../02_Task1B_Checklist_Execution/Failed_Screenshots/fail_g02_save_event_1785690214527.png) |
+| BUG-B-004 | Trộn ngôn ngữ EN/VI gây rào cản cho người ít quen tiếng Anh | 2 | 2/5 | B1, B1-b, B2 | Nielsen #2 (Match between system and real world) | ![UT-3](../02_Task1B_Checklist_Execution/Failed_Screenshots/fail_g14_mixed_lang_1785689935819.png) |
+| BUG-B-003 | Search state bị mất khi quay lại từ trang chi tiết | 2 | 2/5 | B1 | Shneiderman #8 (Informative feedback), Nielsen #3 (User control) | ![UT-4](../02_Task1B_Checklist_Execution/Failed_Screenshots/fail_n09_search_after_1785690326219.png) |
+| BUG-B-011/012 | Registration roles thiếu dấu (*) bắt buộc và chú giải màu | 2 | 2/5 | B2 | Nielsen #5 (Error prevention), Nielsen #6 (Recognition) | ![UT-5](../02_Task1B_Checklist_Execution/Failed_Screenshots/fail_f02_s11_registration_1785690112316.png) |
 | BUG-B-016 | Live search không có nút Submit (Một số user quen kiểu cũ, nhưng thực tế hệ thống vẫn hoạt động đúng thiết kế hiện đại) | 0 | 1/5 | B1 | Nielsen #2 (Match between system and real world) - Được đánh giá là mức 0 vì không hẳn là một lỗi Usability, chỉ là sở thích cá nhân của user. | *(Quan sát thực tế)* |
 
 ### 3.4 Khuyến nghị theo ưu tiên
 
 | Ưu tiên | Khuyến nghị | Severity | Effort |
 |---|---|---|---|
-| 1 | **Đổi màu nút Save/Saved** từ đỏ sang xanh dương/accent color. Đỏ chỉ dùng cho hành động phá hủy (xóa, hủy). | 4 | Thấp (chỉ cần sửa CSS) |
+| 1 | **Đổi màu nút Save/Saved** từ đỏ sang xanh dương/accent color. Đỏ chỉ dùng cho hành động phá hủy (xóa, hủy). | 1 | Thấp (chỉ cần sửa CSS) |
 | 2 | **Thêm i18n tiếng Việt** cho menu sidebar (Events → Sự kiện, Saved Events → Đã lưu, Calendar → Lịch). | 3 | Trung bình (cần dịch + cấu hình locale) |
 | 3 | **Thống nhất nhãn bookmark** trên tất cả các trang: dùng "Save" / "Saved" thay vì hỗn hợp "Save event" / "Unsave" / icon bookmark. | 2 | Thấp (sửa text) |
 | 4 | **Lưu search state vào URL** (query params) để khi bấm Back, kết quả tìm kiếm vẫn còn. | 2 | Trung bình (cần sửa logic router) |
 | 5 | **Thêm legend cho 4 ô trạng thái** (Registered/Pending/Confirmed/Waitlisted) trên trang chi tiết sự kiện. | 2 | Thấp (thêm HTML/CSS cho legend) |
-| 6 | **Thêm tooltip hoặc text** kèm icon bookmark: hiện chữ "Lưu" khi hover. | 1 | Thấp |
-| 7 | **Thêm placeholder text** cho live search: "Nhập tên sự kiện và kết quả sẽ tự lọc" thay vì chỉ "Search events". | 0 | Thấp |
+| 6 | **Thêm placeholder text** cho live search: "Nhập tên sự kiện và kết quả sẽ tự lọc" thay vì chỉ "Search events". | 0 | Thấp |
