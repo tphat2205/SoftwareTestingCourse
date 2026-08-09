@@ -1,158 +1,162 @@
 [
   {
-    "tc_id": "DT_FR06_01",
-    "description": "Domain (EC1, EC3, EC5) & BVA (LB+1): Valid Product ID with Quantity 2",
+    "tc_id": "TC_FR06_01",
+    "description": "Valid product ID=1, quantity=1 (BVA lower bound) — add to cart successfully",
+    "inputs": {
+      "productId": "1",
+      "quantity": "1"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "productExists": true,
+      "buttonText": "Đã thêm"
+    }
+  },
+  {
+    "tc_id": "TC_FR06_02",
+    "description": "Valid product ID=1, quantity=2 (BVA LB+1) — add to cart successfully",
     "inputs": {
       "productId": "1",
       "quantity": "2"
     },
     "expectedOutputs": {
       "status": "success",
-      "errorMessage": null,
-      "toastMessage": "Đã thêm"
+      "productExists": true,
+      "buttonText": "Đã thêm"
     }
   },
   {
-    "tc_id": "DT_FR06_02",
-    "description": "Domain (EC2): Invalid Product ID",
+    "tc_id": "TC_FR06_03",
+    "description": "Valid product ID=2, quantity=5 (normal case) — add to cart successfully",
+    "inputs": {
+      "productId": "2",
+      "quantity": "5"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "productExists": true,
+      "buttonText": "Đã thêm"
+    }
+  },
+  {
+    "tc_id": "TC_FR06_04",
+    "description": "Valid product ID=3, quantity=10 (large qty) — add to cart successfully",
+    "inputs": {
+      "productId": "3",
+      "quantity": "10"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "productExists": true,
+      "buttonText": "Đã thêm"
+    }
+  },
+  {
+    "tc_id": "TC_FR06_05",
+    "description": "Valid product ID=4, quantity=1 — verify product name displayed",
+    "inputs": {
+      "productId": "4",
+      "quantity": "1"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "productExists": true,
+      "buttonText": "Đã thêm",
+      "expectedName": "Tai nghe AirPods Pro 2"
+    }
+  },
+  {
+    "tc_id": "TC_FR06_06",
+    "description": "Valid product ID=5, quantity=1 — verify product price displayed",
+    "inputs": {
+      "productId": "5",
+      "quantity": "1"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "productExists": true,
+      "buttonText": "Đã thêm",
+      "expectedName": "Bàn phím cơ Keychron Q1",
+      "expectedPrice": "4,000,000"
+    }
+  },
+  {
+    "tc_id": "TC_FR06_07",
+    "description": "Invalid product ID=99999 — product not found, shows error page",
     "inputs": {
       "productId": "99999",
       "quantity": ""
     },
     "expectedOutputs": {
-      "status": "page_error",
-      "errorMessage": "Sản phẩm không tồn tại",
-      "toastMessage": null
+      "status": "not_found",
+      "productExists": false,
+      "errorText": "Sản phẩm không tồn tại"
     }
   },
   {
-    "tc_id": "DT_FR06_03",
-    "description": "Domain (EC1, EC4, EC5) & BVA (LB-1): Valid Product ID with Quantity 0",
+    "tc_id": "TC_FR06_08",
+    "description": "Invalid product ID=0 — product not found",
     "inputs": {
-      "productId": "1",
-      "quantity": "0"
+      "productId": "0",
+      "quantity": ""
     },
     "expectedOutputs": {
-      "status": "input_error",
-      "errorMessage": "Số lượng tối thiểu là 1",
-      "toastMessage": null
+      "status": "not_found",
+      "productExists": false,
+      "errorText": "Sản phẩm không tồn tại"
     }
   },
   {
-    "tc_id": "DT_FR06_04",
-    "description": "Domain (EC1, EC3, EC6): Valid Product ID with decimal Quantity",
-    "inputs": {
-      "productId": "1",
-      "quantity": "1.5"
-    },
-    "expectedOutputs": {
-      "status": "input_error",
-      "errorMessage": "Số lượng phải là số nguyên",
-      "toastMessage": null
-    }
-  },
-  {
-    "tc_id": "DT_FR06_05",
-    "description": "Domain (EC1, EC7): Valid Product ID with non-numeric Quantity",
-    "inputs": {
-      "productId": "1",
-      "quantity": "abc"
-    },
-    "expectedOutputs": {
-      "status": "input_error",
-      "errorMessage": "Vui lòng nhập số hợp lệ",
-      "toastMessage": null
-    }
-  },
-  {
-    "tc_id": "BVA_FR06_01",
-    "description": "BVA (LB): Valid Product ID with Quantity 1",
-    "inputs": {
-      "productId": "1",
-      "quantity": "1"
-    },
-    "expectedOutputs": {
-      "status": "success",
-      "errorMessage": null,
-      "toastMessage": "Đã thêm"
-    }
-  },
-  {
-    "tc_id": "TC_FR06_07_EXTRA",
-    "description": "Negative Quantity Check (Edge Case)",
-    "inputs": {
-      "productId": "1",
-      "quantity": "-5"
-    },
-    "expectedOutputs": {
-      "status": "input_error",
-      "errorMessage": "Số lượng tối thiểu là 1",
-      "toastMessage": null
-    }
-  },
-  {
-    "tc_id": "TC_FR06_08_EXTRA",
-    "description": "Extremely large quantity (Boundary limit test)",
-    "inputs": {
-      "productId": "1",
-      "quantity": "99999"
-    },
-    "expectedOutputs": {
-      "status": "success",
-      "errorMessage": null,
-      "toastMessage": "Đã thêm"
-    }
-  },
-  {
-    "tc_id": "TC_FR06_09_EXTRA",
-    "description": "SQL Injection attempt in Product ID",
+    "tc_id": "TC_FR06_09",
+    "description": "SQL Injection attempt in product ID — should show error or not found",
     "inputs": {
       "productId": "1' OR '1'='1",
       "quantity": "1"
     },
     "expectedOutputs": {
-      "status": "page_error",
-      "errorMessage": "Sản phẩm không tồn tại",
-      "toastMessage": null
+      "status": "not_found",
+      "productExists": false,
+      "errorText": "Sản phẩm không tồn tại"
     }
   },
   {
-    "tc_id": "TC_FR06_10_EXTRA",
-    "description": "XSS attempt in Product ID",
+    "tc_id": "TC_FR06_10",
+    "description": "XSS attempt in product ID — should show error or not found",
     "inputs": {
       "productId": "<script>alert(1)</script>",
       "quantity": "1"
     },
     "expectedOutputs": {
-      "status": "page_error",
-      "errorMessage": "Sản phẩm không tồn tại",
-      "toastMessage": null
+      "status": "not_found",
+      "productExists": false,
+      "errorText": "Sản phẩm không tồn tại"
     }
   },
   {
-    "tc_id": "TC_FR06_11_EXTRA",
-    "description": "Empty Quantity field",
+    "tc_id": "TC_FR06_11",
+    "description": "Bug: First click on add-to-cart does nothing (double-click required) — SUT intentional bug",
     "inputs": {
       "productId": "1",
-      "quantity": ""
+      "quantity": "1",
+      "singleClickOnly": true
     },
     "expectedOutputs": {
-      "status": "input_error",
-      "errorMessage": "Số lượng không được để trống",
-      "toastMessage": null
+      "status": "bug_single_click",
+      "productExists": true,
+      "buttonText": "Thêm vào giỏ hàng"
     }
   },
   {
-    "tc_id": "TC_FR06_12_EXTRA",
-    "description": "Emoji/Special Char in Quantity",
+    "tc_id": "TC_FR06_12",
+    "description": "Valid product ID=1, large quantity=999 — add to cart successfully",
     "inputs": {
       "productId": "1",
-      "quantity": "10😊"
+      "quantity": "999"
     },
     "expectedOutputs": {
-      "status": "input_error",
-      "errorMessage": "Vui lòng nhập số hợp lệ",
-      "toastMessage": null
+      "status": "success",
+      "productExists": true,
+      "buttonText": "Đã thêm"
     }
   }
 ]

@@ -1,182 +1,182 @@
 [
   {
-    "tc_id": "DT_FR15_01",
-    "description": "Cập nhật sản phẩm: Thông tin hợp lệ - Thành công",
-    "inputs": {
-      "action": "update",
-      "productId": "1",
-      "name": "Sản phẩm A",
-      "price": "150000",
-      "categoryId": "1"
-    },
-    "expectedOutputs": {
-      "status": "success",
-      "message": "Cập nhật thành công"
-    }
-  },
-  {
-    "tc_id": "DT_FR15_02",
-    "description": "Cập nhật sản phẩm: Mã sản phẩm không tồn tại",
-    "inputs": {
-      "action": "update",
-      "productId": "9999",
-      "name": "Sản phẩm A",
-      "price": "150000",
-      "categoryId": "1"
-    },
-    "expectedOutputs": {
-      "status": "error",
-      "message": "Không tìm thấy sản phẩm"
-    }
-  },
-  {
-    "tc_id": "DT_FR15_03",
-    "description": "Cập nhật sản phẩm: Tên sản phẩm rỗng (BVA Name LB-1)",
-    "inputs": {
-      "action": "update",
-      "productId": "1",
-      "name": "",
-      "price": "150000",
-      "categoryId": "1"
-    },
-    "expectedOutputs": {
-      "status": "error",
-      "message": "Tên sản phẩm không được rỗng"
-    }
-  },
-  {
-    "tc_id": "DT_FR15_04",
-    "description": "Cập nhật sản phẩm: Giá sản phẩm bị âm (BVA Price LB-1)",
-    "inputs": {
-      "action": "update",
-      "productId": "1",
-      "name": "Sản phẩm A",
-      "price": "-1",
-      "categoryId": "1"
-    },
-    "expectedOutputs": {
-      "status": "error",
-      "message": "Giá sản phẩm phải lớn hơn hoặc bằng 0"
-    }
-  },
-  {
-    "tc_id": "DT_FR15_05",
-    "description": "Cập nhật sản phẩm: Giá sản phẩm chứa chữ cái",
-    "inputs": {
-      "action": "update",
-      "productId": "1",
-      "name": "Sản phẩm A",
-      "price": "abc",
-      "categoryId": "1"
-    },
-    "expectedOutputs": {
-      "status": "error",
-      "message": "Định dạng giá không hợp lệ"
-    }
-  },
-  {
-    "tc_id": "DT_FR15_06",
-    "description": "Cập nhật sản phẩm: Danh mục không tồn tại",
-    "inputs": {
-      "action": "update",
-      "productId": "1",
-      "name": "Sản phẩm A",
-      "price": "150000",
-      "categoryId": "9999"
-    },
-    "expectedOutputs": {
-      "status": "error",
-      "message": "Danh mục không tồn tại"
-    }
-  },
-  {
-    "tc_id": "BVA_FR15_01",
-    "description": "Cập nhật sản phẩm: Giá sản phẩm bằng 0 (BVA Price LB)",
-    "inputs": {
-      "action": "update",
-      "productId": "1",
-      "name": "Sản phẩm A",
-      "price": "0",
-      "categoryId": "1"
-    },
-    "expectedOutputs": {
-      "status": "success",
-      "message": "Cập nhật thành công"
-    }
-  },
-  {
-    "tc_id": "BVA_FR15_02",
-    "description": "Cập nhật sản phẩm: Giá sản phẩm bằng 1 (BVA Price LB+1)",
-    "inputs": {
-      "action": "update",
-      "productId": "1",
-      "name": "Sản phẩm A",
-      "price": "1",
-      "categoryId": "1"
-    },
-    "expectedOutputs": {
-      "status": "success",
-      "message": "Cập nhật thành công"
-    }
-  },
-  {
-    "tc_id": "BVA_FR15_03",
-    "description": "Cập nhật sản phẩm: Tên sản phẩm 1 ký tự (BVA Name LB)",
-    "inputs": {
-      "action": "update",
-      "productId": "1",
-      "name": "A",
-      "price": "150000",
-      "categoryId": "1"
-    },
-    "expectedOutputs": {
-      "status": "success",
-      "message": "Cập nhật thành công"
-    }
-  },
-  {
-    "tc_id": "CRUD_FR15_CREATE",
-    "description": "Thêm mới sản phẩm: Dữ liệu hợp lệ",
+    "tc_id": "TC_FR15_01",
+    "description": "Create product: valid data — success",
     "inputs": {
       "action": "create",
-      "productId": null,
-      "name": "Sản phẩm mới",
-      "price": "200000",
-      "categoryId": "2"
+      "name": "Sản phẩm Test Auto",
+      "price": "150000",
+      "description": "Mô tả sản phẩm test",
+      "imageUrl": "https://placehold.co/300x300/png?text=Test",
+      "categoryIndex": 0
     },
     "expectedOutputs": {
       "status": "success",
-      "message": "Thêm mới thành công"
+      "alertContains": null,
+      "verifyInTable": true
     }
   },
   {
-    "tc_id": "CRUD_FR15_DELETE_VALID",
-    "description": "Xóa sản phẩm: ID hợp lệ",
+    "tc_id": "TC_FR15_02",
+    "description": "Create product: empty name (required field) — HTML validation blocks submit",
     "inputs": {
-      "action": "delete",
-      "productId": "2",
-      "name": null,
-      "price": null,
-      "categoryId": null
+      "action": "create",
+      "name": "",
+      "price": "100000",
+      "description": "Test",
+      "imageUrl": "",
+      "categoryIndex": 0
+    },
+    "expectedOutputs": {
+      "status": "validation_blocked",
+      "verifyInTable": false
+    }
+  },
+  {
+    "tc_id": "TC_FR15_03",
+    "description": "Create product: price=0 (BVA lower bound) — success",
+    "inputs": {
+      "action": "create",
+      "name": "SP Giá 0",
+      "price": "0",
+      "description": "Sản phẩm miễn phí",
+      "imageUrl": "",
+      "categoryIndex": 1
     },
     "expectedOutputs": {
       "status": "success",
-      "message": "Xóa thành công"
+      "verifyInTable": true
     }
   },
   {
-    "tc_id": "CRUD_FR15_DELETE_INVALID",
-    "description": "Xóa sản phẩm: ID không tồn tại",
+    "tc_id": "TC_FR15_04",
+    "description": "Create product: price=1 (BVA LB+1) — success",
     "inputs": {
-      "action": "delete",
-      "productId": "9999",
-      "name": null,
-      "price": null,
-      "categoryId": null
+      "action": "create",
+      "name": "SP Giá 1 đồng",
+      "price": "1",
+      "description": "BVA test",
+      "imageUrl": "",
+      "categoryIndex": 0
     },
     "expectedOutputs": {
-      "status": "error",
-      "message": "Không tìm thấy sản phẩm"
+      "status": "success",
+      "verifyInTable": true
+    }
+  },
+  {
+    "tc_id": "TC_FR15_05",
+    "description": "Create product: name with 1 character (BVA Name LB) — success",
+    "inputs": {
+      "action": "create",
+      "name": "A",
+      "price": "50000",
+      "description": "BVA name boundary",
+      "imageUrl": "",
+      "categoryIndex": 0
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "verifyInTable": true
+    }
+  },
+  {
+    "tc_id": "TC_FR15_06",
+    "description": "Create product: very long name (255 chars) — success",
+    "inputs": {
+      "action": "create",
+      "name": "Sản phẩm có tên rất dài để kiểm tra boundary value analysis cho trường tên sản phẩm khi nhập quá nhiều ký tự vào form thêm mới sản phẩm trên trang admin",
+      "price": "99000",
+      "description": "Long name test",
+      "imageUrl": "",
+      "categoryIndex": 2
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "verifyInTable": true
+    }
+  },
+  {
+    "tc_id": "TC_FR15_07",
+    "description": "Update product: edit name and price of existing product — success",
+    "inputs": {
+      "action": "update",
+      "productId": 1,
+      "name": "iPhone 15 Pro Max (Updated)",
+      "price": "32000000"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "alertText": "Cập nhật thành công!",
+      "bugDescription": "Admin UI has a bug: after update, ALL products in the list get renamed to the updated name (fakeMassUpdatedProducts)"
+    }
+  },
+  {
+    "tc_id": "TC_FR15_08",
+    "description": "Update product: edit with empty name — HTML validation blocks",
+    "inputs": {
+      "action": "update",
+      "productId": 2,
+      "name": "",
+      "price": "28000000"
+    },
+    "expectedOutputs": {
+      "status": "validation_blocked"
+    }
+  },
+  {
+    "tc_id": "TC_FR15_09",
+    "description": "Delete product: valid product — success",
+    "inputs": {
+      "action": "delete",
+      "productId": 5,
+      "productName": "Bàn phím cơ Keychron Q1"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "verifyRemovedFromTable": true
+    }
+  },
+  {
+    "tc_id": "TC_FR15_10",
+    "description": "Delete product: another valid product — success",
+    "inputs": {
+      "action": "delete",
+      "productId": 4,
+      "productName": "Tai nghe AirPods Pro 2"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "verifyRemovedFromTable": true
+    }
+  },
+  {
+    "tc_id": "TC_FR15_11",
+    "description": "Create product: negative price — backend accepts (no validation bug)",
+    "inputs": {
+      "action": "create",
+      "name": "SP Giá Âm",
+      "price": "-5000",
+      "description": "Negative price edge case",
+      "imageUrl": "",
+      "categoryIndex": 0
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "verifyInTable": true,
+      "isBug": true,
+      "bugDescription": "Backend has no price validation — negative prices are accepted"
+    }
+  },
+  {
+    "tc_id": "TC_FR15_12",
+    "description": "Verify product list displays correctly after CRUD operations",
+    "inputs": {
+      "action": "verify_list"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "minProductCount": 1
     }
   }
 ]
