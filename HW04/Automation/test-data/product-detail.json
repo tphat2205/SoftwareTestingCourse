@@ -1,0 +1,158 @@
+[
+  {
+    "tc_id": "DT_FR06_01",
+    "description": "Domain (EC1, EC3, EC5) & BVA (LB+1): Valid Product ID with Quantity 2",
+    "inputs": {
+      "productId": "1",
+      "quantity": "2"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "errorMessage": null,
+      "toastMessage": "Đã thêm"
+    }
+  },
+  {
+    "tc_id": "DT_FR06_02",
+    "description": "Domain (EC2): Invalid Product ID",
+    "inputs": {
+      "productId": "99999",
+      "quantity": ""
+    },
+    "expectedOutputs": {
+      "status": "page_error",
+      "errorMessage": "Sản phẩm không tồn tại",
+      "toastMessage": null
+    }
+  },
+  {
+    "tc_id": "DT_FR06_03",
+    "description": "Domain (EC1, EC4, EC5) & BVA (LB-1): Valid Product ID with Quantity 0",
+    "inputs": {
+      "productId": "1",
+      "quantity": "0"
+    },
+    "expectedOutputs": {
+      "status": "input_error",
+      "errorMessage": "Số lượng tối thiểu là 1",
+      "toastMessage": null
+    }
+  },
+  {
+    "tc_id": "DT_FR06_04",
+    "description": "Domain (EC1, EC3, EC6): Valid Product ID with decimal Quantity",
+    "inputs": {
+      "productId": "1",
+      "quantity": "1.5"
+    },
+    "expectedOutputs": {
+      "status": "input_error",
+      "errorMessage": "Số lượng phải là số nguyên",
+      "toastMessage": null
+    }
+  },
+  {
+    "tc_id": "DT_FR06_05",
+    "description": "Domain (EC1, EC7): Valid Product ID with non-numeric Quantity",
+    "inputs": {
+      "productId": "1",
+      "quantity": "abc"
+    },
+    "expectedOutputs": {
+      "status": "input_error",
+      "errorMessage": "Vui lòng nhập số hợp lệ",
+      "toastMessage": null
+    }
+  },
+  {
+    "tc_id": "BVA_FR06_01",
+    "description": "BVA (LB): Valid Product ID with Quantity 1",
+    "inputs": {
+      "productId": "1",
+      "quantity": "1"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "errorMessage": null,
+      "toastMessage": "Đã thêm"
+    }
+  },
+  {
+    "tc_id": "TC_FR06_07_EXTRA",
+    "description": "Negative Quantity Check (Edge Case)",
+    "inputs": {
+      "productId": "1",
+      "quantity": "-5"
+    },
+    "expectedOutputs": {
+      "status": "input_error",
+      "errorMessage": "Số lượng tối thiểu là 1",
+      "toastMessage": null
+    }
+  },
+  {
+    "tc_id": "TC_FR06_08_EXTRA",
+    "description": "Extremely large quantity (Boundary limit test)",
+    "inputs": {
+      "productId": "1",
+      "quantity": "99999"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "errorMessage": null,
+      "toastMessage": "Đã thêm"
+    }
+  },
+  {
+    "tc_id": "TC_FR06_09_EXTRA",
+    "description": "SQL Injection attempt in Product ID",
+    "inputs": {
+      "productId": "1' OR '1'='1",
+      "quantity": "1"
+    },
+    "expectedOutputs": {
+      "status": "page_error",
+      "errorMessage": "Sản phẩm không tồn tại",
+      "toastMessage": null
+    }
+  },
+  {
+    "tc_id": "TC_FR06_10_EXTRA",
+    "description": "XSS attempt in Product ID",
+    "inputs": {
+      "productId": "<script>alert(1)</script>",
+      "quantity": "1"
+    },
+    "expectedOutputs": {
+      "status": "page_error",
+      "errorMessage": "Sản phẩm không tồn tại",
+      "toastMessage": null
+    }
+  },
+  {
+    "tc_id": "TC_FR06_11_EXTRA",
+    "description": "Empty Quantity field",
+    "inputs": {
+      "productId": "1",
+      "quantity": ""
+    },
+    "expectedOutputs": {
+      "status": "input_error",
+      "errorMessage": "Số lượng không được để trống",
+      "toastMessage": null
+    }
+  },
+  {
+    "tc_id": "TC_FR06_12_EXTRA",
+    "description": "Emoji/Special Char in Quantity",
+    "inputs": {
+      "productId": "1",
+      "quantity": "10😊"
+    },
+    "expectedOutputs": {
+      "status": "input_error",
+      "errorMessage": "Vui lòng nhập số hợp lệ",
+      "toastMessage": null
+    }
+  }
+]

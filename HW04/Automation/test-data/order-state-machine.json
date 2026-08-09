@@ -1,0 +1,182 @@
+[
+  {
+    "tc_id": "DT_FR10_01",
+    "description": "User Hủy đơn: Trạng thái hiện tại 'pending' - Thành công",
+    "inputs": {
+      "role": "user",
+      "action": "cancel",
+      "orderId": "1",
+      "currentState": "pending",
+      "newState": null
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "message": "Hủy đơn hàng thành công"
+    }
+  },
+  {
+    "tc_id": "DT_FR10_02",
+    "description": "User Hủy đơn: Trạng thái hiện tại 'confirmed' - Thành công",
+    "inputs": {
+      "role": "user",
+      "action": "cancel",
+      "orderId": "1",
+      "currentState": "confirmed",
+      "newState": null
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "message": "Hủy đơn hàng thành công"
+    }
+  },
+  {
+    "tc_id": "DT_FR10_03",
+    "description": "User Hủy đơn: Mã đơn hàng không tồn tại",
+    "inputs": {
+      "role": "user",
+      "action": "cancel",
+      "orderId": "9999",
+      "currentState": "N/A",
+      "newState": null
+    },
+    "expectedOutputs": {
+      "status": "error",
+      "message": "Đơn hàng không tồn tại"
+    }
+  },
+  {
+    "tc_id": "DT_FR10_04",
+    "description": "User Hủy đơn: Trạng thái hiện tại 'shipping' - Báo lỗi",
+    "inputs": {
+      "role": "user",
+      "action": "cancel",
+      "orderId": "1",
+      "currentState": "shipping",
+      "newState": null
+    },
+    "expectedOutputs": {
+      "status": "error",
+      "message": "Không thể hủy đơn hàng đang giao"
+    }
+  },
+  {
+    "tc_id": "DT_FR10_05",
+    "description": "User Hủy đơn: Trạng thái hiện tại 'delivered' - Báo lỗi",
+    "inputs": {
+      "role": "user",
+      "action": "cancel",
+      "orderId": "1",
+      "currentState": "delivered",
+      "newState": null
+    },
+    "expectedOutputs": {
+      "status": "error",
+      "message": "Không thể hủy đơn hàng đã giao"
+    }
+  },
+  {
+    "tc_id": "DT_FR10_06",
+    "description": "User Hủy đơn: Trạng thái hiện tại 'canceled' - Báo lỗi",
+    "inputs": {
+      "role": "user",
+      "action": "cancel",
+      "orderId": "1",
+      "currentState": "canceled",
+      "newState": null
+    },
+    "expectedOutputs": {
+      "status": "error",
+      "message": "Đơn hàng đã được hủy trước đó"
+    }
+  },
+  {
+    "tc_id": "DT_FR10_08",
+    "description": "Admin Cập nhật: 'pending' -> 'confirmed'",
+    "inputs": {
+      "role": "admin",
+      "action": "update",
+      "orderId": "1",
+      "currentState": "pending",
+      "newState": "confirmed"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "message": "Cập nhật trạng thái thành công"
+    }
+  },
+  {
+    "tc_id": "DT_FR10_09",
+    "description": "Admin Cập nhật: 'pending' -> 'shipping'",
+    "inputs": {
+      "role": "admin",
+      "action": "update",
+      "orderId": "1",
+      "currentState": "pending",
+      "newState": "shipping"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "message": "Cập nhật trạng thái thành công"
+    }
+  },
+  {
+    "tc_id": "DT_FR10_10",
+    "description": "Admin Cập nhật: 'pending' -> 'delivered'",
+    "inputs": {
+      "role": "admin",
+      "action": "update",
+      "orderId": "1",
+      "currentState": "pending",
+      "newState": "delivered"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "message": "Cập nhật trạng thái thành công"
+    }
+  },
+  {
+    "tc_id": "DT_FR10_11",
+    "description": "Admin Cập nhật: 'pending' -> 'canceled'",
+    "inputs": {
+      "role": "admin",
+      "action": "update",
+      "orderId": "1",
+      "currentState": "pending",
+      "newState": "canceled"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "message": "Cập nhật trạng thái thành công"
+    }
+  },
+  {
+    "tc_id": "DT_FR10_12",
+    "description": "Admin Cập nhật: Mã đơn hàng không tồn tại",
+    "inputs": {
+      "role": "admin",
+      "action": "update",
+      "orderId": "9999",
+      "currentState": "N/A",
+      "newState": "shipping"
+    },
+    "expectedOutputs": {
+      "status": "error",
+      "message": "Đơn hàng không tồn tại"
+    }
+  },
+  {
+    "tc_id": "DT_FR10_13",
+    "description": "Admin Cập nhật: Trạng thái mới không hợp lệ ('returned')",
+    "inputs": {
+      "role": "admin",
+      "action": "update",
+      "orderId": "1",
+      "currentState": "pending",
+      "newState": "returned"
+    },
+    "expectedOutputs": {
+      "status": "error",
+      "message": "Trạng thái không hợp lệ"
+    }
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "tc_id": "DT_FR15_01",
+    "description": "Cập nhật sản phẩm: Thông tin hợp lệ - Thành công",
+    "inputs": {
+      "action": "update",
+      "productId": "1",
+      "name": "Sản phẩm A",
+      "price": "150000",
+      "categoryId": "1"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "message": "Cập nhật thành công"
+    }
+  },
+  {
+    "tc_id": "DT_FR15_02",
+    "description": "Cập nhật sản phẩm: Mã sản phẩm không tồn tại",
+    "inputs": {
+      "action": "update",
+      "productId": "9999",
+      "name": "Sản phẩm A",
+      "price": "150000",
+      "categoryId": "1"
+    },
+    "expectedOutputs": {
+      "status": "error",
+      "message": "Không tìm thấy sản phẩm"
+    }
+  },
+  {
+    "tc_id": "DT_FR15_03",
+    "description": "Cập nhật sản phẩm: Tên sản phẩm rỗng (BVA Name LB-1)",
+    "inputs": {
+      "action": "update",
+      "productId": "1",
+      "name": "",
+      "price": "150000",
+      "categoryId": "1"
+    },
+    "expectedOutputs": {
+      "status": "error",
+      "message": "Tên sản phẩm không được rỗng"
+    }
+  },
+  {
+    "tc_id": "DT_FR15_04",
+    "description": "Cập nhật sản phẩm: Giá sản phẩm bị âm (BVA Price LB-1)",
+    "inputs": {
+      "action": "update",
+      "productId": "1",
+      "name": "Sản phẩm A",
+      "price": "-1",
+      "categoryId": "1"
+    },
+    "expectedOutputs": {
+      "status": "error",
+      "message": "Giá sản phẩm phải lớn hơn hoặc bằng 0"
+    }
+  },
+  {
+    "tc_id": "DT_FR15_05",
+    "description": "Cập nhật sản phẩm: Giá sản phẩm chứa chữ cái",
+    "inputs": {
+      "action": "update",
+      "productId": "1",
+      "name": "Sản phẩm A",
+      "price": "abc",
+      "categoryId": "1"
+    },
+    "expectedOutputs": {
+      "status": "error",
+      "message": "Định dạng giá không hợp lệ"
+    }
+  },
+  {
+    "tc_id": "DT_FR15_06",
+    "description": "Cập nhật sản phẩm: Danh mục không tồn tại",
+    "inputs": {
+      "action": "update",
+      "productId": "1",
+      "name": "Sản phẩm A",
+      "price": "150000",
+      "categoryId": "9999"
+    },
+    "expectedOutputs": {
+      "status": "error",
+      "message": "Danh mục không tồn tại"
+    }
+  },
+  {
+    "tc_id": "BVA_FR15_01",
+    "description": "Cập nhật sản phẩm: Giá sản phẩm bằng 0 (BVA Price LB)",
+    "inputs": {
+      "action": "update",
+      "productId": "1",
+      "name": "Sản phẩm A",
+      "price": "0",
+      "categoryId": "1"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "message": "Cập nhật thành công"
+    }
+  },
+  {
+    "tc_id": "BVA_FR15_02",
+    "description": "Cập nhật sản phẩm: Giá sản phẩm bằng 1 (BVA Price LB+1)",
+    "inputs": {
+      "action": "update",
+      "productId": "1",
+      "name": "Sản phẩm A",
+      "price": "1",
+      "categoryId": "1"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "message": "Cập nhật thành công"
+    }
+  },
+  {
+    "tc_id": "BVA_FR15_03",
+    "description": "Cập nhật sản phẩm: Tên sản phẩm 1 ký tự (BVA Name LB)",
+    "inputs": {
+      "action": "update",
+      "productId": "1",
+      "name": "A",
+      "price": "150000",
+      "categoryId": "1"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "message": "Cập nhật thành công"
+    }
+  },
+  {
+    "tc_id": "CRUD_FR15_CREATE",
+    "description": "Thêm mới sản phẩm: Dữ liệu hợp lệ",
+    "inputs": {
+      "action": "create",
+      "productId": null,
+      "name": "Sản phẩm mới",
+      "price": "200000",
+      "categoryId": "2"
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "message": "Thêm mới thành công"
+    }
+  },
+  {
+    "tc_id": "CRUD_FR15_DELETE_VALID",
+    "description": "Xóa sản phẩm: ID hợp lệ",
+    "inputs": {
+      "action": "delete",
+      "productId": "2",
+      "name": null,
+      "price": null,
+      "categoryId": null
+    },
+    "expectedOutputs": {
+      "status": "success",
+      "message": "Xóa thành công"
+    }
+  },
+  {
+    "tc_id": "CRUD_FR15_DELETE_INVALID",
+    "description": "Xóa sản phẩm: ID không tồn tại",
+    "inputs": {
+      "action": "delete",
+      "productId": "9999",
+      "name": null,
+      "price": null,
+      "categoryId": null
+    },
+    "expectedOutputs": {
+      "status": "error",
+      "message": "Không tìm thấy sản phẩm"
+    }
+  }
+]
