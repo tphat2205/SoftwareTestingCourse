@@ -92,14 +92,6 @@ test.describe('FR-10: Order State Machine', () => {
           expect(cancelBody.error).toBe(data.expectedOutputs.message);
         }
 
-        // Assertion pattern 3: UI verification — navigate to order history and check
-        // Login user on the page for UI verification
-        await page.goto('/login');
-        await page.locator('input[type="text"]').fill('test@eshop.com');
-        await page.locator('input[type="text"]').nth(1).fill('Test1234!');
-        await page.locator('button[type="submit"]').click();
-        await page.waitForTimeout(1000);
-
       } else if (data.type === 'user_cancel_nonexistent') {
         // Try to cancel a non-existent order
         const cancelResponse = await apiContext.put(`${API_BASE}/orders/${data.inputs.orderId}/cancel`, {

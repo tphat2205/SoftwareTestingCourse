@@ -162,6 +162,11 @@ test.describe('FR-15: Product Management (CRUD) - Admin Panel', () => {
         // Assertion pattern 1: toBeVisible — product should exist before deletion
         await expect(productRow.first()).toBeVisible();
 
+        // Handle confirm dialog for deletion
+        page.once('dialog', async (dialog) => {
+          await dialog.accept();
+        });
+
         // Click delete button
         const deleteBtn = productRow.first().locator('button', { hasText: 'Xóa' });
         await deleteBtn.click();

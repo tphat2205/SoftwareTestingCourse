@@ -53,31 +53,31 @@
   },
   {
     "tc_id": "TC_FR06_05",
-    "description": "Valid product ID=4, quantity=1 — verify product name displayed",
+    "description": "Valid product ID=2, quantity=1 — verify product name displayed",
     "inputs": {
-      "productId": "4",
+      "productId": "2",
       "quantity": "1"
     },
     "expectedOutputs": {
       "status": "success",
       "productExists": true,
       "buttonText": "Đã thêm",
-      "expectedName": "Tai nghe AirPods Pro 2"
+      "expectedName": "Samsung Galaxy S24 Ultra"
     }
   },
   {
     "tc_id": "TC_FR06_06",
-    "description": "Valid product ID=5, quantity=1 — verify product price displayed",
+    "description": "Valid product ID=3, quantity=1 — verify product price displayed",
     "inputs": {
-      "productId": "5",
+      "productId": "3",
       "quantity": "1"
     },
     "expectedOutputs": {
       "status": "success",
       "productExists": true,
       "buttonText": "Đã thêm",
-      "expectedName": "Bàn phím cơ Keychron Q1",
-      "expectedPrice": "4,000,000"
+      "expectedName": "MacBook Pro M3",
+      "expectedPrice": "45,000,000"
     }
   },
   {
