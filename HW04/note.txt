@@ -1,0 +1,7 @@
+Khi mở Playwright_Test_Report.html
+Phải thêm #show-metadata-other vào sau URL thì mới thấy được metadata chứa MSSV.
+
+Ví dụ:
+http://localhost:9323/#show-metadata-other
+hoặc
+http://127.0.0.1:5500/HW04/23127241_HW04_AI_Automation_100/Playwright_Test_Report.html#show-metadata-other
