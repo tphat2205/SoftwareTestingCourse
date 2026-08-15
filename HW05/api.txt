@@ -1,0 +1,29 @@
+HW05 
+
+Mình xin nhận 3 endpoint group sau (đề mục 5 yêu cầu không trùng giữa các thành viên):
+
+1. Read-heavy    — GET  /api/products  (kèm ?search=)        → kịch bản Load
+2. Auth-heavy    — POST /api/login                           → kịch bản Stress
+3. Transactional — POST /api/cart → POST /api/checkout       → kịch bản Spike
+
+Công cụ: JMeter (non-GUI).
+
+HW05
+
+Mình xin nhận 3 endpoint group sau (không trùng với endpoint bạn đã chọn):
+
+1. Read-heavy    — GET  /api/products/:id (xem chi tiết sản phẩm)     → kịch bản Load
+2. Auth-heavy    — POST /api/forgot-password (quên mật khẩu)          → kịch bản Stress
+3. Transactional — POST /api/apply-coupon (áp mã giảm giá)            → kịch bản Spike
+
+Công cụ: JMeter (non-GUI).
+
+HW05
+
+Mình xin nhận 3 endpoint group sau, không trùng với workflow của hai bạn:
+Read-heavy — GET /api/admin/users — xem danh sách người dùng  
+Auth-heavy — POST /api/register — đăng ký tài khoản bằng email duy nhất  
+Transactional — DELETE /api/admin/users/:id — xóa đúng tài khoản vừa đăng ký
+Workflow E2E: đăng ký user → admin đọc danh sách user → trích xuất/đối chiếu ID → xóa user vừa tạo.
+Workflow này sẽ được dùng chung cho cả ba kịch bản Load, Stress và Spike theo đúng yêu cầu đề bài.
+Công cụ: JMeter (non-GUI).
