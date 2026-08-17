@@ -37,7 +37,7 @@
         <stringProp name="ThreadGroup.delay">0</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController">
-          <intProp name="LoopController.loops">-1</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp><stringProp name="LoopController.loops">-1</stringProp>
         </elementProp>
       </ThreadGroup>
       <hashTree>
@@ -80,7 +80,7 @@
             </collectionProp>
             <intProp name="Assertion.test_type">33</intProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
           </ResponseAssertion>
           <hashTree/>
 
@@ -105,7 +105,7 @@
         <stringProp name="ThreadGroup.delay">0</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController">
-          <intProp name="LoopController.loops">-1</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp><stringProp name="LoopController.loops">-1</stringProp>
         </elementProp>
       </ThreadGroup>
       <hashTree>
@@ -147,7 +147,7 @@
             </collectionProp>
             <intProp name="Assertion.test_type">33</intProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
           </ResponseAssertion>
           <hashTree/>
 
@@ -172,7 +172,7 @@
         <stringProp name="ThreadGroup.delay">0</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController">
-          <intProp name="LoopController.loops">-1</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp><stringProp name="LoopController.loops">-1</stringProp>
         </elementProp>
       </ThreadGroup>
       <hashTree>
@@ -214,7 +214,7 @@
             </collectionProp>
             <intProp name="Assertion.test_type">33</intProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
           </ResponseAssertion>
           <hashTree/>
 

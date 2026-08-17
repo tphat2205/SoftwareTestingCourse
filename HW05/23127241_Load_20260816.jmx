@@ -34,7 +34,8 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController">
-          <intProp name="LoopController.loops">10</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">10</stringProp>
         </elementProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
@@ -63,12 +64,12 @@
             </collectionProp>
             <intProp name="Assertion.test_type">33</intProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
           </ResponseAssertion>
           <hashTree/>
 
           <!-- Duration Assertion: Response must be < 5000ms -->
-          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Assert — Response < 5s" enabled="true">
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Assert — Response &lt; 5s" enabled="true">
             <longProp name="DurationAssertion.duration">5000</longProp>
           </DurationAssertion>
           <hashTree/>

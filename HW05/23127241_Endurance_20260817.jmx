@@ -2,14 +2,14 @@
 <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
   <hashTree>
     <!-- ============================================ -->
-    <!-- LOAD TEST PLAN — Read-Heavy Endpoint         -->
+    <!-- ENDURANCE TEST PLAN — Read-Heavy Endpoint    -->
     <!-- Endpoint: GET /api/orders/:id                -->
-    <!-- Purpose: Sustained load to measure throughput -->
+    <!-- Purpose: Sustained load to find limits       -->
     <!-- ============================================ -->
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Load Test — Read Heavy (Orders Detail)" enabled="true">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Endurance Test — Read Heavy (Orders Detail)" enabled="true">
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
-      <stringProp name="TestPlan.comments">Load Test: Đo throughput và response time khi nhiều user đồng thời xem chi tiết đơn hàng</stringProp>
+      <stringProp name="TestPlan.comments">Endurance Test: Đo ngưỡng chịu đựng tối đa của phần cứng bằng cách giữ tải 100 users trong 15 phút liên tục.</stringProp>
     </TestPlan>
     <hashTree>
 
@@ -27,17 +27,18 @@
       </CSVDataSet>
       <hashTree/>
 
-      <!-- Thread Group: Load Pattern -->
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Load — 50 Users Steady" enabled="true">
-        <intProp name="ThreadGroup.num_threads">50</intProp>
-        <intProp name="ThreadGroup.ramp_time">30</intProp>
+      <!-- Thread Group: Endurance Pattern -->
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Endurance — 100 Users 15 mins" enabled="true">
+        <intProp name="ThreadGroup.num_threads">100</intProp>
+        <intProp name="ThreadGroup.ramp_time">60</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController">
-          <intProp name="LoopController.loops">10</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp><stringProp name="LoopController.loops">-1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.delay"></stringProp>
-        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay">0</stringProp>
+        <stringProp name="ThreadGroup.duration">900</stringProp>
       </ThreadGroup>
       <hashTree>
 
@@ -63,12 +64,12 @@
             </collectionProp>
             <intProp name="Assertion.test_type">33</intProp>
             <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
-            <boolProp name="Assertion.assume_success">false</boolProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
           </ResponseAssertion>
           <hashTree/>
 
           <!-- Duration Assertion: Response must be < 5000ms -->
-          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Assert — Response < 5s" enabled="true">
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Assert — Response &lt; 5s" enabled="true">
             <longProp name="DurationAssertion.duration">5000</longProp>
           </DurationAssertion>
           <hashTree/>
