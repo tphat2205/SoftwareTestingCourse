@@ -1,0 +1,34 @@
+{
+  "POST Reset Password" : {
+    "transaction" : "POST Reset Password",
+    "sampleCount" : 31629,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 3.3726010939327735,
+    "medianResTime" : 3.0,
+    "minResTime" : 0.0,
+    "maxResTime" : 713.0,
+    "pct1ResTime" : 8.0,
+    "pct2ResTime" : 10.0,
+    "pct3ResTime" : 22.0,
+    "throughput" : 176.61544303232003,
+    "receivedKBytesPerSec" : 53.46429390328002,
+    "sentKBytesPerSec" : 47.823664453552524
+  },
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 31629,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 3.3726010939327735,
+    "medianResTime" : 3.0,
+    "minResTime" : 0.0,
+    "maxResTime" : 713.0,
+    "pct1ResTime" : 8.0,
+    "pct2ResTime" : 10.0,
+    "pct3ResTime" : 22.0,
+    "throughput" : 176.61544303232003,
+    "receivedKBytesPerSec" : 53.46429390328002,
+    "sentKBytesPerSec" : 47.823664453552524
+  }
+}
