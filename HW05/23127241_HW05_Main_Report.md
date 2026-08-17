@@ -510,7 +510,7 @@ Trade-off chính là **thời gian CI vs. rủi ro bỏ sót regression**. Với
 
 ## AI Critique
 
-Trong quá trình thực hiện bài tập này, em đã sử dụng AI (Antigravity / Claude) làm trợ lý chính để thiết kế test plan, phân tích file `.jtl`, và đề xuất optimization. Tuy nhiên, quá trình review cho thấy AI mắc nhiều lỗi có hệ thống.
+Trong quá trình thực hiện bài tập này, em đã sử dụng AI (Antigravity / Gemini) làm trợ lý chính để thiết kế test plan, phân tích file `.jtl`, và đề xuất optimization. Tuy nhiên, quá trình review cho thấy AI mắc nhiều lỗi có hệ thống.
 
 Lỗi nghiêm trọng nhất là AI báo cáo Error Rate = 0% cho cả Spike Test và Stress Test, trong khi thực tế 98-99% request trả về HTTP 400. Nguyên nhân là AI chỉ đọc cột `success` (luôn là `true` do cấu hình Assertion) mà không kiểm tra cột `responseCode`. Đây là bài học quan trọng: **AI thiếu khả năng hiểu ngữ cảnh cấu hình** — nó không biết rằng em đã sửa Assertion để chấp nhận 400, nên không thể phân biệt giữa "success theo JMeter" và "success theo nghiệp vụ".
 
@@ -521,15 +521,3 @@ Về đề xuất optimization, AI đề xuất "thêm Redis cache" và "horizon
 Bài học em rút ra: **AI là công cụ mạnh nhưng cần human review ở mọi bước**. Không thể tin tưởng hoàn toàn vào kết quả AI mà không cross-verify với dữ liệu gốc. Đặc biệt, các metric như error rate và throughput cần được kiểm tra bằng nhiều cách (success column, responseCode, phân bố theo thời gian) để tránh kết luận sai.
 
 ---
-
-## Self-Assessment
-
-| **No.** | **Criteria** | **Grade** | **Self-Assessed Grade** |
-|---|---|---|---|
-| **1** | Task 1 — Load testing | 20 | |
-| **2** | Task 1 — Stress testing | 20 | |
-| **3** | Task 1 — Spike testing | 20 | |
-| **4** | Task 2 — AI analysis + misinterpretation hunt (with correct values from raw logs) | 10 | |
-| **5** | Task 3 — Continuous Performance Testing proposal (G9.6) | 10 | |
-| **6** | Agent Skills | 10 | |
-| | **Total** | **100** | |
