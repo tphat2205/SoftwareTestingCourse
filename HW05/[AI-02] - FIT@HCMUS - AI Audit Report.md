@@ -21,6 +21,7 @@
 | **Assignment date:** | August 11, 2026 |
 | **AI tool(s) used:** | Gemini |
 | **AI tool(s) used:** | \[X \] Yes  \[ \] No |
+| **Declared Tools:** | JMeter, Gemini 3.1 Pro, Windows Task Manager (Resource Monitor) |
 
 ## **2\. Instructions (read before filling)**
 
