@@ -1,0 +1,36 @@
+ID,Category,Test Case Name,Payload / Action,Expected Result
+TC-01,Domain,Hợp lệ - Tạo danh mục mới thành công,"{""name"": ""Electronics"", ""description"": ""Electronic items""}",201 Created
+TC-02,Domain,Tên rỗng,"{""name"": """", ""description"": ""Electronic items""}",400 Bad Request
+TC-03,Domain,Bị khuyết field Name,"{""description"": ""Electronic items""}",400 Bad Request
+TC-04,Domain,Tên quá ngắn (1 ký tự),"{""name"": ""E"", ""description"": ""Electronic items""}",400 Bad Request
+TC-05,Domain,Tên quá dài (> 255 ký tự),"{""name"": ""E"" * 256, ""description"": ""Electronic items""}",400 Bad Request
+TC-06,Domain,Tên chứa ký tự đặc biệt hợp lệ,"{""name"": ""Home & Garden"", ""description"": ""...""}",201 Created
+TC-07,Domain,Description rỗng,"{""name"": ""Fashion"", ""description"": """"}",201 Created (hoặc 400 tùy hệ thống)
+TC-08,Domain,Bị khuyết field Description,"{""name"": ""Fashion""}",201 Created (hoặc 400)
+TC-09,Domain,Description quá dài (> 1000 ký tự),"{""name"": ""Books"", ""description"": ""a"" * 1001}",400 Bad Request
+TC-10,Domain,Thừa field không hợp lệ,"{""name"": ""Toys"", ""description"": ""..."", ""id"": 99}",201 (Bỏ qua id) hoặc 400
+TC-11,State,Tạo danh mục trùng tên đã có,"{""name"": ""Electronics"", ""description"": ""...""} (Gọi lần 2)",409 Conflict
+TC-12,State,Trùng tên khác hoa thường (Case-insensitive conflict),"{""name"": ""ELECTRONICS"", ""description"": ""...""}",409 Conflict
+TC-13,Security,Role - Customer gọi API Admin (IDOR/Role Escalation),Token của User bình thường (Customer),403 Forbidden
+TC-14,Security,Role - Không có Token (No Auth),Xóa header Authorization,401 Unauthorized
+TC-15,Security,Role - Token Admin hết hạn (Expired),Token của Admin nhưng đã expired,401 Unauthorized
+TC-16,Security,Role - Token sai cấu trúc (Invalid signature),Sửa 1 ký tự trong Token của Admin,401 Unauthorized
+TC-17,Security,Role - Bearer không có khoảng trắng,Header: BearerTOKEN_ADMIN_123,401 Unauthorized
+TC-18,Security,Role - Hacker dùng JWT tự ký (None algorithm),Header: JWT với alg=none role=admin,401 Unauthorized
+TC-19,Security,SQL Injection vào Name 1,"{""name"": ""'; DROP TABLE categories;--"", ""description"": """"}",400 Bad Request hoặc 201
+TC-20,Security,SQL Injection vào Name 2,"{""name"": ""' OR 1=1--"", ""description"": """"}",400 Bad Request hoặc 201
+TC-21,Security,XSS Payload vào Name,"{""name"": ""<script>alert(1)</script>"", ""description"": """"}",400 Bad Request
+TC-22,Security,XSS Payload vào Description,"{""name"": ""Toys"", ""description"": ""<img src=x onerror=alert(1)>""}",400 Bad Request
+TC-23,Schema,Schema Success (201) - Có đủ field,Tạo thành công,Response chứa id (int/uuid), name, description
+TC-24,Schema,Schema Success - Kiểu dữ liệu của ID,Tạo thành công,Response field id phải là Integer
+TC-25,Schema,Schema Success - Kiểu dữ liệu của Name,Tạo thành công,Response field name phải là String
+TC-26,Schema,Schema Error (400) - Lỗi validation,Thiếu field name,Response chứa mảng errors mô tả chi tiết 'name is required'
+TC-27,Schema,Schema Error (401) - Không Auth,Không truyền token,Response chứa message 'Unauthorized'
+TC-28,Schema,Schema Error (403) - Sai Role,Dùng Customer Token,Response chứa message 'Forbidden' hoặc 'Admin role required'
+TC-29,Schema,Schema Error (409) - Trùng lặp,Tạo trùng tên,Response chứa message 'Category already exists'
+TC-30,Domain,Gửi payload không phải JSON,Header Content-Type: application/x-www-form-urlencoded,415 Unsupported Media Type hoặc 400
+TC-31,Domain,Gửi body JSON bị lỗi cú pháp,"{""name"": ""Toys"", ""description"": ""..."" (thiếu dấu ngoặc)",400 Bad Request
+TC-32,Domain,Name chỉ chứa khoảng trắng,"{""name"": ""   "", ""description"": ""...""}",400 Bad Request
+TC-33,Domain,Name chứa script HTML,"{""name"": ""<h1>Title</h1>"", ""description"": ""...""}",400 Bad Request
+TC-34,Domain,Name là số,"{""name"": 123, ""description"": ""...""}",400 Bad Request
+TC-35,Domain,Method sai - Dùng PUT thay POST,PUT /api/categories,404 Not Found hoặc 405 Method Not Allowed
