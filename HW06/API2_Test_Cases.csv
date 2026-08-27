@@ -36,3 +36,7 @@ TC-34,Domain,Truyền thêm body thừa (dù là PUT),"{""status"": ""delivered"
 TC-35,Domain,Method sai - Dùng POST thay vì PUT,POST /api/orders/1/cancel,404 Not Found hoặc 405 Method Not Allowed
 TC-36,Domain,Method sai - Dùng DELETE thay vì PUT,DELETE /api/orders/1/cancel,404 Not Found hoặc 405 Method Not Allowed
 TC-37,Security,Lỗi rò rỉ thông tin (IDOR + State Leakage),Token = User A; :id = Đơn hàng đang shipping của User B,403 Forbidden hoặc 404 Not Found
+TC-38,State,Race Condition (Concurrency),Gửi 2 request hủy cùng lúc,Req 1: 200 Req 2: 400
+TC-39,Domain,White-space URL,PUT /api/orders/ 1 /cancel,400 hoặc 404
+TC-40,Domain,HTTP Parameter Pollution,PUT /api/orders/1/cancel?id=2,200 (Hủy đơn 1)
+TC-41,Security,Token Injection via Query,Gửi ?token=... thay vì Header,401 Unauthorized

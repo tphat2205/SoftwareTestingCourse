@@ -37,3 +37,7 @@ TC-35,Schema,Kiểm tra Type của field id,Body hợp lệ,Field id trong respo
 TC-36,Schema,Kiểm tra Schema khi Error 400,Bỏ field email,Response chứa mảng errors mô tả chi tiết
 TC-37,Schema,Gửi payload không phải JSON,Gửi text thuần name=John,415 hoặc 400
 TC-38,Domain,Đăng ký với Email có chứa khoảng trắng ở đầu và cuối,"{""name"":""John"", ""email"":""  j1@ex.com  "", ""password"":""Password123!"", ""phone"":""0123456789"", ""address"":""123 St""}",409 Conflict
+TC-39,Domain,Whitespace ở Password,"{""password"": "" Pass123! ""}",201 Created
+TC-40,Security,Lỗi ReDoS qua Email dài,Truyền email dài 10000 ký tự,400 Bad Request
+TC-41,Domain,IDN Domain (Email Unicode),"{""email"": ""user@cần-thơ.vn""}",400 hoặc 201
+TC-42,Security,Tấn công Mass Assignment,"Truyền thêm {""role"":""admin""}",201 (Nhưng role là user)
