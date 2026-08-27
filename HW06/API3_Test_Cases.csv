@@ -34,3 +34,5 @@ TC-32,Domain,Name chỉ chứa khoảng trắng,"{""name"": ""   "", ""descripti
 TC-33,Domain,Name chứa script HTML,"{""name"": ""<h1>Title</h1>"", ""description"": ""...""}",400 Bad Request
 TC-34,Domain,Name là số,"{""name"": 123, ""description"": ""...""}",400 Bad Request
 TC-35,Domain,Method sai - Dùng PUT thay POST,PUT /api/categories,404 Not Found hoặc 405 Method Not Allowed
+TC-36,Domain,Name chính xác 255 ký tự (On-Boundary),"{""name"": ""A"" * 255, ""description"": ""...""}",201 Created
+TC-37,Domain,Name chính xác 256 ký tự (Off-Boundary),"{""name"": ""A"" * 256, ""description"": ""...""}",400 Bad Request

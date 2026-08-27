@@ -35,3 +35,4 @@ TC-33,Schema,Kiểm tra Schema Error (403),Lỗi IDOR,Response chứa message 'F
 TC-34,Domain,Truyền thêm body thừa (dù là PUT),"{""status"": ""delivered""}",200 OK (Bỏ qua body thừa)
 TC-35,Domain,Method sai - Dùng POST thay vì PUT,POST /api/orders/1/cancel,404 Not Found hoặc 405 Method Not Allowed
 TC-36,Domain,Method sai - Dùng DELETE thay vì PUT,DELETE /api/orders/1/cancel,404 Not Found hoặc 405 Method Not Allowed
+TC-37,Security,Lỗi rò rỉ thông tin (IDOR + State Leakage),Token = User A; :id = Đơn hàng đang shipping của User B,403 Forbidden hoặc 404 Not Found

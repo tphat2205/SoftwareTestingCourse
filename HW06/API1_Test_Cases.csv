@@ -1,5 +1,5 @@
 ID,Category,Test Case Name,Payload / Action,Expected Result
-TC-01,Domain,Hợp lệ - Dữ liệu chuẩn,"{name:""John"", email:""j1@ex.com"", password:""Password123!"", phone:""0123456789"", address:""123 St""}",201 Created
+TC-01,Domain,Hợp lệ - Dữ liệu chuẩn,"{""name"":""John"", ""email"":""j1@ex.com"", ""password"":""Password123!"", ""phone"":""0123456789"", ""address"":""123 St""}",201 Created
 TC-02,Domain,Tên rỗng,name: "",400 Bad Request
 TC-03,Domain,Tên bị khuyết (Missing field),Bỏ field name khỏi JSON,400 Bad Request
 TC-04,Domain,Tên quá ngắn (1 ký tự),name: "A",400 Bad Request
@@ -36,3 +36,4 @@ TC-34,Schema,Kiểm tra Schema khi Success,Body hợp lệ,"Trả về ID, Name,
 TC-35,Schema,Kiểm tra Type của field id,Body hợp lệ,Field id trong response phải là Integer/UUID
 TC-36,Schema,Kiểm tra Schema khi Error 400,Bỏ field email,Response chứa mảng errors mô tả chi tiết
 TC-37,Schema,Gửi payload không phải JSON,Gửi text thuần name=John,415 hoặc 400
+TC-38,Domain,Đăng ký với Email có chứa khoảng trắng ở đầu và cuối,"{""name"":""John"", ""email"":""  j1@ex.com  "", ""password"":""Password123!"", ""phone"":""0123456789"", ""address"":""123 St""}",409 Conflict
