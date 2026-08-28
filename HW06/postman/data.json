@@ -1,0 +1,12 @@
+[
+  {
+    "data_name": "Test Data 1",
+    "data_email": "data1@ex.com",
+    "data_password": "Pass1!"
+  },
+  {
+    "data_name": "Test Data 2",
+    "data_email": "data2@ex.com",
+    "data_password": "Pass2!"
+  }
+]
