@@ -1,12 +1,12 @@
 [
   {
-    "data_name": "Test Data 1",
-    "data_email": "data1@ex.com",
-    "data_password": "Pass1!"
+    "data_name": "Data Driven User 1",
+    "data_email": "dd_user1@eshop.com",
+    "data_password": "Password123!"
   },
   {
-    "data_name": "Test Data 2",
-    "data_email": "data2@ex.com",
-    "data_password": "Pass2!"
+    "data_name": "Data Driven User 2",
+    "data_email": "dd_user2@eshop.com",
+    "data_password": "Password123!"
   }
 ]
