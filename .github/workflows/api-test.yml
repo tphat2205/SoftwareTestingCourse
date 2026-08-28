@@ -45,7 +45,6 @@ jobs:
           npm install -g newman newman-reporter-htmlextra
 
       - name: Execute Postman Collection with Newman
-        continue-on-error: true
         run: |
           mkdir -p HW06/newman-reports
           newman run HW06/postman/HW06_API_Testing.postman_collection.json \
