@@ -116,7 +116,7 @@ pm.request.headers.upsert({ key: "X-Student-Id", value: studentId });
 console.log("[Pre-request] X-Student-Id header set:", studentId);
 ```
 
-![alt text](image.png)
+![Minh chứng Header X-Student-Id trong Pre-request Script](anti-ai-cheat-evidence.png)
 
 ### 4.2. Khai thác 10 Tính năng Postman (Postman Features)
 
@@ -230,6 +230,7 @@ flowchart TD
 | **2** | **Gemini 3.1 Pro**<br>Prompt: Sinh $\ge 35$ test cases cho `PUT /api/orders/:id/cancel`, chú trọng State Machine & IDOR. | Sinh 36 test cases cho các chuyển đổi trạng thái đơn và test case IDOR cơ bản.               |   **INCOMPLETE**   | Theo nguyên tắc **Information Leakage Prevention**, AI test rời rạc IDOR và State, bỏ sót giao thoa: _User A cố hủy đơn đang shipping của User B_. Nếu API báo lỗi trạng thái thay vì lỗi quyền truy cập, hệ thống đã làm lộ thông tin đơn hàng. | Bổ sung **TC-37** kiểm tra thứ tự ưu tiên Exception: Auth Validation phải chạy trước State Validation, bắt buộc trả về `403 Forbidden` / `404 Not Found`.         |
 | **3** | **Gemini 3.1 Pro**<br>Prompt: Sinh $\ge 35$ test cases cho `POST /api/categories`, chú trọng Role Admin.                 | Sinh 35 test cases kiểm tra Role Admin, No Auth, chuỗi quá dài 256 ký tự.                    |   **INCOMPLETE**   | Kỹ thuật **Boundary Value Analysis (BVA)** của ISTQB chỉ ra lỗi thường nằm chính xác tại điểm biên. AI chỉ test chuỗi ngẫu nhiên vượt biên (`256`), bỏ sót việc test chính xác tại điểm biên lớn nhất cho phép ($N=255$).                        | Bổ sung **TC-36** (On-Boundary $N=255$, kỳ vọng `201 Created`) và **TC-37** (Off-Boundary $N=256$, kỳ vọng `400 Bad Request`).                                    |
 | **4** | **Gemini 3.1 Pro**<br>Prompt: Chuyển đổi toàn bộ test case sang file Postman Collection JSON.                            | Sinh mã script Node.js `generate_postman.js` để xuất ra file Postman Collection JSON.        |   **INCOMPLETE**   | Script bị lỗi escape template literal `\${localPath.join('/')}` dẫn đến toàn bộ URL bị hỏng; thiếu thư mục Setup/Cleanup và thiếu Header `Content-Type`.                                                                                         | Viết lại parser: sửa lỗi URL literal, chuẩn hóa toàn bộ 99 body sang JSON hợp lệ, thêm header `Content-Type: application/json`, bổ sung thư mục Setup và Cleanup. |
+| **5** | **Gemini 3.1 Pro**<br>Prompt: Chuyển đổi `api_specification.md` sang chuẩn OpenAPI 3.0.3 (YAML/JSON).                     | Sinh khung OpenAPI với 20 endpoints nhưng dùng cú pháp Express `:id`, thiếu `bearerAuth` JWT, thiếu mã lỗi và components schemas. |   **INCOMPLETE**   | Chuẩn OAS 3.0 yêu cầu path `{id}`, `201 Created` khi tạo mới, cần có securitySchemes và reusable entity schemas trong `components`.                                                                                                              | Chuẩn hóa path parameters `{id}`, thêm `bearerAuth`, bổ sung đầy đủ mã phản hồi `201/400/401/403/404/409`, định nghĩa 12 Component Schemas và xuất cả `openapi.yaml` lẫn `openapi.json`. |
 
 ---
 
@@ -237,40 +238,58 @@ flowchart TD
 
 | Chỉ Số Đánh Giá                               | Số Lượng | Tỷ Lệ (%) | Nhận Xét                                                                       |
 | :-------------------------------------------- | :------: | :-------: | :----------------------------------------------------------------------------- |
-| **Tổng số Artifacts được kiểm toán**          |  **4**   | **100%**  | Bao gồm 3 bộ test cases cho 3 API và script sinh Postman Collection            |
+| **Tổng số Artifacts được kiểm toán**          |  **5**   | **100%**  | Bao gồm 3 bộ test cases cho 3 API, script Postman Collection và đặc tả OpenAPI |
 | **VALID (Chấp nhận nguyên bản)**              |  **0**   |  **0%**   | Không có artifact nào của AI hoàn thiện 100% mà không cần con người can thiệp  |
 | **INVALID (Sai lệch hoàn toàn; Bác bỏ)**      |  **0**   |  **0%**   | AI nắm được cấu trúc cơ bản nhưng thiếu sót chi tiết kỹ thuật                  |
-| **INCOMPLETE (Chấp nhận sau khi hiệu chỉnh)** |  **4**   | **100%**  | Toàn bộ 4 artifacts đều được sinh viên audit, sửa lỗi logic và mở rộng bổ sung |
+| **INCOMPLETE (Chấp nhận sau khi hiệu chỉnh)** |  **5**   | **100%**  | Toàn bộ 5 artifacts đều được sinh viên audit, sửa lỗi logic và mở rộng bổ sung |
 
 ---
 
-## 3. Danh sách 15 Test Case Mở rộng (Human Audit Extension)
+## 3. Danh sách 15 Test Case Mở rộng & Phân tích Nguyên nhân (Human Audit Extension)
 
-Con người đã phát hiện các điểm mù của AI và bổ sung thêm **15 test cases nâng cao** (5 cases/API):
+### 3.1. Phân tích 3 Nguyên nhân Cốt lõi khiến AI bỏ sót Test Case Nâng cao
 
-### API 1: `POST /api/register` (Thêm 5 cases)
+Sự thiếu sót của AI trong quá trình sinh test tự động bắt nguồn từ 3 nhóm nguyên nhân chính:
 
-- **TC-38 (Domain):** Whitespace ở Email (`{"email": "  j1@ex.com  "}`) $\rightarrow$ Kỳ vọng `409 Conflict` (kiểm tra Data Sanitization).
-- **TC-39 (Domain):** Whitespace ở Password (`{"password": " Pass123! "}`) $\rightarrow$ Kỳ vọng `201 Created` (mật khẩu không được tự ý trim).
-- **TC-40 (Security):** ReDoS qua Email dài 10,000 ký tự $\rightarrow$ Kỳ vọng `400 Bad Request` (chống quá tải Regex).
-- **TC-41 (Domain):** Email tên miền Unicode IDN (`{"email": "user@cần-thơ.vn"}`) $\rightarrow$ Kiểm tra hỗ trợ Unicode.
-- **TC-42 (Security):** Mass Assignment (`{"role": "admin"}`) $\rightarrow$ Kỳ vọng `201 Created` nhưng trường `role` phải giữ nguyên là `user`.
+1. **Chất lượng Prompt đầu vào (Prompt Quality):** Prompt ban đầu chỉ định hướng AI theo 4 bề mặt kiểm thử (Domain, State, Security, Schema) ở mức khái quát. Việc không cung cấp các "chỉ thị chuyên sâu" bắt buộc áp dụng kỹ thuật **Boundary Value Analysis (BVA)** hay **Concurrency Testing** khiến AI sinh dữ liệu ngẫu nhiên theo cảm tính (chọn số lớn/nhỏ tùy ý) thay vì kiểm thử chính xác tại điểm biên toán học.
+2. **Hạn chế cố hữu của Mô hình Ngôn ngữ (Model Limitations):** Mô hình LLM suy luận theo xác suất thống kê văn bản, có xu hướng tư duy tuyến tính (Linear thinking) và thiên vị kịch bản "Happy Path" hoặc các lỗi phủ định cơ bản (rỗng, sai kiểu). Mô hình gặp khó khăn lớn khi phải tưởng tượng ra **sự giao thoa đa chiều** giữa các điều kiện (ví dụ: giao thoa giữa lỗ hổng phân quyền IDOR và rò rỉ trạng thái đơn hàng).
+3. **Đặc thù ngầm định của API và Web Server (API & Architecture Characteristics):** API EShop tồn tại các ràng buộc nghiệp vụ ngầm (Implicit constraints) như chuẩn hóa khoảng trắng (Whitespace Trimming/Sanitization), phân biệt hoa/thường ở Email, hay quy tắc xử lý URL Encoding ở tầng Web Server. Các ràng buộc này phụ thuộc vào framework backend chứ không hiển thị tường minh trên tài liệu đặc tả, khiến AI hoàn toàn bỏ qua.
 
-### API 2: `PUT /api/orders/:id/cancel` (Thêm 5 cases)
+---
 
-- **TC-37 (Security):** Giao thoa IDOR + State Leakage (User A hủy đơn đang `shipping` của User B) $\rightarrow$ Bắt buộc `403 Forbidden` / `404 Not Found`.
-- **TC-38 (State):** Race Condition / Concurrency (gửi 2 request hủy cùng 1 mili-giây) $\rightarrow$ Request 1: `200`, Request 2: `400`.
-- **TC-39 (Domain):** Khoảng trắng trong URL (`/api/orders/%201%20/cancel`) $\rightarrow$ Kiểm tra URL Encoding.
-- **TC-40 (Domain):** HTTP Parameter Pollution (`PUT /api/orders/1/cancel?id=2`) $\rightarrow$ Kiểm tra xử lý query thừa.
-- **TC-41 (Security):** Token Injection qua Query String (`?token=...`) $\rightarrow$ Bắt buộc `401 Unauthorized` (chỉ nhận qua Header).
+### 3.2. Bảng Chi tiết 15 Test Cases Bổ sung (Human Audit Extension)
 
-### API 3: `POST /api/categories` (Thêm 5 cases)
+Dưới đây là 15 test cases nâng cao do con người trực tiếp xây dựng và đưa vào Postman Collection để hoàn thiện bộ kiểm thử:
 
-- **TC-36 (Domain):** BVA Exact Max Name ($N=255$ ký tự) $\rightarrow$ Kỳ vọng `201 Created` (điểm biên On-Boundary).
-- **TC-37 (Domain):** BVA Max+1 Name ($N=256$ ký tự) $\rightarrow$ Kỳ vọng `400 Bad Request` (điểm biên Off-Boundary).
-- **TC-38 (Domain):** BVA Exact Max Description (dài đúng 1000 ký tự) $\rightarrow$ Kỳ vọng `201 Created`.
-- **TC-39 (Domain):** BVA Max+1 Description (dài đúng 1001 ký tự) $\rightarrow$ Kỳ vọng `400 Bad Request`.
-- **TC-40 (Security):** XSS Encoded Payload (`%3Cscript%3E...`) $\rightarrow$ Kiểm tra bộ lọc WAF với chuỗi đã encode.
+#### Nhóm 1: API 1 — `POST /api/register` (Bổ sung 5 Test Cases)
+
+| ID | Tên Test Case | Payload / Hành Động Thực Hiện | Kết Quả Kỳ Vọng | Lý Do & Phân Tích Kỹ Thuật (ISTQB) |
+| :--- | :--- | :--- | :---: | :--- |
+| **TC-38** | Whitespace ở Email | `{"email": "  j1@ex.com  ", "name": "John", "password": "Password123!"}` | `409 Conflict` | Kiểm tra **Data Sanitization**. Hệ thống phải tự động cắt khoảng trắng đầu/cuối và nhận diện email trùng lặp với `j1@ex.com` thay vì tạo tài khoản mới. |
+| **TC-39** | Whitespace ở Password | `{"email": "p1@ex.com", "name": "John", "password": "  Pass123!  "}` | `201 Created` | Mật khẩu người dùng không được tự ý trim khoảng trắng. AI thường bỏ qua quy tắc bảo mật này. |
+| **TC-40** | Lỗi ReDoS qua Email dài | Truyền chuỗi Email có độ dài 10,000 ký tự | `400 Bad Request` | Kẻ tấn công gửi chuỗi bất thường để làm tê liệt bộ xử lý Regex (Regular Expression Denial of Service). |
+| **TC-41** | IDN Domain (Email Unicode) | `{"email": "user@cần-thơ.vn", "password": "Password123!"}` | `400` hoặc `201` | Kiểm thử khả năng tương thích của API với tên miền quốc tế hóa (Internationalized Domain Names). |
+| **TC-42** | Tấn công Mass Assignment | Truyền thêm trường quản trị `{"role": "admin"}` | `201 Created` *(Role: user)* | Kiểm tra API có bảo vệ trường dữ liệu nội bộ không. API phải bỏ qua trường `role` và gán quyền mặc định là `user`. |
+
+#### Nhóm 2: API 2 — `PUT /api/orders/:id/cancel` (Bổ sung 5 Test Cases)
+
+| ID | Tên Test Case | Payload / Hành Động Thực Hiện | Kết Quả Kỳ Vọng | Lý Do & Phân Tích Kỹ Thuật (ISTQB) |
+| :--- | :--- | :--- | :---: | :--- |
+| **TC-37** | Giao thoa IDOR + State Leakage | User A gửi request hủy đơn đang ở trạng thái `shipping` của User B | `403 Forbidden` / `404` | **Chống rò rỉ thông tin:** Thứ tự kiểm tra Exception phải ưu tiên Auth trước State. Nếu báo lỗi `400 (Cannot cancel shipping)` là làm lộ trạng thái đơn hàng của người khác. |
+| **TC-38** | Race Condition (Concurrency) | Gửi 2 request hủy cùng 1 đơn hàng trong cùng 1 mili-giây | Req 1: `200`, Req 2: `400` | Kiểm tra tính nhất quán dữ liệu bất đồng bộ. Hệ thống chỉ cho phép 1 request thành công, request sau phải báo lỗi xung đột. |
+| **TC-39** | Khoảng trắng trong URL | `PUT /api/orders/%201%20/cancel` | `400 Bad Request` / `404` | Kiểm tra xử lý URL Encoding ở tầng HTTP Web Server khi ID chứa khoảng trắng. |
+| **TC-40** | HTTP Parameter Pollution | `PUT /api/orders/1/cancel?id=2` | `200 OK` *(Hủy đơn 1)* | Kiểm tra bộ định tuyến Express có bị nhầm lẫn giữa URL Path Parameter và URL Query Parameter hay không. |
+| **TC-41** | Token Injection qua Query | Không gửi Header, truyền Token qua URL `?token=...` | `401 Unauthorized` | Kiểm tra cấu hình bảo mật nghiêm ngặt. API chỉ chấp nhận Token ở HTTP Header `Authorization: Bearer`. |
+
+#### Nhóm 3: API 3 — `POST /api/categories` (Bổ sung 5 Test Cases)
+
+| ID | Tên Test Case | Payload / Hành Động Thực Hiện | Kết Quả Kỳ Vọng | Lý Do & Phân Tích Kỹ Thuật (ISTQB) |
+| :--- | :--- | :--- | :---: | :--- |
+| **TC-36** | BVA Exact Max Name ($N=255$) | `name` dài chính xác đúng 255 ký tự chữ cái | `201 Created` | **Điểm biên On-Boundary:** Chuẩn ISTQB chỉ ra lỗi thường nằm tại đúng giá trị lớn nhất cho phép. AI đã bỏ sót điểm này. |
+| **TC-37** | BVA Max+1 Name ($N=256$) | `name` dài chính xác đúng 256 ký tự chữ cái | `400 Bad Request` | **Điểm biên Off-Boundary:** Kiểm tra từ chối chính xác khi vượt quá 1 ký tự so với giới hạn. |
+| **TC-38** | BVA Exact Max Description | `description` dài chính xác đúng 1000 ký tự | `201 Created` | Kiểm tra On-Boundary cho trường mô tả danh mục sản phẩm. |
+| **TC-39** | BVA Max+1 Description | `description` dài chính xác đúng 1001 ký tự | `400 Bad Request` | Kiểm tra Off-Boundary cho trường mô tả danh mục sản phẩm. |
+| **TC-40** | XSS (Encoded Payload) | `name` = `%3Cscript%3Ealert(1)%3C/script%3E` | `400 Bad Request` | AI chỉ test XSS dạng chuỗi thô (dễ bị chặn). Cần test payload đã URL-encode để vượt qua các bộ lọc WAF sơ sài. |
 
 ---
 
